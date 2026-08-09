@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html {
+    /* Lenis drives scroll; never set scroll-behavior:smooth or it double-smooths. */
+    background-color: theme('colors.bg');
+  }
+  body {
+    margin: 0;
+    color: theme('colors.mist');
+    font-family: theme('fontFamily.body');
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    cursor: none; /* custom cursor takes over on desktop */
+    overflow-x: hidden;
+  }
+  @media (pointer: coarse) {
+    body { cursor: auto; }
+  }
+  ::selection {
+    background: theme('colors.brass');
+    color: theme('colors.bg');
+  }
+  /* Keyboard users must always see focus, even though the mouse cursor is hidden. */
+  :focus-visible {
+    outline: 2px solid theme('colors.brass');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16;
+  }
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-muted;
+  }
+  .rule {
+    @apply h-px w-full bg-line;
+  }
+}
+
+/* Procedural film grain via SVG noise — no image asset needed. */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Masked line-reveal helper used by splitWords(). */
+.mask-line {
+  overflow: hidden;
+  display: block;
+}
+
+/* Users who ask for reduced motion get a static, readable page. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  body { cursor: auto; }
+}
