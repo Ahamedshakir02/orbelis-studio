@@ -5,10 +5,12 @@ import Loader from './components/Loader.jsx'
 import Nav from './components/Nav.jsx'
 import Hero from './sections/Hero.jsx'
 import Manifesto from './sections/Manifesto.jsx'
+import Stats from './sections/Stats.jsx'
 import Work from './sections/Work.jsx'
 import Services from './sections/Services.jsx'
 import Process from './sections/Process.jsx'
 import Studio from './sections/Studio.jsx'
+import Faq from './sections/Faq.jsx'
 import Contact from './sections/Contact.jsx'
 
 /**
@@ -36,10 +38,12 @@ export default function App() {
         <main className="relative">
           <Hero ready={ready} />
           <Manifesto />
+          <Stats />
           <Work />
           <Services />
           <Process />
           <Studio />
+          <Faq />
           <Contact />
         </main>
       </SmoothScroll>

@@ -151,3 +151,53 @@ export const studio = {
     { k: 'Typical build', v: '2 weeks' },
   ],
 }
+
+export const availability = {
+  status: 'Available',
+  detail: 'Taking two projects for September',
+}
+
+export const marquee = [
+  'Animated websites',
+  'AI assistants',
+  'Clinics & healthcare',
+  'Institutions',
+  'Founders',
+  'Malayalam + English',
+  'Two week builds',
+  'No paid ranking',
+]
+
+export const stats = [
+  { value: 60, suffix: 'fps', label: 'Motion budget, enforced on mid-range phones' },
+  { value: 2, suffix: ' weeks', label: 'Typical delivery, scope agreed up front' },
+  { value: 1, suffix: '', label: 'Person on your project, start to finish' },
+  { value: 90, suffix: '+', label: 'Lighthouse performance target on mobile' },
+]
+
+export const faq = [
+  {
+    q: 'What does a project actually cost?',
+    a: 'A landing site runs ₹40,000 to ₹70,000, a full site with booking flows ₹80,000 to ₹1.5 lakh, and the AI assistant adds ₹25,000 to set up. Ranges are on this page on purpose — you should know before you call.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Two weeks for most builds, from agreed scope to launch. Larger sites run three to four. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
+  },
+  {
+    q: 'What is the AI assistant, in plain terms?',
+    a: 'A chat window on your site that has read your own documents — prices, timings, policies, procedures. It answers from that material rather than making things up, replies in Malayalam or English, and hands off to a human when a question is beyond it.',
+  },
+  {
+    q: 'Can I edit the site myself afterwards?',
+    a: 'Yes. Sites with regularly changing content ship with a CMS your team can use without touching code. For simpler sites, content edits are part of the retainer.',
+  },
+  {
+    q: 'Do I have to take the monthly retainer?',
+    a: 'No. The site is yours either way, and you can host it wherever you like. The retainer exists because sites decay — content goes stale, dependencies age, the assistant needs retraining. It is not a hostage arrangement.',
+  },
+  {
+    q: 'Who actually does the work?',
+    a: 'One person, and it is the same person you talk to. No account managers, no subcontracting, no work handed to someone you have never met.',
+  },
+]
