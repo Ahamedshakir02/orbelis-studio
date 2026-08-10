@@ -69,3 +69,9 @@
   }
   body { cursor: auto; }
 }
+
+/* Infinite ticker. The track is duplicated, so -50% is a seamless loop point. */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
