@@ -1,0 +1,7 @@
+# Orbelis Studio
+# Everything here is public and meant to be indexed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://orbelisstudio.com/sitemap.xml
