@@ -16,11 +16,13 @@
     font-family: theme('fontFamily.body');
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    cursor: none; /* custom cursor takes over on desktop */
     overflow-x: hidden;
-  }
-  @media (pointer: coarse) {
-    body { cursor: auto; }
+    /*
+      The system cursor is never hidden. The accent ring in Cursor.jsx trails
+      behind it as decoration; it does not replace it. Hiding the real pointer
+      makes the whole page depend on one decorative element rendering
+      correctly, and takes the OS cursor theme away from anyone who set one.
+    */
   }
   ::selection {
     background: theme('colors.brass');
@@ -73,7 +75,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  body { cursor: auto; }
 }
 
 /* Infinite ticker. The track is duplicated, so -50% is a seamless loop point. */
