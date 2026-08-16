@@ -80,7 +80,7 @@ const docs = passages.map((p) => {
   ]
   const tf = new Map()
   for (const t of terms) tf.set(t, (tf.get(t) || 0) + 1)
-  return { passage: p, tf, len: terms.length }
+  return { passage: p, tf, len: terms.length, title: new Set(tokenize(p.title)) }
 })
 
 const N = docs.length
@@ -127,6 +127,25 @@ export function retrieve(query, limit = 3) {
       const norm = f * (K1 + 1) / (f + K1 * (1 - B + (B * d.len) / avgLen))
       score += idf(term) * norm * weight
     }
+
+    /**
+     * Title-overlap bonus.
+     *
+     * FAQ passages are titled with the exact question a visitor asks, so how
+     * much of the query the title covers is a strong signal that term
+     * frequency alone underweights. Without this, "do I have to take the
+     * retainer" ranks the service card — which lists the retainer but never
+     * answers "do I have to" — above the FAQ entry written for that objection.
+     *
+     * Multiplicative so it sharpens the existing ordering rather than letting
+     * a short title outscore a genuinely relevant passage from nothing.
+     */
+    if (score > 0) {
+      let covered = 0
+      for (const token of base) if (d.title.has(token)) covered++
+      score *= 1 + 0.9 * (covered / base.length)
+    }
+
     return { passage: d.passage, score }
   })
 

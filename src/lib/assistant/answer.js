@@ -16,7 +16,7 @@
  * raw model: it would rather say "I don't have that" than invent a price.
  */
 import { retrieve, CONFIDENCE_FLOOR } from './retrieve.js'
-import { brand, services, availability, assistant as cfg } from '../../data/site.js'
+import { brand, services, work, availability, assistant as cfg } from '../../data/site.js'
 
 const has = (q, ...words) => words.some((w) => q.includes(w))
 
@@ -57,11 +57,23 @@ function matchIntent(query) {
     }
   }
 
-  if (has(q, 'contact', 'email', 'reach', 'hire', 'get in touch', 'talk to', 'speak', 'call you')) {
+  // "speak" is deliberately not a bare keyword here: "do you speak Malayalam"
+  // is a language question, not a request for the phone number.
+  if (has(q, 'contact', 'email', 'reach you', 'hire', 'get in touch', 'talk to', 'speak to', 'speak with', 'call you')) {
     return {
       text: `Two ways: the enquiry form at the bottom of this page, or ${brand.email} directly. Either reaches the person who writes the code — there is no account manager in between.`,
       source: { label: 'Contact', href: '#contact' },
       actions: ['enquiry', 'email'],
+    }
+  }
+
+  // "Show me your work" should survey the shelf, not hand over one arbitrary
+  // project because it happened to rank first.
+  if (has(q, 'your work', 'portfolio', 'case stud', 'examples', 'show me', 'projects you', 'previous work')) {
+    const lines = work.map((w) => `· ${w.title} (${w.status}, ${w.year}) — ${w.role}`).join('\n')
+    return {
+      text: `Three, and the status on each is honest:\n\n${lines}\n\nThe Work section has the detail on all three, including what each one was built with.`,
+      source: { label: 'Work', href: '#work' },
     }
   }
 
@@ -105,10 +117,12 @@ export function answer(query) {
 
   let text = condense(top.passage.text)
 
-  // A clearly relevant second passage adds context without turning the reply
-  // into a wall — anything weaker is noise and gets dropped.
+  // A second passage is only worth appending when it is nearly as strong as
+  // the first — two genuinely good matches, not one good one and a runner-up.
+  // Set loosely, this trails every reply off into a half-relevant paragraph,
+  // which reads worse than a short confident answer.
   const second = hits[1]
-  if (second && second.raw > CONFIDENCE_FLOOR && second.score > 0.55) {
+  if (second && second.raw > CONFIDENCE_FLOOR * 2 && second.score > 0.85) {
     text += `\n\nAlso relevant — ${second.passage.title}: ${condense(second.passage.text, 200)}`
   }
 

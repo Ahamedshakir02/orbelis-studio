@@ -112,6 +112,15 @@ export const passages = [
       'who you team person founder solo freelancer experience background credentials qualified agency size subcontract',
   },
   {
+    id: 'languages',
+    section: 'Services & pricing',
+    title: 'Languages the assistant speaks',
+    href: '#services',
+    text: 'The AI assistant answers in Malayalam and English, and hands off to a human when a question goes beyond the material it was trained on. Sites themselves can ship bilingual where the audience needs it.',
+    keywords:
+      'malayalam english language languages bilingual speak speaks translate regional local hindi tamil',
+  },
+  {
     id: 'capabilities',
     section: 'Studio',
     title: 'Technology used',
