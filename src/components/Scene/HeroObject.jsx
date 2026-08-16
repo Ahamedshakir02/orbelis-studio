@@ -75,6 +75,18 @@ export default function HeroObject() {
       mesh.scale.setScalar(cfg.scale * (0.7 + eased * 0.3))
     })
 
+    /**
+     * The final beat belongs to the type.
+     *
+     * Drifting back on progress alone was not enough: at the contact section
+     * the object still filled the right-hand column, sitting under the email
+     * address and the social links. Past 72% it actively retreats — smaller,
+     * lower, further back — so the CTA and the enquiry form have the frame to
+     * themselves. It stays in shot, just no longer competing.
+     */
+    const retreatRaw = MathUtils.clamp((progress - 0.72) / 0.28, 0, 1)
+    const retreat = retreatRaw * retreatRaw * (3 - 2 * retreatRaw) // smoothstep
+
     // The whole group turns through the page and drifts back.
     group.current.rotation.y = MathUtils.lerp(
       group.current.rotation.y,
@@ -86,8 +98,20 @@ export default function HeroObject() {
       progress * 0.5 - 0.15,
       0.05,
     )
-    group.current.position.y = MathUtils.lerp(group.current.position.y, -progress * 1.6, 0.05)
-    group.current.position.z = MathUtils.lerp(group.current.position.z, -progress * 1.4, 0.05)
+    group.current.position.y = MathUtils.lerp(
+      group.current.position.y,
+      -progress * 1.6 - retreat * 0.9,
+      0.05,
+    )
+    group.current.position.z = MathUtils.lerp(
+      group.current.position.z,
+      -progress * 1.4 - retreat * 3.2,
+      0.05,
+    )
+    const targetScale = 1 - retreat * 0.4
+    group.current.scale.setScalar(
+      MathUtils.lerp(group.current.scale.x, targetScale, 0.05),
+    )
 
     // The shell fades in as the shards lock, and opens with scroll velocity.
     if (shell.current) {
