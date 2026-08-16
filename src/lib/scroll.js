@@ -23,3 +23,32 @@ export const useScroll = create((set) => ({
 // set() every frame is fine, but reading via getState avoids subscriptions.
 export const setScroll = (payload) => useScroll.setState(payload)
 export const getScroll = () => useScroll.getState()
+
+/**
+ * A handle on the live Lenis instance.
+ *
+ * Anything that needs to move the page programmatically (the assistant jumping
+ * to a cited section, a modal locking the scroll) MUST go through Lenis. Calling
+ * scrollIntoView() or window.scrollTo() instead fights the smooth-scroll loop
+ * and produces the classic snap-then-drift.
+ */
+let lenisInstance = null
+export const setLenis = (l) => {
+  lenisInstance = l
+}
+export const getLenis = () => lenisInstance
+
+/** Smooth-scroll to a selector or element, falling back to native if Lenis is gone. */
+export function scrollToTarget(target, opts = {}) {
+  const el = typeof target === 'string' ? document.querySelector(target) : target
+  if (!el) return
+  if (lenisInstance) lenisInstance.scrollTo(el, { offset: -80, duration: 1.2, ...opts })
+  else el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+/** Freeze/unfreeze the page — used while a full-screen overlay is open. */
+export function lockScroll(locked) {
+  if (!lenisInstance) return
+  if (locked) lenisInstance.stop()
+  else lenisInstance.start()
+}

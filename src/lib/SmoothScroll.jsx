@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { setScroll } from './scroll.js'
+import { setScroll, setLenis } from './scroll.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -30,6 +30,10 @@ export default function SmoothScroll({ children }) {
       syncTouch: false, // native momentum on touch feels better than forced smoothing
     })
 
+    // Publish the instance so overlays and in-page jumps route through Lenis
+    // instead of starting a competing native smooth scroll.
+    setLenis(lenis)
+
     lenis.on('scroll', (e) => {
       ScrollTrigger.update()
       const limit = lenis.limit || 1
@@ -50,6 +54,7 @@ export default function SmoothScroll({ children }) {
     return () => {
       gsap.ticker.remove(raf)
       lenis.destroy()
+      setLenis(null)
     }
   }, [])
 
