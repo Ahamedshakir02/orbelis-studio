@@ -1,7 +1,8 @@
 import { Canvas } from '@react-three/fiber'
 import { Environment, AdaptiveDpr, AdaptiveEvents, PerformanceMonitor } from '@react-three/drei'
-import { Suspense, useMemo, useState } from 'react'
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import HeroObject from './HeroObject.jsx'
+import { useScroll } from '../../lib/scroll.js'
 
 /**
  * The Canvas sits fixed behind the DOM. The page scrolls over it; the object
@@ -15,6 +16,33 @@ import HeroObject from './HeroObject.jsx'
  */
 export default function Scene() {
   const [dpr, setDpr] = useState(1.25)
+  const wrap = useRef(null)
+
+  /**
+   * Fade the canvas out over the closing stretch.
+   *
+   * Moving the object back is enough on a wide screen, where the contact
+   * details sit in their own column. On a phone every section is full width,
+   * so there is nowhere for the object to go that is not behind the text —
+   * checked on a 390px viewport, where it was washing over the social links
+   * and the footer.
+   *
+   * Written straight to style from a store subscription rather than through
+   * React state: this fires on every scroll frame, and re-rendering a WebGL
+   * canvas wrapper sixty times a second to change one number would undo the
+   * work the scroll store exists to do.
+   */
+  useEffect(() => {
+    const apply = (s) => {
+      const el = wrap.current
+      if (!el) return
+      const t = Math.min(Math.max((s.progress - 0.72) / 0.28, 0), 1)
+      const eased = t * t * (3 - 2 * t)
+      el.style.opacity = String(1 - eased * 0.8)
+    }
+    apply(useScroll.getState())
+    return useScroll.subscribe(apply)
+  }, [])
 
   const reduced = useMemo(
     () =>
@@ -38,7 +66,7 @@ export default function Scene() {
   }
 
   return (
-    <div className="fixed inset-0 -z-10">
+    <div ref={wrap} className="fixed inset-0 -z-10 will-change-[opacity]">
       <Canvas
         dpr={dpr}
         gl={{ antialias: true, powerPreference: 'high-performance', alpha: true }}

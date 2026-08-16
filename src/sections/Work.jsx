@@ -3,6 +3,43 @@ import { useGsap } from '../lib/useGsap.js'
 import { work } from '../data/site.js'
 
 /**
+ * A case-study image that cannot ship without a described alternative.
+ *
+ * `alt` must be present — an empty string is a valid, deliberate answer for a
+ * purely decorative capture, but leaving it off entirely is not. Undefined
+ * fails loudly in development and renders nothing in production, so the
+ * failure mode is a missing image someone notices rather than an undescribed
+ * one nobody does.
+ *
+ * Loaded lazily and given explicit dimensions: the gallery sits far below the
+ * fold, and a screenshot without width and height reflows the card when it
+ * arrives, which is exactly the layout shift the performance budget forbids.
+ */
+function Figure({ src, alt, title }) {
+  if (typeof alt !== 'string') {
+    if (import.meta.env?.DEV) {
+      console.error(
+        `[work] "${title}" has an image but no alt text. Add \`imageAlt\` to it in ` +
+          'src/data/site.js — use an empty string only if the image is decorative.',
+      )
+    }
+    return null
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      width="1200"
+      height="750"
+      className="mb-8 aspect-[8/5] w-full rounded-xl border border-line object-cover"
+    />
+  )
+}
+
+/**
  * BEAT 3 — the pinned horizontal gallery.
  *
  * Vertical scroll pans a wide track sideways at 1:1, so the gesture stays
@@ -77,6 +114,18 @@ export default function Work() {
               data-cursor="grow"
             >
               <div>
+                {/*
+                  Case-study imagery, when it lands. Alt text is structurally
+                  required rather than optional: an image without `alt` is
+                  dropped in development with a loud warning, so a screenshot
+                  cannot quietly ship undescribed. Purely decorative captures
+                  should pass alt="" explicitly, which is a decision rather
+                  than an omission.
+                */}
+                {item.image && (
+                  <Figure src={item.image} alt={item.imageAlt} title={item.title} />
+                )}
+
                 <div className="mb-8 flex items-center gap-3">
                   <span
                     className="inline-block h-2 w-2 rounded-full"
