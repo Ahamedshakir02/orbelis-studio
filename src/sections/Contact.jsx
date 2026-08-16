@@ -52,9 +52,18 @@ export default function Contact() {
         </h2>
 
         <div className="contact-meta mt-16 grid gap-12 border-t border-line pt-12 md:grid-cols-12 md:gap-16">
+          {/*
+            The form gets a solid panel rather than sitting straight on the
+            page. The WebGL canvas is fixed behind every section, and this is
+            the one place on the site where a visitor is reading their own
+            typing — legibility here is worth more than seeing the orb through
+            it. Same treatment as the service cards, for consistency.
+          */}
           <div className="contact-fade md:col-span-7">
-            <p className="eyebrow mb-6">Tell me about it</p>
-            <EnquiryForm />
+            <div className="rounded-2xl border border-line bg-surface/85 p-6 backdrop-blur-md md:p-9">
+              <p className="eyebrow mb-6">Tell me about it</p>
+              <EnquiryForm />
+            </div>
           </div>
 
           <div className="contact-fade space-y-10 md:col-span-5">
