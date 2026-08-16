@@ -20,6 +20,13 @@ import Contact from './sections/Contact.jsx'
  */
 const Scene = lazy(() => import('./components/Scene/Scene.jsx'))
 
+/**
+ * The assistant is split out too. Nobody opens it in the first second, so its
+ * corpus and retrieval index have no business competing with the hero for
+ * bandwidth on first paint.
+ */
+const Assistant = lazy(() => import('./components/Assistant/Assistant.jsx'))
+
 export default function App() {
   const [ready, setReady] = useState(false)
 
@@ -47,6 +54,11 @@ export default function App() {
           <Contact />
         </main>
       </SmoothScroll>
+
+      {/* The product, demonstrated on the product's own site. */}
+      <Suspense fallback={null}>
+        <Assistant ready={ready} />
+      </Suspense>
 
       {/* Grain overlay — a cheap "film" texture that ties 3D and DOM together. */}
       <div className="grain pointer-events-none fixed inset-0 z-50 opacity-[0.05]" aria-hidden />
