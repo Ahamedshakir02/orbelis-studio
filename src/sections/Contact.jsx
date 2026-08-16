@@ -4,10 +4,15 @@ import { useGsap } from '../lib/useGsap.js'
 import { splitWords } from '../lib/splitText.js'
 import { brand } from '../data/site.js'
 import Magnetic from '../components/Magnetic.jsx'
+import EnquiryForm from '../components/EnquiryForm.jsx'
 
 /**
  * FINAL BEAT — the oversized CTA. The orb has drifted down and back by now,
  * so the type has the frame to itself.
+ *
+ * The form sits directly under the headline rather than below the contact
+ * details: the visitor who scrolled this far has already decided, and the next
+ * thing they see should be the thing that takes their enquiry.
  */
 export default function Contact() {
   const headline = useRef(null)
@@ -46,43 +51,50 @@ export default function Contact() {
           Let's build something worth scrolling.
         </h2>
 
-        <div className="contact-meta mt-16 grid gap-10 border-t border-line pt-10 md:grid-cols-12">
-          <div className="contact-fade md:col-span-5">
-            <p className="eyebrow mb-3">Email</p>
-            <Magnetic strength={0.15}>
-              <a
-                href={'mailto:' + brand.email}
-                data-cursor="grow"
-                className="font-display text-2xl tracking-tight text-mist transition-colors hover:text-brass md:text-3xl"
-              >
-                {brand.email}
-              </a>
-            </Magnetic>
+        <div className="contact-meta mt-16 grid gap-12 border-t border-line pt-12 md:grid-cols-12 md:gap-16">
+          <div className="contact-fade md:col-span-7">
+            <p className="eyebrow mb-6">Tell me about it</p>
+            <EnquiryForm />
           </div>
 
-          <div className="contact-fade md:col-span-4">
-            <p className="eyebrow mb-3">Studio</p>
-            <p className="text-base text-muted">{brand.location}</p>
-            <p className="mt-1 text-base text-muted">{brand.phone}</p>
-          </div>
+          <div className="contact-fade space-y-10 md:col-span-5">
+            <div>
+              <p className="eyebrow mb-3">Email</p>
+              <Magnetic strength={0.15}>
+                <a
+                  href={'mailto:' + brand.email}
+                  data-cursor="grow"
+                  className="font-display text-2xl tracking-tight text-mist transition-colors hover:text-brass md:text-3xl"
+                >
+                  {brand.email}
+                </a>
+              </Magnetic>
+            </div>
 
-          <div className="contact-fade md:col-span-3">
-            <p className="eyebrow mb-3">Elsewhere</p>
-            <ul className="space-y-1">
-              {brand.socials.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    data-cursor="grow"
-                    className="text-base text-muted transition-colors hover:text-mist"
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <p className="eyebrow mb-3">Studio</p>
+              <p className="text-base text-muted">{brand.location}</p>
+              <p className="mt-1 text-base text-muted">{brand.phone}</p>
+            </div>
+
+            <div>
+              <p className="eyebrow mb-3">Elsewhere</p>
+              <ul className="space-y-1">
+                {brand.socials.map((s) => (
+                  <li key={s.label}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      data-cursor="grow"
+                      className="text-base text-muted transition-colors hover:text-mist"
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
