@@ -40,9 +40,43 @@ Both are optional. The site works with neither set — that is deliberate.
 |---|---|
 | `VITE_FORM_ENDPOINT` | Enquiries open a prefilled mail draft instead of posting JSON |
 | `VITE_ASSISTANT_ENDPOINT` | The assistant answers from local retrieval only |
+| `VITE_PLAUSIBLE_DOMAIN` | No analytics |
+| `VITE_GA_ID` | No Google Analytics, and no consent banner |
 
-Copy them into a `.env.local`. Never put a model provider key in either — the
-browser calls *our* endpoint, and that endpoint calls the provider.
+Copy them into a `.env.local`. Never put a model provider key in any of them —
+anything prefixed `VITE_` is compiled into the client bundle and readable by
+every visitor. The browser calls *our* endpoint; that endpoint calls the
+provider.
+
+## Pages
+
+Four documents, not client-side routes, so each carries its own `<title>` and
+description in the served markup:
+
+| File | URL | Notes |
+|---|---|---|
+| `index.html` | `/` | The scroll experience |
+| `privacy.html` | `/privacy` | Static, no canvas |
+| `terms.html` | `/terms` | Static, no canvas |
+| `404.html` | — | `noindex`, served with a real 404 status |
+
+`public/_redirects` maps the clean URLs and the 404 status on Netlify and
+Cloudflare Pages. On another host, reproduce those three rules — a missing
+page returned as `200` is a soft 404 and gets the wrong URLs indexed.
+
+Legal copy lives in `src/data/legal.js`. It describes **this** site
+specifically. Add a tracker, a CRM webhook or a hosted assistant endpoint and
+that file has to change with it.
+
+## Analytics and consent
+
+Cookieless analytics (Plausible) loads immediately and needs no banner.
+Google Analytics sets cookies, so it is never injected until a visitor opts
+in — and the consent banner exists **only** when `VITE_GA_ID` is set.
+
+With the default setup no banner appears, which is correct rather than
+missing. A cookie banner on a site that sets no cookies costs conversions and
+teaches people to click through the ones that matter.
 
 ## The assistant
 
@@ -98,24 +132,35 @@ In-page anchors are intercepted once in `SmoothScroll.jsx` and routed through
 Lenis; overlays freeze the page with `lockScroll()`. A native jump alongside a
 smooth-scroll loop is the "it snapped and then slid" bug.
 
-## The share image
+## Images
 
-`public/og.svg` is the source; `public/og.png` is what the meta tags point at,
-because no social platform renders SVG. Re-export after editing:
+`public/og.svg` and `public/favicon.svg` are the sources. The PNGs the browser
+and social platforms actually consume are exported from them:
 
 ```bash
-npm run og
+npm run og      # public/og.png — the share card
+npm run icons   # favicon PNGs, apple-touch-icon, manifest icons
 ```
 
-It screenshots the SVG with the Chrome or Edge already on the machine — no
-headless-browser dependency, and the design stays reviewable in a diff.
+Both screenshot the SVG with the Chrome or Edge already on the machine, so
+there is no headless-browser dependency and the designs stay text files
+reviewable in a diff. Re-run after editing either SVG.
 
 ## Before launch
 
-- [ ] Replace placeholder phone number, WhatsApp number and social URLs in `src/data/site.js`
-- [ ] Point `brand.url`, `index.html` canonical/OG URLs, `robots.txt` and `sitemap.xml` at the real domain
+Blocking — the site should not go live with these:
+
+- [ ] **Real street address** in `brand.address.street` (`src/data/site.js`) — currently a marked placeholder, shown in the footer and emitted as structured data
+- [ ] **Real phone and WhatsApp number** in `src/data/site.js` — both are `00000` placeholders
+- [ ] **Real social URLs** — currently bare `github.com` / `linkedin.com` / `instagram.com`
+- [ ] Point `brand.url`, the canonical and OG URLs in all four HTML files, `robots.txt` and `sitemap.xml` at the real domain
+- [ ] Have a lawyer read `src/data/legal.js`, especially if you take EU or UK clients
 - [ ] Set `VITE_FORM_ENDPOINT` and send a test enquiry end to end
-- [ ] Add real case-study imagery or video captures to the work cards
+
+Then:
+
+- [ ] Add real case-study imagery to the work cards — `image` + `imageAlt` on each entry in `work`
 - [ ] Set up the domain and a `hello@` mailbox
 - [ ] Run Lighthouse; keep performance ≥ 90 on mobile
 - [ ] Validate the JSON-LD in Google's Rich Results Test
+- [ ] Re-run the assistant question set after any copy change
