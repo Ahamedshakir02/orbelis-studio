@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, Helvetica, Arial, sans-serif">
+  <!--
+    Source of truth for the share card. Edit here, then run `npm run og` to
+    re-export public/og.png, which is what the meta tags actually point at —
+    no social platform renders SVG.
+  -->
+  <defs>
+    <radialGradient id="orb" cx="38%" cy="34%" r="72%">
+      <stop offset="0%" stop-color="#f2c079"/>
+      <stop offset="52%" stop-color="#e8a33d"/>
+      <stop offset="100%" stop-color="#8a5716"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e8a33d" stop-opacity="0.30"/>
+      <stop offset="70%" stop-color="#e8a33d" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#e8a33d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#08090c"/>
+  <circle cx="1000" cy="292" r="290" fill="url(#glow)"/>
+  <circle cx="1000" cy="292" r="122" fill="url(#orb)"/>
+  <ellipse cx="1000" cy="292" rx="178" ry="42" fill="none" stroke="#e8a33d" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="1000" cy="292" rx="212" ry="57" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity="0.24"/>
+
+  <text x="80" y="112" fill="#e8eaf0" font-size="30" font-weight="600" letter-spacing="-0.5">
+    Orbelis<tspan fill="#e8a33d">.</tspan>
+  </text>
+
+  <text x="80" y="296" fill="#e8eaf0" font-size="68" font-weight="600" letter-spacing="-2.3">Websites that move.</text>
+  <text x="80" y="374" fill="#e8eaf0" font-size="68" font-weight="600" letter-spacing="-2.3">Assistants that answer.</text>
+
+  <rect x="80" y="440" width="132" height="1" fill="#22262f"/>
+
+  <text x="80" y="496" fill="#878e9e" font-size="25" letter-spacing="-0.2">Premium animated websites with a</text>
+  <text x="80" y="532" fill="#878e9e" font-size="25" letter-spacing="-0.2">retrieval-grounded AI assistant built in.</text>
+
+  <text x="80" y="580" fill="#878e9e" font-size="17" letter-spacing="3" font-family="monospace">KERALA, INDIA — WORKING WORLDWIDE</text>
+</svg>
