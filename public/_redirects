@@ -1,0 +1,12 @@
+# Netlify / Cloudflare Pages routing.
+#
+# The build emits privacy.html and terms.html; these serve them at clean URLs
+# without the extension, which is what the canonical tags and the sitemap
+# claim. Status 200 rewrites rather than 301 redirects, so the address bar
+# keeps the clean URL.
+/privacy    /privacy.html    200
+/terms      /terms.html      200
+
+# Anything else is a genuine 404 — served with a real 404 status, not a 200.
+# A "soft 404" (missing page returned as OK) gets the wrong URLs indexed.
+/*          /404.html        404

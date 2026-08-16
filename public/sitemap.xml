@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  One page, one entry. The sections are anchors on that page, not URLs, so
-  listing them here would be padding a sitemap with duplicates of the same
-  document — which is a negative signal, not a neutral one.
+  The home page sections are anchors on one document, not URLs, so they are not
+  listed — padding a sitemap with duplicates of the same page is a negative
+  signal. Privacy and terms are genuinely separate documents and are listed.
+  404.html is noindex and deliberately absent.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://orbelisstudio.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://orbelisstudio.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://orbelisstudio.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
