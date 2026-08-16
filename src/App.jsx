@@ -32,6 +32,15 @@ export default function App() {
 
   return (
     <>
+      {/*
+        First tab stop on the page. Without it a keyboard user has to walk the
+        entire nav on every visit — and this page hides the system cursor, so
+        keyboard affordances have to be better than average, not worse.
+      */}
+      <a href="#work" className="skip-link">
+        Skip to content
+      </a>
+
       <Loader onDone={() => setReady(true)} />
       <Cursor />
       <Nav ready={ready} />

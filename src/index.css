@@ -44,6 +44,12 @@
   .rule {
     @apply h-px w-full bg-line;
   }
+  /* Off-screen until focused, then above the loader so it is never buried. */
+  .skip-link {
+    @apply fixed left-4 top-4 z-[300] -translate-y-24 rounded-full bg-brass px-5 py-3
+           font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-transform
+           focus:translate-y-0;
+  }
 }
 
 /* Procedural film grain via SVG noise — no image asset needed. */
