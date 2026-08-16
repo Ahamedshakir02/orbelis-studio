@@ -215,7 +215,8 @@ export default function Assistant({ ready }) {
         aria-expanded={open}
         aria-controls="assistant-panel"
         data-cursor="grow"
-        className="fixed bottom-5 right-5 z-[95] flex h-14 w-14 items-center justify-center rounded-full border border-brass/40 bg-brass text-bg opacity-0 shadow-[0_8px_40px_rgba(232,163,61,0.28)] transition-transform duration-300 hover:scale-105 md:bottom-8 md:right-8"
+        /* Clears the sticky mobile CTA bar; back to the corner from md up. */
+        className="fixed bottom-24 right-4 z-[95] flex h-14 w-14 items-center justify-center rounded-full border border-brass/40 bg-brass text-bg opacity-0 shadow-[0_8px_40px_rgba(232,163,61,0.28)] transition-transform duration-300 hover:scale-105 md:bottom-8 md:right-8"
       >
         <span className="sr-only">{open ? 'Close' : 'Open'} the studio assistant</span>
         {open ? (
@@ -241,7 +242,7 @@ export default function Assistant({ ready }) {
         aria-label={`${cfg.name} — ${brand.full} assistant`}
         className={
           'invisible fixed z-[96] flex flex-col overflow-hidden border border-line bg-surface/95 opacity-0 backdrop-blur-xl ' +
-          'inset-x-3 bottom-24 top-20 rounded-2xl ' +
+          'inset-x-3 bottom-40 top-16 rounded-2xl ' +
           'md:inset-auto md:bottom-28 md:right-8 md:top-auto md:h-[560px] md:max-h-[calc(100vh-9rem)] md:w-[400px] ' +
           (open ? '' : 'pointer-events-none')
         }

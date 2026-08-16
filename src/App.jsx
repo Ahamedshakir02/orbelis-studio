@@ -3,6 +3,8 @@ import SmoothScroll from './lib/SmoothScroll.jsx'
 import Cursor from './components/Cursor.jsx'
 import Loader from './components/Loader.jsx'
 import Nav from './components/Nav.jsx'
+import MobileCta from './components/MobileCta.jsx'
+import ConsentBanner from './components/ConsentBanner.jsx'
 import Hero from './sections/Hero.jsx'
 import Manifesto from './sections/Manifesto.jsx'
 import Stats from './sections/Stats.jsx'
@@ -68,6 +70,12 @@ export default function App() {
       <Suspense fallback={null}>
         <Assistant ready={ready} />
       </Suspense>
+
+      {/* Phones only — keeps one CTA in thumb reach once the hero scrolls off. */}
+      <MobileCta />
+
+      {/* Renders nothing unless a provider is configured that needs opt-in. */}
+      <ConsentBanner />
 
       {/* Grain overlay — a cheap "film" texture that ties 3D and DOM together. */}
       <div className="grain pointer-events-none fixed inset-0 z-50 opacity-[0.05]" aria-hidden />
