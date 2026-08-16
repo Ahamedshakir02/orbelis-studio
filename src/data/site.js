@@ -16,6 +16,23 @@ export const brand = {
   whatsapp: '910000000000',
   location: 'Edappal, Kerala — working worldwide',
   url: 'https://orbelisstudio.com',
+
+  /**
+   * Postal address. Shown in the footer and emitted as schema.org PostalAddress,
+   * which is what local search reads.
+   *
+   * PLACEHOLDER — `street` must be replaced with the real registered address
+   * before launch. A business address that does not resolve is worse than none:
+   * it fails verification, and for anyone paying by invoice it reads as a
+   * warning sign.
+   */
+  address: {
+    street: '[REPLACE — street address]',
+    locality: 'Edappal',
+    region: 'Kerala',
+    postalCode: '679576',
+    country: 'IN',
+  },
   socials: [
     { label: 'GitHub', href: 'https://github.com/' },
     { label: 'LinkedIn', href: 'https://linkedin.com/' },

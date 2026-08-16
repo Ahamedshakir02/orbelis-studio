@@ -33,11 +33,14 @@ function graph() {
         url: brand.url,
         email: brand.email,
         priceRange,
+        telephone: brand.phone,
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Edappal',
-          addressRegion: 'Kerala',
-          addressCountry: 'IN',
+          streetAddress: brand.address.street,
+          addressLocality: brand.address.locality,
+          addressRegion: brand.address.region,
+          postalCode: brand.address.postalCode,
+          addressCountry: brand.address.country,
         },
         areaServed: [
           { '@type': 'Country', name: 'India' },

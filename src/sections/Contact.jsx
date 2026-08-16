@@ -82,8 +82,25 @@ export default function Contact() {
 
             <div>
               <p className="eyebrow mb-3">Studio</p>
-              <p className="text-base text-muted">{brand.location}</p>
-              <p className="mt-1 text-base text-muted">{brand.phone}</p>
+              {/* Real postal address: local search reads it, and anyone paying
+                  by invoice looks for it. */}
+              <address className="text-base not-italic leading-relaxed text-muted">
+                {brand.address.street}
+                <br />
+                {brand.address.locality}, {brand.address.region}{' '}
+                {brand.address.postalCode}
+                <br />
+                India
+              </address>
+              <p className="mt-3 text-base text-muted">
+                <a
+                  href={'tel:' + brand.phone.replace(/\s/g, '')}
+                  data-cursor="grow"
+                  className="transition-colors hover:text-mist"
+                >
+                  {brand.phone}
+                </a>
+              </p>
             </div>
 
             <div>
@@ -107,10 +124,20 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="contact-fade flex flex-col gap-2 py-10 text-xs text-muted md:flex-row md:items-center md:justify-between">
+        <div className="contact-fade flex flex-col gap-4 border-t border-line py-10 text-xs text-muted md:flex-row md:items-center md:justify-between">
           <span>
             © {year} {brand.full}
           </span>
+
+          <nav className="flex flex-wrap gap-5" aria-label="Legal">
+            <a href="/privacy" data-cursor="grow" className="transition-colors hover:text-mist">
+              Privacy
+            </a>
+            <a href="/terms" data-cursor="grow" className="transition-colors hover:text-mist">
+              Terms
+            </a>
+          </nav>
+
           <span className="font-mono uppercase tracking-[0.18em]">{brand.tagline}</span>
         </div>
       </div>
