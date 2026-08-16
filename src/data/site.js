@@ -12,7 +12,10 @@ export const brand = {
   tagline: 'Websites that move. Assistants that answer.',
   email: 'hello@orbelisstudio.com',
   phone: '+91 00000 00000',
+  // Digits only, with country code — used to build wa.me links.
+  whatsapp: '910000000000',
   location: 'Edappal, Kerala — working worldwide',
+  url: 'https://orbelisstudio.com',
   socials: [
     { label: 'GitHub', href: 'https://github.com/' },
     { label: 'LinkedIn', href: 'https://linkedin.com/' },
@@ -173,6 +176,46 @@ export const stats = [
   { value: 2, suffix: ' weeks', label: 'Typical delivery, scope agreed up front' },
   { value: 1, suffix: '', label: 'Person on your project, start to finish' },
   { value: 90, suffix: '+', label: 'Lighthouse performance target on mobile' },
+]
+
+/**
+ * The on-site assistant.
+ *
+ * This is the studio's own product running on the studio's own site, so it plays
+ * by the same rules we sell: it answers from the content in this file and
+ * nothing else, and it says so when a question falls outside that material.
+ * The temptation to let it improvise is the temptation to ship a liar.
+ */
+export const assistant = {
+  name: 'Orb',
+  intro:
+    "I'm Orb — the same kind of assistant we build into client sites. I answer from this studio's own material: services, prices, process, timelines. Ask me anything, or take a shortcut:",
+  suggestions: [
+    'What does a landing site cost?',
+    'How long does a build take?',
+    'What exactly is the AI assistant?',
+    'Are you available right now?',
+  ],
+  // Shown when retrieval finds nothing confident enough to stand behind.
+  fallback:
+    "I don't have that on file. I only answer from this studio's own material, so rather than guess, that one is worth asking directly —",
+}
+
+/** Project types offered in the enquiry form; mirrors the service list. */
+export const projectTypes = [
+  'Brand or landing site',
+  'Full site with booking',
+  'AI assistant layer',
+  'Care & retainer',
+  'Something else',
+]
+
+export const budgets = [
+  'Under ₹40k',
+  '₹40k — ₹70k',
+  '₹80k — ₹1.5L',
+  '₹1.5L+',
+  'Not sure yet',
 ]
 
 export const faq = [
