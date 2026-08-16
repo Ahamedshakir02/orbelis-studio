@@ -48,10 +48,33 @@ export default function SmoothScroll({ children }) {
     gsap.ticker.add(raf)
     gsap.ticker.lagSmoothing(0)
 
+    /**
+     * Intercept in-page anchors once, here, rather than in every component.
+     * A native #hash jump sets scrollTop directly, which teleports past the
+     * scroll choreography and leaves Lenis to catch up — the "it snapped and
+     * then slid" bug. Anything that already handled its own click (the nav,
+     * which also has a menu to close) is left alone.
+     */
+    const onClick = (e) => {
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+      const link = e.target.closest?.('a[href^="#"]')
+      if (!link) return
+      const hash = link.getAttribute('href')
+      if (!hash || hash === '#') return
+      const target = document.querySelector(hash)
+      if (!target) return
+      e.preventDefault()
+      lenis.scrollTo(target, { offset: -80, duration: 1.2 })
+      // Keep the URL honest so the link is still shareable and Back still works.
+      history.pushState(null, '', hash)
+    }
+    document.addEventListener('click', onClick)
+
     // Let layout settle (fonts, images) before ScrollTrigger measures.
     ScrollTrigger.refresh()
 
     return () => {
+      document.removeEventListener('click', onClick)
       gsap.ticker.remove(raf)
       lenis.destroy()
       setLenis(null)
