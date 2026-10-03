@@ -121,6 +121,11 @@ never triggers a React re-render.
 5. Process — drawn rule with staggered steps
 6. Contact — oversized CTA
 
+Three quieter sections sit around the services beat and only fade in, so they
+add reading without adding choreography: Problems (the costs, before the
+services), Flow (one enquiry followed through the assistant and automation) and
+Audience (who it is for, and what each gets).
+
 **Graceful degradation.** `prefers-reduced-motion` swaps the WebGL canvas for a
 static gradient and disables the reveals. The horizontal gallery falls back to a
 vertical stack below 768px. The assistant and the enquiry form both work with
@@ -140,22 +145,34 @@ and social platforms actually consume are exported from them:
 ```bash
 npm run og      # public/og.png — the share card
 npm run icons   # favicon PNGs, apple-touch-icon, manifest icons
+npm run brochure  # public/orbelis-profile.pdf — the company profile
 ```
 
 Both screenshot the SVG with the Chrome or Edge already on the machine, so
 there is no headless-browser dependency and the designs stay text files
 reviewable in a diff. Re-run after editing either SVG.
 
+The company profile is different: `scripts/brochure.mjs` lays it out from
+`src/data/site.js`, so it carries the same services, prices and work as the
+page. Re-run it after any copy change — a PDF with last month's prices is the
+kind of drift the single data file exists to prevent. The footer links to it,
+and the same file can be uploaded to a flipbook host.
+
 ## Before launch
 
 Blocking — the site should not go live with these:
 
-- [ ] **Real street address** in `brand.address.street` (`src/data/site.js`) — currently a marked placeholder, shown in the footer and emitted as structured data
-- [ ] **Real phone and WhatsApp number** in `src/data/site.js` — both are `00000` placeholders
-- [ ] **Real social URLs** — currently bare `github.com` / `linkedin.com` / `instagram.com`
 - [ ] Point `brand.url`, the canonical and OG URLs in all four HTML files, `robots.txt` and `sitemap.xml` at the real domain
 - [ ] Have a lawyer read `src/data/legal.js`, especially if you take EU or UK clients
 - [ ] Set `VITE_FORM_ENDPOINT` and send a test enquiry end to end
+
+Add when available — each is `null` in `src/data/site.js` and stays hidden
+from the footer, the mobile CTA and the structured data until it is set:
+
+- [ ] Street address in `brand.address.street`
+- [ ] Phone and WhatsApp number in `brand.phone` / `brand.whatsapp`
+- [ ] Social profile URLs in `brand.socials` — the studio's own profiles, not the bare domain
+- [ ] Public URL for a work entry, as `href` — the card then links to it
 
 Then:
 
