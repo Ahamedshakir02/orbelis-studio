@@ -10,7 +10,7 @@ export default function Contact() {
   const year = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="border-t border-line pt-16 md:pt-24">
+    <footer id="contact" className="bg-tile pt-16 md:pt-24">
       <div className="container-x">
         <div className="grid gap-8 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-3">
@@ -19,7 +19,7 @@ export default function Contact() {
 
           <div className="md:col-span-9">
             <h2 className="max-w-2xl font-semibold text-3xl leading-[1.08] tracking-tight md:text-4xl">
-              Let's build something worth scrolling.
+              Tell me what is slowing you down.
             </h2>
 
             <div className="mt-10 grid gap-12 md:mt-12 md:grid-cols-9 md:gap-10">

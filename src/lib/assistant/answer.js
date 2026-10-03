@@ -80,7 +80,7 @@ function matchIntent(query) {
   // A question every prospect asks and no site answers well.
   if (has(q, 'why you', 'why should', 'better than', 'different', 'instead of')) {
     return {
-      text: `Honestly: because the two halves usually come from two vendors. Agencies build the site, someone else bolts on a chatbot, and neither owns the result. Here one person builds award-grade motion on the front and a retrieval-grounded assistant behind it — and you talk to that person, not a project manager.`,
+      text: `Honestly: because the two halves usually come from two vendors. Agencies build the site, someone else bolts on a chatbot, and neither owns the result. Here one person builds the site, the retrieval-grounded assistant behind it and the automation after it — and you talk to that person, not a project manager.`,
       source: { label: 'Studio', href: '#studio' },
     }
   }

@@ -34,7 +34,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A one-person studio building premium animated websites with a retrieval-grounded AI assistant behind them, plus business automation for companies and brands, based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} A one-person studio building fast, clear websites with a retrieval-grounded AI assistant behind them, plus business automation for companies and brands, based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where',
   },
   {

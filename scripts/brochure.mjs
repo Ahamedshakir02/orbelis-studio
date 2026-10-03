@@ -171,7 +171,7 @@ const pages = [
   page(
     `<div class="orb low"></div>
      <p class="eyebrow">Start a project</p>
-     <h2 class="xl">Let's build something worth scrolling.</h2>
+     <h2 class="xl">Tell me what is slowing you down.</h2>
      <dl class="contact">${contactLines.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
      <p class="note">Tell us what the business does and what is slowing it down. You talk to the person who writes the code — there is no account manager in between.</p>`,
   ),

@@ -1,7 +1,7 @@
 {
   "name": "Orbelis Studio",
   "short_name": "Orbelis",
-  "description": "Premium animated websites with a retrieval-grounded AI assistant built in.",
+  "description": "Fast, clear websites with a retrieval-grounded AI assistant built in.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#08090c",

@@ -9,7 +9,7 @@ export const brand = {
   name: 'Orbelis',
   suffix: 'Studio',
   full: 'Orbelis Studio',
-  tagline: 'Websites that move. Assistants that answer.',
+  tagline: 'Websites that work. Assistants that answer.',
   email: 'hello@orbelisstudio.com',
   /**
    * Phone, WhatsApp, street and social links are null until the real value
@@ -58,8 +58,8 @@ export const nav = [
 ]
 
 export const manifesto = [
-  'Most business websites are brochures that sit still and answer nothing.',
-  'We build the opposite: sites that move with intent, an assistant behind them that knows your business and replies at 2am, and the automation that carries the enquiry the rest of the way.',
+  'Most business websites are brochures: they look finished and answer nothing.',
+  'We build the opposite: sites that load fast and say it plainly, an assistant behind them that knows your business and replies at 2am, and the automation that carries the enquiry the rest of the way.',
   'One person on your project. No account managers. No template.',
 ]
 
@@ -73,8 +73,8 @@ export const services = [
     group: 'Build',
     title: 'Brand & landing sites',
     price: '₹40k — ₹70k',
-    body: 'A single, considered page built for one job: making a stranger trust you in eight seconds. Scroll-driven motion, real typography, sub-second load.',
-    points: ['Custom motion design', 'Mobile-first build', 'SEO + analytics', '2 week delivery'],
+    body: 'A single, considered page built for one job: making a stranger trust you in eight seconds. Clear structure, real typography, sub-second load.',
+    points: ['Considered layout & type', 'Mobile-first build', 'SEO + analytics', '2 week delivery'],
   },
   {
     index: '02',
@@ -221,12 +221,12 @@ export const process = [
   {
     step: '02',
     title: 'Direction',
-    body: 'One art direction, one hero idea, one scroll spine — agreed before a line of code. Hedged design is the expensive kind.',
+    body: 'One art direction, one layout, one voice — agreed before a line of code. Hedged design is the expensive kind.',
   },
   {
     step: '03',
     title: 'Build',
-    body: 'Motion and 3D wired against a real performance budget. Sixty frames a second on a mid-range phone is a requirement, not a stretch goal.',
+    body: 'Built against a real performance budget. Fast on a mid-range phone over 4G is a requirement, not a stretch goal.',
   },
   {
     step: '04',
@@ -244,7 +244,7 @@ export const capabilities = [
 export const studio = {
   lead: 'Orbelis is a one-person studio. You work with the person who writes the code.',
   body: [
-    'The studio sits at an unusual intersection: award-grade front-end motion on one side, applied machine learning on the other. Most agencies do one or the other. The interesting work lives where they meet — a site that feels expensive and an assistant behind it that actually knows your business.',
+    'The studio sits at an unusual intersection: careful, fast front-end work on one side, applied machine learning on the other. Most agencies do one or the other. The interesting work lives where they meet — a site that reads clearly and an assistant behind it that actually knows your business.',
     'Background in NLP and deep learning, certified across Microsoft Azure AI, Google generative AI and IBM data science tracks. Currently building Dr Evide, a trust-ranked doctor discovery product for Kerala.',
   ],
   facts: [
@@ -261,7 +261,7 @@ export const availability = {
 }
 
 export const marquee = [
-  'Animated websites',
+  'Fast websites',
   'AI assistants',
   'Business automation',
   'Clinics & healthcare',
@@ -274,7 +274,7 @@ export const marquee = [
 ]
 
 export const stats = [
-  { value: 60, suffix: 'fps', label: 'Motion budget, enforced on mid-range phones' },
+  { value: '<1', suffix: 's', label: 'Load target on 4G, held on mid-range phones' },
   { value: 2, suffix: ' weeks', label: 'Typical delivery, scope agreed up front' },
   { value: 1, suffix: '', label: 'Person on your project, start to finish' },
   { value: 90, suffix: '+', label: 'Lighthouse performance target on mobile' },
