@@ -46,11 +46,12 @@ export default function Services() {
         <div className="services-head mb-16 max-w-3xl md:mb-24">
           <p className="eyebrow mb-5">Services & pricing</p>
           <h2 className="font-display text-5xl leading-[0.95] tracking-tightest md:text-7xl">
-            Four things, done properly.
+            Five things, done properly.
           </h2>
           <p className="mt-6 max-w-xl text-base text-muted">
-            Fixed ranges, not "request a quote". Every project includes the
-            performance budget and the accessibility pass — those are not extras.
+            Two you build once, three that keep running. Fixed ranges, not
+            "request a quote" — and every build includes the performance budget
+            and the accessibility pass. Those are not extras.
           </p>
         </div>
 
@@ -62,9 +63,13 @@ export default function Services() {
               data-cursor="grow"
             >
               <div className="grid gap-8 md:grid-cols-12 md:gap-12">
-                <div className="md:col-span-1">
+                <div className="flex items-baseline gap-3 md:col-span-1 md:block">
                   <span className="font-mono text-[11px] tracking-[0.18em] text-brass">
                     {s.index}
+                  </span>
+                  {/* Which band the service sits in: built once, or kept running. */}
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted md:mt-2 md:block">
+                    {s.group}
                   </span>
                 </div>
 

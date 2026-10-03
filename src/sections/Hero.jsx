@@ -29,6 +29,15 @@ export default function Hero({ ready }) {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const inners = splitWords(headline.current)
 
+    // Two-tone headline: the first sentence at full strength, the second
+    // stepped back, so the pair reads as statement and answer. Done on the
+    // split words because splitWords flattens any markup inside the heading.
+    let second = false
+    inners.forEach((word) => {
+      if (second) word.classList.add('text-mist/50')
+      if (word.textContent.endsWith('.')) second = true
+    })
+
     const tl = gsap.timeline({ defaults: { ease: 'expo.out' } })
     if (reduce) {
       tl.set([inners, '.hero-fade'], { y: 0, opacity: 1 })
@@ -55,9 +64,10 @@ export default function Hero({ ready }) {
 
         <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p className="hero-fade max-w-md text-base leading-relaxed text-muted md:text-lg">
-            A one-person studio building premium animated websites with a
-            retrieval-grounded AI assistant behind them. Built in Kerala, for
-            clinics, institutions and founders who are tired of brochures.
+            A one-person studio building premium animated websites, the AI
+            assistant behind them, and the automation that follows every
+            enquiry through. Built in Kerala, for clinics, institutions,
+            founders and brands who are tired of brochures.
           </p>
 
           <div className="hero-fade flex items-center gap-4">

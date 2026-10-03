@@ -9,7 +9,10 @@ import Hero from './sections/Hero.jsx'
 import Manifesto from './sections/Manifesto.jsx'
 import Stats from './sections/Stats.jsx'
 import Work from './sections/Work.jsx'
+import Problems from './sections/Problems.jsx'
 import Services from './sections/Services.jsx'
+import Flow from './sections/Flow.jsx'
+import Audience from './sections/Audience.jsx'
 import Process from './sections/Process.jsx'
 import Studio from './sections/Studio.jsx'
 import Faq from './sections/Faq.jsx'
@@ -58,7 +61,10 @@ export default function App() {
           <Manifesto />
           <Stats />
           <Work />
+          <Problems />
           <Services />
+          <Flow />
+          <Audience />
           <Process />
           <Studio />
           <Faq />
