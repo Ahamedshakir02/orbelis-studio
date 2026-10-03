@@ -23,7 +23,7 @@ export const privacy = {
     {
       h: 'What is collected',
       p: [
-        'The enquiry form collects the name, email address, project type, budget range and message you type into it. Nothing else is taken from that form, and none of it is inferred or enriched from other sources.',
+        'The enquiry form collects the name, email address, kind of business, project type, budget range and message you type into it, plus the optional note on what is slowing you down if you fill it in. Nothing else is taken from that form, and none of it is inferred or enriched from other sources.',
         'The on-site assistant processes the questions you type into it in order to answer them. Retrieval runs in your own browser against this site\'s published content. If a hosted answering endpoint is configured, your question and the matched passages from this site are sent to it to phrase a reply.',
         'No account is created, because there is nothing here to log in to.',
       ],

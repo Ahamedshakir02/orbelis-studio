@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { brand, projectTypes, budgets } from '../data/site.js'
+import { brand, projectTypes, budgets, businessTypes } from '../data/site.js'
 
 /**
  * The conversion path.
@@ -7,8 +7,10 @@ import { brand, projectTypes, budgets } from '../data/site.js'
  * A site that publishes ₹1.5L price ranges and then offers a mailto link as its
  * only way in is throwing away the visitors who were ready. A form converts
  * better than an address for one boring reason: it tells the visitor what to
- * say. Project type and budget are asked here so the first reply can be
- * specific instead of a round-trip asking for them.
+ * say. Business, project type and budget are asked here so the first reply can
+ * be specific instead of a round-trip asking for them. "What is slowing you
+ * down" is optional on purpose: plenty of visitors know the problem and not
+ * the service, and that one line is often the whole brief.
  *
  * SUBMISSION IS DELIBERATELY DEGRADABLE. With VITE_FORM_ENDPOINT set it posts
  * JSON (Formspree, Basin, a Worker — anything that takes a POST). Without it,
@@ -42,8 +44,10 @@ function mailtoFallback(values) {
   const body = [
     `Name: ${values.name}`,
     `Email: ${values.email}`,
+    `Business: ${values.business}`,
     `Project: ${values.projectType}`,
     `Budget: ${values.budget}`,
+    ...(values.blocker.trim() ? [`Slowing us down: ${values.blocker.trim()}`] : []),
     '',
     values.message,
   ].join('\n')
@@ -56,8 +60,10 @@ export default function EnquiryForm() {
   const [values, setValues] = useState({
     name: '',
     email: '',
+    business: businessTypes[0],
     projectType: projectTypes[0],
     budget: budgets[budgets.length - 1],
+    blocker: '',
     message: '',
     // Honeypot. Real people cannot see it; bots fill everything they find.
     company: '',
@@ -106,8 +112,10 @@ export default function EnquiryForm() {
         body: JSON.stringify({
           name: values.name,
           email: values.email,
+          business: values.business,
           projectType: values.projectType,
           budget: values.budget,
+          blocker: values.blocker,
           message: values.message,
           _subject: `Project enquiry — ${values.projectType}`,
         }),
@@ -189,6 +197,26 @@ export default function EnquiryForm() {
         </div>
       </div>
 
+      <div>
+        <label className={LABEL} htmlFor="ef-business">
+          Your business
+        </label>
+        <select
+          id="ef-business"
+          name="business"
+          value={values.business}
+          onChange={set('business')}
+          data-cursor="grow"
+          className={FIELD}
+        >
+          {businessTypes.map((t) => (
+            <option key={t} value={t} className="bg-surface">
+              {t}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={LABEL} htmlFor="ef-type">
@@ -229,6 +257,21 @@ export default function EnquiryForm() {
             ))}
           </select>
         </div>
+      </div>
+
+      <div>
+        <label className={LABEL} htmlFor="ef-blocker">
+          What is slowing you down? <span className="normal-case tracking-normal">(optional)</span>
+        </label>
+        <input
+          id="ef-blocker"
+          name="blocker"
+          value={values.blocker}
+          onChange={set('blocker')}
+          data-cursor="grow"
+          className={FIELD}
+          placeholder="Enquiries we answer too late, a report someone builds by hand every Monday."
+        />
       </div>
 
       <div>
