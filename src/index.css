@@ -98,6 +98,58 @@
   }
 }
 
+/*
+  Motion. Three moves, all short, all easing out — things arrive and settle,
+  nothing loops or follows the cursor.
+
+    rise     an entrance: fades up once, timed by --d. Used by the hero.
+    reveal   the same move on scroll, added by useReveal() to blocks that
+             start below the fold. `in` plays it.
+    press    buttons give 3% under the finger (active:scale on the element).
+*/
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+/* An answer eases in under its question instead of snapping open. */
+details[open] > summary ~ * {
+  animation: rise 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+/* Switching theme cross-fades the page rather than cutting. */
+body,
+.tile {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Paper has no scroll position: print everything, fully shown. */
+@media print {
+  .reveal,
+  .rise {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
 /* Users who ask for reduced motion get no smooth scrolling and no transitions. */
 @media (prefers-reduced-motion: reduce) {
   html {

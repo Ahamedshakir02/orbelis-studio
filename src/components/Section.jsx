@@ -1,3 +1,5 @@
+import { useReveal } from '../lib/useReveal.js'
+
 /**
  * The one layout every section shares: a full-width band, a small label in
  * the left column, the content in the right. Bands alternate between the page
@@ -7,18 +9,23 @@
  * minimal page lives or dies on consistent spacing, and nine sections each
  * choosing their own padding is how that consistency goes.
  *
+ * The label moves beside the content only from 1024px. On a tablet the
+ * content needs the full width more than the label needs its own column.
+ *
  * Sections sit 96px apart. Titles are set at 40px, weight 600, with tight
  * negative tracking — one voice with the body text, only heavier.
  */
 export default function Section({ id, label, title, intro, children }) {
+  const body = useReveal()
+
   return (
     <section id={id} className="tile py-16 md:py-24">
-      <div className="container-x grid gap-8 md:grid-cols-12 md:gap-10">
-        <div className="md:col-span-3">
-          <p className="eyebrow md:sticky md:top-20">{label}</p>
+      <div className="container-x grid gap-6 lg:grid-cols-12 lg:gap-10">
+        <div className="lg:col-span-3">
+          <p className="eyebrow lg:sticky lg:top-20">{label}</p>
         </div>
 
-        <div className="md:col-span-9">
+        <div ref={body} className="lg:col-span-9">
           {title && (
             <h2 className="max-w-2xl text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] md:text-[40px]">
               {title}
