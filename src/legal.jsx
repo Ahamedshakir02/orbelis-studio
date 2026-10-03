@@ -24,7 +24,7 @@ function Legal({ doc }) {
     >
       {doc.sections.map((s) => (
         <section key={s.h}>
-          <h2 className="font-display text-2xl tracking-tight md:text-3xl">{s.h}</h2>
+          <h2 className="font-semibold text-2xl tracking-tight md:text-3xl">{s.h}</h2>
           <div className="mt-4 space-y-4">
             {s.p.map((para, i) => (
               <p key={i} className="text-sm leading-relaxed text-muted md:text-base">
@@ -49,7 +49,7 @@ function NotFound() {
   return (
     <PageShell title={notFound.title} intro={notFound.intro}>
       <section>
-        <h2 className="font-display text-2xl tracking-tight md:text-3xl">
+        <h2 className="font-semibold text-2xl tracking-tight md:text-3xl">
           Where you were probably going
         </h2>
         <ul className="mt-6 divide-y divide-line border-y border-line">
@@ -57,7 +57,7 @@ function NotFound() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="flex items-center justify-between py-5 font-display text-xl tracking-tight transition-colors hover:text-brass md:text-2xl"
+                className="flex items-center justify-between py-5 font-semibold text-xl tracking-tight transition-colors hover:text-brass md:text-2xl"
               >
                 {l.label}
                 <span aria-hidden className="font-mono text-brass">

@@ -13,7 +13,7 @@ export default function Manifesto() {
           <p
             key={i}
             className={
-              'font-display text-xl leading-snug tracking-tight md:text-2xl ' +
+              'text-xl font-medium leading-snug tracking-tight md:text-2xl ' +
               (i === 0 ? 'text-mist' : 'text-muted')
             }
           >

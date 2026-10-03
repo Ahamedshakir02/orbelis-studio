@@ -12,7 +12,7 @@ export default function Stats() {
       <dl className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label}>
-            <dd className="font-display text-3xl tracking-tight text-mist md:text-4xl">
+            <dd className="font-semibold text-3xl tracking-tight text-mist md:text-4xl">
               {s.value}
               {s.suffix}
             </dd>

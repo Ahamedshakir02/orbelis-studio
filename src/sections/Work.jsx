@@ -32,7 +32,7 @@ function Figure({ src, alt, title }) {
       decoding="async"
       width="1200"
       height="750"
-      className="mb-8 aspect-[8/5] w-full rounded-lg border border-line object-cover"
+      className="mb-8 aspect-[8/5] w-full rounded-2xl border border-line object-cover"
     />
   )
 }
@@ -52,14 +52,12 @@ export default function Work() {
             {item.image && <Figure src={item.image} alt={item.imageAlt} title={item.title} />}
 
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-              <h3 className="font-display text-2xl tracking-tight">{item.title}</h3>
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+              <h3 className="font-medium text-2xl tracking-tight">{item.title}</h3>
+              <span className="rounded-full bg-raised px-2.5 py-0.5 text-xs text-mist/80">
                 {item.status} · {item.year}
               </span>
             </div>
-            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-              {item.role}
-            </p>
+            <p className="mt-1 text-sm text-muted">{item.role}</p>
 
             <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
               {item.summary}
@@ -68,7 +66,7 @@ export default function Work() {
             <dl className="mt-6 grid gap-4 sm:grid-cols-2">
               {item.metrics.map((m) => (
                 <div key={m.k}>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+                  <dt className="text-xs text-muted">
                     {m.k}
                   </dt>
                   <dd className="mt-1 text-sm text-mist">{m.v}</dd>
@@ -76,9 +74,7 @@ export default function Work() {
               ))}
             </dl>
 
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
-              {item.stack.join(' · ')}
-            </p>
+            <p className="mt-6 font-mono text-xs text-muted">{item.stack.join(' · ')}</p>
 
             {/* Only for projects with a public URL — see `href` in site.js. */}
             {item.href && (
@@ -86,7 +82,7 @@ export default function Work() {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-brass transition-colors hover:text-mist"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brass transition-colors hover:text-mist"
               >
                 Visit {item.title}
                 <span aria-hidden>↗</span>

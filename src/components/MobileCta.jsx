@@ -54,7 +54,7 @@ export default function MobileCta() {
     >
       <a
         href="#contact"
-        className="flex flex-1 items-center justify-center gap-2 rounded-full bg-brass px-5 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-bg"
+        className="flex h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-brass px-5 text-sm font-medium text-bg"
       >
         Start a project
         <span aria-hidden>→</span>
@@ -67,7 +67,7 @@ export default function MobileCta() {
           href={`https://wa.me/${brand.whatsapp}`}
           target="_blank"
           rel="noreferrer noopener"
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line text-mist"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-line bg-surface text-mist"
         >
           <span className="sr-only">Message {brand.full} on WhatsApp</span>
           <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

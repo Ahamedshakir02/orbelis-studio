@@ -20,22 +20,22 @@ export default function Services() {
         {services.map((s) => (
           <article key={s.index} className="grid gap-4 py-8 md:grid-cols-9 md:gap-8">
             <div className="flex items-baseline gap-3 md:col-span-1 md:block">
-              <span className="font-mono text-[11px] tracking-[0.18em] text-brass">{s.index}</span>
+              <span className="font-mono text-xs text-muted">{s.index}</span>
               {/* Which band the service sits in: built once, or kept running. */}
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted md:mt-2 md:block">
+              <span className="text-xs text-muted md:mt-2 md:block">
                 {s.group}
               </span>
             </div>
 
             <div className="md:col-span-6">
-              <h3 className="font-display text-xl tracking-tight md:text-2xl">{s.title}</h3>
+              <h3 className="font-medium text-xl tracking-tight md:text-2xl">{s.title}</h3>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted md:text-base">
                 {s.body}
               </p>
               <p className="mt-4 text-sm text-mist">{s.points.join(' · ')}</p>
             </div>
 
-            <p className="font-display text-lg tracking-tight text-brass md:col-span-2 md:text-right">
+            <p className="text-lg font-medium tracking-tight text-mist md:col-span-2 md:text-right">
               {s.price}
             </p>
           </article>

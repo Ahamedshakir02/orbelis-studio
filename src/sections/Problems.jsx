@@ -4,17 +4,17 @@ import { problems } from '../data/site.js'
 /**
  * The costs, named before the services that remove them. A visitor who
  * recognises their own week in these three reads the price list differently.
+ *
+ * Set as panels one step above the page: the lift is the only decoration.
  */
 export default function Problems() {
   return (
     <Section label="Where the time goes" title="Three things that quietly cost you.">
-      <ol className="grid gap-10 md:grid-cols-3 md:gap-8">
+      <ol className="grid gap-4 md:grid-cols-3">
         {problems.map((p, i) => (
-          <li key={p.title}>
-            <span className="font-mono text-[11px] tracking-[0.18em] text-brass">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <h3 className="mt-3 font-display text-lg leading-snug tracking-tight">{p.title}</h3>
+          <li key={p.title} className="rounded-xl border border-line bg-surface p-6">
+            <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
+            <h3 className="mt-4 text-lg font-medium leading-snug tracking-tight">{p.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted">{p.body}</p>
           </li>
         ))}

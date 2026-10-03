@@ -18,7 +18,7 @@ export default function Contact() {
           </div>
 
           <div className="md:col-span-9">
-            <h2 className="max-w-2xl font-display text-3xl leading-[1.08] tracking-tight md:text-4xl">
+            <h2 className="max-w-2xl font-semibold text-3xl leading-[1.08] tracking-tight md:text-4xl">
               Let's build something worth scrolling.
             </h2>
 

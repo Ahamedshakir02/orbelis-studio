@@ -3,7 +3,7 @@ import { brand, nav } from '../data/site.js'
 import { lockScroll } from '../lib/scroll.js'
 
 /**
- * Header. A name, four links and one action.
+ * Header: wordmark left, four links centred, one action right. 56px tall.
  *
  * In-page links are plain #hash anchors: the browser scrolls, CSS smooths it
  * and offsets it below this header. Nothing here intercepts a click except to
@@ -40,32 +40,33 @@ export default function Nav() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-[90] border-b border-line bg-bg/90 backdrop-blur-md">
-        <div className="container-x flex h-16 items-center justify-between">
+        <div className="container-x flex h-14 items-center justify-between">
+          {/* The wordmark is the one place the brand face is kept. */}
           <a href="#top" onClick={close} className="relative z-[95] font-display text-lg tracking-tight">
             {brand.name}
             <span className="text-brass">.</span>
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-mist"
+                className="text-sm text-muted transition-colors hover:text-mist"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3">
             {/* Only once a real number is set in site.js — see brand.whatsapp. */}
             {brand.whatsapp && (
               <a
                 href={`https://wa.me/${brand.whatsapp}`}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-mist lg:inline-block"
+                className="hidden h-8 items-center rounded-lg border border-line bg-surface px-3 text-sm font-medium text-mist transition-colors hover:bg-raised lg:inline-flex"
               >
                 WhatsApp
               </a>
@@ -74,7 +75,7 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={close}
-              className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-brass transition-colors hover:text-mist sm:inline-block"
+              className="hidden h-8 items-center rounded-lg bg-brass px-3 text-sm font-medium text-bg transition-colors hover:bg-mist sm:inline-flex"
             >
               Start a project
             </a>
@@ -85,7 +86,7 @@ export default function Nav() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="relative z-[95] flex h-9 w-9 items-center justify-center md:hidden"
+              className="relative z-[95] flex h-10 w-10 items-center justify-center md:hidden"
             >
               <span className="sr-only">{open ? 'Close' : 'Open'} menu</span>
               <span className="flex w-5 flex-col gap-[5px]" aria-hidden>
@@ -111,14 +112,14 @@ export default function Nav() {
           reachable by keyboard or screen reader. */}
       <div id="mobile-menu" className="md:hidden">
         {open && (
-          <div className="fixed inset-0 z-[92] flex flex-col justify-between bg-bg px-6 pb-10 pt-24">
+          <div className="fixed inset-0 z-[92] flex flex-col justify-between bg-bg px-6 pb-10 pt-20">
             <nav aria-label="Mobile" className="flex flex-col border-t border-line">
               {links.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={close}
-                  className="border-b border-line py-5 font-display text-2xl tracking-tight"
+                  className="border-b border-line py-4 text-xl font-medium tracking-tight"
                 >
                   {item.label}
                 </a>

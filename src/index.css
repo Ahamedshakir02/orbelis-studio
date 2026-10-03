@@ -20,7 +20,7 @@
   }
   /* Anchored sections stop below the sticky header instead of under it. */
   [id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4.5rem;
   }
   ::selection {
     background: theme('colors.brass');
@@ -35,20 +35,22 @@
 }
 
 @layer components {
-  /* One narrow column. The page is read, not toured. */
+  /* One column. The page is read, not toured. */
   .container-x {
-    @apply mx-auto w-full max-w-[1120px] px-6 md:px-10;
+    @apply mx-auto w-full max-w-[1200px] px-6 md:px-8;
   }
+  /* Section labels: the text face, slightly opened up — taxonomy, not shouting.
+     Mono is kept for indices and tech tokens only. */
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-muted;
+    @apply text-[13px] font-medium tracking-[0.03em] text-muted;
   }
   .rule {
     @apply h-px w-full bg-line;
   }
   /* Off-screen until focused. */
   .skip-link {
-    @apply fixed left-4 top-4 z-[300] -translate-y-24 rounded-full bg-brass px-5 py-3
-           font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-transform
+    @apply fixed left-4 top-4 z-[300] -translate-y-24 rounded-lg bg-brass px-4 py-2.5
+           text-sm font-medium text-bg transition-transform
            focus:translate-y-0;
   }
 }

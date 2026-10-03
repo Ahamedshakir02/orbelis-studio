@@ -16,9 +16,9 @@ export default function Faq() {
         {faq.map((item) => (
           <details key={item.q} className="group">
             <summary className="flex cursor-pointer list-none items-start justify-between gap-8 py-6 [&::-webkit-details-marker]:hidden">
-              <h3 className="font-display text-lg tracking-tight md:text-xl">{item.q}</h3>
+              <h3 className="font-medium text-lg tracking-tight md:text-xl">{item.q}</h3>
               <span
-                className="mt-0.5 shrink-0 font-mono text-lg text-brass transition-transform duration-200 group-open:rotate-45"
+                className="mt-0.5 shrink-0 font-mono text-lg text-muted transition-transform duration-200 group-open:rotate-45"
                 aria-hidden
               >
                 +

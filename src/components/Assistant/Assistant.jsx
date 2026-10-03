@@ -53,7 +53,7 @@ function Message({ msg, onCite }) {
           <button
             type="button"
             onClick={() => onCite(msg.source.href)}
-            className="mt-2 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-brass"
+            className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted transition-colors hover:text-brass"
           >
             <span className="h-1 w-1 rounded-full bg-brass" aria-hidden />
             {msg.source.label}
@@ -229,8 +229,8 @@ export default function Assistant() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-brass" />
             </span>
             <div>
-              <p className="font-display text-base leading-none tracking-tight">{cfg.name}</p>
-              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+              <p className="font-semibold text-base leading-none tracking-tight">{cfg.name}</p>
+              <p className="mt-1 text-xs text-muted">
                 {isRemoteEnabled() ? 'Grounded · live' : 'Grounded in this site'}
               </p>
             </div>
@@ -305,7 +305,7 @@ export default function Assistant() {
             <button
               type="submit"
               disabled={!input.trim() || busy}
-              className="shrink-0 rounded-lg bg-brass px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-bg transition-opacity disabled:opacity-30"
+              className="shrink-0 rounded-md bg-brass px-3 py-1.5 text-xs font-medium text-bg transition-opacity disabled:opacity-30"
             >
               Send
             </button>

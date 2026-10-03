@@ -24,10 +24,10 @@ const ENDPOINT = import.meta.env?.VITE_FORM_ENDPOINT || ''
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 const FIELD =
-  'w-full rounded-lg border border-line bg-bg/60 px-4 py-3 text-sm text-mist outline-none ' +
+  'w-full rounded-lg border border-line bg-surface px-3.5 py-3 text-sm text-mist outline-none ' +
   'transition-colors placeholder:text-muted/60 focus:border-brass/70'
 
-const LABEL = 'mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-muted'
+const LABEL = 'mb-2 block text-[13px] font-medium text-muted'
 
 function validate(values) {
   const errors = {}
@@ -134,8 +134,8 @@ export default function EnquiryForm() {
         role="status"
         className="rounded-2xl border border-brass/30 bg-surface/70 p-8 md:p-10"
       >
-        <p className="eyebrow mb-4 text-brass">Received</p>
-        <h3 className="font-display text-2xl tracking-tight md:text-3xl">
+        <p className="eyebrow mb-4">Received</p>
+        <h3 className="font-semibold text-2xl tracking-tight md:text-3xl">
           That is with the right person.
         </h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
@@ -256,7 +256,7 @@ export default function EnquiryForm() {
 
       <div>
         <label className={LABEL} htmlFor="ef-blocker">
-          What is slowing you down? <span className="normal-case tracking-normal">(optional)</span>
+          What is slowing you down? <span className="font-normal">(optional)</span>
         </label>
         <input
           id="ef-blocker"
@@ -307,7 +307,7 @@ export default function EnquiryForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex items-center gap-3 rounded-full bg-brass px-7 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-mist disabled:opacity-50"
+          className="inline-flex h-11 items-center gap-2 rounded-lg bg-brass px-5 text-sm font-medium text-bg transition-colors hover:bg-mist disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending…' : 'Send enquiry'}
           <span aria-hidden>→</span>

@@ -3,8 +3,10 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
-      // Art direction: "Dark cinematic / technical".
+      // Art direction: dark, quiet, technical.
       // One dominant near-black, one brass accent, neutrals. Nothing else.
+      // `surface` and `raised` are the two steps above the page; hierarchy
+      // comes from that lift and from hairlines, never from shadow.
       colors: {
         bg: '#08090c',
         surface: '#0f1116',

@@ -37,7 +37,7 @@ export default function ConsentBanner() {
       aria-label="Cookie choices"
       className="fixed inset-x-3 bottom-3 z-[97] rounded-2xl border border-line bg-surface/95 p-5 backdrop-blur-xl md:inset-x-auto md:left-6 md:bottom-6 md:max-w-md"
     >
-      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+      <p className="text-xs text-muted">
         Cookies
       </p>
       <p className="mt-3 text-sm leading-relaxed text-mist">
@@ -50,14 +50,14 @@ export default function ConsentBanner() {
         <button
           type="button"
           onClick={() => decide('granted')}
-          className="rounded-full bg-brass px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-mist"
+          className="rounded-lg bg-brass px-4 py-2 text-sm font-medium text-bg transition-colors hover:bg-mist"
         >
           Accept
         </button>
         <button
           type="button"
           onClick={() => decide('denied')}
-          className="rounded-full border border-line px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-mist transition-colors hover:border-brass hover:text-brass"
+          className="rounded-lg border border-line bg-surface px-4 py-2 text-sm font-medium text-mist transition-colors hover:bg-raised"
         >
           Decline
         </button>

@@ -5,23 +5,26 @@
  * Kept as a component so the rhythm of the page is decided in one place. A
  * minimal page lives or dies on consistent spacing, and nine sections each
  * choosing their own padding is how that consistency goes.
+ *
+ * Sections sit 96px apart. Titles are set at 40px, weight 600, with tight
+ * negative tracking — one voice with the body text, only heavier.
  */
 export default function Section({ id, label, title, intro, children }) {
   return (
     <section id={id} className="border-t border-line py-16 md:py-24">
       <div className="container-x grid gap-8 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-3">
-          <p className="eyebrow md:sticky md:top-24">{label}</p>
+          <p className="eyebrow md:sticky md:top-20">{label}</p>
         </div>
 
         <div className="md:col-span-9">
           {title && (
-            <h2 className="max-w-2xl font-display text-3xl leading-[1.08] tracking-tight md:text-4xl">
+            <h2 className="max-w-2xl text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] md:text-[40px]">
               {title}
             </h2>
           )}
           {intro && (
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">{intro}</p>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted md:text-lg">{intro}</p>
           )}
           <div className={title || intro ? 'mt-10 md:mt-12' : ''}>{children}</div>
         </div>

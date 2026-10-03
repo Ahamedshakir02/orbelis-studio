@@ -27,7 +27,7 @@ export default function PageShell({ title, intro, children, footNote }) {
           </a>
           <a
             href="/"
-            className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-mist"
+            className="text-sm text-muted transition-colors hover:text-mist"
           >
             ← Back to the site
           </a>
@@ -36,7 +36,7 @@ export default function PageShell({ title, intro, children, footNote }) {
 
       <main id="content" className="container-x flex-1 py-20 md:py-28">
         <div className="max-w-3xl">
-          <h1 className="font-display text-4xl leading-[0.95] tracking-tightest md:text-6xl">
+          <h1 className="font-semibold text-4xl leading-[0.95] tracking-tightest md:text-6xl">
             {title}
           </h1>
           {intro && (
