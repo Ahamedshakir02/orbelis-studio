@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGsap } from '../lib/useGsap.js'
 import { splitWords } from '../lib/splitText.js'
@@ -8,8 +8,12 @@ import Magnetic from '../components/Magnetic.jsx'
 /**
  * BEAT 1 — the orb is already turning behind; the headline rises into it.
  *
- * The intro waits for the loader (`ready`) so the reveal is never half-hidden
- * behind the curtain.
+ * The intro waits for the loader (`ready`), and the copy stays hidden until
+ * then. Shown early, the finished headline is visible through the lifting
+ * curtain and then snaps away to animate in — the reveal playing twice.
+ *
+ * The intro is set up in a layout effect for the same reason: the words have
+ * to be in their starting position before the frame that makes them visible.
  */
 export default function Hero({ ready }) {
   const headline = useRef(null)
@@ -20,11 +24,13 @@ export default function Hero({ ready }) {
       yPercent: -12,
       opacity: 0.15,
       ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+      // The section itself is the scope root, so a '.hero' selector scoped to it
+      // matches nothing; hand ScrollTrigger the element.
+      scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true },
     })
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!ready) return
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const inners = splitWords(headline.current)
@@ -50,7 +56,12 @@ export default function Hero({ ready }) {
 
   return (
     <section ref={root} id="top" className="hero relative min-h-[100svh] w-full">
-      <div className="hero-inner container-x flex min-h-[100svh] flex-col justify-end pb-16 pt-32 md:pb-20">
+      <div
+        className={
+          'hero-inner container-x flex min-h-[100svh] flex-col justify-end pb-16 pt-32 md:pb-20' +
+          (ready ? '' : ' invisible')
+        }
+      >
         <p className="hero-fade eyebrow mb-8">
           {brand.full} — {brand.location}
         </p>
@@ -92,7 +103,12 @@ export default function Hero({ ready }) {
         </div>
       </div>
 
-      <div className="hero-fade pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block">
+      <div
+        className={
+          'hero-fade pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block' +
+          (ready ? '' : ' invisible')
+        }
+      >
         <span className="eyebrow">Scroll</span>
       </div>
     </section>

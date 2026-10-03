@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { brand } from '../data/site.js'
+import { lockScroll } from '../lib/scroll.js'
 
 const SHARDS = 12
 // Radii are in viewBox units on a 120x120 box centred at 60,60 — so anything
@@ -10,6 +11,28 @@ const SCATTERED = 52
 const ASSEMBLED = 22
 const RING_R = 30
 const RING_C = 2 * Math.PI * RING_R
+
+// Each shard keeps its own tumble so the swarm does not rotate as one body.
+const SPINS = Array.from({ length: SHARDS }, (_, i) => ((i * 47) % 100) / 100 - 0.5)
+
+/**
+ * Where shard `i` sits at progress `t` (0 scattered, 1 assembled).
+ *
+ * Used by the render as well as the animation: the first frame is painted from
+ * the markup, before any effect runs, so the markup has to carry the scattered
+ * positions itself. Left to the effect, every shard spends that frame stacked
+ * in the corner of the box.
+ */
+function shardTransform(i, t) {
+  const eased = t * t * (3 - 2 * t) // smoothstep, matching the hero object
+  const radius = SCATTERED + (ASSEMBLED - SCATTERED) * eased
+  const angle = (i / SHARDS) * Math.PI * 2
+  const x = 60 + Math.cos(angle) * radius
+  const y = 60 + Math.sin(angle) * radius
+  const spin = (1 - eased) * SPINS[i] * 420
+  const scale = 0.55 + eased * 0.45
+  return `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${spin.toFixed(1)}) scale(${scale.toFixed(3)})`
+}
 
 /**
  * The preloader.
@@ -27,7 +50,13 @@ const RING_C = 2 * Math.PI * RING_R
  *
  * The exit is a staggered column wipe rather than one panel sliding up —
  * fragments again, and it uncovers the hero left-to-right instead of all at
- * once.
+ * once. `onDone` fires as the wipe begins, not after it: the hero's own intro
+ * plays into the opening curtain, instead of the finished hero being shown
+ * through the gaps and then replaying once the curtain has gone.
+ *
+ * The page is held still while the loader is up. Without that a wheel or a
+ * swipe scrolls the document underneath, and the curtain lifts on the middle
+ * of the page with the hero already gone.
  *
  * Kept under two seconds. Long loaders read as slow, not premium.
  */
@@ -53,40 +82,34 @@ export default function Loader({ onDone }) {
       return
     }
 
-    // Each shard keeps its own tumble so the swarm does not rotate as one body.
-    const spins = Array.from({ length: SHARDS }, (_, i) => ((i * 47) % 100) / 100 - 0.5)
+    // Two locks, because there are two ways to scroll. Stopping Lenis covers
+    // the wheel; touch and the keyboard scroll natively, so the document is
+    // made unscrollable as well.
+    const html = document.documentElement
+    const release = () => {
+      html.style.overflow = ''
+      lockScroll(false, 'loader')
+    }
+    html.style.overflow = 'hidden'
+    lockScroll(true, 'loader')
 
     const paint = (v) => {
       const t = v / 100
-      const eased = t * t * (3 - 2 * t) // smoothstep, matching the hero object
-      const radius = SCATTERED + (ASSEMBLED - SCATTERED) * eased
-
-      shards.current.forEach((el, i) => {
-        if (!el) return
-        const angle = (i / SHARDS) * Math.PI * 2
-        const x = 60 + Math.cos(angle) * radius
-        const y = 60 + Math.sin(angle) * radius
-        const spin = (1 - eased) * spins[i] * 420
-        const scale = 0.55 + eased * 0.45
-        el.setAttribute(
-          'transform',
-          `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${spin.toFixed(1)}) scale(${scale.toFixed(3)})`,
-        )
-      })
-
+      shards.current.forEach((el, i) => el?.setAttribute('transform', shardTransform(i, t)))
       if (ring.current) {
         ring.current.style.strokeDashoffset = String(RING_C * (1 - t))
       }
     }
 
-    paint(0)
-
+    let out = null
     const obj = { v: 0 }
     const tl = gsap.timeline({
       onComplete: () => {
-        const out = gsap.timeline({ onComplete: () => done.current?.() })
+        out = gsap.timeline()
         out
           .to(content.current, { autoAlpha: 0, y: -20, duration: 0.4, ease: 'power2.in' })
+          // The hero starts its intro here, as the first column begins to lift.
+          .add(() => done.current?.(), '-=0.15')
           .to(
             columns.current,
             {
@@ -95,10 +118,12 @@ export default function Loader({ onDone }) {
               ease: 'expo.inOut',
               stagger: 0.07,
             },
-            '-=0.15',
+            '<',
           )
-          // Take the container out of the flow so nothing under it is trapped.
+          // Take the container out of the flow so nothing under it is trapped,
+          // and give the page back.
           .set(root.current, { autoAlpha: 0 })
+          .add(release)
       },
     })
 
@@ -112,7 +137,12 @@ export default function Loader({ onDone }) {
       },
     })
 
-    return () => tl.kill()
+    return () => {
+      tl.kill()
+      out?.kill()
+      // Never leave the page frozen if this unmounts mid-animation.
+      release()
+    }
   }, [])
 
   const label = count < 35 ? 'Loading' : count < 80 ? 'Assembling' : 'Ready'
@@ -167,7 +197,7 @@ export default function Loader({ onDone }) {
               transform="rotate(-90 60 60)"
             />
             {Array.from({ length: SHARDS }, (_, i) => (
-              <g key={i} ref={(el) => (shards.current[i] = el)}>
+              <g key={i} ref={(el) => (shards.current[i] = el)} transform={shardTransform(i, 0)}>
                 <path d="M 0 -5 L 4.3 2.5 L -4.3 2.5 Z" fill="#e8a33d" />
               </g>
             ))}
