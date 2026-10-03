@@ -2,17 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Two themes, one set of names.
+
+  Every colour in tailwind.config.js points at one of these variables, so a
+  class like `bg-surface` or `text-muted` means the right thing in either
+  theme and no component needs a `dark:` variant. Values are bare RGB channels
+  so opacity modifiers (`bg-bg/90`) keep working.
+
+  Dark is the default and the brand's home. Light is white and a parchment
+  grey, with the brass deepened so it still passes contrast as link text and
+  as a button behind white type.
+
+  `tile` is the alternate section background: sections swap between `bg` and
+  `tile`, and that change of colour is the divider between them.
+*/
 @layer base {
-  :root {
+  :root,
+  [data-theme='dark'] {
     color-scheme: dark;
+    --c-bg: 8 9 12;
+    --c-tile: 13 15 19;
+    --c-surface: 18 20 26;
+    --c-raised: 27 30 38;
+    --c-line: 36 40 49;
+    --c-mist: 232 234 240;
+    --c-muted: 135 142 158;
+    --c-brass: 232 163 61;
+    --c-ember: 180 118 42;
   }
+  [data-theme='light'] {
+    color-scheme: light;
+    --c-bg: 255 255 255;
+    --c-tile: 245 245 247;
+    --c-surface: 255 255 255;
+    --c-raised: 236 236 240;
+    --c-line: 222 222 227;
+    --c-mist: 29 29 31;
+    --c-muted: 96 98 105;
+    --c-brass: 150 92 12;
+    --c-ember: 122 74 8;
+  }
+
   html {
-    background-color: theme('colors.bg');
+    background-color: rgb(var(--c-bg));
     scroll-behavior: smooth;
   }
   body {
     margin: 0;
-    color: theme('colors.mist');
+    color: rgb(var(--c-mist));
     font-family: theme('fontFamily.body');
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -23,12 +61,12 @@
     scroll-margin-top: 4.5rem;
   }
   ::selection {
-    background: theme('colors.brass');
-    color: theme('colors.bg');
+    background: rgb(var(--c-brass));
+    color: rgb(var(--c-bg));
   }
   /* Keyboard users must always see where they are. */
   :focus-visible {
-    outline: 2px solid theme('colors.brass');
+    outline: 2px solid rgb(var(--c-brass));
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -46,6 +84,11 @@
   }
   .rule {
     @apply h-px w-full bg-line;
+  }
+  /* Full-width bands. Every second one sits on the alternate background, so
+     the page has a pulse without a single border between sections. */
+  .tile:nth-of-type(even) {
+    @apply bg-tile;
   }
   /* Off-screen until focused. */
   .skip-link {

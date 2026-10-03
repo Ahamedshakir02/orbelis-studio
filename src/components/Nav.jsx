@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { brand, nav } from '../data/site.js'
 import { lockScroll } from '../lib/scroll.js'
+import ThemeToggle from './ThemeToggle.jsx'
 
 /**
  * Header: wordmark left, four links centred, one action right. 56px tall.
@@ -59,7 +60,9 @@ export default function Nav() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="relative z-[95] flex items-center gap-3">
+            <ThemeToggle />
+
             {/* Only once a real number is set in site.js — see brand.whatsapp. */}
             {brand.whatsapp && (
               <a

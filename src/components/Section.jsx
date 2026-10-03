@@ -1,6 +1,7 @@
 /**
- * The one layout every section shares: a hairline, a small label in the left
- * column, the content in the right.
+ * The one layout every section shares: a full-width band, a small label in
+ * the left column, the content in the right. Bands alternate between the page
+ * colour and its neighbour (`.tile` in index.css); that change is the divider.
  *
  * Kept as a component so the rhythm of the page is decided in one place. A
  * minimal page lives or dies on consistent spacing, and nine sections each
@@ -11,7 +12,7 @@
  */
 export default function Section({ id, label, title, intro, children }) {
   return (
-    <section id={id} className="border-t border-line py-16 md:py-24">
+    <section id={id} className="tile py-16 md:py-24">
       <div className="container-x grid gap-8 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-3">
           <p className="eyebrow md:sticky md:top-20">{label}</p>

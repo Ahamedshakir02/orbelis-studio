@@ -3,19 +3,22 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
-      // Art direction: dark, quiet, technical.
-      // One dominant near-black, one brass accent, neutrals. Nothing else.
+      // Art direction: quiet and technical, in two themes.
+      // One page colour, one alternate band, one brass accent, neutrals.
+      // The values live in src/index.css as RGB channels, one set per theme;
+      // these names stay the same in both, so no component needs `dark:`.
       // `surface` and `raised` are the two steps above the page; hierarchy
       // comes from that lift and from hairlines, never from shadow.
       colors: {
-        bg: '#08090c',
-        surface: '#0f1116',
-        raised: '#161920',
-        brass: '#e8a33d',
-        ember: '#b4762a',
-        mist: '#e8eaf0',
-        muted: '#878e9e',
-        line: '#22262f',
+        bg: 'rgb(var(--c-bg) / <alpha-value>)',
+        tile: 'rgb(var(--c-tile) / <alpha-value>)',
+        surface: 'rgb(var(--c-surface) / <alpha-value>)',
+        raised: 'rgb(var(--c-raised) / <alpha-value>)',
+        brass: 'rgb(var(--c-brass) / <alpha-value>)',
+        ember: 'rgb(var(--c-ember) / <alpha-value>)',
+        mist: 'rgb(var(--c-mist) / <alpha-value>)',
+        muted: 'rgb(var(--c-muted) / <alpha-value>)',
+        line: 'rgb(var(--c-line) / <alpha-value>)',
       },
       fontFamily: {
         display: ['"Clash Display"', 'Georgia', 'serif'],

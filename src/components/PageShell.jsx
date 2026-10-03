@@ -1,4 +1,5 @@
 import { brand } from '../data/site.js'
+import ThemeToggle from './ThemeToggle.jsx'
 
 /**
  * Layout for the secondary pages — privacy, terms, 404.
@@ -25,12 +26,12 @@ export default function PageShell({ title, intro, children, footNote }) {
             {brand.name}
             <span className="text-brass">.</span>
           </a>
-          <a
-            href="/"
-            className="text-sm text-muted transition-colors hover:text-mist"
-          >
-            ← Back to the site
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="/" className="text-sm text-muted transition-colors hover:text-mist">
+              ← Back to the site
+            </a>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
