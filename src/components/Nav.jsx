@@ -130,6 +130,19 @@ export default function Nav({ ready }) {
               </span>
             </span>
 
+            {/* Only once a real number is set in site.js — see brand.whatsapp. */}
+            {brand.whatsapp && (
+              <a
+                href={`https://wa.me/${brand.whatsapp}`}
+                target="_blank"
+                rel="noreferrer noopener"
+                data-cursor="grow"
+                className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-mist lg:inline-block"
+              >
+                WhatsApp
+              </a>
+            )}
+
             <a
               href="#contact"
               onClick={(e) => goTo(e, '#contact')}

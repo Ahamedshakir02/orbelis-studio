@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGsap } from '../lib/useGsap.js'
 import { splitWords } from '../lib/splitText.js'
-import { brand } from '../data/site.js'
+import { brand, socials } from '../data/site.js'
 import Magnetic from '../components/Magnetic.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 
@@ -83,44 +83,53 @@ export default function Contact() {
             <div>
               <p className="eyebrow mb-3">Studio</p>
               {/* Real postal address: local search reads it, and anyone paying
-                  by invoice looks for it. */}
+                  by invoice looks for it. Street and phone appear only once
+                  they are set in site.js. */}
               <address className="text-base not-italic leading-relaxed text-muted">
-                {brand.address.street}
-                <br />
+                {brand.address.street && (
+                  <>
+                    {brand.address.street}
+                    <br />
+                  </>
+                )}
                 {brand.address.locality}, {brand.address.region}{' '}
                 {brand.address.postalCode}
                 <br />
                 India
               </address>
-              <p className="mt-3 text-base text-muted">
-                <a
-                  href={'tel:' + brand.phone.replace(/\s/g, '')}
-                  data-cursor="grow"
-                  className="transition-colors hover:text-mist"
-                >
-                  {brand.phone}
-                </a>
-              </p>
+              {brand.phone && (
+                <p className="mt-3 text-base text-muted">
+                  <a
+                    href={'tel:' + brand.phone.replace(/\s/g, '')}
+                    data-cursor="grow"
+                    className="transition-colors hover:text-mist"
+                  >
+                    {brand.phone}
+                  </a>
+                </p>
+              )}
             </div>
 
-            <div>
-              <p className="eyebrow mb-3">Elsewhere</p>
-              <ul className="space-y-1">
-                {brand.socials.map((s) => (
-                  <li key={s.label}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      data-cursor="grow"
-                      className="text-base text-muted transition-colors hover:text-mist"
-                    >
-                      {s.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {socials.length > 0 && (
+              <div>
+                <p className="eyebrow mb-3">Elsewhere</p>
+                <ul className="space-y-1">
+                  {socials.map((s) => (
+                    <li key={s.label}>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        data-cursor="grow"
+                        className="text-base text-muted transition-colors hover:text-mist"
+                      >
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
@@ -135,6 +144,10 @@ export default function Contact() {
             </a>
             <a href="/terms" data-cursor="grow" className="transition-colors hover:text-mist">
               Terms
+            </a>
+            {/* Generated from site.js by `npm run brochure`. */}
+            <a href="/orbelis-profile.pdf" data-cursor="grow" className="transition-colors hover:text-mist">
+              Company profile (PDF)
             </a>
           </nav>
 

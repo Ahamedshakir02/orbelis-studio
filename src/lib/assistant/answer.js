@@ -72,7 +72,7 @@ function matchIntent(query) {
   if (has(q, 'your work', 'portfolio', 'case stud', 'examples', 'show me', 'projects you', 'previous work')) {
     const lines = work.map((w) => `· ${w.title} (${w.status}, ${w.year}) — ${w.role}`).join('\n')
     return {
-      text: `Three, and the status on each is honest:\n\n${lines}\n\nThe Work section has the detail on all three, including what each one was built with.`,
+      text: `${work.length} on the page, and the status on each is honest:\n\n${lines}\n\nThe Work section has the detail on each, including what it was built with.`,
       source: { label: 'Work', href: '#work' },
     }
   }

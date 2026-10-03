@@ -20,6 +20,8 @@ import {
   availability,
   capabilities,
   manifesto,
+  flow,
+  audiences,
 } from '../../data/site.js'
 
 /** Extra query words a passage should match that its prose does not contain. */
@@ -32,7 +34,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A one-person studio building premium animated websites with a retrieval-grounded AI assistant behind them, based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} A one-person studio building premium animated websites with a retrieval-grounded AI assistant behind them, plus business automation for companies and brands, based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where',
   },
   {
@@ -76,15 +78,33 @@ export const passages = [
     title: s.title,
     href: '#services',
     text: `${s.title} — ${s.price}. ${s.body} Includes: ${s.points.join(', ')}.`,
-    keywords: `${money} service ${s.points.join(' ')}`,
+    keywords: `${money} service ${s.group} ${s.points.join(' ')}`,
   })),
   ...work.map((w) => ({
-    id: `work-${w.title}`,
+    id: `work-${w.id}`,
     section: 'Work',
     title: w.title,
     href: '#work',
     text: `${w.title} (${w.status}, ${w.year}). Role: ${w.role}. ${w.summary} Built with ${w.stack.join(', ')}. ${w.metrics.map((m) => `${m.k}: ${m.v}`).join('. ')}.`,
     keywords: 'work portfolio project case study example built client shipped previous',
+  })),
+  {
+    id: 'automation-flow',
+    section: 'Services & pricing',
+    title: 'How automation works',
+    href: '#services',
+    text: `One enquiry, followed start to finish. ${flow.map((f) => `${f.title}: ${f.body}`).join(' ')}`,
+    keywords:
+      'automation automate automated workflow whatsapp crm lead follow up reminder invoice approval report integration process',
+  },
+  ...audiences.map((a) => ({
+    id: `audience-${a.title}`,
+    section: 'Who it is for',
+    title: a.title,
+    href: '#services',
+    text: `${a.title}. ${a.body} Includes: ${a.outcomes.join(', ')}.`,
+    keywords:
+      'who for industry sector clients clinic hospital doctor school college institute startup founder brand company business',
   })),
   ...process.map((p) => ({
     id: `process-${p.step}`,

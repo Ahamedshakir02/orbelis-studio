@@ -17,7 +17,7 @@
  * treat a mismatch between structured data and visible content as a reason to
  * distrust the whole block.
  */
-import { brand, services, faq } from '../data/site.js'
+import { brand, socials, services, faq } from '../data/site.js'
 
 function graph() {
   const priceRange = '₹40,000 — ₹1,50,000'
@@ -29,14 +29,16 @@ function graph() {
         '@type': 'ProfessionalService',
         '@id': `${brand.url}/#studio`,
         name: brand.full,
-        description: `${brand.tagline} Premium animated websites with a retrieval-grounded AI assistant built in.`,
+        description: `${brand.tagline} Premium animated websites with a retrieval-grounded AI assistant built in, and business automation behind them.`,
         url: brand.url,
         email: brand.email,
         priceRange,
-        telephone: brand.phone,
+        // Unset fields are left out entirely: a null or placeholder value in
+        // structured data is worse than an absent one.
+        ...(brand.phone && { telephone: brand.phone }),
         address: {
           '@type': 'PostalAddress',
-          streetAddress: brand.address.street,
+          ...(brand.address.street && { streetAddress: brand.address.street }),
           addressLocality: brand.address.locality,
           addressRegion: brand.address.region,
           postalCode: brand.address.postalCode,
@@ -48,7 +50,7 @@ function graph() {
         ],
         knowsLanguage: ['en', 'ml'],
         foundingDate: '2026',
-        sameAs: brand.socials.map((s) => s.href),
+        ...(socials.length > 0 && { sameAs: socials.map((s) => s.href) }),
         slogan: brand.tagline,
         numberOfEmployees: { '@type': 'QuantitativeValue', value: 1 },
         makesOffer: services.map((s) => ({

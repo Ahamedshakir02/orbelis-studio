@@ -11,9 +11,16 @@ export const brand = {
   full: 'Orbelis Studio',
   tagline: 'Websites that move. Assistants that answer.',
   email: 'hello@orbelisstudio.com',
-  phone: '+91 00000 00000',
+  /**
+   * Phone, WhatsApp, street and social links are null until the real value
+   * exists. Nothing renders while a field is null — not in the footer, not in
+   * the mobile CTA, not in the structured data — so a placeholder can never
+   * reach a visitor or a crawler. Fill one in and it appears everywhere.
+   */
+  // Display format, e.g. '+91 98765 43210'.
+  phone: null,
   // Digits only, with country code — used to build wa.me links.
-  whatsapp: '910000000000',
+  whatsapp: null,
   location: 'Edappal, Kerala — working worldwide',
   url: 'https://orbelisstudio.com',
 
@@ -21,24 +28,27 @@ export const brand = {
    * Postal address. Shown in the footer and emitted as schema.org PostalAddress,
    * which is what local search reads.
    *
-   * PLACEHOLDER — `street` must be replaced with the real registered address
-   * before launch. A business address that does not resolve is worse than none:
-   * it fails verification, and for anyone paying by invoice it reads as a
-   * warning sign.
+   * `street` stays null until it is the real registered address. A business
+   * address that does not resolve is worse than none: it fails verification,
+   * and for anyone paying by invoice it reads as a warning sign.
    */
   address: {
-    street: '[REPLACE — street address]',
+    street: null,
     locality: 'Edappal',
     region: 'Kerala',
     postalCode: '679576',
     country: 'IN',
   },
+  // `href` must be the studio's own profile URL, never the bare domain.
   socials: [
-    { label: 'GitHub', href: 'https://github.com/' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/' },
-    { label: 'Instagram', href: 'https://instagram.com/' },
+    { label: 'GitHub', href: null },
+    { label: 'LinkedIn', href: null },
+    { label: 'Instagram', href: null },
   ],
 }
+
+/** Only the social links that actually point somewhere. */
+export const socials = brand.socials.filter((s) => s.href)
 
 export const nav = [
   { label: 'Work', href: '#work' },
@@ -49,13 +59,18 @@ export const nav = [
 
 export const manifesto = [
   'Most business websites are brochures that sit still and answer nothing.',
-  'We build the opposite: sites that move with intent, and an assistant behind them that knows your business and replies at 2am.',
+  'We build the opposite: sites that move with intent, an assistant behind them that knows your business and replies at 2am, and the automation that carries the enquiry the rest of the way.',
   'One person on your project. No account managers. No template.',
 ]
 
+/**
+ * `group` sorts the list into two bands: what gets built once, and what keeps
+ * running afterwards. The section labels each card with it.
+ */
 export const services = [
   {
     index: '01',
+    group: 'Build',
     title: 'Brand & landing sites',
     price: '₹40k — ₹70k',
     body: 'A single, considered page built for one job: making a stranger trust you in eight seconds. Scroll-driven motion, real typography, sub-second load.',
@@ -63,6 +78,7 @@ export const services = [
   },
   {
     index: '02',
+    group: 'Build',
     title: 'Full sites & booking',
     price: '₹80k — ₹1.5L',
     body: 'Multi-page sites with the machinery underneath — enquiry flows, appointment requests, content you can edit yourself, and a dashboard that shows what is working.',
@@ -70,6 +86,7 @@ export const services = [
   },
   {
     index: '03',
+    group: 'Run',
     title: 'AI assistant layer',
     price: '+ ₹25k setup',
     body: 'A retrieval-grounded assistant trained on your own documents, prices and policies. It answers in your voice, cites your material, and hands off to a human when it should.',
@@ -77,15 +94,30 @@ export const services = [
   },
   {
     index: '04',
+    group: 'Run',
+    title: 'Business automation',
+    price: 'From ₹30k setup',
+    body: 'The repetitive work between your tools, done without anyone retyping it. Enquiries followed up, leads logged, invoices and approvals moved along, and a report that writes itself. It starts with a short audit of what is actually worth automating, because most of it is not.',
+    points: ['WhatsApp & lead follow-up', 'CRM & spreadsheet sync', 'Invoices, onboarding, approvals', 'Weekly report of hours saved'],
+  },
+  {
+    index: '05',
+    group: 'Run',
     title: 'Care & retainer',
     price: '₹5k — ₹15k / month',
-    body: 'Hosting, uptime, content updates, assistant retraining and a monthly report. The site stays fast and current instead of decaying quietly.',
-    points: ['Managed hosting', 'Content updates', 'Assistant upkeep', 'Monthly report'],
+    body: 'Hosting, uptime, content updates, assistant retraining, automation upkeep and a monthly report. The site stays fast and current instead of decaying quietly.',
+    points: ['Managed hosting', 'Content updates', 'Assistant & automation upkeep', 'Monthly report'],
   },
 ]
 
+/**
+ * `id` is the stable handle for an entry — titles get reworded, ids do not.
+ * `href` is optional: add it once a project has a public URL and the card
+ * grows a link; leave it off and nothing renders.
+ */
 export const work = [
   {
+    id: 'dr-evide',
     title: 'Dr Evide',
     status: 'Live',
     year: '2026',
@@ -100,6 +132,7 @@ export const work = [
     accent: '#e8a33d',
   },
   {
+    id: 'clinic-site',
     title: 'Clinic site + assistant',
     status: 'Concept',
     year: '2026',
@@ -114,6 +147,7 @@ export const work = [
     accent: '#7fb3d5',
   },
   {
+    id: 'institution-microsite',
     title: 'Institution microsite',
     status: 'Concept',
     year: '2026',
@@ -126,6 +160,55 @@ export const work = [
       { k: 'Content', v: 'Editable by staff' },
     ],
     accent: '#a3d5a1',
+  },
+]
+
+/** The three costs a visitor recognises before any service is named. */
+export const problems = [
+  {
+    title: 'Enquiries go cold after hours',
+    body: 'Someone asks at ten at night, gets a reply at eleven the next morning, and has already booked somewhere else.',
+  },
+  {
+    title: 'The same ten questions, answered by hand',
+    body: 'Timings, fees, eligibility, delivery. Typed out again by whoever happens to pick up the phone.',
+  },
+  {
+    title: 'Work that lives in copy and paste',
+    body: 'A form, a spreadsheet, a WhatsApp group and an invoice tool, held together by a person retyping between them.',
+  },
+]
+
+/** One enquiry, followed end to end — what the assistant and automation do together. */
+export const flow = [
+  { step: '01', title: 'Enquiry arrives', body: 'By form, chat or WhatsApp, at any hour.' },
+  { step: '02', title: 'Assistant answers', body: 'From your own documents, in Malayalam or English.' },
+  { step: '03', title: 'Lead is logged', body: 'Into your CRM or spreadsheet, with what was asked.' },
+  { step: '04', title: 'Follow-up goes out', body: 'On WhatsApp or email, at the right moment, without anyone remembering to.' },
+  { step: '05', title: 'You get the report', body: 'Weekly: what came in, what was answered, what still needs a person.' },
+]
+
+/** Who the studio builds for, and what each gets. */
+export const audiences = [
+  {
+    title: 'Clinics & healthcare',
+    body: 'Patients ask the same questions at every hour. The site answers them and the front desk gets its day back.',
+    outcomes: ['Appointment requests without phone tag', 'Timings, fees and preparation answered', 'Reminders sent automatically', 'Departments and doctors easy to find'],
+  },
+  {
+    title: 'Institutions',
+    body: 'Admissions season should not mean the office phone ringing all day about eligibility.',
+    outcomes: ['Programme explorer', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can edit'],
+  },
+  {
+    title: 'Founders',
+    body: 'One page that makes a stranger trust you, and a way to catch everyone it convinces.',
+    outcomes: ['A landing site in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read'],
+  },
+  {
+    title: 'Brands & companies',
+    body: 'The work between your tools, taken off the people currently doing it by hand.',
+    outcomes: ['Follow-up that never forgets', 'Orders, invoices and approvals moved along', 'Reports that write themselves', 'The tools you already use, connected'],
   },
 ]
 
@@ -180,9 +263,11 @@ export const availability = {
 export const marquee = [
   'Animated websites',
   'AI assistants',
+  'Business automation',
   'Clinics & healthcare',
   'Institutions',
   'Founders',
+  'Brands',
   'Malayalam + English',
   'Two week builds',
   'No paid ranking',
@@ -206,11 +291,11 @@ export const stats = [
 export const assistant = {
   name: 'Orb',
   intro:
-    "I'm Orb — the same kind of assistant we build into client sites. I answer from this studio's own material: services, prices, process, timelines. Ask me anything, or take a shortcut:",
+    "I'm Orb — the same kind of assistant we build into client sites. I answer from this studio's own material: services, automation, prices, process, timelines. Ask me anything, or take a shortcut:",
   suggestions: [
     'What does a landing site cost?',
     'How long does a build take?',
-    'What exactly is the AI assistant?',
+    'What can you automate for a business?',
     'Are you available right now?',
   ],
   // Shown when retrieval finds nothing confident enough to stand behind.
@@ -223,7 +308,17 @@ export const projectTypes = [
   'Brand or landing site',
   'Full site with booking',
   'AI assistant layer',
+  'Business automation',
   'Care & retainer',
+  'Something else',
+]
+
+/** Asked in the enquiry form so the first reply can be specific to the business. */
+export const businessTypes = [
+  'Clinic or healthcare',
+  'School, college or institute',
+  'Brand or company',
+  'Founder or startup',
   'Something else',
 ]
 
@@ -238,7 +333,7 @@ export const budgets = [
 export const faq = [
   {
     q: 'What does a project actually cost?',
-    a: 'A landing site runs ₹40,000 to ₹70,000, a full site with booking flows ₹80,000 to ₹1.5 lakh, and the AI assistant adds ₹25,000 to set up. Ranges are on this page on purpose — you should know before you call.',
+    a: 'A landing site runs ₹40,000 to ₹70,000, a full site with booking flows ₹80,000 to ₹1.5 lakh, and the AI assistant adds ₹25,000 to set up, and business automation starts at ₹30,000. Ranges are on this page on purpose — you should know before you call.',
   },
   {
     q: 'How long does it take?',
@@ -247,6 +342,14 @@ export const faq = [
   {
     q: 'What is the AI assistant, in plain terms?',
     a: 'A chat window on your site that has read your own documents — prices, timings, policies, procedures. It answers from that material rather than making things up, replies in Malayalam or English, and hands off to a human when a question is beyond it.',
+  },
+  {
+    q: 'What can you automate?',
+    a: 'The repetitive steps between tools: following up an enquiry on WhatsApp or email, logging leads into a CRM or spreadsheet, sending reminders, moving invoices and approvals along, and compiling a weekly report. It starts with a short audit, and anything not worth automating gets said so.',
+  },
+  {
+    q: 'Do I have to change the tools I already use?',
+    a: 'No. Automation is built around what your team already works in — your forms, spreadsheets, CRM, WhatsApp and email — rather than asking everyone to move to something new.',
   },
   {
     q: 'Can I edit the site myself afterwards?',

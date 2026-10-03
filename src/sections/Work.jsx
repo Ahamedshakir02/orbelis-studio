@@ -109,7 +109,7 @@ export default function Work() {
         <div className="work-track container-x flex flex-col gap-6 md:h-full md:flex-row md:items-center md:gap-8 md:pr-[20vw]">
           {work.map((item) => (
             <article
-              key={item.title}
+              key={item.id}
               className="group relative flex w-full shrink-0 flex-col justify-between rounded-2xl border border-line bg-surface/70 p-8 backdrop-blur-sm transition-colors hover:border-brass/40 md:h-[62vh] md:w-[46vw] md:p-10"
               data-cursor="grow"
             >
@@ -145,6 +145,20 @@ export default function Work() {
                 <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted md:text-base">
                   {item.summary}
                 </p>
+
+                {/* Only for projects with a public URL — see `href` in site.js. */}
+                {item.href && (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    data-cursor="grow"
+                    className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-brass transition-colors hover:text-mist"
+                  >
+                    Visit {item.title}
+                    <span aria-hidden>↗</span>
+                  </a>
+                )}
               </div>
 
               <div className="mt-10">
