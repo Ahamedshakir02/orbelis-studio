@@ -1,7 +1,7 @@
 # Orbelis Studio
 
-Studio site for Orbelis Studio — premium animated websites with a
-retrieval-grounded AI assistant behind them.
+Studio site for Orbelis Studio — fast, clear websites with a
+retrieval-grounded AI assistant behind them, and the automation after it.
 
 ## Stack
 
@@ -104,8 +104,16 @@ tuned against real questions, not vibes.
 
 ## Architecture notes
 
+**Two themes, one set of names.** Colours are CSS variables in
+`src/index.css`, one set for dark and one for light; `tailwind.config.js`
+points every colour name at them, so no component carries a `dark:` variant.
+An inline script in each HTML file sets the theme before first paint (stored
+choice, else the system setting) and `ThemeToggle` flips it.
+
 **One layout.** Every section goes through `src/components/Section.jsx`: a
-hairline, a label in the left column, content in the right. Spacing and heading
+full-width band, a label in the left column, content in the right. Bands
+alternate between the page colour and its neighbour, and that change of colour
+is the divider. Spacing and heading
 scale are decided there, so the rhythm of the page is one decision rather than
 twelve.
 
