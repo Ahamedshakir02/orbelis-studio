@@ -15,6 +15,8 @@ export default {
   content: [
     resolve(here, '../../src/**/*.{js,jsx}'),
     resolve(here, '../previews/**/*.tsx'),
+    // Every class the conventions header teaches has to exist in the stylesheet.
+    resolve(here, '../conventions.md'),
   ],
   safelist: [
     { pattern: /^(bg|text|border)-(bg|surface|raised|brass|ember|mist|muted|line)$/ },

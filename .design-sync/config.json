@@ -28,5 +28,6 @@
     "Magnetic": {
       "cardMode": "column"
     }
-  }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
 }

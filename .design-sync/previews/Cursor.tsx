@@ -2,8 +2,10 @@ import { Cursor } from 'orbelis-studio'
 
 // Mounted once beside the page content. The ring trails the pointer on
 // desktop and grows over links, buttons and [data-cursor="grow"] targets.
+// It is invisible until the pointer moves, so a still image shows only the
+// targets.
 export const OverLinks = () => (
-  <div className="p-10">
+  <div className="bg-bg p-10 text-mist">
     <Cursor />
     <p className="eyebrow mb-6">Move the pointer over these</p>
     <div className="flex flex-wrap items-center gap-6">
