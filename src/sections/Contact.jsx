@@ -12,12 +12,12 @@ export default function Contact() {
   return (
     <footer id="contact" className="bg-tile pt-16 md:pt-24">
       <div className="container-x">
-        <div className="grid gap-8 md:grid-cols-12 md:gap-10">
-          <div className="md:col-span-3">
-            <p className="eyebrow md:sticky md:top-24">Start a project</p>
+        <div className="grid gap-6 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-3">
+            <p className="eyebrow lg:sticky lg:top-20">Start a project</p>
           </div>
 
-          <div className="md:col-span-9">
+          <div className="lg:col-span-9">
             <h2 className="max-w-2xl font-semibold text-3xl leading-[1.08] tracking-tight md:text-4xl">
               Tell me what is slowing you down.
             </h2>
@@ -32,7 +32,7 @@ export default function Contact() {
                   <p className="eyebrow mb-2">Email</p>
                   <a
                     href={'mailto:' + brand.email}
-                    className="break-words text-sm text-mist underline-offset-4 transition-colors hover:text-brass hover:underline"
+                    className="inline-flex min-h-10 items-center break-all text-sm text-mist underline-offset-4 transition-colors hover:text-brass hover:underline"
                   >
                     {brand.email}
                   </a>
@@ -91,20 +91,20 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-line py-8 text-xs text-muted md:mt-24 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-2 border-t border-line py-6 text-xs text-muted md:mt-24 md:flex-row md:items-center md:justify-between">
           <span>
             © {year} {brand.full}
           </span>
 
-          <nav className="flex flex-wrap gap-5" aria-label="Legal">
-            <a href="/privacy" className="transition-colors hover:text-mist">
+          <nav className="flex flex-wrap gap-x-5" aria-label="Legal">
+            <a href="/privacy" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
               Privacy
             </a>
-            <a href="/terms" className="transition-colors hover:text-mist">
+            <a href="/terms" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
               Terms
             </a>
             {/* Generated from site.js by `npm run brochure`. */}
-            <a href="/orbelis-profile.pdf" className="transition-colors hover:text-mist">
+            <a href="/orbelis-profile.pdf" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
               Company profile (PDF)
             </a>
           </nav>

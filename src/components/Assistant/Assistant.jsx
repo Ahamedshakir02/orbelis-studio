@@ -191,7 +191,7 @@ export default function Assistant() {
         aria-expanded={open}
         aria-controls="assistant-panel"
         /* Clears the sticky mobile CTA bar; back to the corner from md up. */
-        className="fixed bottom-24 right-4 z-[95] flex h-14 w-14 items-center justify-center rounded-full bg-brass text-bg transition-colors hover:bg-mist md:bottom-8 md:right-8"
+        className="fixed bottom-24 right-4 z-[95] flex h-14 w-14 items-center justify-center rounded-full bg-brass text-bg transition hover:bg-mist active:scale-[0.97] md:bottom-8 md:right-8"
       >
         <span className="sr-only">{open ? 'Close' : 'Open'} the studio assistant</span>
         {open ? (

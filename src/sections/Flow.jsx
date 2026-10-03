@@ -14,7 +14,7 @@ export default function Flow() {
       title="One enquiry, start to finish."
       intro="Nobody remembers to do any of this. That is the point."
     >
-      <ol className="grid gap-8 sm:grid-cols-2 md:grid-cols-5 md:gap-6">
+      <ol className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 xl:grid-cols-5">
         {flow.map((f) => (
           <li key={f.step} className="border-t border-line pt-5">
             <span className="font-mono text-xs text-muted">{f.step}</span>

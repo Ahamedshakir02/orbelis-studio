@@ -307,7 +307,7 @@ export default function EnquiryForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex h-11 items-center gap-2 rounded-lg bg-brass px-5 text-sm font-medium text-bg transition-colors hover:bg-mist disabled:opacity-50"
+          className="inline-flex h-11 items-center gap-2 rounded-lg bg-brass px-5 text-sm font-medium text-bg transition hover:bg-mist active:scale-[0.97] disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending…' : 'Send enquiry'}
           <span aria-hidden>→</span>

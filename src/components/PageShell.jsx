@@ -21,13 +21,13 @@ export default function PageShell({ title, intro, children, footNote }) {
       </a>
 
       <header className="border-b border-line">
-        <div className="container-x flex h-16 items-center justify-between md:h-20">
-          <a href="/" className="font-display text-lg tracking-tight">
+        <div className="container-x flex h-14 items-center justify-between">
+          <a href="/" className="inline-flex h-10 items-center font-display text-lg tracking-tight">
             {brand.name}
             <span className="text-brass">.</span>
           </a>
           <div className="flex items-center gap-4">
-            <a href="/" className="text-sm text-muted transition-colors hover:text-mist">
+            <a href="/" className="inline-flex h-10 items-center text-sm text-muted transition-colors hover:text-mist">
               ← Back to the site
             </a>
             <ThemeToggle />
@@ -56,16 +56,16 @@ export default function PageShell({ title, intro, children, footNote }) {
           <span>
             © {year} {brand.full}
           </span>
-          <nav className="flex flex-wrap gap-5" aria-label="Legal">
-            <a href="/privacy" className="transition-colors hover:text-mist">
+          <nav className="flex flex-wrap gap-x-5" aria-label="Legal">
+            <a href="/privacy" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
               Privacy
             </a>
-            <a href="/terms" className="transition-colors hover:text-mist">
+            <a href="/terms" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
               Terms
             </a>
             <a
               href={'mailto:' + brand.email}
-              className="transition-colors hover:text-mist"
+              className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist"
             >
               {brand.email}
             </a>

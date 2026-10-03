@@ -44,7 +44,7 @@ export default function ThemeToggle({ className = '' }) {
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
       className={
-        'flex h-8 w-8 items-center justify-center rounded-lg border border-line bg-surface text-muted transition-colors hover:bg-raised hover:text-mist ' +
+        'flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-surface text-muted transition hover:bg-raised hover:text-mist active:scale-[0.95] ' +
         className
       }
     >
