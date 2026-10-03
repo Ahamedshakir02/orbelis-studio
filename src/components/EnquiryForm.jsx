@@ -159,7 +159,6 @@ export default function EnquiryForm() {
             value={values.name}
             onChange={set('name')}
             autoComplete="name"
-            data-cursor="grow"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? 'ef-name-error' : undefined}
             className={FIELD + (errors.name ? ' border-brass' : '')}
@@ -183,7 +182,6 @@ export default function EnquiryForm() {
             value={values.email}
             onChange={set('email')}
             autoComplete="email"
-            data-cursor="grow"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? 'ef-email-error' : undefined}
             className={FIELD + (errors.email ? ' border-brass' : '')}
@@ -206,7 +204,6 @@ export default function EnquiryForm() {
           name="business"
           value={values.business}
           onChange={set('business')}
-          data-cursor="grow"
           className={FIELD}
         >
           {businessTypes.map((t) => (
@@ -227,7 +224,6 @@ export default function EnquiryForm() {
             name="projectType"
             value={values.projectType}
             onChange={set('projectType')}
-            data-cursor="grow"
             className={FIELD}
           >
             {projectTypes.map((t) => (
@@ -247,7 +243,6 @@ export default function EnquiryForm() {
             name="budget"
             value={values.budget}
             onChange={set('budget')}
-            data-cursor="grow"
             className={FIELD}
           >
             {budgets.map((b) => (
@@ -268,7 +263,6 @@ export default function EnquiryForm() {
           name="blocker"
           value={values.blocker}
           onChange={set('blocker')}
-          data-cursor="grow"
           className={FIELD}
           placeholder="Enquiries we answer too late, a report someone builds by hand every Monday."
         />
@@ -284,7 +278,6 @@ export default function EnquiryForm() {
           rows={4}
           value={values.message}
           onChange={set('message')}
-          data-cursor="grow"
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'ef-message-error' : undefined}
           className={FIELD + ' resize-none' + (errors.message ? ' border-brass' : '')}
@@ -314,7 +307,6 @@ export default function EnquiryForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          data-cursor="grow"
           className="inline-flex items-center gap-3 rounded-full bg-brass px-7 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-mist disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending…' : 'Send enquiry'}
@@ -325,7 +317,6 @@ export default function EnquiryForm() {
           Or email{' '}
           <a
             href={'mailto:' + brand.email}
-            data-cursor="grow"
             className="text-brass underline underline-offset-4"
           >
             {brand.email}

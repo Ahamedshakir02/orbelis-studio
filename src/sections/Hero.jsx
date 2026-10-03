@@ -1,115 +1,41 @@
-import { useLayoutEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { useGsap } from '../lib/useGsap.js'
-import { splitWords } from '../lib/splitText.js'
 import { brand } from '../data/site.js'
-import Magnetic from '../components/Magnetic.jsx'
 
 /**
- * BEAT 1 — the orb is already turning behind; the headline rises into it.
- *
- * The intro waits for the loader (`ready`), and the copy stays hidden until
- * then. Shown early, the finished headline is visible through the lifting
- * curtain and then snaps away to animate in — the reveal playing twice.
- *
- * The intro is set up in a layout effect for the same reason: the words have
- * to be in their starting position before the frame that makes them visible.
+ * The opening statement: who, what, and one thing to do next. No object, no
+ * reveal — the headline is simply there when the page arrives.
  */
-export default function Hero({ ready }) {
-  const headline = useRef(null)
-
-  const root = useGsap(() => {
-    // Parallax the hero copy out as the page moves on.
-    gsap.to('.hero-inner', {
-      yPercent: -12,
-      opacity: 0.15,
-      ease: 'none',
-      // The section itself is the scope root, so a '.hero' selector scoped to it
-      // matches nothing; hand ScrollTrigger the element.
-      scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true },
-    })
-  }, [])
-
-  useLayoutEffect(() => {
-    if (!ready) return
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const inners = splitWords(headline.current)
-
-    // Two-tone headline: the first sentence at full strength, the second
-    // stepped back, so the pair reads as statement and answer. Done on the
-    // split words because splitWords flattens any markup inside the heading.
-    let second = false
-    inners.forEach((word) => {
-      if (second) word.classList.add('text-mist/50')
-      if (word.textContent.endsWith('.')) second = true
-    })
-
-    const tl = gsap.timeline({ defaults: { ease: 'expo.out' } })
-    if (reduce) {
-      tl.set([inners, '.hero-fade'], { y: 0, opacity: 1 })
-    } else {
-      tl.from(inners, { yPercent: 115, duration: 1.1, stagger: 0.055 })
-        .from('.hero-fade', { y: 24, opacity: 0, duration: 0.9, stagger: 0.08 }, '-=0.65')
-    }
-    return () => tl.kill()
-  }, [ready])
-
+export default function Hero() {
   return (
-    <section ref={root} id="top" className="hero relative min-h-[100svh] w-full">
-      <div
-        className={
-          'hero-inner container-x flex min-h-[100svh] flex-col justify-end pb-16 pt-32 md:pb-20' +
-          (ready ? '' : ' invisible')
-        }
-      >
-        <p className="hero-fade eyebrow mb-8">
-          {brand.full} — {brand.location}
-        </p>
+    <section id="top" className="container-x pb-20 pt-36 md:pb-28 md:pt-48">
+      <p className="eyebrow mb-8">
+        {brand.full} — {brand.location}
+      </p>
 
-        <h1
-          ref={headline}
-          className="font-display text-[13vw] leading-[0.86] tracking-tightest md:text-[9.5vw] lg:text-[8.5vw]"
+      <h1 className="max-w-3xl font-display text-4xl leading-[1.02] tracking-tightest md:text-6xl">
+        Websites that move. <span className="text-mist/50">Assistants that answer.</span>
+      </h1>
+
+      <p className="mt-8 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+        A one-person studio building premium animated websites, the AI assistant
+        behind them, and the automation that follows every enquiry through.
+        Built in Kerala, for clinics, institutions, founders and brands who are
+        tired of brochures.
+      </p>
+
+      <div className="mt-10 flex flex-wrap items-center gap-6">
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-3 rounded-full bg-brass px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-mist"
         >
-          Websites that move. Assistants that answer.
-        </h1>
-
-        <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <p className="hero-fade max-w-md text-base leading-relaxed text-muted md:text-lg">
-            A one-person studio building premium animated websites, the AI
-            assistant behind them, and the automation that follows every
-            enquiry through. Built in Kerala, for clinics, institutions,
-            founders and brands who are tired of brochures.
-          </p>
-
-          <div className="hero-fade flex items-center gap-4">
-            <Magnetic>
-              <a
-                href="#contact"
-                data-cursor="grow"
-                className="inline-flex items-center gap-3 rounded-full bg-brass px-7 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-mist"
-              >
-                Start a project
-                <span aria-hidden>→</span>
-              </a>
-            </Magnetic>
-            <a
-              href="#work"
-              data-cursor="grow"
-              className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-mist"
-            >
-              See the work
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className={
-          'hero-fade pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block' +
-          (ready ? '' : ' invisible')
-        }
-      >
-        <span className="eyebrow">Scroll</span>
+          Start a project
+          <span aria-hidden>→</span>
+        </a>
+        <a
+          href="#work"
+          className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted underline-offset-4 transition-colors hover:text-mist hover:underline"
+        >
+          See the work
+        </a>
       </div>
     </section>
   )

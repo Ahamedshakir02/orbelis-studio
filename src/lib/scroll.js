@@ -1,76 +1,41 @@
-import { create } from 'zustand'
+/**
+ * Scrolling, the plain way.
+ *
+ * The page scrolls natively. There is no smooth-scroll loop and no scroll
+ * store: nothing on the site reacts to scroll position except the mobile CTA
+ * bar, which listens for itself. What is left here is the two things more than
+ * one component needs.
+ */
+
+const reduceMotion = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 /**
- * Global scroll state.
- *
- * Why a store and not props: the R3F canvas lives in its own renderer tree.
- * Passing scroll progress down through React props forces re-renders every
- * frame and fights the render loop. Instead Lenis writes here once per frame,
- * and useFrame inside the canvas reads `getState().progress` with zero React
- * re-renders. This is the pattern that keeps 3D + scroll at 60fps.
+ * Scroll to a selector or element. The offset for the sticky header lives in
+ * CSS (`scroll-margin-top` on sections), so it also applies to plain #hash
+ * links and to a page opened directly at an anchor.
  */
-export const useScroll = create((set) => ({
-  // 0..1 progress through the whole page
-  progress: 0,
-  // raw pixel scroll
-  scrollY: 0,
-  // current velocity (useful for motion-reactive effects)
-  velocity: 0,
-  set,
-}))
-
-// Non-reactive setter for the per-frame hot path. Calling the store's
-// set() every frame is fine, but reading via getState avoids subscriptions.
-export const setScroll = (payload) => useScroll.setState(payload)
-export const getScroll = () => useScroll.getState()
-
-/**
- * A handle on the live Lenis instance.
- *
- * Anything that needs to move the page programmatically (the assistant jumping
- * to a cited section, a modal locking the scroll) MUST go through Lenis. Calling
- * scrollIntoView() or window.scrollTo() instead fights the smooth-scroll loop
- * and produces the classic snap-then-drift.
- */
-let lenisInstance = null
+export function scrollToTarget(target) {
+  const el = typeof target === 'string' ? document.querySelector(target) : target
+  if (!el) return
+  el.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' })
+}
 
 /**
  * Who is currently holding the page still.
  *
- * A set of owners rather than one flag. The loader, the mobile menu and the
- * assistant each lock and release on their own schedule, and each releases on
- * mount as a safety net — with a single flag, the assistant arriving late
- * (it is lazy-loaded) released the loader's lock and the page scrolled
- * underneath the curtain. The page moves only when nobody holds it.
+ * A set of owners rather than one flag: the mobile menu and the assistant lock
+ * and release on their own schedule, and each releases on mount as a safety
+ * net. With a single flag, one overlay releasing undoes the other's lock.
  */
 const locks = new Set()
-const applyLocks = () => {
-  if (!lenisInstance) return
-  if (locks.size) lenisInstance.stop()
-  else lenisInstance.start()
-}
 
-export const setLenis = (l) => {
-  lenisInstance = l
-  // A lock taken before Lenis existed still counts once it does.
-  applyLocks()
-}
-export const getLenis = () => lenisInstance
-
-/** Smooth-scroll to a selector or element, falling back to native if Lenis is gone. */
-export function scrollToTarget(target, opts = {}) {
-  const el = typeof target === 'string' ? document.querySelector(target) : target
-  if (!el) return
-  if (lenisInstance) lenisInstance.scrollTo(el, { offset: -80, duration: 1.2, ...opts })
-  else el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
-
-/**
- * Freeze/unfreeze the page — used while a full-screen overlay is open.
- * `owner` names the caller, so one overlay releasing cannot undo another's lock.
- */
+/** Freeze/unfreeze the page — used while a full-screen overlay is open. */
 export function lockScroll(locked, owner = 'page') {
   if (locked) locks.add(owner)
   else locks.delete(owner)
-  applyLocks()
+  if (typeof document !== 'undefined') {
+    document.documentElement.style.overflow = locks.size ? 'hidden' : ''
+  }
 }

@@ -7,8 +7,8 @@
     color-scheme: dark;
   }
   html {
-    /* Lenis drives scroll; never set scroll-behavior:smooth or it double-smooths. */
     background-color: theme('colors.bg');
+    scroll-behavior: smooth;
   }
   body {
     margin: 0;
@@ -17,18 +17,16 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    /*
-      The system cursor is never hidden. The accent ring in Cursor.jsx trails
-      behind it as decoration; it does not replace it. Hiding the real pointer
-      makes the whole page depend on one decorative element rendering
-      correctly, and takes the OS cursor theme away from anyone who set one.
-    */
+  }
+  /* Anchored sections stop below the sticky header instead of under it. */
+  [id] {
+    scroll-margin-top: 5rem;
   }
   ::selection {
     background: theme('colors.brass');
     color: theme('colors.bg');
   }
-  /* Keyboard users must always see focus, even though the mouse cursor is hidden. */
+  /* Keyboard users must always see where they are. */
   :focus-visible {
     outline: 2px solid theme('colors.brass');
     outline-offset: 3px;
@@ -37,8 +35,9 @@
 }
 
 @layer components {
+  /* One narrow column. The page is read, not toured. */
   .container-x {
-    @apply mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16;
+    @apply mx-auto w-full max-w-[1120px] px-6 md:px-10;
   }
   .eyebrow {
     @apply font-mono text-[11px] uppercase tracking-[0.22em] text-muted;
@@ -46,7 +45,7 @@
   .rule {
     @apply h-px w-full bg-line;
   }
-  /* Off-screen until focused, then above the loader so it is never buried. */
+  /* Off-screen until focused. */
   .skip-link {
     @apply fixed left-4 top-4 z-[300] -translate-y-24 rounded-full bg-brass px-5 py-3
            font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-transform
@@ -54,20 +53,11 @@
   }
 }
 
-/* Procedural film grain via SVG noise — no image asset needed. */
-.grain {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
-
-/* Masked line-reveal helper used by splitWords(). */
-.mask-line {
-  overflow: hidden;
-  display: block;
-}
-
-/* Users who ask for reduced motion get a static, readable page. */
+/* Users who ask for reduced motion get no smooth scrolling and no transitions. */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
@@ -75,10 +65,4 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-}
-
-/* Infinite ticker. The track is duplicated, so -50% is a seamless loop point. */
-@keyframes marquee {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
 }

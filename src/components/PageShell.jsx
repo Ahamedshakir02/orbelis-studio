@@ -3,10 +3,9 @@ import { brand } from '../data/site.js'
 /**
  * Layout for the secondary pages — privacy, terms, 404.
  *
- * Deliberately quiet: no WebGL canvas, no scroll choreography, no assistant.
- * These pages exist to be read, and someone who has landed on the privacy
- * policy is looking for a specific sentence, not a performance. Keeping them
- * static also means they carry none of the home page's weight.
+ * Deliberately quiet: no assistant, no sticky call to action. These pages
+ * exist to be read, and someone who has landed on the privacy policy is
+ * looking for a specific sentence.
  *
  * They still use the same tokens, type and rules, so they read as the same
  * studio rather than a bolted-on legal annex.
@@ -22,13 +21,12 @@ export default function PageShell({ title, intro, children, footNote }) {
 
       <header className="border-b border-line">
         <div className="container-x flex h-16 items-center justify-between md:h-20">
-          <a href="/" className="font-display text-lg tracking-tight" data-cursor="grow">
+          <a href="/" className="font-display text-lg tracking-tight">
             {brand.name}
             <span className="text-brass">.</span>
           </a>
           <a
             href="/"
-            data-cursor="grow"
             className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-mist"
           >
             ← Back to the site

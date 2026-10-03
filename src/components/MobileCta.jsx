@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
+import { useEffect, useState } from 'react'
 import { brand } from '../data/site.js'
-import { useScroll, scrollToTarget } from '../lib/scroll.js'
 
 /**
  * Sticky call to action, phones only.
@@ -21,49 +19,41 @@ import { useScroll, scrollToTarget } from '../lib/scroll.js'
  * founders in Kerala — it is the channel people actually reply on.
  */
 export default function MobileCta() {
-  const bar = useRef(null)
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const decide = (s) => {
-      const doc = document.documentElement
+    const decide = () => {
       const contact = document.getElementById('contact')
-      const pastHero = s.scrollY > window.innerHeight * 0.9
+      const y = window.scrollY
+      const pastHero = y > window.innerHeight * 0.9
       // Treat "contact is on screen" as reaching its top, not its middle —
       // by then the form is what the visitor is looking at.
       const atContact = contact
-        ? s.scrollY + window.innerHeight > contact.offsetTop + 160
-        : s.scrollY + window.innerHeight > doc.scrollHeight - 200
+        ? y + window.innerHeight > contact.offsetTop + 160
+        : y + window.innerHeight > document.documentElement.scrollHeight - 200
       setShow(pastHero && !atContact)
     }
-    decide(useScroll.getState())
-    return useScroll.subscribe(decide)
+    decide()
+    window.addEventListener('scroll', decide, { passive: true })
+    window.addEventListener('resize', decide)
+    return () => {
+      window.removeEventListener('scroll', decide)
+      window.removeEventListener('resize', decide)
+    }
   }, [])
-
-  useEffect(() => {
-    const el = bar.current
-    if (!el) return
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    gsap.to(el, {
-      yPercent: show ? 0 : 140,
-      autoAlpha: show ? 1 : 0,
-      duration: reduce ? 0 : 0.45,
-      ease: show ? 'expo.out' : 'power2.in',
-    })
-  }, [show])
 
   return (
     <div
-      ref={bar}
-      className="invisible fixed inset-x-0 bottom-0 z-[94] flex items-center gap-2 border-t border-line bg-bg/90 px-3 pt-3 backdrop-blur-md md:hidden"
+      // `inert` while hidden: off-screen is not the same as out of the tab order.
+      inert={show ? undefined : ''}
+      className={
+        'fixed inset-x-0 bottom-0 z-[94] flex items-center gap-2 border-t border-line bg-bg/90 px-3 pt-3 backdrop-blur-md transition-transform duration-300 md:hidden ' +
+        (show ? 'translate-y-0' : 'translate-y-full')
+      }
       style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
     >
       <a
         href="#contact"
-        onClick={(e) => {
-          e.preventDefault()
-          scrollToTarget('#contact')
-        }}
         className="flex flex-1 items-center justify-center gap-2 rounded-full bg-brass px-5 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-bg"
       >
         Start a project

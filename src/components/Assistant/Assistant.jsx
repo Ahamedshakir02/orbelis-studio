@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
 import { brand, assistant as cfg } from '../../data/site.js'
 import { ask, isRemoteEnabled } from '../../lib/assistant/ask.js'
 import { scrollToTarget, lockScroll } from '../../lib/scroll.js'
@@ -54,7 +53,6 @@ function Message({ msg, onCite }) {
           <button
             type="button"
             onClick={() => onCite(msg.source.href)}
-            data-cursor="grow"
             className="mt-2 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-brass"
           >
             <span className="h-1 w-1 rounded-full bg-brass" aria-hidden />
@@ -67,7 +65,7 @@ function Message({ msg, onCite }) {
   )
 }
 
-export default function Assistant({ ready }) {
+export default function Assistant() {
   const [open, setOpen] = useState(false)
   const [busy, setBusy] = useState(false)
   const [input, setInput] = useState('')
@@ -82,40 +80,18 @@ export default function Assistant({ ready }) {
 
   const showSuggestions = messages.length === 1 && !busy
 
-  // Reveal the launcher only once the loader has lifted — a chat bubble
-  // floating over the preloader reads as an ad, not a feature.
+  // Open/close: the panel's own classes do the fade. Here, freeze the page
+  // behind it on small screens (a full-screen sheet with the page scrolling
+  // underneath feels broken) and move focus into the field.
   useEffect(() => {
-    if (!ready || !launcher.current) return
-    gsap.fromTo(
-      launcher.current,
-      { scale: 0, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.7)', delay: 1.2 },
-    )
-  }, [ready])
-
-  // Open/close: animate the panel, freeze the page behind it on small screens
-  // (a full-screen sheet with the page scrolling underneath feels broken).
-  useEffect(() => {
-    const el = panel.current
-    if (!el) return
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const mobile = window.matchMedia('(max-width: 767px)').matches
-
-    if (open) {
-      if (mobile) lockScroll(true, 'assistant')
-      gsap.fromTo(
-        el,
-        { autoAlpha: 0, y: reduce ? 0 : 24, scale: reduce ? 1 : 0.97 },
-        { autoAlpha: 1, y: 0, scale: 1, duration: reduce ? 0 : 0.45, ease: 'expo.out' },
-      )
-      // Let the open animation start before stealing focus, or the browser
-      // scrolls the half-positioned panel into view.
-      const t = setTimeout(() => field.current?.focus(), reduce ? 0 : 220)
-      return () => clearTimeout(t)
+    if (!open) {
+      lockScroll(false, 'assistant')
+      return
     }
-
-    lockScroll(false, 'assistant')
-    gsap.to(el, { autoAlpha: 0, y: reduce ? 0 : 16, duration: reduce ? 0 : 0.25, ease: 'power2.in' })
+    if (window.matchMedia('(max-width: 767px)').matches) lockScroll(true, 'assistant')
+    // The panel is `invisible` until this render commits; focus after it is not.
+    const t = setTimeout(() => field.current?.focus(), 60)
+    return () => clearTimeout(t)
   }, [open])
 
   // Release the scroll lock if the component unmounts while open.
@@ -199,7 +175,7 @@ export default function Assistant({ ready }) {
   const onCite = useCallback(
     (href) => {
       if (window.matchMedia('(max-width: 767px)').matches) setOpen(false)
-      // Wait a frame so the scroll lock is released before Lenis is asked to move.
+      // Wait a frame so the scroll lock is released before the page is asked to move.
       requestAnimationFrame(() => scrollToTarget(href))
     },
     [],
@@ -214,9 +190,8 @@ export default function Assistant({ ready }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="assistant-panel"
-        data-cursor="grow"
         /* Clears the sticky mobile CTA bar; back to the corner from md up. */
-        className="fixed bottom-24 right-4 z-[95] flex h-14 w-14 items-center justify-center rounded-full border border-brass/40 bg-brass text-bg opacity-0 shadow-[0_8px_40px_rgba(232,163,61,0.28)] transition-transform duration-300 hover:scale-105 md:bottom-8 md:right-8"
+        className="fixed bottom-24 right-4 z-[95] flex h-14 w-14 items-center justify-center rounded-full bg-brass text-bg transition-colors hover:bg-mist md:bottom-8 md:right-8"
       >
         <span className="sr-only">{open ? 'Close' : 'Open'} the studio assistant</span>
         {open ? (
@@ -224,7 +199,6 @@ export default function Assistant({ ready }) {
             <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
           </svg>
         ) : (
-          /* The orb, echoing the hero object. */
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
             <circle cx="11" cy="11" r="7.2" stroke="currentColor" strokeWidth="1.5" />
             <ellipse cx="11" cy="11" rx="7.2" ry="3" stroke="currentColor" strokeWidth="1.2" opacity="0.75" />
@@ -241,10 +215,10 @@ export default function Assistant({ ready }) {
         aria-modal="false"
         aria-label={`${cfg.name} — ${brand.full} assistant`}
         className={
-          'invisible fixed z-[96] flex flex-col overflow-hidden border border-line bg-surface/95 opacity-0 backdrop-blur-xl ' +
+          'fixed z-[96] flex flex-col overflow-hidden border border-line bg-surface transition-[opacity,transform,visibility] duration-200 ' +
           'inset-x-3 bottom-40 top-16 rounded-2xl ' +
           'md:inset-auto md:bottom-28 md:right-8 md:top-auto md:h-[560px] md:max-h-[calc(100vh-9rem)] md:w-[400px] ' +
-          (open ? '' : 'pointer-events-none')
+          (open ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible translate-y-2 opacity-0')
         }
       >
         {/* Header */}
@@ -265,7 +239,6 @@ export default function Assistant({ ready }) {
           <button
             type="button"
             onClick={close}
-            data-cursor="grow"
             className="rounded-full border border-line p-2 text-muted transition-colors hover:border-brass hover:text-brass"
           >
             <span className="sr-only">Close assistant</span>
@@ -302,7 +275,6 @@ export default function Assistant({ ready }) {
                   key={s}
                   type="button"
                   onClick={() => send(s)}
-                  data-cursor="grow"
                   className="rounded-full border border-line px-3 py-2 text-left text-[11px] leading-tight text-muted transition-colors hover:border-brass hover:text-brass"
                 >
                   {s}
@@ -333,7 +305,6 @@ export default function Assistant({ ready }) {
             <button
               type="submit"
               disabled={!input.trim() || busy}
-              data-cursor="grow"
               className="shrink-0 rounded-lg bg-brass px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-bg transition-opacity disabled:opacity-30"
             >
               Send
@@ -345,7 +316,6 @@ export default function Assistant({ ready }) {
             <a
               href={'mailto:' + brand.email}
               className="text-brass underline underline-offset-2"
-              data-cursor="grow"
             >
               {brand.email}
             </a>

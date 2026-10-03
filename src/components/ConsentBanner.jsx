@@ -50,7 +50,6 @@ export default function ConsentBanner() {
         <button
           type="button"
           onClick={() => decide('granted')}
-          data-cursor="grow"
           className="rounded-full bg-brass px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-mist"
         >
           Accept
@@ -58,14 +57,12 @@ export default function ConsentBanner() {
         <button
           type="button"
           onClick={() => decide('denied')}
-          data-cursor="grow"
           className="rounded-full border border-line px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-mist transition-colors hover:border-brass hover:text-brass"
         >
           Decline
         </button>
         <a
           href="/privacy"
-          data-cursor="grow"
           className="text-xs text-muted underline underline-offset-4 transition-colors hover:text-mist"
         >
           Privacy policy

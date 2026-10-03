@@ -57,7 +57,6 @@ function NotFound() {
             <li key={l.href}>
               <a
                 href={l.href}
-                data-cursor="grow"
                 className="flex items-center justify-between py-5 font-display text-xl tracking-tight transition-colors hover:text-brass md:text-2xl"
               >
                 {l.label}
