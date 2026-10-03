@@ -1,0 +1,9 @@
+/*
+  The site loads its fonts with <link> tags in index.html. A design built from
+  the synced bundle only ever receives a stylesheet, so the same three families
+  are imported here instead.
+*/
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import '../../src/index.css';

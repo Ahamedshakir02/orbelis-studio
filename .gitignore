@@ -40,3 +40,12 @@ Thumbs.db
 .cache
 .vite
 coverage
+
+# design-sync — staged scripts, build output and machine state
+.ds-sync/
+ds-bundle/
+dist-ds/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
+!.design-sync/build/

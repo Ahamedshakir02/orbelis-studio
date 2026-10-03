@@ -1,0 +1,32 @@
+{
+  "projectId": "5e3062b0-3cbe-437a-95ce-87aef84d4ad0",
+  "pkg": "orbelis-studio",
+  "globalName": "OrbelisStudio",
+  "shape": "package",
+  "buildCmd": "npx vite build --config .design-sync/build/vite.config.js",
+  "entry": "./dist-ds/index.js",
+  "cssEntry": "dist-ds/style.css",
+  "componentSrcMap": {
+    "Magnetic": "src/components/Magnetic.jsx",
+    "Marquee": "src/components/Marquee.jsx",
+    "Counter": "src/components/Counter.jsx",
+    "Cursor": "src/components/Cursor.jsx"
+  },
+  "dtsPropsFor": {
+    "Magnetic": "/** The element that leans toward the pointer — usually one button or link. */ children: React.ReactNode; /** How far it follows the pointer, as a fraction of the pointer's offset from centre. Default 0.3; use ~0.15 for text links. */ strength?: number; /** Extra classes on the inline-block wrapper. */ className?: string;",
+    "Marquee": "/** Labels shown in the ticker, in order. */ items: string[]; /** Seconds for one full loop; higher is slower. Default 34. */ speed?: number;",
+    "Counter": "/** The number to count up to. */ value: number; /** Text appended after the number, e.g. 'fps', ' weeks', '+'. */ suffix?: string; /** Classes on the span — set the type size and face here. */ className?: string;",
+    "Cursor": "/* Takes no props. Mount once at the page root. */"
+  },
+  "overrides": {
+    "Marquee": {
+      "cardMode": "column"
+    },
+    "Counter": {
+      "cardMode": "column"
+    },
+    "Magnetic": {
+      "cardMode": "column"
+    }
+  }
+}
