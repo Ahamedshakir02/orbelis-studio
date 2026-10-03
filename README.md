@@ -9,10 +9,10 @@ retrieval-grounded AI assistant behind them, and the automation after it.
 |---|---|
 | Build | Vite + React 18 |
 | Styling | Tailwind CSS |
-| Motion | CSS transitions only |
+| Motion | CSS only — an entrance, a scroll reveal, a button press |
 
 No animation library, no smooth-scroll loop and no WebGL. The page is a single
-quiet column: it scrolls natively and renders in full on first paint.
+quiet column: it scrolls natively and is complete in the markup on first paint.
 
 ## Getting started
 
@@ -133,8 +133,21 @@ the page under their own name. One releasing cannot undo the other's lock.
 services are plain lists, and nothing is hidden waiting for an animation. The
 assistant and the enquiry form both work with no backend configured.
 
-**Reduced motion.** `prefers-reduced-motion` turns off smooth scrolling and
-the few transitions there are.
+**Motion, three moves.** `rise` eases the hero in line by line; `reveal`
+fades a section up the first time it scrolls into view; buttons give slightly
+under the finger. All three live in `src/index.css`. `useReveal()` hides a
+block only after mount and only if it starts below the fold, so nothing is
+hidden in the markup and nothing already on screen blinks.
+
+**The hero panel is real data.** `HeroPanel.jsx` shows one question answered
+and the automation steps that follow, read from `site.js` — the price in it is
+the published price.
+
+**Sizes.** The label column appears from 1024px; below that every section uses
+the full width. Interactive targets are at least 40px in both directions.
+
+**Reduced motion.** `prefers-reduced-motion` turns off smooth scrolling, the
+entrance, the reveal and the transitions. Print shows everything.
 
 ## Images
 
