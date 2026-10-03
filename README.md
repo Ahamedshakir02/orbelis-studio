@@ -8,10 +8,11 @@ retrieval-grounded AI assistant behind them.
 | Layer | Choice |
 |---|---|
 | Build | Vite + React 18 |
-| Motion | GSAP + ScrollTrigger |
-| Smooth scroll | Lenis (driven by the GSAP ticker) |
-| 3D | React Three Fiber + drei |
 | Styling | Tailwind CSS |
+| Motion | CSS transitions only |
+
+No animation library, no smooth-scroll loop and no WebGL. The page is a single
+quiet column: it scrolls natively and renders in full on first paint.
 
 ## Getting started
 
@@ -103,39 +104,29 @@ tuned against real questions, not vibes.
 
 ## Architecture notes
 
-**One ticker.** Lenis is driven by `gsap.ticker` with `lagSmoothing(0)`, and
-`ScrollTrigger.update` is called from Lenis's scroll event. Never add a second
-`requestAnimationFrame` loop — two clocks fighting is the usual cause of scroll
-stutter. See `src/lib/SmoothScroll.jsx`.
+**One layout.** Every section goes through `src/components/Section.jsx`: a
+hairline, a label in the left column, content in the right. Spacing and heading
+scale are decided there, so the rhythm of the page is one decision rather than
+twelve.
 
-**3D reads scroll from a store, not props.** `src/lib/scroll.js` holds scroll
-progress and velocity. The hero object reads it inside `useFrame`, so scrolling
-never triggers a React re-render.
+**Reading order.** Hero, Approach, Standards, Work, Problems, Services,
+Automation flow, Who it is for, Process, Studio, Questions, Contact.
 
-**Scroll spine.** The page is choreographed as six beats:
+**Native scrolling.** In-page links are plain `#hash` anchors. CSS provides the
+smoothing (`scroll-behavior`) and the offset below the sticky header
+(`scroll-margin-top`), so both also apply to a page opened directly at an
+anchor. `src/lib/scroll.js` holds the two shared helpers: `scrollToTarget`
+for the assistant's citations, and `lockScroll` for overlays.
 
-1. Hero — headline rises into the turning orb
-2. Manifesto — lines brighten on scrub
-3. Work — pinned horizontal gallery
-4. Services — sticky-stacked cards
-5. Process — drawn rule with staggered steps
-6. Contact — oversized CTA
+**Overlays hold their own lock.** The mobile menu and the assistant each lock
+the page under their own name. One releasing cannot undo the other's lock.
 
-Three quieter sections sit around the services beat and only fade in, so they
-add reading without adding choreography: Problems (the costs, before the
-services), Flow (one enquiry followed through the assistant and automation) and
-Audience (who it is for, and what each gets).
+**No script, still readable.** The FAQ is native `<details>`, the work and
+services are plain lists, and nothing is hidden waiting for an animation. The
+assistant and the enquiry form both work with no backend configured.
 
-**Graceful degradation.** `prefers-reduced-motion` swaps the WebGL canvas for a
-static gradient and disables the reveals. The horizontal gallery falls back to a
-vertical stack below 768px. The assistant and the enquiry form both work with
-no backend configured, and the custom cursor stands down for touch and
-reduced-motion users.
-
-**One scroll owner.** Nothing calls `scrollIntoView()` or `window.scrollTo()`.
-In-page anchors are intercepted once in `SmoothScroll.jsx` and routed through
-Lenis; overlays freeze the page with `lockScroll()`. A native jump alongside a
-smooth-scroll loop is the "it snapped and then slid" bug.
+**Reduced motion.** `prefers-reduced-motion` turns off smooth scrolling and
+the few transitions there are.
 
 ## Images
 
