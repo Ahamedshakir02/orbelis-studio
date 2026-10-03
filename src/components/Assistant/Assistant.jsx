@@ -102,7 +102,7 @@ export default function Assistant({ ready }) {
     const mobile = window.matchMedia('(max-width: 767px)').matches
 
     if (open) {
-      if (mobile) lockScroll(true)
+      if (mobile) lockScroll(true, 'assistant')
       gsap.fromTo(
         el,
         { autoAlpha: 0, y: reduce ? 0 : 24, scale: reduce ? 1 : 0.97 },
@@ -114,12 +114,12 @@ export default function Assistant({ ready }) {
       return () => clearTimeout(t)
     }
 
-    lockScroll(false)
+    lockScroll(false, 'assistant')
     gsap.to(el, { autoAlpha: 0, y: reduce ? 0 : 16, duration: reduce ? 0 : 0.25, ease: 'power2.in' })
   }, [open])
 
   // Release the scroll lock if the component unmounts while open.
-  useEffect(() => () => lockScroll(false), [])
+  useEffect(() => () => lockScroll(false, 'assistant'), [])
 
   // Escape closes; Tab cycles inside the panel while it is open.
   useEffect(() => {

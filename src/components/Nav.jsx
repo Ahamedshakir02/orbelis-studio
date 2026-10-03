@@ -44,7 +44,7 @@ export default function Nav({ ready }) {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (open) {
-      lockScroll(true)
+      lockScroll(true, 'nav')
       const tl = gsap.timeline()
       tl.set(el, { autoAlpha: 1 })
       if (!reduce) {
@@ -54,12 +54,12 @@ export default function Nav({ ready }) {
       return () => tl.kill()
     }
 
-    lockScroll(false)
+    lockScroll(false, 'nav')
     gsap.to(el, { autoAlpha: 0, duration: reduce ? 0 : 0.3, ease: 'power2.in' })
   }, [open])
 
   // Never leave the page frozen if this unmounts mid-animation.
-  useEffect(() => () => lockScroll(false), [])
+  useEffect(() => () => lockScroll(false, 'nav'), [])
 
   useEffect(() => {
     if (!open) return
