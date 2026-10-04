@@ -57,10 +57,10 @@ function NotFound() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="flex items-center justify-between py-5 font-semibold text-xl tracking-tight transition-colors hover:text-brass md:text-2xl"
+                className="flex items-center justify-between py-5 font-semibold text-xl tracking-tight transition-colors hover:text-link md:text-2xl"
               >
                 {l.label}
-                <span aria-hidden className="font-mono text-brass">
+                <span aria-hidden className="font-mono text-link">
                   →
                 </span>
               </a>
@@ -72,7 +72,7 @@ function NotFound() {
           useful —{' '}
           <a
             href={'mailto:' + brand.email}
-            className="text-brass underline underline-offset-4"
+            className="text-link underline underline-offset-4"
           >
             {brand.email}
           </a>

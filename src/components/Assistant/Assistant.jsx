@@ -42,7 +42,7 @@ function Message({ msg, onCite }) {
           className={
             'whitespace-pre-line rounded-2xl px-4 py-3 text-[13px] leading-relaxed md:text-sm ' +
             (isUser
-              ? 'rounded-br-sm bg-brass text-bg'
+              ? 'rounded-br-sm bg-action text-onaction'
               : 'rounded-bl-sm border border-line bg-raised text-mist')
           }
         >
@@ -53,7 +53,7 @@ function Message({ msg, onCite }) {
           <button
             type="button"
             onClick={() => onCite(msg.source.href)}
-            className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted transition-colors hover:text-brass"
+            className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted transition-colors hover:text-link"
           >
             <span className="h-1 w-1 rounded-full bg-brass" aria-hidden />
             {msg.source.label}
@@ -190,8 +190,8 @@ export default function Assistant() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="assistant-panel"
-        /* Clears the sticky mobile CTA bar; back to the corner from md up. */
-        className="fixed bottom-24 right-4 z-[95] flex h-14 w-14 items-center justify-center rounded-full bg-brass text-bg transition hover:bg-mist active:scale-[0.97] md:bottom-8 md:right-8"
+        /* Steps up when the sticky mobile CTA shows — see .launcher in index.css. */
+        className="launcher fixed bottom-5 right-4 z-[95] flex h-12 w-12 items-center justify-center rounded-full bg-action text-onaction transition hover:bg-actionhover active:scale-[0.97] md:bottom-8 md:right-8 md:h-14 md:w-14"
       >
         <span className="sr-only">{open ? 'Close' : 'Open'} the studio assistant</span>
         {open ? (
@@ -239,7 +239,7 @@ export default function Assistant() {
           <button
             type="button"
             onClick={close}
-            className="rounded-full border border-line p-2 text-muted transition-colors hover:border-brass hover:text-brass"
+            className="rounded-full border border-line p-2 text-muted transition-colors hover:border-link hover:text-link"
           >
             <span className="sr-only">Close assistant</span>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
@@ -275,7 +275,7 @@ export default function Assistant() {
                   key={s}
                   type="button"
                   onClick={() => send(s)}
-                  className="rounded-full border border-line px-3 py-2 text-left text-[11px] leading-tight text-muted transition-colors hover:border-brass hover:text-brass"
+                  className="rounded-full border border-line px-3 py-2 text-left text-[11px] leading-tight text-muted transition-colors hover:border-link hover:text-link"
                 >
                   {s}
                 </button>
@@ -292,7 +292,7 @@ export default function Assistant() {
           }}
           className="border-t border-line p-3"
         >
-          <div className="flex items-center gap-2 rounded-xl border border-line bg-bg px-3 py-2 focus-within:border-brass/60">
+          <div className="flex items-center gap-2 rounded-xl border border-line bg-bg px-3 py-2 focus-within:border-link/60">
             <input
               ref={field}
               value={input}
@@ -305,7 +305,7 @@ export default function Assistant() {
             <button
               type="submit"
               disabled={!input.trim() || busy}
-              className="shrink-0 rounded-md bg-brass px-3 py-1.5 text-xs font-medium text-bg transition-opacity disabled:opacity-30"
+              className="shrink-0 rounded-md bg-action px-3 py-1.5 text-xs font-medium text-onaction transition-opacity disabled:opacity-30"
             >
               Send
             </button>
@@ -315,7 +315,7 @@ export default function Assistant() {
             Answers come from this site's own content. For anything else —{' '}
             <a
               href={'mailto:' + brand.email}
-              className="text-brass underline underline-offset-2"
+              className="text-link underline underline-offset-2"
             >
               {brand.email}
             </a>

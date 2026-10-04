@@ -10,9 +10,10 @@
   theme and no component needs a `dark:` variant. Values are bare RGB channels
   so opacity modifiers (`bg-bg/90`) keep working.
 
-  Dark is the default and the brand's home. Light is white and a parchment
-  grey, with the brass deepened so it still passes contrast as link text and
-  as a button behind white type.
+  Dark is the default and the brand's home: brass fills the buttons and
+  colours the links. Light is white and a parchment grey, where brass on white
+  cannot carry text — so buttons turn near-black, links a deep amber, and the
+  bright brass is kept for small marks only.
 
   `tile` is the alternate section background: sections swap between `bg` and
   `tile`, and that change of colour is the divider between them.
@@ -30,6 +31,10 @@
     --c-muted: 135 142 158;
     --c-brass: 232 163 61;
     --c-ember: 180 118 42;
+    --c-action: 232 163 61;
+    --c-action-hover: 232 234 240;
+    --c-on-action: 8 9 12;
+    --c-link: 232 163 61;
   }
   [data-theme='light'] {
     color-scheme: light;
@@ -40,8 +45,12 @@
     --c-line: 222 222 227;
     --c-mist: 29 29 31;
     --c-muted: 96 98 105;
-    --c-brass: 150 92 12;
+    --c-brass: 217 142 30;
     --c-ember: 122 74 8;
+    --c-action: 29 29 31;
+    --c-action-hover: 66 66 71;
+    --c-on-action: 255 255 255;
+    --c-link: 138 83 0;
   }
 
   html {
@@ -62,11 +71,11 @@
   }
   ::selection {
     background: rgb(var(--c-brass));
-    color: rgb(var(--c-bg));
+    color: rgb(8 9 12);
   }
   /* Keyboard users must always see where they are. */
   :focus-visible {
-    outline: 2px solid rgb(var(--c-brass));
+    outline: 2px solid rgb(var(--c-link));
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -92,8 +101,8 @@
   }
   /* Off-screen until focused. */
   .skip-link {
-    @apply fixed left-4 top-4 z-[300] -translate-y-24 rounded-lg bg-brass px-4 py-2.5
-           text-sm font-medium text-bg transition-transform
+    @apply fixed left-4 top-4 z-[300] -translate-y-24 rounded-lg bg-action px-4 py-2.5
+           text-sm font-medium text-onaction transition-transform
            focus:translate-y-0;
   }
 }
@@ -138,6 +147,23 @@ body,
   transition:
     background-color 0.25s ease,
     color 0.25s ease;
+}
+
+/*
+  On phones the assistant button sits low, in the corner. When the sticky call
+  to action slides up it would be covered, so it steps up out of the way.
+  MobileCta sets `data-cta` on <html> while its bar is showing.
+*/
+@media (max-width: 767px) {
+  .launcher {
+    transition:
+      bottom 0.3s ease,
+      background-color 0.15s ease,
+      transform 0.15s ease;
+  }
+  html[data-cta] .launcher {
+    bottom: 5.5rem;
+  }
 }
 
 /* Paper has no scroll position: print everything, fully shown. */

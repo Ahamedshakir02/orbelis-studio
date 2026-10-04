@@ -78,7 +78,7 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={close}
-              className="hidden h-10 items-center rounded-lg bg-brass px-3.5 text-sm font-medium text-bg transition hover:bg-mist active:scale-[0.97] sm:inline-flex"
+              className="hidden h-10 items-center rounded-lg bg-action px-3.5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.97] sm:inline-flex"
             >
               Start a project
             </a>

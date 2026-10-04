@@ -31,7 +31,7 @@ export default function Faq() {
 
       <p className="mt-8 text-sm text-muted">
         Still stuck?{' '}
-        <a href={'mailto:' + brand.email} className="text-brass underline underline-offset-4">
+        <a href={'mailto:' + brand.email} className="text-link underline underline-offset-4">
           Email directly
         </a>
         .

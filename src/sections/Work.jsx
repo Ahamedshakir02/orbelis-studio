@@ -82,7 +82,7 @@ export default function Work() {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brass transition-colors hover:text-mist"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-link transition-colors hover:text-mist"
               >
                 Visit {item.title}
                 <span aria-hidden>↗</span>

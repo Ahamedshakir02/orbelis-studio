@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { brand, projectTypes, budgets, businessTypes } from '../data/site.js'
 
 /**
@@ -25,7 +25,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 const FIELD =
   'w-full rounded-lg border border-line bg-surface px-3.5 py-3 text-sm text-mist outline-none ' +
-  'transition-colors placeholder:text-muted/60 focus:border-brass/70'
+  'transition-colors placeholder:text-muted/60 focus:border-link/70'
 
 const LABEL = 'mb-2 block text-[13px] font-medium text-muted'
 
@@ -71,6 +71,17 @@ export default function EnquiryForm() {
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const formRef = useRef(null)
+
+  // "Enquire" on a service row arrives here with that service's project type,
+  // so the visitor does not have to find it again in the list.
+  useEffect(() => {
+    const onEnquire = (e) => {
+      if (!projectTypes.includes(e.detail)) return
+      setValues((v) => ({ ...v, projectType: e.detail }))
+    }
+    window.addEventListener('orbelis:enquire', onEnquire)
+    return () => window.removeEventListener('orbelis:enquire', onEnquire)
+  }, [])
 
   const set = (key) => (e) => {
     const value = e.target.value
@@ -132,7 +143,7 @@ export default function EnquiryForm() {
     return (
       <div
         role="status"
-        className="rounded-2xl border border-brass/30 bg-surface/70 p-8 md:p-10"
+        className="rounded-2xl border border-link/30 bg-surface/70 p-8 md:p-10"
       >
         <p className="eyebrow mb-4">Received</p>
         <h3 className="font-semibold text-2xl tracking-tight md:text-3xl">
@@ -161,11 +172,11 @@ export default function EnquiryForm() {
             autoComplete="name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? 'ef-name-error' : undefined}
-            className={FIELD + (errors.name ? ' border-brass' : '')}
+            className={FIELD + (errors.name ? ' border-link' : '')}
             placeholder="Your name"
           />
           {errors.name && (
-            <p id="ef-name-error" role="alert" className="mt-2 text-xs text-brass">
+            <p id="ef-name-error" role="alert" className="mt-2 text-xs text-link">
               {errors.name}
             </p>
           )}
@@ -184,11 +195,11 @@ export default function EnquiryForm() {
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? 'ef-email-error' : undefined}
-            className={FIELD + (errors.email ? ' border-brass' : '')}
+            className={FIELD + (errors.email ? ' border-link' : '')}
             placeholder="you@company.com"
           />
           {errors.email && (
-            <p id="ef-email-error" role="alert" className="mt-2 text-xs text-brass">
+            <p id="ef-email-error" role="alert" className="mt-2 text-xs text-link">
               {errors.email}
             </p>
           )}
@@ -280,11 +291,11 @@ export default function EnquiryForm() {
           onChange={set('message')}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'ef-message-error' : undefined}
-          className={FIELD + ' resize-none' + (errors.message ? ' border-brass' : '')}
+          className={FIELD + ' resize-none' + (errors.message ? ' border-link' : '')}
           placeholder="A clinic site with appointment requests, and an assistant that handles timings and fees."
         />
         {errors.message && (
-          <p id="ef-message-error" role="alert" className="mt-2 text-xs text-brass">
+          <p id="ef-message-error" role="alert" className="mt-2 text-xs text-link">
             {errors.message}
           </p>
         )}
@@ -307,7 +318,7 @@ export default function EnquiryForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex h-11 items-center gap-2 rounded-lg bg-brass px-5 text-sm font-medium text-bg transition hover:bg-mist active:scale-[0.97] disabled:opacity-50"
+          className="inline-flex h-11 items-center gap-2 rounded-lg bg-action px-5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.97] disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending…' : 'Send enquiry'}
           <span aria-hidden>→</span>
@@ -317,7 +328,7 @@ export default function EnquiryForm() {
           Or email{' '}
           <a
             href={'mailto:' + brand.email}
-            className="text-brass underline underline-offset-4"
+            className="text-link underline underline-offset-4"
           >
             {brand.email}
           </a>
@@ -325,7 +336,7 @@ export default function EnquiryForm() {
       </div>
 
       {status === 'error' && (
-        <p role="alert" className="text-xs leading-relaxed text-brass">
+        <p role="alert" className="text-xs leading-relaxed text-link">
           That did not send — the fault is ours, not yours. Email{' '}
           <a href={'mailto:' + brand.email} className="underline underline-offset-4">
             {brand.email}

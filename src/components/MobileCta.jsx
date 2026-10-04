@@ -31,7 +31,10 @@ export default function MobileCta() {
       const atContact = contact
         ? y + window.innerHeight > contact.offsetTop + 160
         : y + window.innerHeight > document.documentElement.scrollHeight - 200
-      setShow(pastHero && !atContact)
+      const visible = pastHero && !atContact
+      setShow(visible)
+      // Tells the assistant button to step up out of the bar's way.
+      document.documentElement.toggleAttribute('data-cta', visible)
     }
     decide()
     window.addEventListener('scroll', decide, { passive: true })
@@ -39,6 +42,7 @@ export default function MobileCta() {
     return () => {
       window.removeEventListener('scroll', decide)
       window.removeEventListener('resize', decide)
+      document.documentElement.removeAttribute('data-cta')
     }
   }, [])
 
@@ -54,7 +58,7 @@ export default function MobileCta() {
     >
       <a
         href="#contact"
-        className="flex h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-brass px-5 text-sm font-medium text-bg"
+        className="flex h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-action px-5 text-sm font-medium text-onaction"
       >
         Start a project
         <span aria-hidden>→</span>
