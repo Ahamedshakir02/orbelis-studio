@@ -9,7 +9,7 @@ retrieval-grounded AI assistant behind them, and the automation after it.
 |---|---|
 | Build | Vite + React 18 |
 | Styling | Tailwind CSS |
-| Motion | CSS only — an entrance, a scroll reveal, a button press |
+| Motion | CSS only — an entrance, a scroll reveal, a floating hero stage |
 
 No animation library, no smooth-scroll loop and no WebGL. The page is a single
 quiet column: it scrolls natively and is complete in the markup on first paint.
@@ -102,6 +102,29 @@ assistant, and "it would rather say I don't know" is the thing being sold.
 When you change the copy, re-run the question set before shipping — ranking is
 tuned against real questions, not vibes.
 
+## Design language
+
+The brand's rules, so new pages look like this one.
+
+- **One statement per band.** Every section is a full-width band with a short
+  centred headline, at most one line under it, and then its content at 980px.
+  If a band needs two headlines it is two bands.
+- **The colour change is the divider.** Bands alternate between the page colour
+  and its neighbour. No borders between sections.
+- **Black for the big moments.** The hero and the automation flow are black in
+  both themes (`dark` on `Section`), as is the header. Use it sparingly.
+- **Show the product.** The hero's image is the product at work — a real
+  question, the real price, the real steps — not an illustration.
+- **One accent.** Brass, for the action, the brand mark and links. Never a
+  second colour, never a gradient as decoration; the one glow is the stage
+  light behind the hero panel.
+- **Type.** Inter throughout: 600 with tight negative tracking for headlines
+  (80px hero, 56px bands), 17px body. Clash Display is the wordmark only.
+  JetBrains Mono is for indices and tech tokens only.
+- **Shapes.** Actions are pills. Cards are 18px corners with a hairline. No
+  shadows on cards, buttons or text.
+- **Copy.** Short declarative sentences. A headline is read in one glance.
+
 ## Architecture notes
 
 **Two themes, one set of names.** Colours are CSS variables in
@@ -111,9 +134,7 @@ An inline script in each HTML file sets the theme before first paint (stored
 choice, else the system setting) and `ThemeToggle` flips it.
 
 **One layout.** Every section goes through `src/components/Section.jsx`: a
-full-width band, a label in the left column, content in the right. Bands
-alternate between the page colour and its neighbour, and that change of colour
-is the divider. Spacing and heading
+full-width band with a centred statement and its content beneath. Spacing and heading
 scale are decided there, so the rhythm of the page is one decision rather than
 twelve.
 
@@ -141,9 +162,11 @@ the page under their own name. One releasing cannot undo the other's lock.
 services are plain lists, and nothing is hidden waiting for an animation. The
 assistant and the enquiry form both work with no backend configured.
 
-**Motion, three moves.** `rise` eases the hero in line by line; `reveal`
-fades a section up the first time it scrolls into view; buttons give slightly
-under the finger. All three live in `src/index.css`. `useReveal()` hides a
+**Motion.** `rise` eases the hero in line by line; `reveal` fades a band up
+the first time it scrolls into view and `stagger` brings its cards in one
+after another; the hero's cards `float` and lean toward the pointer (`plx`);
+cards `lift` on hover and buttons give under the finger. All of it is CSS in
+`src/index.css`; the pointer layer is the only script, in `HeroPanel.jsx`. `useReveal()` hides a
 block only after mount and only if it starts below the fold, so nothing is
 hidden in the markup and nothing already on screen blinks.
 
@@ -151,8 +174,8 @@ hidden in the markup and nothing already on screen blinks.
 and the automation steps that follow, read from `site.js` — the price in it is
 the published price.
 
-**Sizes.** The label column appears from 1024px; below that every section uses
-the full width. Interactive targets are at least 40px in both directions.
+**Sizes.** Content sits at 980px inside a 1200px gutter. Interactive targets
+are at least 40px in both directions.
 
 **Reduced motion.** `prefers-reduced-motion` turns off smooth scrolling, the
 entrance, the reveal and the transitions. Print shows everything.
