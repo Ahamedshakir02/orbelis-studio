@@ -17,7 +17,7 @@ export default function Audience() {
             <ul className="mt-5 space-y-2 border-t border-line pt-5">
               {a.outcomes.map((o) => (
                 <li key={o} className="flex items-start gap-3 text-sm text-mist">
-                  <span className="mt-[9px] inline-block h-px w-3 shrink-0 bg-muted" aria-hidden />
+                  <span className="mt-[8px] inline-block h-1 w-1 shrink-0 rounded-full bg-brass" aria-hidden />
                   {o}
                 </li>
               ))}

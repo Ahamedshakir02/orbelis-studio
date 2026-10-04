@@ -50,8 +50,10 @@ export default function MobileCta() {
     <div
       // `inert` while hidden: off-screen is not the same as out of the tab order.
       inert={show ? undefined : ''}
+      // Black in both themes, like the header it mirrors.
+      data-theme="dark"
       className={
-        'fixed inset-x-0 bottom-0 z-[94] flex items-center gap-2 border-t border-line bg-bg/90 px-3 pt-3 backdrop-blur-md transition-transform duration-300 md:hidden ' +
+        'fixed inset-x-0 bottom-0 z-[94] flex items-center gap-2 border-t border-white/10 bg-black/80 px-3 pt-3 text-mist backdrop-blur-xl transition-transform duration-300 md:hidden ' +
         (show ? 'translate-y-0' : 'translate-y-full')
       }
       style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}

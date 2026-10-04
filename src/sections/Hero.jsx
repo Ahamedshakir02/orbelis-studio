@@ -23,7 +23,7 @@ export default function Hero() {
         </p>
 
         <h1
-          className="rise mx-auto mt-4 max-w-4xl text-[clamp(30px,8.6vw,40px)] font-semibold leading-[1.04] tracking-[-0.035em] [text-wrap:balance] md:text-[72px] lg:text-[80px]"
+          className="rise mx-auto mt-4 max-w-4xl text-[clamp(26px,7.2vw,40px)] font-semibold leading-[1.04] tracking-[-0.035em] [text-wrap:balance] md:text-[72px] lg:text-[80px]"
           style={delay(80)}
         >
           {/* One sentence per line wherever a line can hold one. */}

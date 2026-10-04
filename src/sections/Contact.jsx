@@ -13,10 +13,10 @@ export default function Contact() {
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Start a project</p>
-          <h2 className="mt-3 text-[32px] font-semibold leading-[1.08] tracking-[-0.03em] md:text-[48px] lg:text-[56px]">
+          <h2 className="mt-3 text-[32px] font-semibold leading-[1.08] tracking-[-0.03em] [text-wrap:balance] md:text-[48px] lg:text-[56px]">
             Tell me what is slowing you down.
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-snug text-muted md:text-[21px] md:leading-[1.4]">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-snug text-muted [text-wrap:balance] md:text-[21px] md:leading-[1.4]">
             A straight answer from the person who would build it, usually the same day.
           </p>
         </div>

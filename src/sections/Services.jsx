@@ -39,13 +39,13 @@ export default function Services() {
             <ul className="mt-5 space-y-2">
               {s.points.map((p) => (
                 <li key={p} className="flex items-start gap-3 text-sm text-mist">
-                  <span className="mt-[9px] inline-block h-px w-3 shrink-0 bg-brass" aria-hidden />
+                  <span className="mt-[8px] inline-block h-1 w-1 shrink-0 rounded-full bg-brass" aria-hidden />
                   {p}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-auto flex items-end justify-between gap-4 pt-8">
+            <div className="mt-auto flex items-center justify-between gap-4 pt-8">
               <p className="text-xl font-semibold tracking-tight">{s.price}</p>
               <a
                 href="#contact"
