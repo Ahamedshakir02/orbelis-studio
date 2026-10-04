@@ -27,6 +27,11 @@ import {
 /** Extra query words a passage should match that its prose does not contain. */
 const money = 'price pricing cost costs charge fee fees budget quote rate rupees inr lakh'
 const timing = 'time timeline duration schedule long weeks delivery deadline fast'
+// Words a visitor uses for a whole group of services that no single card says.
+const groupHints = {
+  Build: 'build develop development developer make create software',
+  Grow: 'marketing digital marketing promote promotion advertise advertising growth leads customers agency',
+}
 
 export const passages = [
   {
@@ -34,8 +39,8 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A one-person studio that automates the repetitive work in a business, adds an AI assistant that answers from the client's own content, and builds the fast website they run on, based in ${brand.location}.`,
-    keywords: 'orbelis studio who what about intro name based located kerala india where',
+    text: `${brand.full}. ${brand.tagline} A one-person studio that automates the repetitive work in a business, adds an AI assistant that answers from the client's own content, builds SaaS products, web applications and the fast website they run on, designs the brand, and runs the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
+    keywords: 'orbelis studio who what about intro name based located kerala india where offer',
   },
   {
     id: 'contact',
@@ -67,7 +72,7 @@ export const passages = [
     section: 'Services',
     title: 'How pricing works',
     href: '#services',
-    text: `Every project is quoted to its requirements; there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. A short brief through the form gets a quote before any work starts. Services that can be quoted: ${services
+    text: `Every project is quoted to its requirements; there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run; the ad budget itself is paid by you directly to Meta or Google. A short brief through the form gets a quote before any work starts. Services that can be quoted: ${services
       .map((s) => s.title)
       .join(', ')}. Every build includes the speed and accessibility checks; they are not billed as extras.`,
     keywords: `${money} how much expensive cheap afford total range`,
@@ -78,7 +83,7 @@ export const passages = [
     title: s.title,
     href: '#services',
     text: `${s.title}. ${s.body} Includes: ${s.points.join(', ')}. Quoted to your requirements.`,
-    keywords: `${money} service ${s.group} ${s.points.join(' ')}`,
+    keywords: `${money} service ${s.group} ${groupHints[s.group] ?? ''} ${s.points.join(' ')}`,
   })),
   ...work.map((w) => ({
     id: `work-${w.id}`,
@@ -119,7 +124,7 @@ export const passages = [
     section: 'Process',
     title: 'How long a build takes',
     href: '#process',
-    text: 'Two weeks for most builds, from agreed scope to launch. Larger multi-page sites run three to four weeks. The schedule holds because scope is locked before code starts rather than renegotiated halfway.',
+    text: 'Two weeks for most websites, from agreed scope to launch. Larger multi-page sites run three to four weeks. An application or SaaS product is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts rather than renegotiated halfway.',
     keywords: `${timing} quick soon rush urgent`,
   },
   {

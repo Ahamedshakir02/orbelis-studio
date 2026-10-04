@@ -16,7 +16,7 @@
  * raw model: it would rather say "I don't have that" than invent an answer.
  */
 import { retrieve, CONFIDENCE_FLOOR } from './retrieve.js'
-import { brand, services, work, availability, assistant as cfg } from '../../data/site.js'
+import { brand, services, work, availability, faq, assistant as cfg } from '../../data/site.js'
 
 const has = (q, ...words) => words.some((w) => q.includes(w))
 
@@ -43,13 +43,37 @@ function matchIntent(query) {
   if (has(q, 'cost', 'price', 'pricing', 'charge', 'budget', 'how much', 'rate', 'quote')) {
     const lines = services.map((s) => `· ${s.title}`).join('\n')
     return {
-      text: `Every project is quoted to its requirements, so there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Send a short brief through the form and you get a quote before any work starts.\n\nWhat can be quoted:\n\n${lines}`,
+      text: `Every project is quoted to its requirements, so there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage, and marketing by the month. Send a short brief through the form and you get a quote before any work starts.\n\nWhat can be quoted:\n\n${lines}`,
       source: { label: 'Services', href: '#services' },
       actions: ['enquiry'],
     }
   }
 
-  if (has(q, 'available', 'availability', 'free', 'busy', 'booked', 'capacity', 'start')) {
+  // "What do you do" should survey the whole shelf, in the order it is sold.
+  if (has(q, 'services', 'what do you do', 'what do you offer', 'what can you do', 'what do you build')) {
+    const lines = services.map((s) => `· ${s.title}`).join('\n')
+    return {
+      text: `${services.length} things, all done by one person:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
+      source: { label: 'Services', href: '#services' },
+      actions: ['enquiry'],
+    }
+  }
+
+  // Marketing as a whole is answered by the question written for it, not by
+  // whichever of the four marketing cards happens to rank first.
+  if (has(q, 'marketing', 'more leads', 'more customers', 'more enquiries', 'more patients', 'more sales')) {
+    const entry = faq.find((f) => f.q.toLowerCase().includes('marketing'))
+    if (entry) {
+      return {
+        text: entry.a,
+        source: { label: 'Services', href: '#services' },
+        actions: ['enquiry'],
+      }
+    }
+  }
+
+  // "start" on its own would also catch "startup".
+  if (has(q, 'available', 'availability', 'free', 'busy', 'booked', 'capacity', 'can you start', 'start now', 'start soon', 'start immediately')) {
     return {
       text: `${availability.status}: ${availability.detail.toLowerCase()}. Scope is agreed before a project starts, which is why the schedule holds. If timing matters, say so in the enquiry and you will get a straight answer.`,
       source: { label: 'Contact', href: '#contact' },
@@ -80,7 +104,7 @@ function matchIntent(query) {
   // A question every prospect asks and no site answers well.
   if (has(q, 'why you', 'why should', 'better than', 'different', 'instead of')) {
     return {
-      text: `Because the pieces usually come from different vendors. One builds the site, another adds a chatbot, a third wires up the automation, and nobody owns the result. Here one person builds all three, and that is the person you talk to.`,
+      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here one person does all of it, and that is the person you talk to.`,
       source: { label: 'Studio', href: '#studio' },
     }
   }

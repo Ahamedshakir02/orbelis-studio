@@ -39,12 +39,23 @@ const SYNONYMS = [
   ['malayalam', 'english', 'language', 'languages', 'bilingual'],
   ['fast', 'performance', 'speed', 'lighthouse', 'fps', 'slow', 'optimise', 'optimize'],
   ['seo', 'google', 'search', 'ranking', 'rank', 'visible'],
+  ['ads', 'advert', 'advertising', 'campaign', 'campaigns', 'meta', 'facebook', 'instagram', 'ppc', 'paid'],
+  ['social', 'instagram', 'facebook', 'linkedin', 'posts', 'posting', 'reels', 'followers'],
+  ['creative', 'creatives', 'poster', 'posters', 'graphics', 'graphic', 'video', 'videos', 'reels'],
+  ['marketing', 'promote', 'promotion', 'advertise', 'digital', 'growth'],
+  ['saas', 'apps', 'application', 'software', 'mvp', 'product', 'portal', 'startup'],
+  ['dashboard', 'dashboards', 'analytics', 'kpi', 'numbers', 'reporting'],
+  ['brand', 'branding', 'logo', 'identity', 'ui', 'ux', 'guidelines'],
   ['clinic', 'hospital', 'doctor', 'medical', 'healthcare', 'health'],
   ['college', 'institution', 'school', 'admissions', 'institute', 'education'],
 ]
 
 const expand = (token) => {
   const out = [token]
+  // A word that is listed outright means only what it is listed as: "startup"
+  // is a kind of client, not a loose form of "start".
+  const exact = SYNONYMS.filter((group) => group.includes(token))
+  if (exact.length) return out.concat(...exact)
   for (const group of SYNONYMS) {
     // Cheap stem tolerance: "pricing" should still hit the "price" group.
     if (group.some((w) => token === w || token.startsWith(w) || w.startsWith(token))) {
