@@ -4,8 +4,8 @@ import { lockScroll } from '../lib/scroll.js'
 import ThemeToggle from './ThemeToggle.jsx'
 
 /**
- * Header: wordmark left, four links centred, one action right. 56px tall
- * and frosted.
+ * Header: wordmark left, four links centred, one action right. 64px tall
+ * on a phone, 76px from a tablet up, and frosted.
  *
  * In-page links are plain #hash anchors: the browser scrolls, CSS smooths it
  * and offsets it below this header. Nothing here intercepts a click except to
@@ -43,19 +43,19 @@ export default function Nav() {
     <>
       {/* Frosted over whatever scrolls beneath, in the visitor's theme. */}
       <header className="fixed inset-x-0 top-0 z-[90] border-b border-line bg-bg/80 backdrop-blur-xl backdrop-saturate-150">
-        <div className="container-x flex h-14 items-center justify-between">
+        <div className="container-x flex h-16 items-center justify-between md:h-[76px]">
           {/* The wordmark is the one place the brand face is kept. */}
-          <a href="#top" onClick={close} className="relative z-[95] inline-flex h-10 items-center font-display text-lg tracking-tight">
+          <a href="#top" onClick={close} className="relative z-[95] inline-flex h-11 items-center font-display text-[22px] tracking-tight md:text-[26px]">
             {brand.name}
             <span className="text-brass">.</span>
           </a>
 
-          <nav className="hidden items-center gap-5 md:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="inline-flex h-10 min-w-10 items-center justify-center text-[13px] text-mist/80 transition-colors hover:text-mist"
+                className="inline-flex h-10 min-w-10 items-center justify-center text-[15px] text-mist/80 transition-colors hover:text-mist"
               >
                 {item.label}
               </a>
@@ -71,7 +71,7 @@ export default function Nav() {
                 href={`https://wa.me/${brand.whatsapp}`}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="hidden h-10 items-center rounded-full border border-line bg-surface px-3.5 text-sm font-medium text-mist transition hover:bg-raised active:scale-[0.95] lg:inline-flex"
+                className="hidden h-10 items-center rounded-full border border-line bg-surface px-5 text-[15px] font-medium text-mist transition hover:bg-raised active:scale-[0.95] lg:inline-flex"
               >
                 WhatsApp
               </a>
@@ -80,7 +80,7 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={close}
-              className="hidden h-10 items-center rounded-full bg-action px-3.5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.95] sm:inline-flex"
+              className="hidden h-10 items-center rounded-full bg-action px-4 text-[15px] font-medium md:h-11 md:px-5 text-onaction transition hover:bg-actionhover active:scale-[0.95] sm:inline-flex"
             >
               Start a project
             </a>
@@ -117,7 +117,7 @@ export default function Nav() {
           reachable by keyboard or screen reader. */}
       <div id="mobile-menu" className="md:hidden">
         {open && (
-          <div className="fixed inset-0 z-[92] flex flex-col justify-between bg-bg px-6 pb-10 pt-24">
+          <div className="fixed inset-0 z-[92] flex flex-col justify-between bg-bg px-6 pb-10 pt-28">
             <nav aria-label="Mobile" className="flex flex-col border-t border-line">
               {links.map((item) => (
                 <a

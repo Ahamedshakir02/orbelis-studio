@@ -77,7 +77,7 @@ export default function Contact() {
           )}
         </div>
 
-        <div className="mt-20 flex flex-col gap-2 border-t border-line py-6 text-xs text-muted md:mt-28 md:flex-row md:items-center md:justify-between">
+        <div className="mt-20 flex flex-col gap-2 border-t border-line py-9 text-sm text-muted md:mt-28 md:flex-row md:items-center md:justify-between">
           <span>
             © {year} {brand.full}
           </span>

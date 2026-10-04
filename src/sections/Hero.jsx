@@ -19,7 +19,7 @@ const delay = (ms) => ({ '--d': `${ms}ms` })
 export default function Hero() {
   return (
     <section id="top" className="tile overflow-hidden">
-      <div className="container-x pb-20 pt-28 text-center md:pb-28 md:pt-40">
+      <div className="container-x pb-20 pt-32 text-center md:pb-28 md:pt-44">
         <p className="rise eyebrow" style={delay(0)}>
           {brand.full} · Automation, AI assistants, websites
         </p>

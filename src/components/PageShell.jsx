@@ -21,13 +21,13 @@ export default function PageShell({ title, intro, children, footNote }) {
       </a>
 
       <header className="border-b border-line">
-        <div className="container-x flex h-14 items-center justify-between">
-          <a href="/" className="inline-flex h-10 items-center font-display text-lg tracking-tight">
+        <div className="container-x flex h-16 items-center justify-between md:h-[76px]">
+          <a href="/" className="inline-flex h-11 items-center font-display text-[22px] tracking-tight md:text-[26px]">
             {brand.name}
             <span className="text-brass">.</span>
           </a>
           <div className="flex items-center gap-4">
-            <a href="/" className="inline-flex h-10 items-center text-sm text-muted transition-colors hover:text-mist">
+            <a href="/" className="inline-flex h-10 items-center text-[15px] text-muted transition-colors hover:text-mist">
               ← Back to the site
             </a>
             <ThemeToggle />
@@ -52,7 +52,7 @@ export default function PageShell({ title, intro, children, footNote }) {
       </main>
 
       <footer className="border-t border-line">
-        <div className="container-x flex flex-col gap-3 py-8 text-xs text-muted md:flex-row md:items-center md:justify-between">
+        <div className="container-x flex flex-col gap-3 py-10 text-sm text-muted md:flex-row md:items-center md:justify-between">
           <span>
             © {year} {brand.full}
           </span>

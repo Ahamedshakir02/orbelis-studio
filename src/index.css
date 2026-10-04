@@ -71,7 +71,7 @@
   }
   /* Anchored sections stop below the sticky header instead of under it. */
   [id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 5.75rem;
   }
   ::selection {
     background: rgb(var(--c-brass));
