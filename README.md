@@ -117,8 +117,16 @@ is the divider. Spacing and heading
 scale are decided there, so the rhythm of the page is one decision rather than
 twelve.
 
-**Reading order.** Hero, Approach, Standards, Work, Problems, Services,
-Automation flow, Who it is for, Process, Studio, Questions, Contact.
+**Reading order.** Hero, Problems, Services, Automation flow, Work, Who it is
+for, Process, Standards, Studio, Questions, Contact. A service company's
+order: the pain, what is sold and for how much, how it works, then the proof
+and the people. "Enquire" on a service opens the form with that service chosen
+(`enquiry` on each entry in `services`).
+
+**The accent has three roles.** `action` fills buttons, `link` colours text
+and `brass` is the small decorative mark. In dark mode all three are brass; in
+light mode brass cannot carry text on white, so buttons are near-black and
+links a deep amber.
 
 **Native scrolling.** In-page links are plain `#hash` anchors. CSS provides the
 smoothing (`scroll-behavior`) and the offset below the sticky header
