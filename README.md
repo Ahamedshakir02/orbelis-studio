@@ -113,14 +113,14 @@ tuned against real questions, not vibes.
 
 ## Brand kit
 
-`npm run brand` writes the logo and the social images to `brand/`, drawn from
-the same mark as the favicon and the same tagline as the site:
+`npm run brand` writes the logo and the social images to `brand/`, using
+the wordmark alone ("Orbelis" and its brass full stop) and the site's tagline:
 
 | File | Use |
 |---|---|
-| `logo-mark-dark.png`, `logo-mark-light.png` | Profile picture (1024px; safe for a circular crop) |
-| `logo-mark-transparent.png` | The mark alone, no background |
-| `logo-lockup-*.png` | Mark + wordmark, on dark, on light and transparent |
+| `profile-dark.png`, `profile-light.png` | Profile picture (1024px; safe for a circular crop) |
+| `logo-dark.png`, `logo-light.png` | The wordmark on dark and on white |
+| `logo-transparent-for-dark.png`, `logo-transparent-for-light.png` | The wordmark with no background |
 | `social-post-1080.png` | Square post for Instagram, LinkedIn, Facebook |
 | `social-story-1080x1920.png` | Story or reel cover |
 | `banner-x-1500x500.png` | X header |
@@ -192,10 +192,15 @@ services are plain lists, and nothing is hidden waiting for an animation. The
 assistant and the enquiry form both work with no backend configured.
 
 **The loader is the logo.** It is inline in `index.html` — markup and CSS —
-so it shows before the bundle, stylesheet or fonts arrive: the ring draws, then
-the horizon, then the core, which breathes until the page is ready.
-`src/lib/loader.js` lifts it when the fonts are in and the mark has finished
-drawing, and gives up waiting after 2.5s. The page cannot scroll underneath it,
+so it shows before the bundle, stylesheet or fonts arrive: the wordmark is
+revealed left to right, then its brass full stop lands and breathes until the
+page is ready. The letters are outlines of the Clash Display glyphs, so the
+logo does not wait for a font. `src/lib/loader.js` lifts it when the fonts
+are in and the reveal has finished, and gives up waiting after 2.5s.
+
+**The logo is the wordmark alone.** "Orbelis" and its brass full stop; there
+is no separate symbol. Where the whole word cannot fit — the tab icon and the
+assistant button — it is the O and the full stop. The page cannot scroll underneath it,
 and the hero's entrance is held until it lifts.
 
 **Motion.** `rise` eases the hero in line by line; `reveal` fades a band up
