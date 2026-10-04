@@ -58,7 +58,7 @@ const headline = (px) => `
 const small = (px, text) =>
   `<div style="font-family:Inter,sans-serif;font-size:${px}px;color:${MUTED};letter-spacing:-0.01em">${text}</div>`
 
-const services = 'Automation · AI assistants · Websites'
+const services = 'Automation · AI · Apps & websites · Marketing'
 
 const files = [
   // ---- logo

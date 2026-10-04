@@ -64,6 +64,7 @@ const serviceBlock = (s) => `
 const groups = [...new Set(services.map((s) => s.group))]
 const groupIntro = {
   Build: 'What gets built once.',
+  Grow: 'What brings people in.',
   Run: 'What keeps running afterwards.',
 }
 
@@ -118,12 +119,19 @@ const pages = [
      <p class="note">Every project is quoted to its requirements, before any work starts. Quotes are in Indian Rupees and exclude any taxes that apply.</p>`,
   ),
 
-  ...groups.map((g) =>
-    page(
-      `${head(`Services — ${g}`, groupIntro[g] ?? g)}
-       <div class="stack">${services.filter((s) => s.group === g).map(serviceBlock).join('')}</div>`,
-    ),
-  ),
+  // A page holds three services. A bigger group is split evenly over two
+  // pages rather than left to run off the bottom of one.
+  ...groups.flatMap((g) => {
+    const inGroup = services.filter((s) => s.group === g)
+    const half = Math.ceil(inGroup.length / 2)
+    const parts = inGroup.length > 3 ? [inGroup.slice(0, half), inGroup.slice(half)] : [inGroup]
+    return parts.map((part) =>
+      page(
+        `${head(`Services — ${g}`, groupIntro[g] ?? g)}
+         <div class="stack">${part.map(serviceBlock).join('')}</div>`,
+      ),
+    )
+  }),
 
   page(
     `${head('How it works', 'From first message to follow-up, handled.')}
