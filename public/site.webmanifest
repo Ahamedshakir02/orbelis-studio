@@ -1,7 +1,7 @@
 {
   "name": "Orbelis Studio",
   "short_name": "Orbelis",
-  "description": "Business automation, AI assistants and fast websites, built by one person.",
+  "description": "Automation, AI assistants, web apps, websites and marketing, done by one person.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#08090c",

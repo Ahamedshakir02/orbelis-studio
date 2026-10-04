@@ -70,12 +70,15 @@ export const manifesto = [
 ]
 
 /**
- * ORDER MATTERS. Automation leads, then the assistant, then the websites they
- * run on: that is the order the studio sells them in, and the first two get
- * the wide cards.
+ * ORDER MATTERS. Automation leads, then the assistant, then what gets built
+ * (applications, websites, the brand), then the marketing that brings people
+ * to it: that is the order the
+ * studio sells them in, and the first two get the wide cards. After those two
+ * the cards sit three to a row, so keep the count at two plus a multiple of
+ * three.
  *
- * `group` sorts the list into two bands: what gets built once, and what keeps
- * running afterwards. `enquiry` is the matching option in `projectTypes`, so
+ * `group` sorts the list into three bands: what gets built once (Build), what
+ * brings people in (Grow), and what keeps running afterwards (Run). `enquiry` is the matching option in `projectTypes`, so
  * "Get a quote" on a service opens the form with that service already chosen.
  *
  * There is no `price` field, on purpose. Projects are quoted to their
@@ -101,21 +104,69 @@ export const services = [
   {
     index: '03',
     group: 'Build',
-    enquiry: 'Full website',
-    title: 'Full website',
-    body: 'A complete site that takes bookings and enquiries, with pages your team can edit and a dashboard that shows what is working.',
-    points: ['As many pages as the business needs', 'Enquiry and booking forms', 'Your team edits the content', 'Kept fast as it grows'],
+    enquiry: 'SaaS or web application',
+    title: 'SaaS & web applications',
+    body: 'Software built for your business or your idea: a SaaS product, a customer portal, an internal tool, a mobile app. It starts as a first version real users can try, and is built so it can grow from there.',
+    points: ['An MVP for a startup', 'Custom web and mobile apps', 'Logins, payments and integrations', 'Built to scale, in stages'],
   },
   {
     index: '04',
     group: 'Build',
-    enquiry: 'Landing site',
-    title: 'Landing site',
-    body: 'One page built to do one thing: turn a stranger into an enquiry. Clear, fast, and live in two weeks.',
-    points: ['Designed for your brand, not from a template', 'Built for phones first', 'SEO and analytics set up', 'Delivered in two weeks'],
+    enquiry: 'Website or landing page',
+    title: 'Websites & landing pages',
+    body: 'From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team.',
+    points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'Your team edits the content', 'A landing page is live in two weeks'],
   },
   {
     index: '05',
+    group: 'Build',
+    enquiry: 'Brand identity & UI/UX',
+    title: 'Brand identity & UI/UX',
+    body: 'How the business looks and how its product feels to use. A logo and a visual identity with rules you can follow, and screens designed so people find what they came for.',
+    points: ['Logo and visual identity', 'Brand guidelines', 'UI/UX for websites and apps', 'Usability review of what you have'],
+  },
+  {
+    index: '06',
+    group: 'Grow',
+    enquiry: 'Meta & Google ads',
+    title: 'Meta & Google ads',
+    body: 'Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. I set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.',
+    points: ['Campaign setup and targeting', 'Ad copy and creatives', 'Tracking from click to enquiry', 'A plain monthly report'],
+  },
+  {
+    index: '07',
+    group: 'Grow',
+    enquiry: 'SEO',
+    title: 'SEO',
+    body: 'Being found on Google without paying for every click. I fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
+    points: ['Technical and speed fixes', 'Pages for what people search', 'Google Business Profile', 'A monthly ranking report'],
+  },
+  {
+    index: '08',
+    group: 'Grow',
+    enquiry: 'Social media management',
+    title: 'Social media management',
+    body: 'Your Instagram, Facebook and LinkedIn planned and kept active, so the page looks alive when a customer checks it. The month is agreed in advance, the posts and captions are made for you, and comments and messages get answered.',
+    points: ['A monthly content calendar', 'Posts, reels and captions', 'Comments and messages handled', 'A report on what worked'],
+  },
+  {
+    index: '09',
+    group: 'Grow',
+    enquiry: 'Creative design',
+    title: 'Creative design',
+    body: 'The visuals everything else runs on: posters, ad creatives, reels and short videos, made to stop a thumb and still look like your brand.',
+    points: ['Posts and ad creatives', 'Reels and short videos', 'Motion graphics', 'Sized for every platform'],
+  },
+  {
+    index: '10',
+    group: 'Run',
+    enquiry: 'Dashboards & analytics',
+    title: 'Dashboards & analytics',
+    body: 'The numbers that run the business, in one place and up to date. I agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.',
+    points: ['The few numbers that matter, agreed first', 'Live dashboards', 'Reports sent automatically', 'Pulled from your existing tools'],
+  },
+  {
+    index: '11',
     group: 'Run',
     enquiry: 'Care plan',
     title: 'Care plan',
@@ -207,22 +258,22 @@ export const audiences = [
   {
     title: 'Brands & companies',
     body: 'The work between your tools, taken off the people now doing it by hand.',
-    outcomes: ['Follow-up that never forgets', 'Orders, invoices and approvals moved along', 'Reports that write themselves', 'The tools you already use, connected'],
+    outcomes: ['Follow-up that never forgets', 'Orders, invoices and approvals moved along', 'Reports that write themselves', 'The tools you already use, connected', 'Ads, SEO and social media run for you'],
   },
   {
     title: 'Clinics & healthcare',
     body: 'Patients ask the same questions at every hour. The site answers them, and the front desk gets its day back.',
-    outcomes: ['Appointment requests without phone tag', 'Timings, fees and preparation answered', 'Reminders sent automatically', 'Departments and doctors easy to find'],
+    outcomes: ['Appointment requests without phone tag', 'Timings, fees and preparation answered', 'Reminders sent automatically', 'Departments and doctors easy to find', 'Found on Google by patients nearby'],
   },
   {
     title: 'Institutions',
     body: 'Admissions season should not mean the office phone ringing all day about eligibility and fees.',
-    outcomes: ['Programme explorer', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can edit'],
+    outcomes: ['Programme explorer', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can edit', 'Admission campaigns on Meta and Google'],
   },
   {
     title: 'Founders',
     body: 'One page that makes a stranger trust you, and a way to catch everyone it convinces.',
-    outcomes: ['A landing site in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read'],
+    outcomes: ['A landing site in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read', 'An MVP or SaaS product, built in stages'],
   },
 ]
 
@@ -258,7 +309,7 @@ export const capabilities = [
 export const studio = {
   lead: 'One person. No hand-offs.',
   body: [
-    'Orbelis is me. You talk to the person who designs it, builds it and answers when something breaks. I work where three things meet: automation, applied machine learning and careful, fast websites. Most agencies do one of them; the useful work is in the overlap.',
+    'Orbelis is me. You talk to the person who designs it, builds it and answers when something breaks. I work where three things meet: automation, applied machine learning and careful, fast software, from a landing page to a SaaS product. Most agencies do one of them; the useful work is in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.',
     'My background is in NLP and deep learning, with certifications across Microsoft Azure AI, Google generative AI and IBM data science. I am currently building Dr Evide, a trust-ranked doctor discovery product for Kerala.',
   ],
   facts: [
@@ -285,6 +336,13 @@ export const marquee = [
   'Fast websites',
   'AI assistants',
   'Business automation',
+  'SaaS & web apps',
+  'Brand identity',
+  'Dashboards',
+  'Meta & Google ads',
+  'SEO',
+  'Social media',
+  'Creative design',
   'Clinics & healthcare',
   'Institutions',
   'Founders',
@@ -312,12 +370,12 @@ export const stats = [
 export const assistant = {
   name: 'Orb',
   intro:
-    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: services, automation, how pricing works, process and timelines. Ask anything, or start here:",
+    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: services, automation, marketing, how pricing works, process and timelines. Ask anything, or start here:",
   suggestions: [
     'What can you automate for a business?',
     'How is a project priced?',
     'How long does a build take?',
-    'Are you available right now?',
+    'Do you run ads and social media?',
   ],
   // Shown when retrieval finds nothing confident enough to stand behind.
   fallback:
@@ -328,8 +386,14 @@ export const assistant = {
 export const projectTypes = [
   'Business automation',
   'AI assistant',
-  'Full website',
-  'Landing site',
+  'SaaS or web application',
+  'Website or landing page',
+  'Brand identity & UI/UX',
+  'Meta & Google ads',
+  'SEO',
+  'Social media management',
+  'Creative design',
+  'Dashboards & analytics',
   'Care plan',
   'Something else',
 ]
@@ -363,11 +427,23 @@ export const faq = [
   },
   {
     q: 'How is a project priced?',
-    a: 'To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation.',
+    a: 'To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.',
+  },
+  {
+    q: 'Do you build SaaS products and web applications?',
+    a: 'Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there. Dr Evide, my own product, is built this way.',
+  },
+  {
+    q: 'Do you do marketing as well?',
+    a: 'Yes. Meta and Google ads, SEO, social media management, and the creative design for all of them. They work best as one lead system: ads and search bring people in, the landing page turns them into enquiries, and automation follows each one up. You can also take any one of them on its own.',
+  },
+  {
+    q: 'Who pays for the ads?',
+    a: 'You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. My fee is for running the campaigns and is quoted separately. I do not promise a number of leads; I report what was spent and what came in.',
   },
   {
     q: 'How long does it take?',
-    a: 'Two weeks for most builds, from agreed scope to launch. Larger sites take three to four. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
+    a: 'Two weeks for most websites, from agreed scope to launch. Larger sites take three to four. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
   },
   {
     q: 'What is the AI assistant, in plain terms?',

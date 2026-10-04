@@ -25,7 +25,7 @@ function graph() {
         '@type': 'ProfessionalService',
         '@id': `${brand.url}/#studio`,
         name: brand.full,
-        description: `${brand.tagline} Business automation, an AI assistant that answers from your own content, and the fast website they run on.`,
+        description: `${brand.tagline} Business automation, an AI assistant that answers from your own content, SaaS and web applications, fast websites, and the ads, SEO and social media that bring people to them.`,
         url: brand.url,
         email: brand.email,
         // Unset fields are left out entirely: a null or placeholder value in
