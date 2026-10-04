@@ -1,4 +1,4 @@
-import { brand, socials } from '../data/site.js'
+import { brand, socials, nav } from '../data/site.js'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 
 /**
@@ -32,7 +32,7 @@ export default function Contact() {
                   <p className="eyebrow mb-2">Email</p>
                   <a
                     href={'mailto:' + brand.email}
-                    className="inline-flex min-h-10 items-center break-all text-sm text-mist underline-offset-4 transition-colors hover:text-brass hover:underline"
+                    className="inline-flex min-h-10 items-center break-all text-sm text-mist underline-offset-4 transition-colors hover:text-link hover:underline"
                   >
                     {brand.email}
                   </a>
@@ -95,6 +95,18 @@ export default function Contact() {
           <span>
             © {year} {brand.full}
           </span>
+
+          <nav className="flex flex-wrap gap-x-5" aria-label="Footer">
+            {[...nav, { label: 'Questions', href: '#faq' }].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
           <nav className="flex flex-wrap gap-x-5" aria-label="Legal">
             <a href="/privacy" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">

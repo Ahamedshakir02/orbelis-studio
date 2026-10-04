@@ -1,4 +1,4 @@
-import { brand } from '../data/site.js'
+import { brand, assurances } from '../data/site.js'
 import HeroPanel from '../components/HeroPanel.jsx'
 
 /**
@@ -41,18 +41,28 @@ export default function Hero() {
           <div className="rise mt-9 flex flex-wrap items-center gap-3" style={delay(280)}>
             <a
               href="#contact"
-              className="inline-flex h-11 items-center gap-2 rounded-lg bg-brass px-5 text-sm font-medium text-bg transition hover:bg-mist active:scale-[0.97]"
+              className="inline-flex h-11 items-center gap-2 rounded-lg bg-action px-5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.97]"
             >
               Start a project
               <span aria-hidden>→</span>
             </a>
             <a
-              href="#work"
+              href="#services"
               className="inline-flex h-11 items-center rounded-lg border border-line bg-surface px-5 text-sm font-medium text-mist transition hover:bg-raised active:scale-[0.97]"
             >
-              See the work
+              Services and prices
             </a>
           </div>
+
+          {/* What a buyer wants settled before reading further. */}
+          <ul className="rise mt-9 flex flex-col gap-2 text-sm text-muted sm:flex-row sm:flex-wrap sm:gap-x-6" style={delay(380)}>
+            {assurances.map((a) => (
+              <li key={a} className="flex items-center gap-2.5">
+                <span className="h-1 w-1 shrink-0 rounded-full bg-brass" aria-hidden />
+                {a}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="lg:col-span-5">

@@ -3,7 +3,6 @@ import Nav from './components/Nav.jsx'
 import MobileCta from './components/MobileCta.jsx'
 import ConsentBanner from './components/ConsentBanner.jsx'
 import Hero from './sections/Hero.jsx'
-import Manifesto from './sections/Manifesto.jsx'
 import Stats from './sections/Stats.jsx'
 import Work from './sections/Work.jsx'
 import Problems from './sections/Problems.jsx'
@@ -26,22 +25,23 @@ export default function App() {
   return (
     <>
       {/* First tab stop on the page, so a keyboard user can skip the nav. */}
-      <a href="#work" className="skip-link">
+      <a href="#services" className="skip-link">
         Skip to content
       </a>
 
       <Nav />
 
       <main>
+        {/* A service company's order: the pain, what is sold and for how
+            much, how it works, then the proof and the people. */}
         <Hero />
-        <Manifesto />
-        <Stats />
-        <Work />
         <Problems />
         <Services />
         <Flow />
+        <Work />
         <Audience />
         <Process />
+        <Stats />
         <Studio />
         <Faq />
       </main>

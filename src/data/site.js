@@ -50,9 +50,10 @@ export const brand = {
 /** Only the social links that actually point somewhere. */
 export const socials = brand.socials.filter((s) => s.href)
 
+// In page order: what is sold comes before what has been built.
 export const nav = [
-  { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#work' },
   { label: 'Process', href: '#process' },
   { label: 'Studio', href: '#studio' },
 ]
@@ -65,12 +66,14 @@ export const manifesto = [
 
 /**
  * `group` sorts the list into two bands: what gets built once, and what keeps
- * running afterwards. The section labels each card with it.
+ * running afterwards. `enquiry` is the matching option in `projectTypes`, so
+ * "Enquire" on a service opens the form with that service already chosen.
  */
 export const services = [
   {
     index: '01',
     group: 'Build',
+    enquiry: 'Brand or landing site',
     title: 'Brand & landing sites',
     price: '₹40k — ₹70k',
     body: 'A single, considered page built for one job: making a stranger trust you in eight seconds. Clear structure, real typography, sub-second load.',
@@ -79,6 +82,7 @@ export const services = [
   {
     index: '02',
     group: 'Build',
+    enquiry: 'Full site with booking',
     title: 'Full sites & booking',
     price: '₹80k — ₹1.5L',
     body: 'Multi-page sites with the machinery underneath — enquiry flows, appointment requests, content you can edit yourself, and a dashboard that shows what is working.',
@@ -87,6 +91,7 @@ export const services = [
   {
     index: '03',
     group: 'Run',
+    enquiry: 'AI assistant layer',
     title: 'AI assistant layer',
     price: '+ ₹25k setup',
     body: 'A retrieval-grounded assistant trained on your own documents, prices and policies. It answers in your voice, cites your material, and hands off to a human when it should.',
@@ -95,6 +100,7 @@ export const services = [
   {
     index: '04',
     group: 'Run',
+    enquiry: 'Business automation',
     title: 'Business automation',
     price: 'From ₹30k setup',
     body: 'The repetitive work between your tools, done without anyone retyping it. Enquiries followed up, leads logged, invoices and approvals moved along, and a report that writes itself. It starts with a short audit of what is actually worth automating, because most of it is not.',
@@ -103,6 +109,7 @@ export const services = [
   {
     index: '05',
     group: 'Run',
+    enquiry: 'Care & retainer',
     title: 'Care & retainer',
     price: '₹5k — ₹15k / month',
     body: 'Hosting, uptime, content updates, assistant retraining, automation upkeep and a monthly report. The site stays fast and current instead of decaying quietly.',
@@ -257,8 +264,15 @@ export const studio = {
 
 export const availability = {
   status: 'Available',
-  detail: 'Taking two projects for September',
+  detail: 'Taking on new projects',
 }
+
+/** Three things a buyer wants settled before reading further. Shown under the hero. */
+export const assurances = [
+  'Prices published, not quoted',
+  'Most builds ship in two weeks',
+  'You talk to the person who builds it',
+]
 
 export const marquee = [
   'Fast websites',
