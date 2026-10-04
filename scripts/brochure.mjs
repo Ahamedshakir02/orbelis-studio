@@ -3,7 +3,7 @@
  *
  * The brochure is generated from src/data/site.js rather than laid out by hand,
  * for the same reason the assistant and the structured data read that file: a
- * price changed on the site must not survive in a PDF someone was sent last
+ * service changed on the site must not survive in a PDF someone was sent last
  * month. Re-run after any copy change.
  *
  * Printed with the Chrome or Edge already on the machine, like the share card
@@ -54,7 +54,7 @@ const serviceBlock = (s) => `
   <article class="card">
     <div class="row">
       <span class="num">${esc(s.index)}</span>
-      <span class="price">${esc(s.price)}</span>
+      <span class="grp">Quoted to your requirements</span>
     </div>
     <h3>${esc(s.title)}</h3>
     <p>${esc(s.body)}</p>
@@ -100,7 +100,7 @@ const pages = [
   ),
 
   page(
-    `${head('The problem', 'Where the time goes.')}
+    `${head('The problem', 'Enquiries do not wait for office hours.')}
      <div class="grid3">${problems
        .map(
          (p, i) =>
@@ -112,10 +112,10 @@ const pages = [
      <table>${services
        .map(
          (s) =>
-           `<tr><td class="num">${esc(s.index)}</td><td class="grp">${esc(s.group)}</td><td class="ttl">${esc(s.title)}</td><td class="price">${esc(s.price)}</td></tr>`,
+           `<tr><td class="num">${esc(s.index)}</td><td class="grp">${esc(s.group)}</td><td class="ttl">${esc(s.title)}</td></tr>`,
        )
        .join('')}</table>
-     <p class="note">Prices are in Indian Rupees and exclude any taxes that apply. Every build includes the speed and accessibility checks.</p>`,
+     <p class="note">Every project is quoted to its requirements, before any work starts. Quotes are in Indian Rupees and exclude any taxes that apply.</p>`,
   ),
 
   ...groups.map((g) =>
@@ -126,7 +126,7 @@ const pages = [
   ),
 
   page(
-    `${head('Automation', 'One enquiry. Start to finish.')}
+    `${head('How it works', 'From first message to follow-up, handled.')}
      <ol class="flow">${flow
        .map((f) => `<li><span class="num">${esc(f.step)}</span><h3>${esc(f.title)}</h3><p>${esc(f.body)}</p></li>`)
        .join('')}</ol>
@@ -141,20 +141,20 @@ const pages = [
   ),
 
   page(
-    `${head('How it runs', 'Small scope. Fast ship.')}
+    `${head('Process', 'Two weeks. Four steps.')}
      <div class="grid2">${steps
        .map((p) => `<article class="card"><span class="num">${esc(p.step)}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`)
        .join('')}</div>
      <div class="rule"></div>
-     <p class="eyebrow">Held to a number</p>
+     <p class="eyebrow">Numbers you can hold me to</p>
      <div class="grid4">${stats
        .map((s) => `<div class="stat"><span class="big">${esc(s.value)}${esc(s.suffix)}</span><p>${esc(s.label)}</p></div>`)
        .join('')}</div>`,
   ),
 
   page(
-    `${head('Selected work', 'Built, not templated.')}
-     <p class="note">One live product, two labelled concepts. Nothing here pretends to be a client engagement that was not one.</p>
+    `${head('Work', 'Proof, labelled honestly.')}
+     <p class="note">One live product and two concept builds. A concept is marked as a concept.</p>
      <div class="stack">${work
        .map(
          (w) => `

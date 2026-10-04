@@ -14,7 +14,7 @@ export const brand = {
   name: 'Orbelis',
   suffix: 'Studio',
   full: 'Orbelis Studio',
-  tagline: 'Websites that work. Assistants that answer.',
+  tagline: 'Automate the busywork. Answer every enquiry.',
   email: 'hello@orbelisstudio.com',
   /**
    * Phone, WhatsApp, street and social links are null until the real value
@@ -65,59 +65,61 @@ export const nav = [
 
 export const manifesto = [
   'Most business websites look finished and answer nothing.',
-  'A good one loads fast, says it plainly, and replies at 2am.',
+  'A good one replies at 2am and hands the follow-up to automation.',
   'One person builds yours. No account manager, no template.',
 ]
 
 /**
+ * ORDER MATTERS. Automation leads, then the assistant, then the websites they
+ * run on: that is the order the studio sells them in, and the first two get
+ * the wide cards.
+ *
  * `group` sorts the list into two bands: what gets built once, and what keeps
  * running afterwards. `enquiry` is the matching option in `projectTypes`, so
- * "Enquire" on a service opens the form with that service already chosen.
+ * "Get a quote" on a service opens the form with that service already chosen.
+ *
+ * There is no `price` field, on purpose. Projects are quoted to their
+ * requirements, so the site states how pricing works and never a figure.
  */
 export const services = [
   {
     index: '01',
-    group: 'Build',
-    enquiry: 'Brand or landing site',
-    title: 'Brand & landing sites',
-    price: '₹40k — ₹70k',
-    body: 'One page with one job: making a stranger trust you in the first eight seconds. Clear structure, real typography, and a load time under a second.',
-    points: ['Designed for your brand, not from a template', 'Built for phones first', 'SEO and analytics set up', 'Delivered in two weeks'],
-  },
-  {
-    index: '02',
-    group: 'Build',
-    enquiry: 'Full site with booking',
-    title: 'Full sites & booking',
-    price: '₹80k — ₹1.5L',
-    body: 'A complete site with the working parts underneath: enquiry forms, appointment requests, pages your team can edit themselves, and a dashboard that shows what is working.',
-    points: ['As many pages as the business needs', 'Enquiry and booking forms', 'Your team edits the content', 'Kept fast as it grows'],
-  },
-  {
-    index: '03',
-    group: 'Run',
-    enquiry: 'AI assistant layer',
-    title: 'AI assistant layer',
-    price: '+ ₹25k setup',
-    body: 'An assistant that has read your own documents, prices and policies. It answers from them in your voice, shows where each answer came from, and hands over to a person when it should.',
-    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Updated every month'],
-  },
-  {
-    index: '04',
     group: 'Run',
     enquiry: 'Business automation',
     title: 'Business automation',
-    price: 'From ₹30k setup',
-    body: 'The repetitive work between your tools, done without anyone retyping it. Enquiries followed up, leads logged, invoices and approvals moved along, reports compiled. It starts with a short audit of what is worth automating, because most of it is not.',
+    body: 'The repetitive work between your tools, done for you. Follow-ups go out, leads are logged, invoices and approvals move along, and the weekly report writes itself. It starts with a short audit of what is actually worth automating.',
     points: ['WhatsApp and lead follow-up', 'CRM and spreadsheet sync', 'Invoices, onboarding, approvals', 'A weekly report of hours saved'],
+  },
+  {
+    index: '02',
+    group: 'Run',
+    enquiry: 'AI assistant',
+    title: 'AI assistant',
+    body: 'A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.',
+    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Updated every month'],
+  },
+  {
+    index: '03',
+    group: 'Build',
+    enquiry: 'Full website',
+    title: 'Full website',
+    body: 'A complete site that takes bookings and enquiries, with pages your team can edit and a dashboard that shows what is working.',
+    points: ['As many pages as the business needs', 'Enquiry and booking forms', 'Your team edits the content', 'Kept fast as it grows'],
+  },
+  {
+    index: '04',
+    group: 'Build',
+    enquiry: 'Landing site',
+    title: 'Landing site',
+    body: 'One page built to do one thing: turn a stranger into an enquiry. Clear, fast, and live in two weeks.',
+    points: ['Designed for your brand, not from a template', 'Built for phones first', 'SEO and analytics set up', 'Delivered in two weeks'],
   },
   {
     index: '05',
     group: 'Run',
-    enquiry: 'Care & retainer',
-    title: 'Care & retainer',
-    price: '₹5k — ₹15k / month',
-    body: 'Hosting, uptime, content changes, assistant updates, automation upkeep and a monthly report. The site stays fast and current instead of quietly going stale.',
+    enquiry: 'Care plan',
+    title: 'Care plan',
+    body: 'Hosting, updates and a monthly report, so the site stays fast and current instead of quietly going stale.',
     points: ['Managed hosting', 'Content changes', 'Assistant and automation upkeep', 'A monthly report'],
   },
 ]
@@ -178,16 +180,16 @@ export const work = [
 /** The three costs a visitor recognises before any service is named. */
 export const problems = [
   {
-    title: 'Enquiries go cold after hours',
-    body: 'Someone asks at ten at night, gets a reply at eleven the next morning, and has already booked somewhere else.',
+    title: 'The copy-paste job',
+    body: 'A form, a spreadsheet, a WhatsApp group and an invoice tool, held together by someone retyping between them.',
   },
   {
-    title: 'The same ten questions, answered by hand',
-    body: 'Timings, fees, eligibility, delivery. Typed out again by whoever happens to pick up the phone.',
+    title: 'The late reply',
+    body: 'A customer asks at ten at night. You answer at eleven the next morning. By then they have booked somewhere else.',
   },
   {
-    title: 'Work that lives in copy and paste',
-    body: 'A form, a spreadsheet, a WhatsApp group and an invoice tool, held together by a person retyping between them.',
+    title: 'The repeated answer',
+    body: 'Timings, fees, eligibility, delivery. The same ten questions, typed out again by whoever picks up the phone.',
   },
 ]
 
@@ -203,6 +205,11 @@ export const flow = [
 /** Who the studio builds for, and what each gets. */
 export const audiences = [
   {
+    title: 'Brands & companies',
+    body: 'The work between your tools, taken off the people now doing it by hand.',
+    outcomes: ['Follow-up that never forgets', 'Orders, invoices and approvals moved along', 'Reports that write themselves', 'The tools you already use, connected'],
+  },
+  {
     title: 'Clinics & healthcare',
     body: 'Patients ask the same questions at every hour. The site answers them, and the front desk gets its day back.',
     outcomes: ['Appointment requests without phone tag', 'Timings, fees and preparation answered', 'Reminders sent automatically', 'Departments and doctors easy to find'],
@@ -216,11 +223,6 @@ export const audiences = [
     title: 'Founders',
     body: 'One page that makes a stranger trust you, and a way to catch everyone it convinces.',
     outcomes: ['A landing site in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read'],
-  },
-  {
-    title: 'Brands & companies',
-    body: 'The work between your tools, taken off the people now doing it by hand.',
-    outcomes: ['Follow-up that never forgets', 'Orders, invoices and approvals moved along', 'Reports that write themselves', 'The tools you already use, connected'],
   },
 ]
 
@@ -243,7 +245,7 @@ export const process = [
   {
     step: '04',
     title: 'Ship & keep',
-    body: 'Launch, then a retainer if you want one, to keep it fast, current and answering. A site is something you run, not something you buy once.',
+    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. A site is something you run, not something you buy once.',
   },
 ]
 
@@ -254,9 +256,9 @@ export const capabilities = [
 ]
 
 export const studio = {
-  lead: 'Orbelis is a one-person studio. You work with the person who writes the code.',
+  lead: 'One person. No hand-offs.',
   body: [
-    'I work where two things meet: careful, fast front-end work and applied machine learning. Most agencies do one or the other. The useful work is in the overlap: a site that reads clearly, with an assistant behind it that actually knows your business.',
+    'Orbelis is me. You talk to the person who designs it, builds it and answers when something breaks. I work where three things meet: automation, applied machine learning and careful, fast websites. Most agencies do one of them; the useful work is in the overlap.',
     'My background is in NLP and deep learning, with certifications across Microsoft Azure AI, Google generative AI and IBM data science. I am currently building Dr Evide, a trust-ranked doctor discovery product for Kerala.',
   ],
   facts: [
@@ -274,9 +276,9 @@ export const availability = {
 
 /** Three things a buyer wants settled before reading further. Shown under the hero. */
 export const assurances = [
-  'Prices published, not quoted',
-  'Most builds ship in two weeks',
-  'You talk to the person who builds it',
+  'Quoted to your requirements',
+  'Most sites live in two weeks',
+  'One person, start to finish',
 ]
 
 export const marquee = [
@@ -310,11 +312,11 @@ export const stats = [
 export const assistant = {
   name: 'Orb',
   intro:
-    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: services, automation, prices, process and timelines. Ask anything, or start here:",
+    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: services, automation, how pricing works, process and timelines. Ask anything, or start here:",
   suggestions: [
-    'What does a landing site cost?',
-    'How long does a build take?',
     'What can you automate for a business?',
+    'How is a project priced?',
+    'How long does a build take?',
     'Are you available right now?',
   ],
   // Shown when retrieval finds nothing confident enough to stand behind.
@@ -324,35 +326,44 @@ export const assistant = {
 
 /** Project types offered in the enquiry form; mirrors the service list. */
 export const projectTypes = [
-  'Brand or landing site',
-  'Full site with booking',
-  'AI assistant layer',
   'Business automation',
-  'Care & retainer',
+  'AI assistant',
+  'Full website',
+  'Landing site',
+  'Care plan',
   'Something else',
 ]
 
 /** Asked in the enquiry form so the first reply can be specific to the business. */
 export const businessTypes = [
+  'Brand or company',
   'Clinic or healthcare',
   'School, college or institute',
-  'Brand or company',
   'Founder or startup',
   'Something else',
 ]
 
+/** A rough band, so a quote can be shaped to it. "Not sure yet" is the default. */
 export const budgets = [
-  'Under ₹40k',
-  '₹40k — ₹70k',
-  '₹80k — ₹1.5L',
-  '₹1.5L+',
+  'Under ₹50k',
+  '₹50k — ₹1L',
+  '₹1L — ₹2L',
+  'Above ₹2L',
   'Not sure yet',
 ]
 
 export const faq = [
   {
-    q: 'What does a project actually cost?',
-    a: 'A landing site is ₹40,000 to ₹70,000. A full site with booking is ₹80,000 to ₹1.5 lakh. The AI assistant adds ₹25,000 to set up, and business automation starts at ₹30,000. The ranges are published on purpose: you should know before you call.',
+    q: 'What can you automate?',
+    a: 'The repetitive steps between your tools: following up an enquiry on WhatsApp or email, logging leads into a CRM or spreadsheet, sending reminders, moving invoices and approvals along, and compiling a weekly report. It starts with a short audit, and you are told plainly when something is not worth automating.',
+  },
+  {
+    q: 'Do I have to change the tools I already use?',
+    a: 'No. Automation is built around what your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.',
+  },
+  {
+    q: 'How is a project priced?',
+    a: 'To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation.',
   },
   {
     q: 'How long does it take?',
@@ -363,20 +374,12 @@ export const faq = [
     a: 'A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies in Malayalam or English, and hands over to a person when a question is beyond it.',
   },
   {
-    q: 'What can you automate?',
-    a: 'The repetitive steps between your tools: following up an enquiry on WhatsApp or email, logging leads into a CRM or spreadsheet, sending reminders, moving invoices and approvals along, and compiling a weekly report. It starts with a short audit, and you are told plainly when something is not worth automating.',
-  },
-  {
-    q: 'Do I have to change the tools I already use?',
-    a: 'No. Automation is built around what your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.',
-  },
-  {
     q: 'Can I edit the site myself afterwards?',
-    a: 'Yes. Sites whose content changes often come with an editor your team can use without touching code. For simpler sites, content changes are part of the retainer.',
+    a: 'Yes. Sites whose content changes often come with an editor your team can use without touching code. For simpler sites, content changes are part of the care plan.',
   },
   {
-    q: 'Do I have to take the monthly retainer?',
-    a: 'No. The site is yours either way, and you can host it wherever you like. The retainer exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.',
+    q: 'Do I have to take the care plan?',
+    a: 'No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.',
   },
   {
     q: 'Who actually does the work?',

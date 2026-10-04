@@ -10,10 +10,9 @@ import { flow } from '../data/site.js'
 export default function Flow() {
   return (
     <Section
-      dark
-      label="Automation"
-      title="One enquiry. Start to finish."
-      intro="Nobody remembers to do any of this. That is the point."
+      label="How it works"
+      title="From first message to follow-up, handled."
+      intro="What happens to one enquiry once automation is in place. Nobody has to remember any of it."
     >
       <ol className="stagger grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-5">
         {flow.map((f) => (

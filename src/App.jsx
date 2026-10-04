@@ -32,12 +32,12 @@ export default function App() {
       <Nav />
 
       <main>
-        {/* A service company's order: the pain, what is sold and for how
-            much, how it works, then the proof and the people. */}
+        {/* Automation leads: the pain, what automation does about it, the
+            services, then the proof and the people. */}
         <Hero />
         <Problems />
-        <Services />
         <Flow />
+        <Services />
         <Work />
         <Audience />
         <Process />

@@ -41,7 +41,7 @@ function Legal({ doc }) {
 function NotFound() {
   const links = [
     { href: '/#work', label: 'The work' },
-    { href: '/#services', label: 'Services & pricing' },
+    { href: '/#services', label: 'Services' },
     { href: '/#faq', label: 'Questions, answered' },
     { href: '/#contact', label: 'Start a project' },
   ]

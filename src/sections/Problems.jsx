@@ -3,13 +3,13 @@ import { problems } from '../data/site.js'
 
 /**
  * The costs, named before the services that remove them. A visitor who
- * recognises their own week in these three reads the price list differently.
+ * recognises their own week in these three reads the service list differently.
  *
  * Set as panels one step above the page: the lift is the only decoration.
  */
 export default function Problems() {
   return (
-    <Section label="The problem" title="Where the time goes." intro="Three things that quietly cost a business, every week.">
+    <Section label="The problem" title="Work that should not need a person." intro="Three ways a business loses hours and customers without noticing.">
       <ol className="stagger grid gap-4 md:grid-cols-3">
         {problems.map((p, i) => (
           <li key={p.title} className="lift rounded-[18px] border border-line bg-surface p-7">

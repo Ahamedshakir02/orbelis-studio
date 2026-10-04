@@ -89,10 +89,10 @@ export const terms = {
       ],
     },
     {
-      h: 'Prices on this site',
+      h: 'Quotes',
       p: [
-        'The ranges published here are real and current, and are shown so you can judge fit before contacting anyone. They are indicative, not a binding offer: what a specific project costs depends on its scope, and the number that binds is the one in a written proposal you have accepted.',
-        'Prices are in Indian Rupees and exclude any taxes that apply.',
+        'This site does not publish prices. Each project is quoted to its requirements, and what a specific project costs depends on its scope. The number that binds is the one in a written proposal you have accepted.',
+        'Quotes are in Indian Rupees and exclude any taxes that apply.',
       ],
     },
     {

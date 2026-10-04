@@ -8,7 +8,7 @@ import { stats } from '../data/site.js'
  */
 export default function Stats() {
   return (
-    <Section label="Standards" title="Held to a number.">
+    <Section label="Standards" title="Numbers you can hold me to.">
       <dl className="stagger grid grid-cols-2 gap-x-6 gap-y-12 text-center md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label}>

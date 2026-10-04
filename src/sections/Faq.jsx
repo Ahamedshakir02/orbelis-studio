@@ -11,7 +11,7 @@ import { faq, brand } from '../data/site.js'
  */
 export default function Faq() {
   return (
-    <Section id="faq" label="Questions" title="Answered before you ask." width="narrow">
+    <Section id="faq" label="Questions" title="Straight answers." width="narrow">
       <div className="divide-y divide-line border-y border-line">
         {faq.map((item) => (
           <details key={item.q} className="group">

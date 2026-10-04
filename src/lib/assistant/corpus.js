@@ -34,7 +34,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A one-person studio building fast, clear websites, an AI assistant behind them that answers from the client's own content, and business automation for companies and brands, based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} A one-person studio that automates the repetitive work in a business, adds an AI assistant that answers from the client's own content, and builds the fast website they run on, based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where',
   },
   {
@@ -64,20 +64,20 @@ export const passages = [
   },
   {
     id: 'pricing-overview',
-    section: 'Services & pricing',
-    title: 'What things cost',
+    section: 'Services',
+    title: 'How pricing works',
     href: '#services',
-    text: `Prices are published, not quoted on request. ${services
-      .map((s) => `${s.title}: ${s.price}`)
-      .join('. ')}. Every build includes the speed and accessibility checks; they are not billed as extras.`,
+    text: `Every project is quoted to its requirements; there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. A short brief through the form gets a quote before any work starts. Services that can be quoted: ${services
+      .map((s) => s.title)
+      .join(', ')}. Every build includes the speed and accessibility checks; they are not billed as extras.`,
     keywords: `${money} how much expensive cheap afford total range`,
   },
   ...services.map((s) => ({
     id: `service-${s.index}`,
-    section: 'Services & pricing',
+    section: 'Services',
     title: s.title,
     href: '#services',
-    text: `${s.title} — ${s.price}. ${s.body} Includes: ${s.points.join(', ')}.`,
+    text: `${s.title}. ${s.body} Includes: ${s.points.join(', ')}. Quoted to your requirements.`,
     keywords: `${money} service ${s.group} ${s.points.join(' ')}`,
   })),
   ...work.map((w) => ({
@@ -90,7 +90,7 @@ export const passages = [
   })),
   {
     id: 'automation-flow',
-    section: 'Services & pricing',
+    section: 'Services',
     title: 'How automation works',
     href: '#services',
     text: `One enquiry, followed start to finish. ${flow.map((f) => `${f.title}: ${f.body}`).join(' ')}`,
@@ -133,7 +133,7 @@ export const passages = [
   },
   {
     id: 'languages',
-    section: 'Services & pricing',
+    section: 'Services',
     title: 'Languages the assistant speaks',
     href: '#services',
     text: 'The AI assistant answers in Malayalam and English, and hands over to a person when a question goes beyond the content it has read. The sites themselves can be bilingual where the audience needs it.',

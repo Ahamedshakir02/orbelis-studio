@@ -13,7 +13,7 @@
  *
  * Below the confidence floor the assistant declines. That is the whole point of
  * a retrieval-grounded assistant and the reason clients buy this instead of a
- * raw model: it would rather say "I don't have that" than invent a price.
+ * raw model: it would rather say "I don't have that" than invent an answer.
  */
 import { retrieve, CONFIDENCE_FLOOR } from './retrieve.js'
 import { brand, services, work, availability, assistant as cfg } from '../../data/site.js'
@@ -28,7 +28,7 @@ function matchIntent(query) {
 
   if (/^(hi|hey|hello|yo|hai|namaskaram|good (morning|evening|afternoon))\b/.test(q)) {
     return {
-      text: `Hello. I can answer anything on this page: prices, timelines, what the assistant does, what can be automated, how a project runs. What do you need built?`,
+      text: `Hello. I can answer anything on this page: services, how pricing works, timelines, what the assistant does, what can be automated. What do you need built?`,
     }
   }
 
@@ -41,10 +41,10 @@ function matchIntent(query) {
 
   // The money question, answered in full rather than one service at a time.
   if (has(q, 'cost', 'price', 'pricing', 'charge', 'budget', 'how much', 'rate', 'quote')) {
-    const lines = services.map((s) => `· ${s.title} — ${s.price}`).join('\n')
+    const lines = services.map((s) => `· ${s.title}`).join('\n')
     return {
-      text: `Published, not quoted on request:\n\n${lines}\n\nEvery build includes the speed and accessibility checks; they are not billed as extras. Where a project lands in a range depends on the number of pages and how much of the content already exists.`,
-      source: { label: 'Services & pricing', href: '#services' },
+      text: `Every project is quoted to its requirements, so there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Send a short brief through the form and you get a quote before any work starts.\n\nWhat can be quoted:\n\n${lines}`,
+      source: { label: 'Services', href: '#services' },
       actions: ['enquiry'],
     }
   }

@@ -2,11 +2,10 @@ import Section from '../components/Section.jsx'
 import { services } from '../data/site.js'
 
 /**
- * Services as a shelf: one card each, the price at the bottom where a price
- * tag goes. Prices are on the page on purpose — it filters out the people who
- * were never going to pay, and saves everyone else a call.
+ * Services as a shelf: one card each, what it is and what is in it.
  *
- * Each card can be enquired about directly — the form opens with that service
+ * No prices. Every project is quoted to its requirements, so each card ends
+ * with a way to ask for one — the form opens with that service already
  * chosen — and the shelf ends by catching the visitor who cannot tell which
  * card is theirs, which is most of them.
  */
@@ -16,11 +15,11 @@ export default function Services() {
   return (
     <Section
       id="services"
-      label="Services & pricing"
-      title="Five things, done properly."
-      intro="Two you build once. Three that keep running. Every price published."
+      label="Services"
+      title="Pick what you need."
+      intro="Automation first, then the assistant and the site they run on. Each is quoted to what you actually need."
     >
-      {/* Two wide cards for what is built, three narrower for what runs. */}
+      {/* The two lead services, automation and the assistant, get the wide cards. */}
       <div className="stagger grid gap-4 md:grid-cols-2 lg:grid-cols-6">
         {services.map((s, i) => (
           <article
@@ -45,14 +44,13 @@ export default function Services() {
               ))}
             </ul>
 
-            <div className="mt-auto flex items-center justify-between gap-4 pt-8">
-              <p className="text-xl font-semibold tracking-tight">{s.price}</p>
+            <div className="mt-auto pt-8">
               <a
                 href="#contact"
                 onClick={enquire(s.enquiry)}
-                className="inline-flex h-10 shrink-0 items-center gap-1 text-[15px] text-link underline-offset-4 hover:underline"
+                className="inline-flex h-10 items-center gap-1 text-[15px] font-medium text-link underline-offset-4 hover:underline"
               >
-                Enquire<span className="sr-only"> about {s.title}</span>
+                Get a quote<span className="sr-only"> for {s.title}</span>
                 <span aria-hidden>›</span>
               </a>
             </div>
@@ -61,7 +59,7 @@ export default function Services() {
       </div>
 
       <div className="mt-14 text-center">
-        <p className="text-2xl font-semibold tracking-tight">Not sure which one you need?</p>
+        <p className="text-2xl font-semibold tracking-tight">Not sure which one?</p>
         <p className="mx-auto mt-2 max-w-md text-[17px] leading-snug text-muted">
           Most people are not. Tell me what is slowing the business down and I will tell you which
           of these fixes it, or that none of them does.
@@ -70,7 +68,7 @@ export default function Services() {
           href="#contact"
           className="mt-6 inline-flex h-11 items-center rounded-full bg-action px-6 text-[17px] text-onaction transition hover:bg-actionhover active:scale-[0.95]"
         >
-          Describe the problem
+          Ask me
         </a>
       </div>
     </Section>

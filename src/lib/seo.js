@@ -5,23 +5,19 @@
  *
  *   · The FAQ block is eligible for rich results, so the questions this studio
  *     already answers on the page can answer them in the search listing too.
- *     Published prices are the differentiator; they should be visible before
- *     the click, not after it.
- *   · A ProfessionalService entity with a real location and price range is what
- *     local search reads. "Web designer near Edappal" is a query this studio
+ *   · A ProfessionalService entity with a real location is what local search
+ *     reads. No price range is emitted: projects are quoted, not listed. "Web designer near Edappal" is a query this studio
  *     should win and cannot win as an unlabelled div.
  *
  * Injected at runtime rather than hard-coded into index.html for the same
- * reason the assistant reads site.js: one source of truth. A price edited in
- * the data file must not leave a stale price in the markup — search engines
+ * reason the assistant reads site.js: one source of truth. A service edited in
+ * the data file must not leave a stale one in the markup — search engines
  * treat a mismatch between structured data and visible content as a reason to
  * distrust the whole block.
  */
 import { brand, socials, services, faq } from '../data/site.js'
 
 function graph() {
-  const priceRange = '₹40,000 — ₹1,50,000'
-
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -29,10 +25,9 @@ function graph() {
         '@type': 'ProfessionalService',
         '@id': `${brand.url}/#studio`,
         name: brand.full,
-        description: `${brand.tagline} Fast, clear websites, an AI assistant that answers from your own content, and the automation that follows every enquiry through.`,
+        description: `${brand.tagline} Business automation, an AI assistant that answers from your own content, and the fast website they run on.`,
         url: brand.url,
         email: brand.email,
-        priceRange,
         // Unset fields are left out entirely: a null or placeholder value in
         // structured data is worse than an absent one.
         ...(brand.phone && { telephone: brand.phone }),
@@ -59,12 +54,6 @@ function graph() {
             '@type': 'Service',
             name: s.title,
             description: s.body,
-          },
-          priceCurrency: 'INR',
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            priceCurrency: 'INR',
-            description: s.price,
           },
         })),
       },

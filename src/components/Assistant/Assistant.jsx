@@ -9,7 +9,7 @@ import { scrollToTarget, lockScroll } from '../../lib/scroll.js'
  * Selling "an assistant that answers at 2am" from a page with no assistant on it
  * is the sort of gap a prospect notices. This is the demo — and because it is
  * grounded in src/data/site.js, it is also genuinely the fastest way for a
- * visitor to get a price out of this page.
+ * visitor to get a straight answer out of this page.
  *
  * Accessibility is not decoration here: it is a dialog, so it behaves like one.
  * Escape closes, focus is trapped while open and returned to the launcher on
@@ -190,7 +190,6 @@ export default function Assistant() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="assistant-panel"
-        data-theme="dark"
         /* Steps up when the sticky mobile CTA shows — see .launcher in index.css. */
         className="launcher fixed bottom-5 right-4 z-[95] flex h-12 w-12 items-center justify-center rounded-full bg-action text-onaction transition hover:bg-actionhover active:scale-[0.95] md:bottom-8 md:right-8 md:h-14 md:w-14"
       >
@@ -298,7 +297,7 @@ export default function Assistant() {
               ref={field}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about price, timeline, process…"
+              placeholder="Ask about services, timeline, pricing…"
               aria-label="Ask the studio assistant a question"
               maxLength={300}
               className="min-w-0 flex-1 bg-transparent text-[13px] text-mist outline-none placeholder:text-muted/70"

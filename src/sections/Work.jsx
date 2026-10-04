@@ -47,8 +47,8 @@ export default function Work() {
     <Section
       id="work"
       label="Work"
-      title="Built, not templated."
-      intro="One live product, two labelled concepts. Nothing here pretends to be a client engagement that was not one."
+      title="Proof, labelled honestly."
+      intro="One live product and two concept builds. A concept is marked as a concept."
     >
       <div className="stagger grid gap-4">
         {work.map((item) => (

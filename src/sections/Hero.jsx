@@ -2,11 +2,13 @@ import { brand, assurances } from '../data/site.js'
 import HeroPanel from '../components/HeroPanel.jsx'
 
 /**
- * The opening band: black in both themes, one statement, two actions, and the
- * product on a stage beneath them.
+ * The opening band: one promise, one line of how, two actions, and the
+ * product at work beneath them. Text-led on purpose: the statement gets the
+ * first screen to itself.
  *
- * Everything is centred and there is very little of it — the headline is
- * meant to be read in one glance and the image is meant to do the persuading.
+ * The headline is the outcome, not the service list, and automation comes
+ * first: a visitor does not want "a website and an assistant", they want the
+ * retyping gone and the enquiry that came in at night answered.
  *
  * The lines arrive in reading order, a beat apart (`rise` in index.css, timed
  * by `--d`). It is an entrance, not a reveal: the text is in the markup from
@@ -16,25 +18,25 @@ const delay = (ms) => ({ '--d': `${ms}ms` })
 
 export default function Hero() {
   return (
-    <section id="top" data-theme="dark" className="tile tile-dark overflow-hidden text-mist">
+    <section id="top" className="tile overflow-hidden">
       <div className="container-x pb-20 pt-28 text-center md:pb-28 md:pt-40">
         <p className="rise eyebrow" style={delay(0)}>
-          {brand.full}
+          {brand.full} · Automation, AI assistants, websites
         </p>
 
         <h1
-          className="rise mx-auto mt-4 max-w-4xl text-[clamp(26px,7.2vw,40px)] font-semibold leading-[1.04] tracking-[-0.035em] [text-wrap:balance] md:text-[72px] lg:text-[80px]"
+          className="rise mx-auto mt-4 max-w-4xl text-[clamp(30px,8.4vw,40px)] font-semibold leading-[1.04] tracking-[-0.035em] [text-wrap:balance] md:text-[72px] lg:text-[80px]"
           style={delay(80)}
         >
-          {/* One sentence per line wherever a line can hold one. */}
-          Websites that work. <span className="block text-muted">Assistants that answer.</span>
+          Automate the busywork. <span className="block text-muted">Answer every enquiry.</span>
         </h1>
 
         <p
           className="rise mx-auto mt-6 max-w-2xl text-lg leading-snug text-muted [text-wrap:balance] md:text-2xl md:leading-[1.3]"
           style={delay(180)}
         >
-          The site, the assistant behind it, and the automation after it. Built by one person, in Kerala.
+          I automate the repetitive work between your tools, add an assistant that replies from your own
+          information, and build the fast website they run on.
         </p>
 
         <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3" style={delay(280)}>
@@ -48,7 +50,7 @@ export default function Hero() {
             href="#services"
             className="inline-flex h-11 items-center rounded-full border border-link px-6 text-[17px] text-link transition hover:bg-link/10 active:scale-[0.95]"
           >
-            Services and prices
+            See the services
           </a>
         </div>
 

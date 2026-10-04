@@ -4,8 +4,9 @@ import { brand, projectTypes, budgets, businessTypes } from '../data/site.js'
 /**
  * The conversion path.
  *
- * A site that publishes ₹1.5L price ranges and then offers a mailto link as its
- * only way in is throwing away the visitors who were ready. A form converts
+ * Every project is quoted, so this form is the way in. A site that asks for a
+ * brief and then offers only a mailto link is throwing away the visitors who
+ * were ready. A form converts
  * better than an address for one boring reason: it tells the visitor what to
  * say. Business, project type and budget are asked here so the first reply can
  * be specific instead of a round-trip asking for them. "What is slowing you
@@ -247,7 +248,7 @@ export default function EnquiryForm() {
 
         <div>
           <label className={LABEL} htmlFor="ef-budget">
-            Budget
+            Rough budget
           </label>
           <select
             id="ef-budget"
@@ -292,7 +293,7 @@ export default function EnquiryForm() {
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'ef-message-error' : undefined}
           className={FIELD + ' resize-none' + (errors.message ? ' border-link' : '')}
-          placeholder="A clinic site with appointment requests, and an assistant that handles timings and fees."
+          placeholder="Enquiries followed up on WhatsApp and logged to our sheet, plus a site that takes bookings."
         />
         {errors.message && (
           <p id="ef-message-error" role="alert" className="mt-2 text-xs text-link">
