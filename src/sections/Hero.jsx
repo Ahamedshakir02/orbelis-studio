@@ -21,7 +21,7 @@ export default function Hero() {
     <section id="top" className="tile overflow-hidden">
       <div className="container-x pb-20 pt-32 text-center md:pb-28 md:pt-44">
         <p className="rise eyebrow" style={delay(0)}>
-          {brand.full} · Automation, AI assistants, websites
+          {brand.full} · Automation, AI, apps, websites, marketing
         </p>
 
         <h1
@@ -36,7 +36,7 @@ export default function Hero() {
           style={delay(180)}
         >
           I automate the repetitive work between your tools, add an assistant that replies from your own
-          information, and build the fast website they run on.
+          information, build the apps and websites they run on, and run the marketing that brings people in.
         </p>
 
         <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3" style={delay(280)}>
