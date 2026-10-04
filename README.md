@@ -141,9 +141,9 @@ The brand's rules, so new pages look like this one.
 - **Each theme is whole.** Light is light everywhere and dark is dark
   everywhere. Nothing is pinned to the other theme: a black band on a light
   page reads as something that failed to switch.
-- **Show the product.** The hero's image is the product at work — a site, the
-  assistant answering a customer, the automation that follows — and it is
-  labelled as an example.
+- **Show the product.** The hero's image is automation at work — an enquiry
+  arrives, the jobs are done one by one, the report goes out — drawn from the
+  site's own content.
 - **One accent.** Brass, for the action, the brand mark and links. Never a
   second colour, never a gradient as decoration; the one glow is the stage
   light behind the hero panel.
@@ -206,10 +206,11 @@ cards `lift` on hover and buttons give under the finger. All of it is CSS in
 block only after mount and only if it starts below the fold, so nothing is
 hidden in the markup and nothing already on screen blinks.
 
-**The hero panel is an example, and says so.** `HeroPanel.jsx` shows a
-generic business site with the assistant answering a customer. The business is
-deliberately not a real client. The automation steps under it are the real
-ones, read from `site.js`.
+**The hero panel is real data, and automation is its subject.**
+`HeroPanel.jsx` shows three floating cards: an enquiry arriving, the automation
+service ticking through its jobs, and the report going out. The jobs are that
+service's own `points` and the outer cards are the first and last steps of
+`flow`, all read from `site.js`.
 
 **Sizes.** Content sits at 980px inside a 1200px gutter. Interactive targets
 are at least 40px in both directions.
