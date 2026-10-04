@@ -114,7 +114,7 @@
 /*
   Motion. Things arrive, settle, and then stay quietly alive.
 
-    loader   the logo draws itself before anything else is on screen. Its
+    loader   the wordmark is revealed before anything else is on screen. Its
              CSS lives in index.html, not here — see the note there.
     rise     an entrance: fades up once, timed by --d. Used by the hero.
     reveal   the same move on scroll, added by useReveal() to blocks that

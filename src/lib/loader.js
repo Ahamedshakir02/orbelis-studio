@@ -11,8 +11,8 @@
  *   · the fonts are in, because they decide the hero's line breaks and a
  *     headline that reflows as the curtain lifts is the thing a loader exists
  *     to hide;
- *   · the logo has finished drawing (about a second from navigation), so a
- *     fast connection does not flash half a mark and vanish.
+ *   · the wordmark has finished appearing (about a second from navigation),
+ *     so a fast connection does not flash half a logo and vanish.
  * Neither wait is open-ended: fonts get 2.5s, then the page shows regardless.
  *
  * While it is up, <html> carries `loading`: the page cannot scroll, and the
@@ -35,7 +35,7 @@ export function liftLoader() {
   const patience = new Promise((resolve) => setTimeout(resolve, FONT_PATIENCE_MS))
 
   Promise.race([fonts, patience]).then(() => {
-    // performance.now() counts from navigation, which is when the logo began.
+    // performance.now() counts from navigation, which is when the reveal began.
     const wait = reduce ? 0 : Math.max(0, DRAW_MS - performance.now())
     setTimeout(() => {
       html.classList.remove('loading')
