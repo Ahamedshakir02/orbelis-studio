@@ -9,13 +9,13 @@ import { problems } from '../data/site.js'
  */
 export default function Problems() {
   return (
-    <Section label="Where the time goes" title="Three things that quietly cost you.">
-      <ol className="grid gap-4 md:grid-cols-3">
+    <Section label="The problem" title="Where the time goes." intro="Three things that quietly cost a business, every week.">
+      <ol className="stagger grid gap-4 md:grid-cols-3">
         {problems.map((p, i) => (
-          <li key={p.title} className="rounded-xl border border-line bg-surface p-6">
+          <li key={p.title} className="lift rounded-[18px] border border-line bg-surface p-7">
             <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
-            <h3 className="mt-4 text-lg font-medium leading-snug tracking-tight">{p.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{p.body}</p>
+            <h3 className="mt-4 text-xl font-semibold leading-snug tracking-tight">{p.title}</h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted">{p.body}</p>
           </li>
         ))}
       </ol>

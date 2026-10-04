@@ -24,7 +24,7 @@ const ENDPOINT = import.meta.env?.VITE_FORM_ENDPOINT || ''
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 const FIELD =
-  'w-full rounded-lg border border-line bg-surface px-3.5 py-3 text-sm text-mist outline-none ' +
+  'w-full rounded-xl border border-line bg-tile px-4 py-3 text-[15px] text-mist outline-none ' +
   'transition-colors placeholder:text-muted/60 focus:border-link/70'
 
 const LABEL = 'mb-2 block text-[13px] font-medium text-muted'
@@ -318,7 +318,7 @@ export default function EnquiryForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex h-11 items-center gap-2 rounded-lg bg-action px-5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.97] disabled:opacity-50"
+          className="inline-flex h-11 items-center gap-2 rounded-full bg-action px-5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.95] disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending…' : 'Send enquiry'}
           <span aria-hidden>→</span>

@@ -44,7 +44,7 @@ export default function Work() {
       id="work"
       label="Work"
       title="Built, not templated."
-      intro="Concept builds are labelled as such. Nothing here pretends to be a client engagement that was not one."
+      intro="One live product, two labelled concepts. Nothing here pretends to be a client engagement that was not one."
     >
       <div className="divide-y divide-line border-y border-line">
         {work.map((item) => (
@@ -52,7 +52,7 @@ export default function Work() {
             {item.image && <Figure src={item.image} alt={item.imageAlt} title={item.title} />}
 
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-              <h3 className="font-medium text-2xl tracking-tight">{item.title}</h3>
+              <h3 className="text-2xl font-semibold tracking-tight">{item.title}</h3>
               <span className="rounded-full bg-raised px-2.5 py-0.5 text-xs text-mist/80">
                 {item.status} · {item.year}
               </span>

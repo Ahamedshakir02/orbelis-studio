@@ -20,7 +20,7 @@ export default function PageShell({ title, intro, children, footNote }) {
         Skip to content
       </a>
 
-      <header className="border-b border-line">
+      <header data-theme="dark" className="border-b border-white/10 bg-black text-mist">
         <div className="container-x flex h-14 items-center justify-between">
           <a href="/" className="inline-flex h-10 items-center font-display text-lg tracking-tight">
             {brand.name}

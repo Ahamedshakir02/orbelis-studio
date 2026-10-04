@@ -10,15 +10,16 @@ import { flow } from '../data/site.js'
 export default function Flow() {
   return (
     <Section
+      dark
       label="Automation"
-      title="One enquiry, start to finish."
+      title="One enquiry. Start to finish."
       intro="Nobody remembers to do any of this. That is the point."
     >
-      <ol className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 xl:grid-cols-5">
+      <ol className="stagger grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-5">
         {flow.map((f) => (
           <li key={f.step} className="border-t border-line pt-5">
             <span className="font-mono text-xs text-muted">{f.step}</span>
-            <h3 className="mt-3 font-medium text-base leading-snug tracking-tight">{f.title}</h3>
+            <h3 className="mt-3 text-[17px] font-semibold leading-snug tracking-tight">{f.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
           </li>
         ))}

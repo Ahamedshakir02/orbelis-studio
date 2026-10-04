@@ -190,8 +190,9 @@ export default function Assistant() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="assistant-panel"
+        data-theme="dark"
         /* Steps up when the sticky mobile CTA shows — see .launcher in index.css. */
-        className="launcher fixed bottom-5 right-4 z-[95] flex h-12 w-12 items-center justify-center rounded-full bg-action text-onaction transition hover:bg-actionhover active:scale-[0.97] md:bottom-8 md:right-8 md:h-14 md:w-14"
+        className="launcher fixed bottom-5 right-4 z-[95] flex h-12 w-12 items-center justify-center rounded-full bg-action text-onaction transition hover:bg-actionhover active:scale-[0.95] md:bottom-8 md:right-8 md:h-14 md:w-14"
       >
         <span className="sr-only">{open ? 'Close' : 'Open'} the studio assistant</span>
         {open ? (
@@ -305,7 +306,7 @@ export default function Assistant() {
             <button
               type="submit"
               disabled={!input.trim() || busy}
-              className="shrink-0 rounded-md bg-action px-3 py-1.5 text-xs font-medium text-onaction transition-opacity disabled:opacity-30"
+              className="shrink-0 rounded-full bg-action px-3 py-1.5 text-xs font-medium text-onaction transition-opacity disabled:opacity-30"
             >
               Send
             </button>

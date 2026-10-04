@@ -8,12 +8,12 @@ import { audiences } from '../data/site.js'
  */
 export default function Audience() {
   return (
-    <Section label="Who it is for" title="Built for four kinds of business.">
-      <div className="grid gap-4 md:grid-cols-2">
+    <Section label="Who it is for" title="Made for four kinds of business." intro="What each one gets, listed as things delivered.">
+      <div className="stagger grid gap-4 md:grid-cols-2">
         {audiences.map((a) => (
-          <article key={a.title} className="rounded-xl border border-line bg-surface p-6">
-            <h3 className="text-[22px] font-medium leading-tight tracking-tight">{a.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{a.body}</p>
+          <article key={a.title} className="lift rounded-[18px] border border-line bg-surface p-7">
+            <h3 className="text-2xl font-semibold leading-tight tracking-tight">{a.title}</h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted">{a.body}</p>
             <ul className="mt-5 space-y-2 border-t border-line pt-5">
               {a.outcomes.map((o) => (
                 <li key={o} className="flex items-start gap-3 text-sm text-mist">

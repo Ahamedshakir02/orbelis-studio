@@ -12,11 +12,8 @@ import { useEffect, useState } from 'react'
  * windows, blocked site data), so it is wrapped: the switch still works for
  * the visit, it just is not remembered.
  */
-const CANVAS = { dark: '#08090c', light: '#ffffff' }
-
 function apply(theme) {
   document.documentElement.dataset.theme = theme
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', CANVAS[theme])
   try {
     localStorage.setItem('theme', theme)
   } catch {
@@ -44,7 +41,7 @@ export default function ThemeToggle({ className = '' }) {
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
       className={
-        'flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-surface text-muted transition hover:bg-raised hover:text-mist active:scale-[0.95] ' +
+        'flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-muted transition hover:bg-raised hover:text-mist active:scale-[0.95] ' +
         className
       }
     >

@@ -1,40 +1,44 @@
 import { useReveal } from '../lib/useReveal.js'
 
 /**
- * The one layout every section shares: a full-width band, a small label in
- * the left column, the content in the right. Bands alternate between the page
- * colour and its neighbour (`.tile` in index.css); that change is the divider.
+ * One band of the page: a full-width tile with a single statement, centred,
+ * and whatever supports it underneath.
  *
- * Kept as a component so the rhythm of the page is decided in one place. A
- * minimal page lives or dies on consistent spacing, and nine sections each
- * choosing their own padding is how that consistency goes.
+ * This is the brand's unit of composition. Each band says one thing in a
+ * short headline, adds at most one line beneath it, and then gets out of the
+ * way of its content. Bands alternate background (`.tile` in index.css) and
+ * that change of colour is the only divider.
  *
- * The label moves beside the content only from 1024px. On a tablet the
- * content needs the full width more than the label needs its own column.
- *
- * Sections sit 96px apart. Titles are set at 40px, weight 600, with tight
- * negative tracking — one voice with the body text, only heavier.
+ * `dark` makes a band black in both themes — used sparingly, for the moments
+ * that should feel like the lights going down. It works by re-scoping the
+ * colour variables, so everything inside simply reads as the dark theme.
  */
-export default function Section({ id, label, title, intro, children }) {
+export default function Section({ id, label, title, intro, children, dark = false, width = 'wide' }) {
   const body = useReveal()
 
   return (
-    <section id={id} className="tile py-16 md:py-24">
-      <div className="container-x grid gap-6 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-3">
-          <p className="eyebrow lg:sticky lg:top-20">{label}</p>
-        </div>
-
-        <div ref={body} className="lg:col-span-9">
+    <section
+      id={id}
+      data-theme={dark ? 'dark' : undefined}
+      className={'tile py-20 md:py-32' + (dark ? ' tile-dark text-mist' : '')}
+    >
+      <div className="container-x">
+        <header className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow">{label}</p>
           {title && (
-            <h2 className="max-w-2xl text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] md:text-[40px]">
+            <h2 className="mt-3 text-[32px] font-semibold leading-[1.08] tracking-[-0.03em] [text-wrap:balance] md:text-[48px] lg:text-[56px]">
               {title}
             </h2>
           )}
           {intro && (
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted md:text-lg">{intro}</p>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-snug text-muted [text-wrap:balance] md:text-[21px] md:leading-[1.4]">
+              {intro}
+            </p>
           )}
-          <div className={title || intro ? 'mt-10 md:mt-12' : ''}>{children}</div>
+        </header>
+
+        <div ref={body} className={'mx-auto mt-12 md:mt-16 ' + (width === 'narrow' ? 'max-w-3xl' : 'max-w-[980px]')}>
+          {children}
         </div>
       </div>
     </section>

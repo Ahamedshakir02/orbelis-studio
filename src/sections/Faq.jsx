@@ -11,12 +11,12 @@ import { faq, brand } from '../data/site.js'
  */
 export default function Faq() {
   return (
-    <Section id="faq" label="Questions" title="Answered before you ask.">
+    <Section id="faq" label="Questions" title="Answered before you ask." width="narrow">
       <div className="divide-y divide-line border-y border-line">
         {faq.map((item) => (
           <details key={item.q} className="group">
             <summary className="flex cursor-pointer list-none items-start justify-between gap-8 py-6 [&::-webkit-details-marker]:hidden">
-              <h3 className="font-medium text-lg tracking-tight md:text-xl">{item.q}</h3>
+              <h3 className="text-lg font-semibold tracking-tight md:text-xl">{item.q}</h3>
               <span
                 className="mt-0.5 shrink-0 font-mono text-lg text-muted transition-transform duration-200 group-open:rotate-45"
                 aria-hidden
@@ -29,7 +29,7 @@ export default function Faq() {
         ))}
       </div>
 
-      <p className="mt-8 text-sm text-muted">
+      <p className="mt-8 text-center text-[15px] text-muted">
         Still stuck?{' '}
         <a href={'mailto:' + brand.email} className="text-link underline underline-offset-4">
           Email directly

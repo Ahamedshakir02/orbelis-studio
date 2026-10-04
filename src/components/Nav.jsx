@@ -4,7 +4,8 @@ import { lockScroll } from '../lib/scroll.js'
 import ThemeToggle from './ThemeToggle.jsx'
 
 /**
- * Header: wordmark left, four links centred, one action right. 56px tall.
+ * Header: wordmark left, four links centred, one action right. 56px tall,
+ * dark and frosted in both themes.
  *
  * In-page links are plain #hash anchors: the browser scrolls, CSS smooths it
  * and offsets it below this header. Nothing here intercepts a click except to
@@ -40,7 +41,11 @@ export default function Nav() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[90] border-b border-line bg-bg/90 backdrop-blur-md">
+      {/* Dark and frosted in both themes, like the band it sits over. */}
+      <header
+        data-theme="dark"
+        className="fixed inset-x-0 top-0 z-[90] border-b border-white/10 bg-black/75 text-mist backdrop-blur-xl backdrop-saturate-150"
+      >
         <div className="container-x flex h-14 items-center justify-between">
           {/* The wordmark is the one place the brand face is kept. */}
           <a href="#top" onClick={close} className="relative z-[95] inline-flex h-10 items-center font-display text-lg tracking-tight">
@@ -53,7 +58,7 @@ export default function Nav() {
               <a
                 key={item.href}
                 href={item.href}
-                className="inline-flex h-10 min-w-10 items-center justify-center text-sm text-muted transition-colors hover:text-mist"
+                className="inline-flex h-10 min-w-10 items-center justify-center text-[13px] text-mist/80 transition-colors hover:text-mist"
               >
                 {item.label}
               </a>
@@ -69,7 +74,7 @@ export default function Nav() {
                 href={`https://wa.me/${brand.whatsapp}`}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="hidden h-10 items-center rounded-lg border border-line bg-surface px-3.5 text-sm font-medium text-mist transition hover:bg-raised active:scale-[0.97] lg:inline-flex"
+                className="hidden h-10 items-center rounded-full border border-line bg-surface px-3.5 text-sm font-medium text-mist transition hover:bg-raised active:scale-[0.95] lg:inline-flex"
               >
                 WhatsApp
               </a>
@@ -78,7 +83,7 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={close}
-              className="hidden h-10 items-center rounded-lg bg-action px-3.5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.97] sm:inline-flex"
+              className="hidden h-10 items-center rounded-full bg-action px-3.5 text-sm font-medium text-onaction transition hover:bg-actionhover active:scale-[0.95] sm:inline-flex"
             >
               Start a project
             </a>
@@ -115,7 +120,7 @@ export default function Nav() {
           reachable by keyboard or screen reader. */}
       <div id="mobile-menu" className="md:hidden">
         {open && (
-          <div className="fixed inset-0 z-[92] flex flex-col justify-between bg-bg px-6 pb-10 pt-20">
+          <div data-theme="dark" className="fixed inset-0 z-[92] flex flex-col justify-between bg-black px-6 pb-10 pt-24 text-mist">
             <nav aria-label="Mobile" className="flex flex-col border-t border-line">
               {links.map((item) => (
                 <a
