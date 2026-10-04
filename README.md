@@ -111,6 +111,24 @@ assistant, and "it would rather say I don't know" is the thing being sold.
 When you change the copy, re-run the question set before shipping — ranking is
 tuned against real questions, not vibes.
 
+## Brand kit
+
+`npm run brand` writes the logo and the social images to `brand/`, drawn from
+the same mark as the favicon and the same tagline as the site:
+
+| File | Use |
+|---|---|
+| `logo-mark-dark.png`, `logo-mark-light.png` | Profile picture (1024px; safe for a circular crop) |
+| `logo-mark-transparent.png` | The mark alone, no background |
+| `logo-lockup-*.png` | Mark + wordmark, on dark, on light and transparent |
+| `social-post-1080.png` | Square post for Instagram, LinkedIn, Facebook |
+| `social-story-1080x1920.png` | Story or reel cover |
+| `banner-x-1500x500.png` | X header |
+| `banner-linkedin-1584x396.png` | LinkedIn cover |
+
+Re-run it after changing the tagline. The folder is not part of the deployed
+site.
+
 ## Design language
 
 The brand's rules, so new pages look like this one.
@@ -173,6 +191,13 @@ the page under their own name. One releasing cannot undo the other's lock.
 services are plain lists, and nothing is hidden waiting for an animation. The
 assistant and the enquiry form both work with no backend configured.
 
+**The loader is the logo.** It is inline in `index.html` — markup and CSS —
+so it shows before the bundle, stylesheet or fonts arrive: the ring draws, then
+the horizon, then the core, which breathes until the page is ready.
+`src/lib/loader.js` lifts it when the fonts are in and the mark has finished
+drawing, and gives up waiting after 2.5s. The page cannot scroll underneath it,
+and the hero's entrance is held until it lifts.
+
 **Motion.** `rise` eases the hero in line by line; `reveal` fades a band up
 the first time it scrolls into view and `stagger` brings its cards in one
 after another; the hero's cards `float` and lean toward the pointer (`plx`);
@@ -201,6 +226,7 @@ and social platforms actually consume are exported from them:
 npm run og      # public/og.png — the share card
 npm run icons   # favicon PNGs, apple-touch-icon, manifest icons
 npm run brochure  # public/orbelis-profile.pdf — the company profile
+npm run brand     # brand/ — logo PNGs and social-media images
 ```
 
 Both screenshot the SVG with the Chrome or Edge already on the machine, so
