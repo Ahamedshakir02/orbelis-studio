@@ -7,7 +7,8 @@
  * apple-touch-icon, Android installs read the manifest icons, and a few tools
  * still ask for a 32px PNG. One source file, five outputs, no design tool.
  *
- * The mark is rendered on the brand background rather than transparent —
+ * The mark (the wordmark's O and full stop) is rendered on the brand
+ * background rather than transparent —
  * a transparent icon on a dark OS theme becomes an invisible smudge.
  */
 import { existsSync, readFileSync } from 'node:fs'

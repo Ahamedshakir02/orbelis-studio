@@ -199,10 +199,12 @@ export default function Assistant() {
             <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
           </svg>
         ) : (
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-            <circle cx="11" cy="11" r="7.2" stroke="currentColor" strokeWidth="1.5" />
-            <ellipse cx="11" cy="11" rx="7.2" ry="3" stroke="currentColor" strokeWidth="1.2" opacity="0.75" />
-            <circle cx="11" cy="11" r="1.9" fill="currentColor" />
+          // The wordmark's O and full stop, as outlines.
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor" aria-hidden>
+            <g transform="translate(1.5 17.4) scale(0.191)">
+              <path d="M38.50 1Q21.90 1 12.20-8.40Q2.50-17.80 2.50-33.50Q2.50-49.20 12.20-58.60Q21.90-68 38.50-68Q55.40-68 65.15-58.65Q74.90-49.30 74.90-33.50Q74.90-17.70 65.15-8.35Q55.40 1 38.50 1M22.90-17.90Q27.40-13.40 38.50-13.40Q49.60-13.40 54.25-17.90Q58.90-22.40 58.90-33.50Q58.90-44.60 54.25-49.10Q49.60-53.60 38.50-53.60Q27.40-53.60 22.90-49.10Q18.40-44.60 18.40-33.50Q18.40-22.40 22.90-17.90" />
+              <rect x="77.4" y="-17.5" width="19.3" height="17.5" />
+            </g>
           </svg>
         )}
       </button>

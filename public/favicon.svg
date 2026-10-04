@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <!--
-    The hero orb, reduced to something legible at 16px: a ring, its horizon
-    ellipse, and a solid core. Detail below ~3px of stroke disappears in a
-    browser tab, so there is deliberately none.
+    The wordmark, reduced to something legible at 16px: its first letter and
+    its brass full stop. The O is the outline of the Clash Display glyph, so
+    nothing here depends on a font being installed.
   -->
   <rect width="64" height="64" rx="14" fill="#08090c"/>
-  <circle cx="32" cy="32" r="19" fill="none" stroke="#e8a33d" stroke-width="3.5"/>
-  <ellipse cx="32" cy="32" rx="19" ry="7.5" fill="none" stroke="#e8a33d" stroke-width="2.4" opacity="0.7"/>
-  <circle cx="32" cy="32" r="5.5" fill="#e8a33d"/>
+  <g transform="translate(7.8 48.3) scale(0.488)">
+    <path d="M38.50 1Q21.90 1 12.20-8.40Q2.50-17.80 2.50-33.50Q2.50-49.20 12.20-58.60Q21.90-68 38.50-68Q55.40-68 65.15-58.65Q74.90-49.30 74.90-33.50Q74.90-17.70 65.15-8.35Q55.40 1 38.50 1M22.90-17.90Q27.40-13.40 38.50-13.40Q49.60-13.40 54.25-17.90Q58.90-22.40 58.90-33.50Q58.90-44.60 54.25-49.10Q49.60-53.60 38.50-53.60Q27.40-53.60 22.90-49.10Q18.40-44.60 18.40-33.50Q18.40-22.40 22.90-17.90" fill="#e8eaf0"/>
+    <rect x="77.4" y="-17.5" width="19.3" height="17.5" fill="#e8a33d"/>
+  </g>
 </svg>
