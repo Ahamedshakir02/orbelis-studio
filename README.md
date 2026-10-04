@@ -1,7 +1,7 @@
 # Orbelis Studio
 
-Studio site for Orbelis Studio — fast, clear websites with a
-retrieval-grounded AI assistant behind them, and the automation after it.
+Studio site for Orbelis Studio — business automation, an AI assistant that
+answers from the client's own content, and the fast website they run on.
 
 ## Stack
 
@@ -25,13 +25,22 @@ npm run preview  # serve the production build locally
 
 ## Editing the content
 
-Every piece of copy lives in `src/data/site.js` — services, prices, case
-studies, process, capabilities, contact details. Nothing is hard-coded in the
-components, so changing the studio name or the pricing is a one-file edit.
+Every piece of copy lives in `src/data/site.js` — services, case studies,
+process, capabilities, contact details. Nothing is hard-coded in the
+components, so changing the studio name or a service is a one-file edit.
+
+**No prices are published.** Every project is quoted to its requirements, so
+the site explains how pricing works and never states a figure. There is no
+`price` field on a service; do not add one.
+
+**Automation leads.** The order of `services` is the order they are sold in:
+automation, the assistant, then websites. The page, the form's options and the
+questions follow that order.
 
 That file feeds three things at once, which is the point: the rendered page,
-the assistant's knowledge base, and the JSON-LD structured data. Edit a price
-there and the page, the answers and the search listing all move together.
+the assistant's knowledge base, and the JSON-LD structured data. Edit a
+service there and the page, the answers and the search listing all move
+together.
 
 ## Configuration
 
@@ -111,10 +120,12 @@ The brand's rules, so new pages look like this one.
   If a band needs two headlines it is two bands.
 - **The colour change is the divider.** Bands alternate between the page colour
   and its neighbour. No borders between sections.
-- **Black for the big moments.** The hero and the automation flow are black in
-  both themes (`dark` on `Section`), as is the header. Use it sparingly.
-- **Show the product.** The hero's image is the product at work — a real
-  question, the real price, the real steps — not an illustration.
+- **Each theme is whole.** Light is light everywhere and dark is dark
+  everywhere. Nothing is pinned to the other theme: a black band on a light
+  page reads as something that failed to switch.
+- **Show the product.** The hero's image is the product at work — a site, the
+  assistant answering a customer, the automation that follows — and it is
+  labelled as an example.
 - **One accent.** Brass, for the action, the brand mark and links. Never a
   second colour, never a gradient as decoration; the one glow is the stage
   light behind the hero panel.
@@ -138,11 +149,11 @@ full-width band with a centred statement and its content beneath. Spacing and he
 scale are decided there, so the rhythm of the page is one decision rather than
 twelve.
 
-**Reading order.** Hero, Problems, Services, Automation flow, Work, Who it is
-for, Process, Standards, Studio, Questions, Contact. A service company's
-order: the pain, what is sold and for how much, how it works, then the proof
-and the people. "Enquire" on a service opens the form with that service chosen
-(`enquiry` on each entry in `services`).
+**Reading order.** Hero, Problems, Automation flow, Services, Work, Who it is
+for, Process, Standards, Studio, Questions, Contact. The pain, what automation
+does about it, what is sold, then the proof and the people. "Get a quote" on a
+service opens the form with that service chosen (`enquiry` on each entry in
+`services`).
 
 **The accent has three roles.** `action` fills buttons, `link` colours text
 and `brass` is the small decorative mark. In dark mode all three are brass; in
@@ -170,9 +181,10 @@ cards `lift` on hover and buttons give under the finger. All of it is CSS in
 block only after mount and only if it starts below the fold, so nothing is
 hidden in the markup and nothing already on screen blinks.
 
-**The hero panel is real data.** `HeroPanel.jsx` shows one question answered
-and the automation steps that follow, read from `site.js` — the price in it is
-the published price.
+**The hero panel is an example, and says so.** `HeroPanel.jsx` shows a
+generic business site with the assistant answering a customer. The business is
+deliberately not a real client. The automation steps under it are the real
+ones, read from `site.js`.
 
 **Sizes.** Content sits at 980px inside a 1200px gutter. Interactive targets
 are at least 40px in both directions.
@@ -196,9 +208,9 @@ there is no headless-browser dependency and the designs stay text files
 reviewable in a diff. Re-run after editing either SVG.
 
 The company profile is different: `scripts/brochure.mjs` lays it out from
-`src/data/site.js`, so it carries the same services, prices and work as the
-page. Re-run it after any copy change — a PDF with last month's prices is the
-kind of drift the single data file exists to prevent. The footer links to it,
+`src/data/site.js`, so it carries the same services and work as the page.
+Re-run it after any copy change — a PDF with last month's services is the kind
+of drift the single data file exists to prevent. The footer links to it,
 and the same file can be uploaded to a flipbook host.
 
 ## Before launch
