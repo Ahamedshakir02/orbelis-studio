@@ -8,7 +8,7 @@
       name="description"
       content="Terms covering use of the Orbelis Studio site: how the published price ranges work, what the on-site assistant is and is not, ownership of delivered work, and governing law."
     />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#08090c" />
     <!--
       Set the theme before anything paints: a stored choice if there is one,
       otherwise the system setting. Inline on purpose — waiting for the bundle
@@ -22,6 +22,7 @@
           t = s === 'light' || s === 'dark' ? s : matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
         } catch (e) {}
         document.documentElement.dataset.theme = t
+        if (t === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff'
       })()
     </script>
     <link rel="canonical" href="https://orbelisstudio.com/terms" />

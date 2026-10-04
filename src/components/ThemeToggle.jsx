@@ -12,8 +12,11 @@ import { useEffect, useState } from 'react'
  * windows, blocked site data), so it is wrapped: the switch still works for
  * the visit, it just is not remembered.
  */
+const CANVAS = { dark: '#08090c', light: '#ffffff' }
+
 function apply(theme) {
   document.documentElement.dataset.theme = theme
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', CANVAS[theme])
   try {
     localStorage.setItem('theme', theme)
   } catch {

@@ -9,19 +9,14 @@ import { useReveal } from '../lib/useReveal.js'
  * way of its content. Bands alternate background (`.tile` in index.css) and
  * that change of colour is the only divider.
  *
- * `dark` makes a band black in both themes — used sparingly, for the moments
- * that should feel like the lights going down. It works by re-scoping the
- * colour variables, so everything inside simply reads as the dark theme.
+ * Every band follows the visitor's theme. Nothing is pinned dark: a black
+ * band in the light theme reads as something that failed to switch.
  */
-export default function Section({ id, label, title, intro, children, dark = false, width = 'wide' }) {
+export default function Section({ id, label, title, intro, children, width = 'wide' }) {
   const body = useReveal()
 
   return (
-    <section
-      id={id}
-      data-theme={dark ? 'dark' : undefined}
-      className={'tile py-20 md:py-32' + (dark ? ' tile-dark text-mist' : '')}
-    >
+    <section id={id} className="tile py-20 md:py-32">
       <div className="container-x">
         <header className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">{label}</p>

@@ -4,8 +4,8 @@ import { lockScroll } from '../lib/scroll.js'
 import ThemeToggle from './ThemeToggle.jsx'
 
 /**
- * Header: wordmark left, four links centred, one action right. 56px tall,
- * dark and frosted in both themes.
+ * Header: wordmark left, four links centred, one action right. 56px tall
+ * and frosted.
  *
  * In-page links are plain #hash anchors: the browser scrolls, CSS smooths it
  * and offsets it below this header. Nothing here intercepts a click except to
@@ -41,11 +41,8 @@ export default function Nav() {
 
   return (
     <>
-      {/* Dark and frosted in both themes, like the band it sits over. */}
-      <header
-        data-theme="dark"
-        className="fixed inset-x-0 top-0 z-[90] border-b border-white/10 bg-black/75 text-mist backdrop-blur-xl backdrop-saturate-150"
-      >
+      {/* Frosted over whatever scrolls beneath, in the visitor's theme. */}
+      <header className="fixed inset-x-0 top-0 z-[90] border-b border-line bg-bg/80 backdrop-blur-xl backdrop-saturate-150">
         <div className="container-x flex h-14 items-center justify-between">
           {/* The wordmark is the one place the brand face is kept. */}
           <a href="#top" onClick={close} className="relative z-[95] inline-flex h-10 items-center font-display text-lg tracking-tight">
@@ -120,7 +117,7 @@ export default function Nav() {
           reachable by keyboard or screen reader. */}
       <div id="mobile-menu" className="md:hidden">
         {open && (
-          <div data-theme="dark" className="fixed inset-0 z-[92] flex flex-col justify-between bg-black px-6 pb-10 pt-24 text-mist">
+          <div className="fixed inset-0 z-[92] flex flex-col justify-between bg-bg px-6 pb-10 pt-24">
             <nav aria-label="Mobile" className="flex flex-col border-t border-line">
               {links.map((item) => (
                 <a
