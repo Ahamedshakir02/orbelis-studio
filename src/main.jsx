@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { injectStructuredData } from './lib/seo.js'
+import { liftLoader } from './lib/loader.js'
 import './index.css'
 
 // Emitted before React mounts so crawlers that execute JS find it in the head
@@ -13,3 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+
+// The page is in the tree; the loader can go once the fonts and its own
+// animation allow.
+liftLoader()

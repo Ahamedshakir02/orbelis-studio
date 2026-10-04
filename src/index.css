@@ -114,6 +114,8 @@
 /*
   Motion. Things arrive, settle, and then stay quietly alive.
 
+    loader   the logo draws itself before anything else is on screen. Its
+             CSS lives in index.html, not here — see the note there.
     rise     an entrance: fades up once, timed by --d. Used by the hero.
     reveal   the same move on scroll, added by useReveal() to blocks that
              start below the fold. `in` plays it.
@@ -137,6 +139,11 @@
 .rise {
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-delay: var(--d, 0ms);
+}
+/* Held while the loader is up, so the entrance plays as it lifts and not
+   unseen behind it. */
+html.loading .rise {
+  animation-play-state: paused;
 }
 
 @keyframes float {
