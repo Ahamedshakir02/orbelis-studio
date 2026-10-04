@@ -1,7 +1,8 @@
 # Orbelis Studio
 
 Studio site for Orbelis Studio — business automation, an AI assistant that
-answers from the client's own content, and the fast website they run on.
+answers from the client's own content, the applications and websites they run on,
+and the marketing that brings people to them.
 
 ## Stack
 
@@ -34,8 +35,17 @@ the site explains how pricing works and never states a figure. There is no
 `price` field on a service; do not add one.
 
 **Automation leads.** The order of `services` is the order they are sold in:
-automation, the assistant, then websites. The page, the form's options and the
-questions follow that order.
+automation, the assistant, what gets built (SaaS and web applications,
+websites, brand identity and UI/UX), then the marketing (Meta and Google ads,
+SEO, social media management, creative design), then dashboards and the care
+plan.
+The page, the form's options and the questions follow that order. After the
+two wide cards the rest sit three to a row, so keep the count at two plus a
+multiple of three.
+
+**Marketing is sold without promises.** No guaranteed rankings or lead counts
+anywhere in the copy, and the ad budget is the client's own, paid directly to
+Meta or Google.
 
 That file feeds three things at once, which is the point: the rendered page,
 the assistant's knowledge base, and the JSON-LD structured data. Edit a
