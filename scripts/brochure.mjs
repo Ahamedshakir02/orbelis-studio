@@ -95,12 +95,12 @@ const pages = [
      ${studio.body.map((p) => `<p class="lede">${esc(p)}</p>`).join('')}
      <dl class="facts">${studio.facts.map((f) => `<div><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join('')}</dl>
      <div class="rule"></div>
-     <p class="eyebrow">What we believe</p>
+     <p class="eyebrow">What I believe</p>
      ${manifesto.map((m) => `<p class="belief">${esc(m)}</p>`).join('')}`,
   ),
 
   page(
-    `${head('Where the time goes', 'Three things that quietly cost you.')}
+    `${head('The problem', 'Where the time goes.')}
      <div class="grid3">${problems
        .map(
          (p, i) =>
@@ -115,7 +115,7 @@ const pages = [
            `<tr><td class="num">${esc(s.index)}</td><td class="grp">${esc(s.group)}</td><td class="ttl">${esc(s.title)}</td><td class="price">${esc(s.price)}</td></tr>`,
        )
        .join('')}</table>
-     <p class="note">Prices are in Indian Rupees and exclude any taxes that apply. Every build includes the performance budget and the accessibility pass.</p>`,
+     <p class="note">Prices are in Indian Rupees and exclude any taxes that apply. Every build includes the speed and accessibility checks.</p>`,
   ),
 
   ...groups.map((g) =>
@@ -126,7 +126,7 @@ const pages = [
   ),
 
   page(
-    `${head('What automation looks like', 'One enquiry, start to finish.')}
+    `${head('Automation', 'One enquiry. Start to finish.')}
      <ol class="flow">${flow
        .map((f) => `<li><span class="num">${esc(f.step)}</span><h3>${esc(f.title)}</h3><p>${esc(f.body)}</p></li>`)
        .join('')}</ol>
@@ -146,7 +146,7 @@ const pages = [
        .map((p) => `<article class="card"><span class="num">${esc(p.step)}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`)
        .join('')}</div>
      <div class="rule"></div>
-     <p class="eyebrow">What you can hold us to</p>
+     <p class="eyebrow">Held to a number</p>
      <div class="grid4">${stats
        .map((s) => `<div class="stat"><span class="big">${esc(s.value)}${esc(s.suffix)}</span><p>${esc(s.label)}</p></div>`)
        .join('')}</div>`,
@@ -154,7 +154,7 @@ const pages = [
 
   page(
     `${head('Selected work', 'Built, not templated.')}
-     <p class="note">Concept builds are labelled as such. Nothing here pretends to be a client engagement that was not one.</p>
+     <p class="note">One live product, two labelled concepts. Nothing here pretends to be a client engagement that was not one.</p>
      <div class="stack">${work
        .map(
          (w) => `
@@ -173,7 +173,7 @@ const pages = [
      <p class="eyebrow">Start a project</p>
      <h2 class="xl">Tell me what is slowing you down.</h2>
      <dl class="contact">${contactLines.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-     <p class="note">Tell us what the business does and what is slowing it down. You talk to the person who writes the code — there is no account manager in between.</p>`,
+     <p class="note">Tell me what the business does and what is slowing it down. You talk to the person who writes the code. There is no account manager in between.</p>`,
   ),
 ]
 
