@@ -28,13 +28,13 @@ function matchIntent(query) {
 
   if (/^(hi|hey|hello|yo|hai|namaskaram|good (morning|evening|afternoon))\b/.test(q)) {
     return {
-      text: `Hello. I can answer anything on this page — prices, timelines, what the AI assistant actually does, how a project runs. What are you looking to build?`,
+      text: `Hello. I can answer anything on this page: prices, timelines, what the assistant does, what can be automated, how a project runs. What do you need built?`,
     }
   }
 
   if (/^(thanks|thank you|cheers|nice|cool|great|ok|okay)\b/.test(q)) {
     return {
-      text: `Anytime. If you want to take it further, the enquiry form at the bottom of the page reaches ${brand.full} directly.`,
+      text: `Anytime. To take it further, the form at the bottom of the page goes straight to ${brand.full}.`,
       actions: ['enquiry'],
     }
   }
@@ -43,7 +43,7 @@ function matchIntent(query) {
   if (has(q, 'cost', 'price', 'pricing', 'charge', 'budget', 'how much', 'rate', 'quote')) {
     const lines = services.map((s) => `· ${s.title} — ${s.price}`).join('\n')
     return {
-      text: `Published, not quoted on request:\n\n${lines}\n\nThe performance budget and the accessibility pass are included, not billed as extras. Where a project lands in a range depends on page count and how much of the content already exists.`,
+      text: `Published, not quoted on request:\n\n${lines}\n\nEvery build includes the speed and accessibility checks; they are not billed as extras. Where a project lands in a range depends on the number of pages and how much of the content already exists.`,
       source: { label: 'Services & pricing', href: '#services' },
       actions: ['enquiry'],
     }
@@ -51,7 +51,7 @@ function matchIntent(query) {
 
   if (has(q, 'available', 'availability', 'free', 'busy', 'booked', 'capacity', 'start')) {
     return {
-      text: `${availability.status} — ${availability.detail.toLowerCase()}. Scope gets agreed before a project starts, which is why the schedule holds. If the timing matters, say so in the enquiry and it'll be answered honestly.`,
+      text: `${availability.status}: ${availability.detail.toLowerCase()}. Scope is agreed before a project starts, which is why the schedule holds. If timing matters, say so in the enquiry and you will get a straight answer.`,
       source: { label: 'Contact', href: '#contact' },
       actions: ['enquiry'],
     }
@@ -61,7 +61,7 @@ function matchIntent(query) {
   // is a language question, not a request for the phone number.
   if (has(q, 'contact', 'email', 'reach you', 'hire', 'get in touch', 'talk to', 'speak to', 'speak with', 'call you')) {
     return {
-      text: `Two ways: the enquiry form at the bottom of this page, or ${brand.email} directly. Either reaches the person who writes the code — there is no account manager in between.`,
+      text: `Two ways: the form at the bottom of this page, or ${brand.email}. Either one reaches the person who writes the code. There is no account manager in between.`,
       source: { label: 'Contact', href: '#contact' },
       actions: ['enquiry', 'email'],
     }
@@ -80,7 +80,7 @@ function matchIntent(query) {
   // A question every prospect asks and no site answers well.
   if (has(q, 'why you', 'why should', 'better than', 'different', 'instead of')) {
     return {
-      text: `Honestly: because the two halves usually come from two vendors. Agencies build the site, someone else bolts on a chatbot, and neither owns the result. Here one person builds the site, the retrieval-grounded assistant behind it and the automation after it — and you talk to that person, not a project manager.`,
+      text: `Because the pieces usually come from different vendors. One builds the site, another adds a chatbot, a third wires up the automation, and nobody owns the result. Here one person builds all three, and that is the person you talk to.`,
       source: { label: 'Studio', href: '#studio' },
     }
   }
@@ -110,7 +110,7 @@ export function answer(query) {
   if (!top || top.raw < CONFIDENCE_FLOOR) {
     return {
       grounded: false,
-      text: `${cfg.fallback} ${brand.email} gets a real answer from a human, usually the same day.`,
+      text: `${cfg.fallback} ${brand.email} gets a real answer from a person, usually the same day.`,
       actions: ['enquiry', 'email'],
     }
   }

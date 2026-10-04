@@ -29,7 +29,7 @@ function graph() {
         '@type': 'ProfessionalService',
         '@id': `${brand.url}/#studio`,
         name: brand.full,
-        description: `${brand.tagline} Fast, clear websites with a retrieval-grounded AI assistant built in, and business automation behind them.`,
+        description: `${brand.tagline} Fast, clear websites, an AI assistant that answers from your own content, and the automation that follows every enquiry through.`,
         url: brand.url,
         email: brand.email,
         priceRange,

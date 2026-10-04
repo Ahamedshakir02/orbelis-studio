@@ -34,7 +34,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A one-person studio building fast, clear websites with a retrieval-grounded AI assistant behind them, plus business automation for companies and brands, based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} A one-person studio building fast, clear websites, an AI assistant behind them that answers from the client's own content, and business automation for companies and brands, based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where',
   },
   {
@@ -42,7 +42,7 @@ export const passages = [
     section: 'Contact',
     title: 'Getting in touch',
     href: '#contact',
-    text: `Email ${brand.email}, or send the enquiry form at the bottom of this page. The studio is in ${brand.location}. You talk to the person who writes the code — there is no account manager in between.`,
+    text: `Email ${brand.email}, or send the form at the bottom of this page. The studio is in ${brand.location}. You talk to the person who writes the code. There is no account manager in between.`,
     keywords:
       'contact email reach call phone whatsapp hire start begin enquiry enquire quote talk speak book meeting get in touch',
   },
@@ -67,9 +67,9 @@ export const passages = [
     section: 'Services & pricing',
     title: 'What things cost',
     href: '#services',
-    text: `Prices are published rather than quoted on request. ${services
+    text: `Prices are published, not quoted on request. ${services
       .map((s) => `${s.title}: ${s.price}`)
-      .join('. ')}. Every project includes the performance budget and the accessibility pass — those are not billed as extras.`,
+      .join('. ')}. Every build includes the speed and accessibility checks; they are not billed as extras.`,
     keywords: `${money} how much expensive cheap afford total range`,
   },
   ...services.map((s) => ({
@@ -136,7 +136,7 @@ export const passages = [
     section: 'Services & pricing',
     title: 'Languages the assistant speaks',
     href: '#services',
-    text: 'The AI assistant answers in Malayalam and English, and hands off to a human when a question goes beyond the material it was trained on. Sites themselves can ship bilingual where the audience needs it.',
+    text: 'The AI assistant answers in Malayalam and English, and hands over to a person when a question goes beyond the content it has read. The sites themselves can be bilingual where the audience needs it.',
     keywords:
       'malayalam english language languages bilingual speak speaks translate regional local hindi tamil',
   },

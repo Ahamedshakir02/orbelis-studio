@@ -161,7 +161,7 @@ export default function Assistant() {
           {
             id: uid(),
             role: 'assistant',
-            text: `Something broke on my end — that one is on us. ${brand.email} always works.`,
+            text: `Something broke on my end. ${brand.email} always works.`,
           },
         ])
       } finally {
@@ -232,7 +232,7 @@ export default function Assistant() {
             <div>
               <p className="font-semibold text-base leading-none tracking-tight">{cfg.name}</p>
               <p className="mt-1 text-xs text-muted">
-                {isRemoteEnabled() ? 'Grounded · live' : 'Grounded in this site'}
+                {isRemoteEnabled() ? 'Answers from this site · live' : 'Answers from this site'}
               </p>
             </div>
           </div>
