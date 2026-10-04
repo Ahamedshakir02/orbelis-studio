@@ -17,7 +17,7 @@ export default function Contact() {
             Tell me what is slowing you down.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-snug text-muted md:text-[21px] md:leading-[1.4]">
-            You get a straight answer from the person who would build it, usually the same day.
+            A straight answer from the person who would build it, usually the same day.
           </p>
         </div>
 

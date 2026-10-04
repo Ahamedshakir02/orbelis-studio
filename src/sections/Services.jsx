@@ -63,8 +63,8 @@ export default function Services() {
       <div className="mt-14 text-center">
         <p className="text-2xl font-semibold tracking-tight">Not sure which one you need?</p>
         <p className="mx-auto mt-2 max-w-md text-[17px] leading-snug text-muted">
-          Most people are not. Say what is slowing the business down and you get a straight answer,
-          including when the answer is none of these.
+          Most people are not. Tell me what is slowing the business down and I will tell you which
+          of these fixes it, or that none of them does.
         </p>
         <a
           href="#contact"

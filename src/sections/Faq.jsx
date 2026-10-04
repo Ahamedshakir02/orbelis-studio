@@ -30,9 +30,9 @@ export default function Faq() {
       </div>
 
       <p className="mt-8 text-center text-[15px] text-muted">
-        Still stuck?{' '}
+        Something else?{' '}
         <a href={'mailto:' + brand.email} className="text-link underline underline-offset-4">
-          Email directly
+          Email me directly
         </a>
         .
       </p>

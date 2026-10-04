@@ -8,7 +8,7 @@ import { audiences } from '../data/site.js'
  */
 export default function Audience() {
   return (
-    <Section label="Who it is for" title="Made for four kinds of business." intro="What each one gets, listed as things delivered.">
+    <Section label="Who it is for" title="Made for four kinds of business." intro="What each one gets, in plain terms.">
       <div className="stagger grid gap-4 md:grid-cols-2">
         {audiences.map((a) => (
           <article key={a.title} className="lift rounded-[18px] border border-line bg-surface p-7">

@@ -31,11 +31,11 @@ const LABEL = 'mb-2 block text-[13px] font-medium text-muted'
 
 function validate(values) {
   const errors = {}
-  if (!values.name.trim()) errors.name = 'Your name, so the reply is not addressed to nobody.'
-  if (!values.email.trim()) errors.email = 'An email address is needed to reply.'
+  if (!values.name.trim()) errors.name = 'Your name, so I know who I am replying to.'
+  if (!values.email.trim()) errors.email = 'An email address, so I can reply.'
   else if (!EMAIL_RE.test(values.email.trim())) errors.email = 'That address looks incomplete.'
   if (values.message.trim().length < 12)
-    errors.message = 'A sentence or two about the project — enough to answer properly.'
+    errors.message = 'A sentence or two about the project, so I can answer properly.'
   return errors
 }
 
@@ -147,11 +147,11 @@ export default function EnquiryForm() {
       >
         <p className="eyebrow mb-4">Received</p>
         <h3 className="font-semibold text-2xl tracking-tight md:text-3xl">
-          That is with the right person.
+          Got it. That came straight to me.
         </h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-          Replies come from {brand.email}, usually the same day and always from the
-          person who would build it. If it is urgent, that address takes a nudge.
+          I reply from {brand.email}, usually the same day. If it is urgent, send a
+          second note to that address.
         </p>
       </div>
     )
@@ -281,7 +281,7 @@ export default function EnquiryForm() {
 
       <div>
         <label className={LABEL} htmlFor="ef-message">
-          What are you building?
+          What do you need built?
         </label>
         <textarea
           id="ef-message"
@@ -337,11 +337,11 @@ export default function EnquiryForm() {
 
       {status === 'error' && (
         <p role="alert" className="text-xs leading-relaxed text-link">
-          That did not send — the fault is ours, not yours. Email{' '}
+          That did not send, and the fault is mine, not yours. Email{' '}
           <a href={'mailto:' + brand.email} className="underline underline-offset-4">
             {brand.email}
           </a>{' '}
-          and it will be picked up.
+          and I will pick it up.
         </p>
       )}
     </form>
