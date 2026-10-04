@@ -3,19 +3,19 @@
  *
  *   npm run brand
  *
- * Everything is drawn from the same mark as the favicon and the same copy as
- * the site (src/data/site.js), so a profile picture, a post and the website
+ * The logo is the wordmark alone — "Orbelis" and its brass full stop — set in
+ * the same face as the site header, and the copy is the site's own (src/data/site.js), so a profile picture, a post and the website
  * cannot drift apart. Re-run after changing the tagline.
  *
  * Rendered with the Chrome or Edge already on the machine, like the share
  * card and the icons — no headless-browser dependency.
  *
  * WHAT COMES OUT
- *   logo-mark-*.png          the mark alone, 1024px. Use the dark or light one
- *                            as a profile picture; platforms crop to a circle,
- *                            so the mark sits well inside the square.
- *   logo-lockup-*.png        mark + wordmark, for headers and documents.
- *   *-transparent.png        no background, for placing on your own artwork.
+ *   logo-dark.png, logo-light.png   the wordmark on the brand background.
+ *   logo-transparent-for-*.png      no background, for your own artwork.
+ *   profile-dark.png, profile-light.png
+ *                            square, 1024px, for a profile picture; platforms
+ *                            crop to a circle, so the wordmark sits well inside.
  *   social-post-1080.png     square post (Instagram, LinkedIn, Facebook).
  *   social-story-1080x1920   story / reel cover.
  *   banner-x-1500x500        X (Twitter) header.
@@ -41,22 +41,8 @@ const BRASS = '#e8a33d'
 const host = brand.url.replace(/^https?:\/\//, '')
 const [line1, line2] = brand.tagline.split(/(?<=\.)\s+/)
 
-/**
- * The mark: a ring, its horizon, a solid core. Same geometry as favicon.svg,
- * with the viewBox cropped to the ring so `size` is the size you see.
- */
-const mark = (size, color = BRASS) => `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="11 11 42 42" width="${size}" height="${size}">
-  <circle cx="32" cy="32" r="19" fill="none" stroke="${color}" stroke-width="3.5"/>
-  <ellipse cx="32" cy="32" rx="19" ry="7.5" fill="none" stroke="${color}" stroke-width="2.4" opacity="0.7"/>
-  <circle cx="32" cy="32" r="5.5" fill="${color}"/>
-</svg>`
-
 const wordmark = (px, color) =>
   `<span style="font-family:'Clash Display',Georgia,serif;font-weight:600;font-size:${px}px;letter-spacing:-0.03em;color:${color};line-height:1">${brand.name}<span style="color:${BRASS}">.</span></span>`
-
-const lockup = (markPx, textPx, color) =>
-  `<div style="display:flex;align-items:center;gap:${Math.round(markPx * 0.28)}px">${mark(markPx)}${wordmark(textPx, color)}</div>`
 
 const glow = (x, y, r) =>
   `<div style="position:absolute;left:${x}px;top:${y}px;width:${r * 2}px;height:${r * 2}px;margin:-${r}px 0 0 -${r}px;border-radius:50%;background:radial-gradient(circle,rgba(232,163,61,0.30),rgba(232,163,61,0.06) 55%,rgba(232,163,61,0) 72%)"></div>`
@@ -76,19 +62,18 @@ const services = 'Automation · AI assistants · Websites'
 
 const files = [
   // ---- logo
-  { name: 'logo-mark-dark.png', w: 1024, h: 1024, bg: INK, body: centre(mark(460)) },
-  { name: 'logo-mark-light.png', w: 1024, h: 1024, bg: PAPER, body: centre(mark(460)) },
-  { name: 'logo-mark-transparent.png', w: 1024, h: 1024, bg: null, body: centre(mark(880)) },
-  { name: 'logo-lockup-dark.png', w: 1600, h: 600, bg: INK, body: centre(lockup(168, 200, MIST)) },
-  { name: 'logo-lockup-light.png', w: 1600, h: 600, bg: PAPER, body: centre(lockup(168, 200, INK)) },
-  { name: 'logo-lockup-transparent-for-dark.png', w: 1600, h: 600, bg: null, body: centre(lockup(168, 200, MIST)) },
-  { name: 'logo-lockup-transparent-for-light.png', w: 1600, h: 600, bg: null, body: centre(lockup(168, 200, INK)) },
+  { name: 'logo-dark.png', w: 1600, h: 600, bg: INK, body: centre(wordmark(240, MIST)) },
+  { name: 'logo-light.png', w: 1600, h: 600, bg: PAPER, body: centre(wordmark(240, INK)) },
+  { name: 'logo-transparent-for-dark.png', w: 1600, h: 600, bg: null, body: centre(wordmark(240, MIST)) },
+  { name: 'logo-transparent-for-light.png', w: 1600, h: 600, bg: null, body: centre(wordmark(240, INK)) },
+  { name: 'profile-dark.png', w: 1024, h: 1024, bg: INK, body: centre(wordmark(190, MIST)) },
+  { name: 'profile-light.png', w: 1024, h: 1024, bg: PAPER, body: centre(wordmark(190, INK)) },
 
   // ---- social
   {
     name: 'social-post-1080.png', w: 1080, h: 1080, bg: INK,
     body: `${glow(860, 250, 420)}
-      <div style="position:absolute;left:84px;top:84px">${lockup(52, 60, MIST)}</div>
+      <div style="position:absolute;left:84px;top:84px">${wordmark(64, MIST)}</div>
       <div style="position:absolute;left:84px;right:84px;bottom:190px">${headline(104)}</div>
       <div style="position:absolute;left:84px;right:84px;bottom:84px;display:flex;justify-content:space-between;border-top:1px solid #242831;padding-top:28px">
         ${small(30, services)}${small(30, host)}
@@ -97,16 +82,15 @@ const files = [
   {
     name: 'social-story-1080x1920.png', w: 1080, h: 1920, bg: INK,
     body: `${glow(540, 620, 560)}
-      <div style="position:absolute;left:0;right:0;top:470px;display:flex;justify-content:center">${mark(300)}</div>
+      <div style="position:absolute;left:0;right:0;top:540px;display:flex;justify-content:center">${wordmark(170, MIST)}</div>
       <div style="position:absolute;left:60px;right:60px;top:980px;text-align:center">${headline(78)}</div>
       <div style="position:absolute;left:0;right:0;top:1210px;text-align:center">${small(36, services)}</div>
-      <div style="position:absolute;left:0;right:0;bottom:250px;display:flex;justify-content:center">${wordmark(72, MIST)}</div>
       <div style="position:absolute;left:0;right:0;bottom:180px;text-align:center">${small(32, host)}</div>`,
   },
   {
     name: 'banner-x-1500x500.png', w: 1500, h: 500, bg: INK,
     body: `${glow(1250, 250, 360)}
-      <div style="position:absolute;right:150px;top:150px">${mark(200)}</div>
+      <div style="position:absolute;right:120px;top:198px">${wordmark(104, MIST)}</div>
       <div style="position:absolute;left:110px;top:120px">${headline(74)}</div>
       <div style="position:absolute;left:110px;bottom:92px">${small(26, services + ' · ' + host)}</div>`,
   },
@@ -114,7 +98,7 @@ const files = [
     name: 'banner-linkedin-1584x396.png', w: 1584, h: 396, bg: INK,
     // LinkedIn covers the lower left with the profile picture; keep that corner empty.
     body: `${glow(1349, 198, 300)}
-      <div style="position:absolute;right:150px;top:113px">${mark(170)}</div>
+      <div style="position:absolute;right:110px;top:162px">${wordmark(72, MIST)}</div>
       <div style="position:absolute;left:470px;top:92px">${headline(60)}</div>
       <div style="position:absolute;left:470px;bottom:74px">${small(22, services + ' · ' + host)}</div>`,
   },
