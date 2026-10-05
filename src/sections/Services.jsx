@@ -10,20 +10,23 @@ import { services } from '../data/site.js'
  * chosen — and the shelf ends by catching the visitor who cannot tell which
  * card is theirs, which is most of them.
  *
- * Only the first few cards show until "Show all" is pressed. The rest stay in
- * the markup, hidden, so a crawler still reads every service; they are named
- * in a line under the button so a visitor knows what is behind it.
+ * Only the first few cards show until "Show all" is pressed, and how many
+ * depends on the layout, so the shelf always ends on a full row: three in one
+ * column on a phone, four in two columns on a tablet, the two wide cards plus
+ * a row of three on a desktop. The rest stay in the markup, hidden, so a
+ * crawler still reads every service; they are named in a line under the link
+ * so a visitor knows what is behind it.
  */
-// The two wide cards plus one row of three.
-const VISIBLE = 5
+// Shown until expanded, by index: the first three everywhere, then one more
+// from `md` and another from `lg`. Tailwind needs the class names whole.
+const collapsedClass = (i) =>
+  i < 3 ? '' : i === 3 ? 'max-md:hidden print:!flex' : i === 4 ? 'max-lg:hidden print:!flex' : 'hidden print:!flex'
 
 const enquire = (type) => () => window.dispatchEvent(new CustomEvent('orbelis:enquire', { detail: type }))
 
 export default function Services() {
   const [open, setOpen] = useState(false)
   const toggle = useRef(null)
-  const rest = services.slice(VISIBLE)
-
   const collapsed = useRef(false)
 
   const onToggle = () => {
@@ -50,9 +53,11 @@ export default function Services() {
         {services.map((s, i) => (
           <article
             key={s.index}
+            // Cards that were hidden rise in one after another, not as a slab.
+            style={open && i >= 3 ? { animationDelay: `${(i - 3) * 70}ms` } : undefined}
             className={
-              (i >= VISIBLE && !open ? 'hidden print:flex ' : 'flex ') +
-              'flex-col lift rounded-[18px] border border-line bg-surface p-7 ' +
+              (open ? '' : collapsedClass(i) + ' ') +
+              'flex flex-col lift rounded-[18px] border border-line bg-surface p-7 ' +
               (i < 2 ? 'lg:col-span-3' : 'lg:col-span-2')
             }
           >
@@ -85,25 +90,35 @@ export default function Services() {
         ))}
       </div>
 
-      {rest.length > 0 && (
-        <div className="mt-8 text-center print:hidden">
-          <button
-            ref={toggle}
-            type="button"
-            onClick={onToggle}
-            aria-expanded={open}
-            aria-controls="service-list"
-            className="inline-flex h-11 items-center rounded-full border border-link px-6 text-[17px] text-link transition hover:bg-link/10 active:scale-[0.95]"
-          >
-            {open ? 'Show fewer' : `Show all ${services.length} services`}
-          </button>
-          {!open && (
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted">
-              Also: {rest.map((s) => s.title).join(', ')}.
-            </p>
-          )}
-        </div>
-      )}
+      <div className="mt-6 text-center print:hidden">
+        <button
+          ref={toggle}
+          type="button"
+          onClick={onToggle}
+          aria-expanded={open}
+          aria-controls="service-list"
+          className="inline-flex h-11 items-center gap-2 text-[15px] font-medium text-link underline-offset-4 hover:underline"
+        >
+          {open ? 'Show fewer' : `Show all ${services.length} services`}
+          <span aria-hidden className={'transition-transform duration-300 ' + (open ? '-rotate-90' : 'rotate-90')}>
+            ›
+          </span>
+        </button>
+        {!open && (
+          <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted">
+            Also:{' '}
+            {services.map(
+              (s, i) =>
+                i >= 3 && (
+                  <span key={s.index} className={i === 3 ? 'md:hidden' : i === 4 ? 'lg:hidden' : undefined}>
+                    {s.title}
+                    {i === services.length - 1 ? '.' : ', '}
+                  </span>
+                ),
+            )}
+          </p>
+        )}
+      </div>
 
       <div className="mt-14 text-center">
         <p className="text-2xl font-semibold tracking-tight">Not sure which one?</p>
