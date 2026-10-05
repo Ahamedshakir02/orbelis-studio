@@ -39,8 +39,8 @@ function Figure({ src, alt, title }) {
 
 /**
  * The work, one card per entry: what it is and whether it is live on the
- * left, its facts on the right. The status is said first and plainly — a
- * concept is labelled a concept before anything else about it is read.
+ * left, its facts on the right. The status is said first and plainly, before
+ * anything else about the project is read.
  */
 export default function Work() {
   return (
@@ -48,7 +48,7 @@ export default function Work() {
       id="work"
       label="Work"
       title="Proof, labelled honestly."
-      intro="One live product and two concept builds. A concept is marked as a concept."
+      intro="Client work, shown with permission."
     >
       <div className="stagger grid gap-4">
         {work.map((item) => (

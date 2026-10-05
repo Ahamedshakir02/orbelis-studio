@@ -182,49 +182,34 @@ export const services = [
  */
 export const work = [
   {
-    id: 'dr-evide',
-    title: 'Dr Evide',
-    status: 'Live',
+    id: 'holytouch',
+    title: 'Holytouch',
+    status: 'Client',
     year: '2026',
-    role: 'Product, engineering, ranking design',
+    role: 'Design & build',
     summary:
-      'Symptom-to-specialty routing and trust-ranked doctor discovery for Kerala. Doctors are ranked by verified credentials, experience and authentic reviews — never by who paid. The no-paid-ranking rule is enforced by a CI check, not a promise.',
-    stack: ['Next.js', 'PostGIS', 'LLM routing', 'TypeScript'],
+      'The marketing website for a construction and design firm in Kerala. It presents the firm and its services, and gives a visitor a way to get in touch.',
+    stack: ['React', 'Vite', 'Tailwind', 'Framer Motion'],
     metrics: [
-      { k: 'Ranking', v: 'Deterministic, versioned' },
-      { k: 'Emergency triage', v: 'Runs locally first' },
+      { k: 'Market', v: 'Kerala' },
+      { k: 'Scope', v: 'Design, build, launch' },
     ],
     accent: '#e8a33d',
   },
   {
-    id: 'clinic-site',
-    title: 'Clinic site + assistant',
-    status: 'Concept',
+    id: 'safari-typing',
+    title: 'Safari Typing Services',
+    status: 'Client',
     year: '2026',
-    role: 'Design & build concept',
+    role: 'Website & SEO',
     summary:
-      'A demonstration build for multi-specialty clinics: department routing, doctor profiles, appointment requests, and an assistant that answers timings, fees and preparation instructions in Malayalam or English.',
-    stack: ['React', 'Tailwind', 'AI assistant'],
+      'The website for a typing and document services centre in Ajman, UAE. I built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.',
+    stack: ['Website', 'SEO', 'Google Business Profile'],
     metrics: [
-      { k: 'Load', v: 'Under 1s on 4G' },
-      { k: 'Assistant', v: 'Answers from clinic documents' },
+      { k: 'Market', v: 'Ajman, UAE' },
+      { k: 'Scope', v: 'Build, launch, SEO audits' },
     ],
     accent: '#7fb3d5',
-  },
-  {
-    id: 'institution-microsite',
-    title: 'Institution microsite',
-    status: 'Concept',
-    year: '2026',
-    role: 'Design & build concept',
-    summary:
-      'An admissions microsite for colleges and training institutes — a programme explorer, the campus story, and an assistant that answers eligibility and fee questions before they reach the office phone.',
-    stack: ['React', 'Tailwind', 'AI assistant'],
-    metrics: [
-      { k: 'Enquiry flow', v: 'Form + WhatsApp' },
-      { k: 'Content', v: 'Editable by staff' },
-    ],
-    accent: '#a3d5a1',
   },
 ]
 
@@ -431,7 +416,7 @@ export const faq = [
   },
   {
     q: 'Do you build SaaS products and web applications?',
-    a: 'Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there. Dr Evide, my own product, is built this way.',
+    a: 'Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there.',
   },
   {
     q: 'Do you do marketing as well?',

@@ -162,7 +162,7 @@ const pages = [
 
   page(
     `${head('Work', 'Proof, labelled honestly.')}
-     <p class="note">One live product and two concept builds. A concept is marked as a concept.</p>
+     <p class="note">Client work, shown with permission.</p>
      <div class="stack">${work
        .map(
          (w) => `
