@@ -206,6 +206,7 @@ export const work = [
     summary:
       'The website for a typing and document services centre in Ajman, UAE. I built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.',
     stack: ['Website', 'SEO', 'Google Business Profile'],
+    href: 'https://safaritypingservices.com',
     metrics: [
       { k: 'Market', v: 'Ajman, UAE' },
       { k: 'Scope', v: 'Build, launch, SEO audits' },
