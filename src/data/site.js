@@ -23,7 +23,7 @@ export const brand = {
    * reach a visitor or a crawler. Fill one in and it appears everywhere.
    */
   // Display format, e.g. '+91 98765 43210'.
-  phone: null,
+  phone: '+91 94475 33289',
   // Digits only, with country code — used to build wa.me links.
   whatsapp: null,
   location: 'Edappal, Kerala — working worldwide',
