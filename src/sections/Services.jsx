@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import Section from '../components/Section.jsx'
 import { services } from '../data/site.js'
 
@@ -22,19 +23,81 @@ import { services } from '../data/site.js'
 const collapsedClass = (i) =>
   i < 3 ? '' : i === 3 ? 'max-md:hidden print:!flex' : i === 4 ? 'max-lg:hidden print:!flex' : 'hidden print:!flex'
 
+// How many that leaves showing. Must agree with collapsedClass above.
+const collapsedCount = () =>
+  window.matchMedia('(min-width: 1024px)').matches ? 5 : window.matchMedia('(min-width: 768px)').matches ? 4 : 3
+
+/** Ease the shelf from one height to another, clipped while it moves. */
+function slide(el, from, to) {
+  el.style.overflow = 'hidden'
+  return el.animate([{ height: `${from}px` }, { height: `${to}px` }], {
+    duration: 600,
+    easing: 'cubic-bezier(0.2, 0.7, 0.2, 1)',
+  })
+}
+
 const enquire = (type) => () => window.dispatchEvent(new CustomEvent('orbelis:enquire', { detail: type }))
 
 export default function Services() {
   const [open, setOpen] = useState(false)
   const toggle = useRef(null)
+  const list = useRef(null)
   const collapsed = useRef(false)
+  const openedFrom = useRef(null)
+  const sliding = useRef(false)
 
   const onToggle = () => {
-    collapsed.current = open
-    setOpen(!open)
+    const el = list.current
+    if (sliding.current) return
+
+    // Without motion the shelf simply swaps; the effect below re-finds the link.
+    // A hidden tab counts: its animations never finish.
+    if (!el?.animate || document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      collapsed.current = open
+      setOpen(!open)
+      return
+    }
+
+    // Opening: the cards appear at once, so the height is eased after render.
+    if (!open) {
+      openedFrom.current = el.offsetHeight
+      setOpen(true)
+      return
+    }
+
+    // Closing: ease the height down first and hide the cards only at the end,
+    // holding the link where it is while the page shortens above it.
+    const last = el.children[collapsedCount() - 1]
+    const to = last.getBoundingClientRect().bottom - el.getBoundingClientRect().top
+    const link = toggle.current
+    const top = link.getBoundingClientRect().top
+    let frame
+    const pin = () => {
+      window.scrollBy({ top: link.getBoundingClientRect().top - top, behavior: 'instant' })
+      frame = requestAnimationFrame(pin)
+    }
+    const done = () => {
+      cancelAnimationFrame(frame)
+      flushSync(() => setOpen(false))
+      el.style.overflow = ''
+      window.scrollBy({ top: link.getBoundingClientRect().top - top, behavior: 'instant' })
+      sliding.current = false
+    }
+    sliding.current = true
+    slide(el, el.offsetHeight, to).finished.then(done, done)
+    pin()
   }
 
-  // Collapsing pulls the page up from under the reader; bring the button back.
+  useLayoutEffect(() => {
+    const el = list.current
+    const from = openedFrom.current
+    openedFrom.current = null
+    if (from == null || !el) return
+    const clear = () => (el.style.overflow = '')
+    slide(el, from, el.offsetHeight).finished.then(clear, clear)
+  }, [open])
+
+  // Collapsing pulls the page up from under the reader; bring the link back.
   useEffect(() => {
     if (!collapsed.current) return
     collapsed.current = false
@@ -49,7 +112,7 @@ export default function Services() {
       intro="Automation first, then the assistant, the apps and sites they run on, and the marketing that brings people in. Each is quoted to what you actually need."
     >
       {/* The two lead services, automation and the assistant, get the wide cards. */}
-      <div id="service-list" className="stagger grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+      <div id="service-list" ref={list} className="stagger grid gap-4 md:grid-cols-2 lg:grid-cols-6">
         {services.map((s, i) => (
           <article
             key={s.index}
