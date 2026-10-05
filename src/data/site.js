@@ -1,7 +1,8 @@
 /**
  * Single source of truth for every piece of copy on the site.
  *
- * VOICE. Orbelis is one person, so the copy says "I", never "we". Sentences
+ * VOICE. Orbelis is founder-led, so for now the copy says "I" (the founder),
+ * not "we". It switches to "we" only when a partner actually joins. Sentences
  * are short and plain, written for a clinic owner rather than a developer:
  * name what a thing does, not what it is called. No claim here is softer or
  * louder than what is actually delivered.
@@ -66,7 +67,7 @@ export const nav = [
 export const manifesto = [
   'Most business websites look finished and answer nothing.',
   'A good one replies at 2am and hands the follow-up to automation.',
-  'One person builds yours. No account manager, no template.',
+  'You work with the founder directly. No account manager, no template.',
 ]
 
 /**
@@ -292,15 +293,15 @@ export const capabilities = [
 ]
 
 export const studio = {
-  lead: 'One person. No hand-offs.',
+  lead: 'Founder-led. No hand-offs.',
   body: [
-    'Orbelis is me. You talk to the person who designs it, builds it and answers when something breaks. I work where three things meet: automation, applied machine learning and careful, fast software, from a landing page to a SaaS product. Most agencies do one of them; the useful work is in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.',
-    'My background is in NLP and deep learning, with certifications across Microsoft Azure AI, Google generative AI and IBM data science. I am currently building Dr Evide, a trust-ranked doctor discovery product for Kerala.',
+    'I run Orbelis. You talk to the person who designs it, builds it and answers when something breaks. I work where three things meet: automation, applied machine learning and careful, fast software, from a landing page to a SaaS product. Most agencies do one of them; the useful work is in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.',
+    'I am a computer science and engineering graduate with a background in NLP and deep learning, and I build web and mobile apps.',
   ],
   facts: [
     { k: 'Based', v: 'Kerala, India' },
     { k: 'Founded', v: '2026' },
-    { k: 'Team', v: 'One, deliberately' },
+    { k: 'Team', v: 'Founder-led' },
     { k: 'Typical build', v: '2 weeks' },
   ],
 }
@@ -314,7 +315,7 @@ export const availability = {
 export const assurances = [
   'Quoted to your requirements',
   'Most sites live in two weeks',
-  'One person, start to finish',
+  'You talk to the founder',
 ]
 
 export const marquee = [
@@ -340,7 +341,7 @@ export const marquee = [
 export const stats = [
   { value: '<1', suffix: 's', label: 'Load target on 4G, on a mid-range phone' },
   { value: 2, suffix: ' weeks', label: 'Typical delivery, once scope is agreed' },
-  { value: 1, suffix: '', label: 'Person on your project, start to finish' },
+  { value: 0, suffix: '', label: 'Account managers between you and the founder' },
   { value: 90, suffix: '+', label: 'Lighthouse performance target on mobile' },
 ]
 
@@ -444,6 +445,6 @@ export const faq = [
   },
   {
     q: 'Who actually does the work?',
-    a: 'One person, and it is the person you talk to. No account managers, no subcontracting, nothing handed to someone you have never met.',
+    a: 'You talk to the founder directly, and I am the one who does the work. No account managers, nothing handed to someone you have never met.',
   },
 ]

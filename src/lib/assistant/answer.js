@@ -53,7 +53,7 @@ function matchIntent(query) {
   if (has(q, 'services', 'what do you do', 'what do you offer', 'what can you do', 'what do you build')) {
     const lines = services.map((s) => `· ${s.title}`).join('\n')
     return {
-      text: `${services.length} things, all done by one person:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
+      text: `${services.length} things, all founder-led:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
       source: { label: 'Services', href: '#services' },
       actions: ['enquiry'],
     }
@@ -104,7 +104,7 @@ function matchIntent(query) {
   // A question every prospect asks and no site answers well.
   if (has(q, 'why you', 'why should', 'better than', 'different', 'instead of')) {
     return {
-      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here one person does all of it, and that is the person you talk to.`,
+      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here it is all done in one studio, and you talk to the founder directly.`,
       source: { label: 'Studio', href: '#studio' },
     }
   }

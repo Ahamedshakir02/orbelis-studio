@@ -39,7 +39,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A one-person studio that automates the repetitive work in a business, adds an AI assistant that answers from the client's own content, builds SaaS products, web applications and the fast website they run on, designs the brand, and runs the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} A founder-led studio that automates the repetitive work in a business, adds an AI assistant that answers from the client's own content, builds SaaS products, web applications and the fast website they run on, designs the brand, and runs the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where offer',
   },
   {
