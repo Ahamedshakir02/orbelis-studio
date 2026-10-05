@@ -31,8 +31,8 @@ const collapsedCount = () =>
 function slide(el, from, to) {
   el.style.overflow = 'hidden'
   return el.animate([{ height: `${from}px` }, { height: `${to}px` }], {
-    duration: 600,
-    easing: 'cubic-bezier(0.2, 0.7, 0.2, 1)',
+    duration: 1000,
+    easing: 'cubic-bezier(0.45, 0, 0.2, 1)',
   })
 }
 
@@ -117,7 +117,7 @@ export default function Services() {
           <article
             key={s.index}
             // Cards that were hidden rise in one after another, not as a slab.
-            style={open && i >= 3 ? { animationDelay: `${(i - 3) * 70}ms` } : undefined}
+            style={open && i >= 3 ? { animationDelay: `${(i - 3) * 110}ms` } : undefined}
             className={
               (open ? '' : collapsedClass(i) + ' ') +
               'flex flex-col lift rounded-[18px] border border-line bg-surface p-7 ' +
