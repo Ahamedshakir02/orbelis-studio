@@ -77,32 +77,32 @@ export default function Contact() {
           )}
         </div>
 
-        <div className="mt-20 flex flex-col gap-2 border-t border-line py-9 text-sm text-muted md:mt-28 md:flex-row md:items-center md:justify-between">
-          <span>
+        <div className="mt-20 flex flex-col gap-2 border-t border-line py-9 text-sm text-muted md:mt-28 lg:flex-row lg:items-center lg:justify-between">
+          <span className="whitespace-nowrap">
             © {year} {brand.full}
           </span>
 
-          <nav className="flex flex-wrap gap-x-5" aria-label="Footer">
+          <nav className="flex flex-wrap gap-x-4 sm:gap-x-5" aria-label="Footer">
             {[...nav, { label: 'Questions', href: '#faq' }].map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist"
+                className="inline-flex h-10 min-w-10 items-center justify-center transition-colors hover:text-mist"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <nav className="flex flex-wrap gap-x-5" aria-label="Legal">
-            <a href="/privacy" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
+          <nav className="flex flex-wrap gap-x-4 sm:gap-x-5" aria-label="Legal">
+            <a href="/privacy" className="inline-flex h-10 min-w-10 items-center justify-center transition-colors hover:text-mist">
               Privacy
             </a>
-            <a href="/terms" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
+            <a href="/terms" className="inline-flex h-10 min-w-10 items-center justify-center transition-colors hover:text-mist">
               Terms
             </a>
             {/* Generated from site.js by `npm run brochure`. */}
-            <a href="/orbelis-profile.pdf" className="inline-flex h-10 min-w-10 items-center transition-colors hover:text-mist">
+            <a href="/orbelis-profile.pdf" className="inline-flex h-10 min-w-10 items-center justify-center transition-colors hover:text-mist">
               Company profile (PDF)
             </a>
           </nav>
