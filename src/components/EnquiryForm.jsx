@@ -276,7 +276,7 @@ export default function EnquiryForm() {
           value={values.blocker}
           onChange={set('blocker')}
           className={FIELD}
-          placeholder="Enquiries we answer too late, a report someone builds by hand every Monday."
+          placeholder="Late replies, reports built by hand"
         />
       </div>
 
