@@ -13,7 +13,7 @@
  */
 import { brand } from './site.js'
 
-export const lastUpdated = '16 August 2026'
+export const lastUpdated = '12 October 2026'
 
 export const privacy = {
   slug: 'privacy',
@@ -24,7 +24,7 @@ export const privacy = {
       h: 'What is collected',
       p: [
         'The enquiry form collects the name, email address, kind of business, project type, budget range and message you type into it, plus the optional note on what is slowing you down if you fill it in. Nothing else is taken from that form, and none of it is inferred or enriched from other sources.',
-        'The on-site assistant processes the questions you type into it in order to answer them. Retrieval runs in your own browser against this site\'s published content. If a hosted answering endpoint is configured, your question and the matched passages from this site are sent to it to phrase a reply.',
+        'The on-site assistant processes the questions you type into it in order to answer them. Retrieval runs in your own browser against this site\'s published content. When the hosted assistant is switched on, your question and the last few messages of the conversation are sent to this site\'s own server, which passes them to Anthropic, the provider of the Claude model, to write the reply. Anthropic does not use data sent through its API to train its models. Nothing you type is stored by this site.',
         'No account is created, because there is nothing here to log in to.',
       ],
     },
@@ -45,7 +45,7 @@ export const privacy = {
     {
       h: 'Who else sees it',
       p: [
-        'The site is served by a static hosting provider, which necessarily processes the network request that delivers the page. Enquiries arrive by email, so the email provider handles them in transit and at rest. Where a form-handling service or an answering endpoint is configured, that provider processes the submission in order to deliver it.',
+        'The site is served by a static hosting provider, which necessarily processes the network request that delivers the page. Enquiries arrive by email, so the email provider handles them in transit and at rest. Where a form-handling service is configured, that provider processes the submission in order to deliver it. Where the hosted assistant is switched on, Anthropic processes assistant questions in order to answer them.',
         'Beyond those processors, nobody. There is no data broker, no advertising network and no subcontractor in the chain.',
       ],
     },

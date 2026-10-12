@@ -100,26 +100,59 @@ teaches people to click through the ones that matter.
 
 ## The assistant
 
-`src/lib/assistant/` is the studio's own product running on its own site.
+`src/lib/assistant/` is the studio's own product running on its own site. It
+has two halves, and the first always works on its own.
+
+**In the browser (always on, free).**
 
 - `corpus.js` projects `site.js` into flat passages, each carrying a section
   label and an anchor so an answer can cite itself.
 - `retrieve.js` is BM25 with domain synonyms and a title-coverage bonus. No
   dependencies, no embeddings — the corpus is forty short paragraphs about one
-  business, and shipping a transformer to search it would be theatre. The
-  interface does not change if a client corpus ever justifies a vector store.
-- `answer.js` handles the handful of intents that decide whether a visitor
-  becomes a client (cost, availability, contact, work) in writing, and answers
-  everything else from the top-ranked passage.
-- `ask.js` is the entry point. Retrieval always runs locally; the endpoint, if
-  configured, only rephrases.
+  business, and shipping a transformer to search it would be theatre.
+- `answer.js` answers the questions that decide whether a visitor trusts the
+  studio in writing: cost, phone, location, guarantees, availability, work,
+  named tools, and the things the site has no answer to (refunds, company
+  registration), which it declines honestly. Everything else comes from the
+  top-ranked passage. A short follow-up ("how long would that take?") is read
+  with the question before it, and a visitor describing a project is told the
+  next step.
+- `ask.js` is the entry point. It tries the hosted assistant when one is
+  configured and falls back to the local answer on any error or after 20s.
 
-**The confidence floor is the feature.** Below it the assistant declines and
-points at a human. An assistant that invents a price is worse than no
+Replies end in buttons (Start an enquiry, Email, Call, WhatsApp when set).
+"Start an enquiry" preselects the service the conversation was about in the
+form.
+
+**On the server (optional, paid per question).** `server/assistant.js` asks
+Claude to write the reply from the same passages, held to rules in
+`server/orbelis.js`: answer only from the site, never quote a price, never
+promise results, reply in the visitor's language. It understands vague or
+misspelled questions and multi-turn conversations far better than the local
+half. The API key stays on the server; the browser only calls `/api/assistant`.
+Adapters exist for Vercel (`api/assistant.js`), Cloudflare Pages
+(`functions/api/assistant.js`) and Netlify (`netlify/functions/assistant.mjs`).
+
+To switch it on:
+
+1. Create an API key at console.anthropic.com and set a monthly spend limit on
+   it. That limit is the real cap on cost.
+2. On the host, set `ANTHROPIC_API_KEY` and `SITE_ORIGIN` (the site's own
+   origin, e.g. `https://orbelisstudio.com`; comma-separate several). Without
+   `SITE_ORIGIN` the endpoint refuses every request.
+3. Set `VITE_ASSISTANT_ENDPOINT=/api/assistant` and redeploy.
+
+Optional: `ASSISTANT_MODEL` picks a different Claude model (the default is
+`claude-opus-5-5`; `claude-haiku-5-5` is much cheaper and quicker, with
+somewhat weaker answers).
+
+**The confidence floor is the feature.** Below it the local assistant declines
+and points at a human. An assistant that invents a price is worse than no
 assistant, and "it would rather say I don't know" is the thing being sold.
 
-When you change the copy, re-run the question set before shipping — ranking is
-tuned against real questions, not vibes.
+When you change the copy, run `npm run assistant:check` before shipping. It
+asks the local assistant the questions in `scripts/assistant-check.mjs` and
+fails if an answer is wrong; add a line there for every new question shape.
 
 ## Brand kit
 
