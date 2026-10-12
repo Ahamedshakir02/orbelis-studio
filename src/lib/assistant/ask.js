@@ -19,7 +19,8 @@ import { answer } from './answer.js'
 import { retrieve } from './retrieve.js'
 
 const ENDPOINT = import.meta.env?.VITE_ASSISTANT_ENDPOINT || ''
-const TIMEOUT_MS = 8000
+// A model reply takes a few seconds; past this the local answer is better than a spinner.
+const TIMEOUT_MS = 20000
 
 export const isRemoteEnabled = () => Boolean(ENDPOINT)
 
@@ -71,5 +72,5 @@ export async function ask(question, history = []) {
       if (import.meta.env?.DEV) console.warn('[assistant] remote failed, using local:', err)
     }
   }
-  return { ...answer(question), via: 'local' }
+  return { ...answer(question, history), via: 'local' }
 }
