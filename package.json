@@ -11,7 +11,8 @@
     "og": "node scripts/og.mjs",
     "icons": "node scripts/icons.mjs",
     "brochure": "node scripts/brochure.mjs",
-    "brand": "node scripts/brand.mjs"
+    "brand": "node scripts/brand.mjs",
+    "assistant:check": "node scripts/assistant-check.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.133.0",
