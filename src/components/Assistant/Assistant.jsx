@@ -33,7 +33,43 @@ function Typing() {
   )
 }
 
-function Message({ msg, onCite }) {
+/**
+ * The next step, one tap away. Every answer ends in an offer to enquire; these
+ * make that offer something a visitor can act on instead of a sentence to
+ * scroll for. Only links that are actually configured in `brand` render.
+ */
+const chip =
+  'inline-flex min-h-[32px] items-center rounded-full border border-line px-3 py-1.5 text-[11px] leading-tight text-muted transition-colors hover:border-link hover:text-link'
+
+function Actions({ actions, onEnquire, enquiry }) {
+  const tel = brand.phone ? 'tel:' + brand.phone.replace(/[^\d+]/g, '') : null
+  return (
+    <div className="mt-2 flex flex-wrap gap-2">
+      {actions.includes('enquiry') && (
+        <button type="button" onClick={() => onEnquire(enquiry)} className={chip + ' border-link/50 text-link'}>
+          Start an enquiry
+        </button>
+      )}
+      {actions.includes('email') && (
+        <a href={'mailto:' + brand.email} className={chip}>
+          Email
+        </a>
+      )}
+      {actions.includes('call') && tel && (
+        <a href={tel} className={chip}>
+          Call
+        </a>
+      )}
+      {actions.includes('whatsapp') && brand.whatsapp && (
+        <a href={'https://wa.me/' + brand.whatsapp} target="_blank" rel="noopener noreferrer" className={chip}>
+          WhatsApp
+        </a>
+      )}
+    </div>
+  )
+}
+
+function Message({ msg, onCite, onEnquire, showActions }) {
   const isUser = msg.role === 'user'
   return (
     <div className={'flex ' + (isUser ? 'justify-end' : 'justify-start')}>
@@ -59,6 +95,10 @@ function Message({ msg, onCite }) {
             {msg.source.label}
             <span aria-hidden>↗</span>
           </button>
+        )}
+
+        {showActions && msg.actions?.length > 0 && (
+          <Actions actions={msg.actions} enquiry={msg.enquiry} onEnquire={onEnquire} />
         )}
       </div>
     </div>
@@ -153,7 +193,14 @@ export default function Assistant() {
         const reply = await ask(question, history)
         setMessages((prev) => [
           ...prev,
-          { id: uid(), role: 'assistant', text: reply.text, source: reply.source },
+          {
+            id: uid(),
+            role: 'assistant',
+            text: reply.text,
+            source: reply.source,
+            actions: reply.actions,
+            enquiry: reply.enquiry,
+          },
         ])
       } catch {
         setMessages((prev) => [
@@ -180,6 +227,18 @@ export default function Assistant() {
     },
     [],
   )
+
+  // Preselect the service the conversation was about, then take the visitor
+  // to the form. The form listens for the same event the service cards send.
+  const onEnquire = useCallback(
+    (type) => {
+      if (type) window.dispatchEvent(new CustomEvent('orbelis:enquire', { detail: type }))
+      onCite('#contact')
+    },
+    [onCite],
+  )
+
+  const lastAssistant = [...messages].reverse().find((m) => m.role === 'assistant')?.id
 
   return (
     <>
@@ -259,7 +318,13 @@ export default function Assistant() {
           aria-atomic="false"
         >
           {messages.map((m) => (
-            <Message key={m.id} msg={m} onCite={onCite} />
+            <Message
+              key={m.id}
+              msg={m}
+              onCite={onCite}
+              onEnquire={onEnquire}
+              showActions={!busy && m.id === lastAssistant}
+            />
           ))}
 
           {busy && (
