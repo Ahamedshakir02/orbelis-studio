@@ -329,7 +329,7 @@ export default function EnquiryForm() {
           Or email{' '}
           <a
             href={'mailto:' + brand.email}
-            className="text-link underline underline-offset-4"
+            className="inline-block py-3 text-link underline underline-offset-4"
           >
             {brand.email}
           </a>
