@@ -45,7 +45,3 @@ coverage
 .ds-sync/
 ds-bundle/
 dist-ds/
-.design-sync/.cache/
-.design-sync/learnings/
-.design-sync/node_modules
-!.design-sync/build/
