@@ -34,7 +34,7 @@ const SYNONYMS = [
   ['retainer', 'maintenance', 'monthly', 'support', 'care', 'upkeep', 'hosting'],
   ['who', 'team', 'person', 'people', 'founder', 'solo', 'freelancer', 'agency', 'staff'],
   ['work', 'portfolio', 'projects', 'case', 'examples', 'clients', 'built'],
-  ['contact', 'email', 'reach', 'call', 'hire', 'start', 'begin', 'talk', 'enquiry', 'book'],
+  ['contact', 'email', 'reach', 'call', 'hire', 'start', 'begin', 'talk', 'enquiry'],
   ['available', 'availability', 'free', 'busy', 'booked', 'capacity', 'slots'],
   ['malayalam', 'english', 'language', 'languages', 'bilingual'],
   ['fast', 'performance', 'speed', 'lighthouse', 'fps', 'slow', 'optimise', 'optimize'],
@@ -178,4 +178,9 @@ export function retrieve(query, limit = 3) {
  * than serve the least-bad paragraph — a confidently wrong price is worse than
  * no answer.
  */
-export const CONFIDENCE_FLOOR = 1.9
+//
+// 1.9 let through answers to questions the site never covers ("are you a
+// registered company" scored the Founders card at ~3, "who is the prime
+// minister" the studio intro at 4). Measured on a set of real visitor
+// questions, every answer worth giving scored above 5.
+export const CONFIDENCE_FLOOR = 4.5

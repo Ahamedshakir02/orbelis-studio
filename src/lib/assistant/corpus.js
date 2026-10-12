@@ -32,6 +32,11 @@ const groupHints = {
   Build: 'build develop development developer make create software',
   Grow: 'marketing digital marketing promote promotion advertise advertising growth leads customers agency',
 }
+// Words a visitor uses for one card that the card itself does not say.
+const serviceHints = {
+  'Website or landing page':
+    'website site web page redesign existing revamp new responsive mobile friendly phone ecommerce booking bookings appointment',
+}
 
 export const passages = [
   {
@@ -49,7 +54,7 @@ export const passages = [
     href: '#contact',
     text: `Email ${brand.email}, or send the form at the bottom of this page. The studio is in ${brand.location}. You talk to the person who writes the code. There is no account manager in between.`,
     keywords:
-      'contact email reach call phone whatsapp hire start begin enquiry enquire quote talk speak book meeting get in touch',
+      'contact email reach call phone whatsapp hire start begin enquiry enquire quote talk speak meeting get in touch',
   },
   {
     id: 'availability',
@@ -83,7 +88,7 @@ export const passages = [
     title: s.title,
     href: '#services',
     text: `${s.title}. ${s.body} Includes: ${s.points.join(', ')}. Quoted to your requirements.`,
-    keywords: `${money} service ${s.group} ${groupHints[s.group] ?? ''} ${s.points.join(' ')}`,
+    keywords: `${money} service ${s.group} ${groupHints[s.group] ?? ''} ${serviceHints[s.enquiry] ?? ''} ${s.points.join(' ')}`,
   })),
   ...work.map((w) => ({
     id: `work-${w.id}`,
