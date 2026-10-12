@@ -42,7 +42,7 @@ export default function Nav() {
   return (
     <>
       {/* Frosted over whatever scrolls beneath, in the visitor's theme. */}
-      <header className="fixed inset-x-0 top-0 z-[90] border-b border-line bg-bg/80 backdrop-blur-xl backdrop-saturate-150">
+      <header className="fixed inset-x-0 top-0 z-[97] border-b border-line bg-bg/80 backdrop-blur-xl backdrop-saturate-150">
         <div className="container-x flex h-16 items-center justify-between md:h-[76px]">
           {/* The wordmark is the one place the brand face is kept. */}
           <a href="#top" onClick={close} className="relative z-[95] inline-flex h-11 items-center font-display text-[22px] tracking-tight md:text-[26px]">
@@ -117,7 +117,7 @@ export default function Nav() {
           reachable by keyboard or screen reader. */}
       <div id="mobile-menu" className="md:hidden">
         {open && (
-          <div className="fixed inset-0 z-[92] flex flex-col justify-between bg-bg px-6 pb-10 pt-28">
+          <div className="fixed inset-0 z-[96] flex flex-col justify-between bg-bg px-6 pb-10 pt-28">
             <nav aria-label="Mobile" className="flex flex-col border-t border-line">
               {links.map((item) => (
                 <a
