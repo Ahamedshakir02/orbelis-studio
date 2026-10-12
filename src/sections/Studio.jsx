@@ -8,7 +8,7 @@ import { studio, capabilities, manifesto } from '../data/site.js'
 export default function Studio() {
   return (
     <Section id="studio" label="Studio" title={studio.lead}>
-      <div className="mx-auto max-w-2xl space-y-5 text-center">
+      <div className="mx-auto max-w-2xl space-y-5 text-left md:text-center">
         {studio.body.map((p, i) => (
           <p key={i} className="text-[17px] leading-relaxed text-muted md:text-lg">
             {p}
@@ -17,7 +17,7 @@ export default function Studio() {
       </div>
 
       {/* The studio's position, in its own words. */}
-      <ul className="stagger mt-14 grid gap-4 md:grid-cols-3">
+      <ul className="stagger mt-14 grid gap-4 lg:grid-cols-3">
         {manifesto.map((line, i) => (
           <li key={i} className="lift rounded-[18px] border border-line bg-surface p-7 text-[17px] font-medium leading-snug tracking-tight">
             {line}
