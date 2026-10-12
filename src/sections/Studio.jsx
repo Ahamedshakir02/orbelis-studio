@@ -17,7 +17,7 @@ export default function Studio() {
       </div>
 
       {/* The studio's position, in its own words. */}
-      <ul className="stagger mt-14 grid gap-4 md:grid-cols-3">
+      <ul className="stagger mt-14 grid gap-4 lg:grid-cols-3">
         {manifesto.map((line, i) => (
           <li key={i} className="lift rounded-[18px] border border-line bg-surface p-7 text-[17px] font-medium leading-snug tracking-tight">
             {line}

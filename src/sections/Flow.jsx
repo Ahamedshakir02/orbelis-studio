@@ -14,7 +14,7 @@ export default function Flow() {
       title="From first message to follow-up, handled."
       intro="What happens to one enquiry once automation is in place. Nobody has to remember any of it."
     >
-      <ol className="stagger grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-5">
+      <ol className="stagger grid gap-8 sm:grid-cols-2 md:gap-6 lg:grid-cols-5">
         {flow.map((f) => (
           <li key={f.step} className="border-t border-line pt-5">
             <span className="font-mono text-xs text-muted">{f.step}</span>

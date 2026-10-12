@@ -10,7 +10,7 @@ import { problems } from '../data/site.js'
 export default function Problems() {
   return (
     <Section label="The problem" title="Work that should not need a person." intro="Three ways a business loses hours and customers without noticing.">
-      <ol className="stagger grid gap-4 md:grid-cols-3">
+      <ol className="stagger grid gap-4 lg:grid-cols-3">
         {problems.map((p, i) => (
           <li key={p.title} className="lift rounded-[18px] border border-line bg-surface p-7">
             <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
