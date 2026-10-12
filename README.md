@@ -137,10 +137,15 @@ To switch it on:
 
 1. Create an API key at console.anthropic.com and set a monthly spend limit on
    it. That limit is the real cap on cost.
-2. On the host, set `ANTHROPIC_API_KEY` and `SITE_ORIGIN` (the site's own
-   origin, e.g. `https://orbelisstudio.com`; comma-separate several). Without
+2. In Vercel, open the project's Settings → Environment Variables and add
+   `ANTHROPIC_API_KEY` and `SITE_ORIGIN` (the site's own origin, e.g.
+   `https://orbelisstudio.com`; comma-separate several, and add the
+   `*.vercel.app` preview origin if you want previews to use it). Without
    `SITE_ORIGIN` the endpoint refuses every request.
-3. Set `VITE_ASSISTANT_ENDPOINT=/api/assistant` and redeploy.
+3. Add `VITE_ASSISTANT_ENDPOINT=/api/assistant` there too, then redeploy.
+   Vercel picks up `api/assistant.js` as a function on its own; no
+   `vercel.json` is needed. On Cloudflare Pages or Netlify the same variables
+   go in that host's settings.
 
 Optional: `ASSISTANT_MODEL` picks a different Claude model (the default is
 `claude-opus-5-5`; `claude-haiku-5-5` is much cheaper and quicker, with
