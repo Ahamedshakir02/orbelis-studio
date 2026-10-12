@@ -8,7 +8,7 @@ import { studio, capabilities, manifesto } from '../data/site.js'
 export default function Studio() {
   return (
     <Section id="studio" label="Studio" title={studio.lead}>
-      <div className="mx-auto max-w-2xl space-y-5 text-center">
+      <div className="mx-auto max-w-2xl space-y-5 text-left md:text-center">
         {studio.body.map((p, i) => (
           <p key={i} className="text-[17px] leading-relaxed text-muted md:text-lg">
             {p}
