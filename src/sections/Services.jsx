@@ -45,6 +45,8 @@ export default function Services() {
   const collapsed = useRef(false)
   const openedFrom = useRef(null)
   const sliding = useRef(false)
+  // How many cards were already showing when the shelf opened; the stagger starts after them.
+  const shown = useRef(3)
 
   const onToggle = () => {
     const el = list.current
@@ -60,6 +62,7 @@ export default function Services() {
 
     // Opening: the cards appear at once, so the height is eased after render.
     if (!open) {
+      shown.current = collapsedCount()
       openedFrom.current = el.offsetHeight
       setOpen(true)
       return
@@ -116,8 +119,9 @@ export default function Services() {
         {services.map((s, i) => (
           <article
             key={s.index}
-            // Cards that were hidden rise in one after another, not as a slab.
-            style={open && i >= 3 ? { animationDelay: `${(i - 3) * 110}ms` } : undefined}
+            // Cards that were hidden rise in one after another, not as a slab,
+            // the first at once and the last before the shelf stops growing.
+            style={open && i >= shown.current ? { animationDelay: `${Math.min(i - shown.current, 4) * 110}ms` } : undefined}
             className={
               (open ? '' : collapsedClass(i) + ' ') +
               'flex flex-col lift rounded-[18px] border border-line bg-surface p-7 ' +
