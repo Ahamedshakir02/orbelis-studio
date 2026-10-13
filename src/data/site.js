@@ -48,7 +48,7 @@ export const brand = {
   // `href` must be the studio's own profile URL, never the bare domain.
   socials: [
     { label: 'GitHub', href: null },
-    { label: 'LinkedIn', href: null },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/orbelis/' },
     { label: 'Instagram', href: null },
   ],
 }
