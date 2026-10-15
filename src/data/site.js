@@ -71,10 +71,10 @@ export const manifesto = [
 ]
 
 /**
- * ORDER MATTERS. Automation leads, then the assistant, then what gets built
- * (applications, websites, the brand), then the marketing that brings people
- * to it: that is the order the
- * studio sells them in, and the first two get the wide cards. After those two
+ * ORDER MATTERS. What gets built leads (applications, websites, the brand),
+ * then what keeps running (automation, the assistant, dashboards, care), then
+ * the marketing that brings people to it: that is the order the studio sells
+ * them in, and the first two get the wide cards. After those two
  * the cards sit three to a row, so keep the count at two plus a multiple of
  * three.
  *
@@ -88,22 +88,6 @@ export const manifesto = [
 export const services = [
   {
     index: '01',
-    group: 'Run',
-    enquiry: 'Business automation',
-    title: 'Business automation',
-    body: 'The repetitive work between your tools, done for you. Follow-ups go out, leads are logged, invoices and approvals move along, and the weekly report writes itself. It starts with a short audit of what is actually worth automating.',
-    points: ['WhatsApp and lead follow-up', 'CRM and spreadsheet sync', 'Invoices, onboarding, approvals', 'A weekly report of hours saved'],
-  },
-  {
-    index: '02',
-    group: 'Run',
-    enquiry: 'AI assistant',
-    title: 'AI assistant',
-    body: 'A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.',
-    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Updated every month'],
-  },
-  {
-    index: '03',
     group: 'Build',
     enquiry: 'SaaS or web application',
     title: 'SaaS & web applications',
@@ -111,7 +95,7 @@ export const services = [
     points: ['An MVP for a startup', 'Custom web and mobile apps', 'Logins, payments and integrations', 'Built to scale, in stages'],
   },
   {
-    index: '04',
+    index: '02',
     group: 'Build',
     enquiry: 'Website or landing page',
     title: 'Websites & landing pages',
@@ -119,7 +103,7 @@ export const services = [
     points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'Your team edits the content', 'A landing page is live in two weeks'],
   },
   {
-    index: '05',
+    index: '03',
     group: 'Build',
     enquiry: 'Brand identity & UI/UX',
     title: 'Brand identity & UI/UX',
@@ -127,39 +111,23 @@ export const services = [
     points: ['Logo and visual identity', 'Brand guidelines', 'UI/UX for websites and apps', 'Usability review of what you have'],
   },
   {
+    index: '04',
+    group: 'Run',
+    enquiry: 'Business automation',
+    title: 'Business automation',
+    body: 'The repetitive work between your tools, done for you. Follow-ups go out, leads are logged, invoices and approvals move along, and the weekly report writes itself. It starts with a short audit of what is actually worth automating.',
+    points: ['WhatsApp and lead follow-up', 'CRM and spreadsheet sync', 'Invoices, onboarding, approvals', 'A weekly report of hours saved'],
+  },
+  {
+    index: '05',
+    group: 'Run',
+    enquiry: 'AI assistant',
+    title: 'AI assistant',
+    body: 'A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.',
+    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Updated every month'],
+  },
+  {
     index: '06',
-    group: 'Grow',
-    enquiry: 'Meta & Google ads',
-    title: 'Meta & Google ads',
-    body: 'Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. I set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.',
-    points: ['Campaign setup and targeting', 'Ad copy and creatives', 'Tracking from click to enquiry', 'A plain monthly report'],
-  },
-  {
-    index: '07',
-    group: 'Grow',
-    enquiry: 'SEO',
-    title: 'SEO',
-    body: 'Being found on Google without paying for every click. I fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
-    points: ['Technical and speed fixes', 'Pages for what people search', 'Google Business Profile', 'A monthly ranking report'],
-  },
-  {
-    index: '08',
-    group: 'Grow',
-    enquiry: 'Social media management',
-    title: 'Social media management',
-    body: 'Your Instagram, Facebook and LinkedIn planned and kept active, so the page looks alive when a customer checks it. The month is agreed in advance, the posts and captions are made for you, and comments and messages get answered.',
-    points: ['A monthly content calendar', 'Posts, reels and captions', 'Comments and messages handled', 'A report on what worked'],
-  },
-  {
-    index: '09',
-    group: 'Grow',
-    enquiry: 'Creative design',
-    title: 'Creative design',
-    body: 'The visuals everything else runs on: posters, ad creatives, reels and short videos, made to stop a thumb and still look like your brand.',
-    points: ['Posts and ad creatives', 'Reels and short videos', 'Motion graphics', 'Sized for every platform'],
-  },
-  {
-    index: '10',
     group: 'Run',
     enquiry: 'Dashboards & analytics',
     title: 'Dashboards & analytics',
@@ -167,12 +135,44 @@ export const services = [
     points: ['The few numbers that matter, agreed first', 'Live dashboards', 'Reports sent automatically', 'Pulled from your existing tools'],
   },
   {
-    index: '11',
+    index: '07',
     group: 'Run',
     enquiry: 'Care plan',
     title: 'Care plan',
     body: 'Hosting, updates and a monthly report, so the site stays fast and current instead of quietly going stale.',
     points: ['Managed hosting', 'Content changes', 'Assistant and automation upkeep', 'A monthly report'],
+  },
+  {
+    index: '08',
+    group: 'Grow',
+    enquiry: 'Meta & Google ads',
+    title: 'Meta & Google ads',
+    body: 'Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. I set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.',
+    points: ['Campaign setup and targeting', 'Ad copy and creatives', 'Tracking from click to enquiry', 'A plain monthly report'],
+  },
+  {
+    index: '09',
+    group: 'Grow',
+    enquiry: 'SEO',
+    title: 'SEO',
+    body: 'Being found on Google without paying for every click. I fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
+    points: ['Technical and speed fixes', 'Pages for what people search', 'Google Business Profile', 'A monthly ranking report'],
+  },
+  {
+    index: '10',
+    group: 'Grow',
+    enquiry: 'Social media management',
+    title: 'Social media management',
+    body: 'Your Instagram, Facebook and LinkedIn planned and kept active, so the page looks alive when a customer checks it. The month is agreed in advance, the posts and captions are made for you, and comments and messages get answered.',
+    points: ['A monthly content calendar', 'Posts, reels and captions', 'Comments and messages handled', 'A report on what worked'],
+  },
+  {
+    index: '11',
+    group: 'Grow',
+    enquiry: 'Creative design',
+    title: 'Creative design',
+    body: 'The visuals everything else runs on: posters, ad creatives, reels and short videos, made to stop a thumb and still look like your brand.',
+    points: ['Posts and ad creatives', 'Reels and short videos', 'Motion graphics', 'Sized for every platform'],
   },
 ]
 
