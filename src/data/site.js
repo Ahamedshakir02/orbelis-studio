@@ -15,7 +15,7 @@ export const brand = {
   name: 'Orbelis',
   suffix: 'Studio',
   full: 'Orbelis Studio',
-  tagline: 'Automate the busywork. Answer every enquiry.',
+  tagline: 'Solutions built around your business.',
   email: 'hello@orbelisstudio.com',
   /**
    * Phone, WhatsApp, street and social links are null until the real value

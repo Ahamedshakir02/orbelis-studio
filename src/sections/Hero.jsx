@@ -6,9 +6,9 @@ import HeroPanel from '../components/HeroPanel.jsx'
  * product at work beneath them. Text-led on purpose: the statement gets the
  * first screen to itself.
  *
- * The headline is the outcome, not the service list, and automation comes
- * first: a visitor does not want "a website and an assistant", they want the
- * retyping gone and the enquiry that came in at night answered.
+ * The headline is the promise, not the service list: the studio builds
+ * whatever solves the problem, so no single service leads. The line under it
+ * names the kinds of solution, so the promise is never left vague.
  *
  * The lines arrive in reading order, a beat apart (`rise` in index.css, timed
  * by `--d`). It is an entrance, not a reveal: the text is in the markup from
@@ -21,22 +21,22 @@ export default function Hero() {
     <section id="top" className="tile overflow-hidden">
       <div className="container-x pb-20 pt-32 text-center md:pb-28 md:pt-44">
         <p className="rise eyebrow" style={delay(0)}>
-          {brand.full} · Automation, AI, apps, websites, marketing
+          {brand.full} · Software, websites, AI, marketing
         </p>
 
         <h1
           className="rise mx-auto mt-4 max-w-4xl text-[clamp(30px,8.4vw,40px)] font-semibold leading-[1.04] tracking-[-0.035em] [text-wrap:balance] md:text-[72px] lg:text-[80px]"
           style={delay(80)}
         >
-          Automate the busywork. <span className="block text-muted">Answer every enquiry.</span>
+          Solutions built <span className="block text-muted">around your business.</span>
         </h1>
 
         <p
           className="rise mx-auto mt-6 max-w-2xl text-lg leading-snug text-muted [text-wrap:balance] md:text-2xl md:leading-[1.3]"
           style={delay(180)}
         >
-          I automate the repetitive work between your tools, add an assistant that replies from your own
-          information, build the apps and websites they run on, and run the marketing that brings people in.
+          Software, websites, AI and marketing, designed for how you actually work. Tell me the problem and
+          I build what solves it, from what if to live.
         </p>
 
         <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3" style={delay(280)}>
