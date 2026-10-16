@@ -4,7 +4,7 @@ import { process } from '../data/site.js'
 /** How a project runs, in four steps. */
 export default function Process() {
   return (
-    <Section id="process" label="Process" title="From idea to launch, in four steps." intro="Scope is agreed before any work starts, which is why the date holds.">
+    <Section id="process" label="Process" title="How we work: like your own tech team." intro="Close to your business, built in small steps, and still here after launch.">
       <ol className="stagger grid gap-8 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
         {process.map((p) => (
           <li key={p.step} className="border-t border-line pt-5">
