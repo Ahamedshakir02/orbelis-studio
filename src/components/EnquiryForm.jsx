@@ -25,8 +25,8 @@ const ENDPOINT = import.meta.env?.VITE_FORM_ENDPOINT || ''
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 const FIELD =
-  'w-full rounded-xl border border-line bg-tile px-4 py-3 text-[15px] text-mist outline-none ' +
-  'transition-colors placeholder:text-muted/60 focus:border-link/70'
+  'w-full rounded-xl border border-muted/75 bg-tile px-4 py-3 text-[15px] text-mist ' +
+  'transition-colors placeholder:text-muted'
 
 const LABEL = 'mb-2 block text-[13px] font-medium text-muted'
 
@@ -72,6 +72,9 @@ export default function EnquiryForm() {
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const formRef = useRef(null)
+  // On success the form unmounts; focus moves to the confirmation so a
+  // keyboard or screen-reader user is not dropped back at the top.
+  const doneRef = useRef(null)
 
   // "Enquire" on a service row arrives here with that service's project type,
   // so the visitor does not have to find it again in the list.
@@ -140,6 +143,10 @@ export default function EnquiryForm() {
     }
   }
 
+  useEffect(() => {
+    if (status === 'sent') doneRef.current?.focus()
+  }, [status])
+
   if (status === 'sent') {
     return (
       <div
@@ -147,12 +154,13 @@ export default function EnquiryForm() {
         className="rounded-2xl border border-link/30 bg-surface/70 p-8 md:p-10"
       >
         <p className="eyebrow mb-4">Received</p>
-        <h3 className="font-semibold text-2xl tracking-tight md:text-3xl">
-          Got it. That came straight to the studio.
+        <h3 ref={doneRef} tabIndex={-1} className="font-semibold text-2xl tracking-tight focus:outline-none md:text-3xl">
+          {ENDPOINT ? 'Got it. That came straight to the studio.' : 'Your email app should now be open.'}
         </h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-          We reply from {brand.email}, usually the same day. If it is urgent, send a
-          second note to that address.
+          {ENDPOINT
+            ? `We reply from ${brand.email}, usually the same day. If it is urgent, send a second note to that address.`
+            : `The message is ready to go. Press send and it comes straight to ${brand.email}. If nothing opened, write to that address directly.`}
         </p>
       </div>
     )
@@ -167,6 +175,7 @@ export default function EnquiryForm() {
           </label>
           <input
             id="ef-name"
+            aria-required="true"
             name="name"
             value={values.name}
             onChange={set('name')}
@@ -189,6 +198,7 @@ export default function EnquiryForm() {
           </label>
           <input
             id="ef-email"
+            aria-required="true"
             name="email"
             type="email"
             value={values.email}
@@ -282,10 +292,11 @@ export default function EnquiryForm() {
 
       <div>
         <label className={LABEL} htmlFor="ef-message">
-          What do you need built?
+          What do you need?
         </label>
         <textarea
           id="ef-message"
+          aria-required="true"
           name="message"
           rows={4}
           value={values.message}
