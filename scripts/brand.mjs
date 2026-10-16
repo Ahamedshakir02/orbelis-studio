@@ -109,10 +109,10 @@ const files = [
   },
   {
     name: 'banner-linkedin-1584x396.png', w: 1584, h: 396, bg: INK,
-    // LinkedIn covers the lower left with the logo and crops the sides on
-    // phones; keep the copy between x=470 and the wordmark.
-    body: `${glow(1349, 198, 300)}
-      <div style="position:absolute;right:110px;top:162px">${wordmark(72, MIST)}</div>
+    // LinkedIn covers the lower left with the logo and crops both sides on
+    // narrower screens, so the copy sits in the middle band and the wordmark
+    // is left out: the page's logo already carries it.
+    body: `${glow(1180, 198, 300)}
       <div style="position:absolute;left:470px;top:70px">${headline(62)}</div>
       <div style="position:absolute;left:470px;bottom:64px;display:flex;align-items:center;gap:28px">${pill(22, cta)}${small(22, services)}</div>`,
   },
