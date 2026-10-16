@@ -68,7 +68,7 @@ function NotFound() {
           ))}
         </ul>
         <p className="mt-8 text-sm text-muted">
-          If a link brought you here, telling me where it was is genuinely
+          If a link brought you here, telling us where it was is genuinely
           useful —{' '}
           <a
             href={'mailto:' + brand.email}

@@ -32,7 +32,7 @@ export default function Faq() {
       <p className="mt-8 text-center text-[15px] text-muted">
         Something else?{' '}
         <a href={'mailto:' + brand.email} className="inline-block py-3 text-link underline underline-offset-4">
-          Email me directly
+          Email us directly
         </a>
         .
       </p>

@@ -96,7 +96,7 @@ const pages = [
      ${studio.body.map((p) => `<p class="lede">${esc(p)}</p>`).join('')}
      <dl class="facts">${studio.facts.map((f) => `<div><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join('')}</dl>
      <div class="rule"></div>
-     <p class="eyebrow">What I believe</p>
+     <p class="eyebrow">What we believe</p>
      ${manifesto.map((m) => `<p class="belief">${esc(m)}</p>`).join('')}`,
   ),
 
@@ -154,7 +154,7 @@ const pages = [
        .map((p) => `<article class="card"><span class="num">${esc(p.step)}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`)
        .join('')}</div>
      <div class="rule"></div>
-     <p class="eyebrow">Numbers you can hold me to</p>
+     <p class="eyebrow">Numbers you can hold us to</p>
      <div class="grid4">${stats
        .map((s) => `<div class="stat"><span class="big">${esc(s.value)}${esc(s.suffix)}</span><p>${esc(s.label)}</p></div>`)
        .join('')}</div>`,
@@ -179,9 +179,9 @@ const pages = [
   page(
     `<div class="orb low"></div>
      <p class="eyebrow">Start a project</p>
-     <h2 class="xl">Tell me what is slowing you down.</h2>
+     <h2 class="xl">Tell us what you want built.</h2>
      <dl class="contact">${contactLines.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-     <p class="note">Tell me what the business does and what is slowing it down. You talk to the person who writes the code. There is no account manager in between.</p>`,
+     <p class="note">Tell us what the business does and what it needs. You get a straight answer, usually the same day.</p>`,
   ),
 ]
 

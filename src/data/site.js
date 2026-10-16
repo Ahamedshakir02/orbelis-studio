@@ -1,8 +1,8 @@
 /**
  * Single source of truth for every piece of copy on the site.
  *
- * VOICE. Orbelis is founder-led, so for now the copy says "I" (the founder),
- * not "we". It switches to "we" only when a partner actually joins. Sentences
+ * VOICE. The studio speaks as "we", and the copy is about the client's
+ * business, never about who works here: no founder, no team size, no CVs. Sentences
  * are short and plain, written for a clinic owner rather than a developer:
  * name what a thing does, not what it is called. No claim here is softer or
  * louder than what is actually delivered.
@@ -67,7 +67,7 @@ export const nav = [
 export const manifesto = [
   'Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.',
   'Built around how your business already works, not a template it has to fit into.',
-  'You work with the founder directly. No account manager, no template.',
+  'One studio owns the result, from the first sketch to the campaign that brings people in.',
 ]
 
 /**
@@ -131,7 +131,7 @@ export const services = [
     group: 'Run',
     enquiry: 'Dashboards & analytics',
     title: 'Dashboards & analytics',
-    body: 'The numbers that run the business, in one place and up to date. I agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.',
+    body: 'The numbers that run the business, in one place and up to date. We agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.',
     points: ['The few numbers that matter, agreed first', 'Live dashboards', 'Reports sent automatically', 'Pulled from your existing tools'],
   },
   {
@@ -147,7 +147,7 @@ export const services = [
     group: 'Grow',
     enquiry: 'Meta & Google ads',
     title: 'Meta & Google ads',
-    body: 'Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. I set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.',
+    body: 'Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. We set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.',
     points: ['Campaign setup and targeting', 'Ad copy and creatives', 'Tracking from click to enquiry', 'A plain monthly report'],
   },
   {
@@ -155,7 +155,7 @@ export const services = [
     group: 'Grow',
     enquiry: 'SEO',
     title: 'SEO',
-    body: 'Being found on Google without paying for every click. I fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
+    body: 'Being found on Google without paying for every click. We fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
     points: ['Technical and speed fixes', 'Pages for what people search', 'Google Business Profile', 'A monthly ranking report'],
   },
   {
@@ -204,7 +204,7 @@ export const work = [
     year: '2026',
     role: 'Website & SEO',
     summary:
-      'The website for a typing and document services centre in Ajman, UAE. I built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.',
+      'The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.',
     stack: ['Website', 'SEO', 'Google Business Profile'],
     href: 'https://safaritypingservices.com',
     metrics: [
@@ -238,7 +238,7 @@ export const problems = [
  * The step numbers match the first and last steps of `process`.
  */
 export const heroStage = {
-  before: { step: '01', title: 'You name the problem', body: 'In plain words. I cut it to the smallest version that does the job.' },
+  before: { step: '01', title: 'You name the problem', body: 'In plain words. We cut it to the smallest version that does the job.' },
   solutions: ['SaaS or web application', 'Website or landing page', 'AI assistant', 'Business automation'],
   after: { step: '04', title: 'It goes live', body: 'Fast on a phone, and kept current with a care plan if you want one.' },
 }
@@ -280,7 +280,7 @@ export const process = [
   {
     step: '01',
     title: 'Scope',
-    body: 'I cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.',
+    body: 'We cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.',
   },
   {
     step: '02',
@@ -290,7 +290,7 @@ export const process = [
   {
     step: '03',
     title: 'Build',
-    body: 'Built to a speed target, not only a design. It has to be fast on a mid-range phone over 4G before I call it done.',
+    body: 'Built to a speed target, not only a design. It has to be fast on a mid-range phone over 4G before we call it done.',
   },
   {
     step: '04',
@@ -306,15 +306,15 @@ export const capabilities = [
 ]
 
 export const studio = {
-  lead: 'Founder-led. No hand-offs.',
+  lead: 'One studio. No hand-offs.',
   body: [
-    'I run Orbelis. You talk to the person who designs it, builds it and answers when something breaks. I build whatever the problem needs: software from a landing page to a SaaS product, AI that answers from your own content, and the automation that takes repetitive work off people. Most agencies do one of these; the useful work is usually in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.',
-    'I am a computer science and engineering graduate with a background in NLP and deep learning, and I build web and mobile apps.',
+    'Orbelis builds whatever the problem needs: software from a landing page to a SaaS product, AI that answers from your own content, and the automation that takes repetitive work off people. Most agencies do one of these; the useful work is usually in the overlap.',
+    'The marketing that brings people in is done here too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together, and nothing is handed to a vendor you have never met.',
   ],
   facts: [
     { k: 'Based', v: 'Kerala, India' },
     { k: 'Founded', v: '2026' },
-    { k: 'Team', v: 'Founder-led' },
+    { k: 'Languages', v: 'English & Malayalam' },
     { k: 'Typical build', v: '2 weeks' },
   ],
 }
@@ -328,7 +328,7 @@ export const availability = {
 export const assurances = [
   'Quoted to your requirements',
   'Most sites live in two weeks',
-  'You talk to the founder',
+  'One studio, start to finish',
 ]
 
 export const marquee = [
@@ -354,7 +354,7 @@ export const marquee = [
 export const stats = [
   { value: '<1', suffix: 's', label: 'Load target on 4G, on a mid-range phone' },
   { value: 2, suffix: ' weeks', label: 'Typical delivery, once scope is agreed' },
-  { value: 0, suffix: '', label: 'Account managers between you and the founder' },
+  { value: 0, suffix: '', label: 'Hand-offs to outside vendors on your project' },
   { value: 90, suffix: '+', label: 'Lighthouse performance target on mobile' },
 ]
 
@@ -418,7 +418,7 @@ export const budgets = [
 export const faq = [
   {
     q: 'What do you build?',
-    a: 'Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, I suggest the smallest thing that solves it, and I say so when the answer is none of these.',
+    a: 'Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.',
   },
   {
     q: 'How is a project priced?',
@@ -450,7 +450,7 @@ export const faq = [
   },
   {
     q: 'Who pays for the ads?',
-    a: 'You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. My fee is for running the campaigns and is quoted separately. I do not promise a number of leads; I report what was spent and what came in.',
+    a: 'You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. Our fee is for running the campaigns and is quoted separately. We do not promise a number of leads; we report what was spent and what came in.',
   },
   {
     q: 'Can I edit the site myself afterwards?',
@@ -461,7 +461,7 @@ export const faq = [
     a: 'No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.',
   },
   {
-    q: 'Who actually does the work?',
-    a: 'You talk to the founder directly, and I am the one who does the work. No account managers, nothing handed to someone you have never met.',
+    q: 'Who does the work? Do you outsource it?',
+    a: 'Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.',
   },
 ]

@@ -121,7 +121,7 @@ export default function HeroPanel() {
     <div
       ref={stage}
       role="img"
-      aria-label={`How a project works: you name the problem, I build what solves it (${solutions.map((s) => s.title).join(', ')}), and it goes live.`}
+      aria-label={`How a project works: you name the problem, we build what solves it (${solutions.map((s) => s.title).join(', ')}), and it goes live.`}
       className="relative mx-auto mt-14 max-w-[980px] md:mt-20"
     >
       <div aria-hidden>

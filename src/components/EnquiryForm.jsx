@@ -32,11 +32,11 @@ const LABEL = 'mb-2 block text-[13px] font-medium text-muted'
 
 function validate(values) {
   const errors = {}
-  if (!values.name.trim()) errors.name = 'Your name, so I know who I am replying to.'
-  if (!values.email.trim()) errors.email = 'An email address, so I can reply.'
+  if (!values.name.trim()) errors.name = 'Your name, so we know who we are replying to.'
+  if (!values.email.trim()) errors.email = 'An email address, so we can reply.'
   else if (!EMAIL_RE.test(values.email.trim())) errors.email = 'That address looks incomplete.'
   if (values.message.trim().length < 12)
-    errors.message = 'A sentence or two about the project, so I can answer properly.'
+    errors.message = 'A sentence or two about the project, so we can answer properly.'
   return errors
 }
 
@@ -148,10 +148,10 @@ export default function EnquiryForm() {
       >
         <p className="eyebrow mb-4">Received</p>
         <h3 className="font-semibold text-2xl tracking-tight md:text-3xl">
-          Got it. That came straight to me.
+          Got it. That came straight to the studio.
         </h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-          I reply from {brand.email}, usually the same day. If it is urgent, send a
+          We reply from {brand.email}, usually the same day. If it is urgent, send a
           second note to that address.
         </p>
       </div>
@@ -338,11 +338,11 @@ export default function EnquiryForm() {
 
       {status === 'error' && (
         <p role="alert" className="text-xs leading-relaxed text-link">
-          That did not send, and the fault is mine, not yours. Email{' '}
+          That did not send, and the fault is ours, not yours. Email{' '}
           <a href={'mailto:' + brand.email} className="underline underline-offset-4">
             {brand.email}
           </a>{' '}
-          and I will pick it up.
+          and we will pick it up.
         </p>
       )}
     </form>

@@ -190,14 +190,14 @@ export default function Services() {
       <div className="mt-14 text-center">
         <p className="text-2xl font-semibold tracking-tight">Not sure which one?</p>
         <p className="mx-auto mt-2 max-w-md text-[17px] leading-snug text-muted">
-          Most people are not. Tell me what is slowing the business down and I will tell you which
+          Most people are not. Tell us what is slowing the business down and we will tell you which
           of these fixes it, or that none of them does.
         </p>
         <a
           href="#contact"
           className="mt-6 inline-flex h-11 items-center rounded-full bg-action px-6 text-[17px] text-onaction transition hover:bg-actionhover active:scale-[0.95]"
         >
-          Ask me
+          Ask us
         </a>
       </div>
     </Section>

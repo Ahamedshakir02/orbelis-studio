@@ -35,8 +35,8 @@ export default function Hero() {
           className="rise mx-auto mt-6 max-w-2xl text-lg leading-snug text-muted [text-wrap:balance] md:text-2xl md:leading-[1.3]"
           style={delay(180)}
         >
-          Software, websites, AI and marketing, designed for how you actually work. Tell me the problem and
-          I build what solves it, from what if to live.
+          Software, websites, AI and marketing, designed for how you actually work. Tell us the problem and
+          we build what solves it, from what if to live.
         </p>
 
         <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3" style={delay(280)}>
