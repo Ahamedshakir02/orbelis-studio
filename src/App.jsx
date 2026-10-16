@@ -32,15 +32,15 @@ export default function App() {
       <Nav />
 
       <main>
-        {/* Automation leads: the pain, what automation does about it, the
-            services, then the proof and the people. */}
+        {/* Solutions lead: the gap, what gets built to close it, the proof,
+            how a project runs, one example at work, then the people. */}
         <Hero />
         <Problems />
-        <Flow />
         <Services />
         <Work />
-        <Audience />
         <Process />
+        <Flow />
+        <Audience />
         <Stats />
         <Studio />
         <Faq />
