@@ -101,7 +101,7 @@ const pages = [
   ),
 
   page(
-    `${head('The problem', 'Enquiries do not wait for office hours.')}
+    `${head('The problem', 'Good ideas stuck at “what if”.')}
      <div class="grid3">${problems
        .map(
          (p, i) =>
@@ -134,7 +134,7 @@ const pages = [
   }),
 
   page(
-    `${head('How it works', 'From first message to follow-up, handled.')}
+    `${head('One example', 'An enquiry, handled end to end.')}
      <ol class="flow">${flow
        .map((f) => `<li><span class="num">${esc(f.step)}</span><h3>${esc(f.title)}</h3><p>${esc(f.body)}</p></li>`)
        .join('')}</ol>
@@ -149,7 +149,7 @@ const pages = [
   ),
 
   page(
-    `${head('Process', 'Two weeks. Four steps.')}
+    `${head('Process', 'From what if to live, in four steps.')}
      <div class="grid2">${steps
        .map((p) => `<article class="card"><span class="num">${esc(p.step)}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`)
        .join('')}</div>
