@@ -10,8 +10,8 @@ import { flow } from '../data/site.js'
 export default function Flow() {
   return (
     <Section
-      label="How it works"
-      title="One example: an enquiry, handled end to end."
+      label="One example"
+      title="An enquiry, handled end to end."
       intro="What one of these solutions looks like once it is running: an assistant answers, automation does the rest."
     >
       <ol className="stagger grid gap-8 sm:grid-cols-2 md:gap-6 lg:grid-cols-5">

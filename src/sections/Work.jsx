@@ -47,8 +47,8 @@ export default function Work() {
     <Section
       id="work"
       label="Work"
-      title="Proof, labelled honestly."
-      intro="Client work, shown with permission."
+      title="Recent client work."
+      intro="Shown with permission."
     >
       <div className="stagger grid gap-4">
         {work.map((item) => (
@@ -73,6 +73,7 @@ export default function Work() {
                     className="mt-5 inline-flex h-10 items-center gap-1 text-[15px] text-link underline-offset-4 hover:underline"
                   >
                     Visit {item.title}
+                    <span className="sr-only"> (opens in a new tab)</span>
                     <span aria-hidden>›</span>
                   </a>
                 )}

@@ -66,8 +66,8 @@ export const nav = [
 
 export const manifesto = [
   'Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.',
-  'Built around how your business already works, not a template it has to fit into.',
-  'One studio owns the result, from the first sketch to the campaign that brings people in.',
+  'Shaped to how your business already runs, not a template it has to fit into.',
+  'We own the result, from the first sketch to the campaign that brings people in.',
 ]
 
 /**
@@ -78,8 +78,8 @@ export const manifesto = [
  * the cards sit three to a row, so keep the count at two plus a multiple of
  * three.
  *
- * `group` sorts the list into three bands: what gets built once (Build), what
- * brings people in (Grow), and what keeps running afterwards (Run). `enquiry` is the matching option in `projectTypes`, so
+ * `group` sorts the list into three bands: what gets built (Build), what keeps
+ * running afterwards (Run), and what brings people in (Grow). `enquiry` is the matching option in `projectTypes`, so
  * "Get a quote" on a service opens the form with that service already chosen.
  *
  * There is no `price` field, on purpose. Projects are quoted to their
@@ -99,8 +99,8 @@ export const services = [
     group: 'Build',
     enquiry: 'Website or landing page',
     title: 'Websites & landing pages',
-    body: 'From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team.',
-    points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'Your team edits the content', 'A landing page is live in two weeks'],
+    body: 'From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team where the content changes often.',
+    points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'An editor for content that changes often', 'Most sites live in two weeks'],
   },
   {
     index: '03',
@@ -116,7 +116,7 @@ export const services = [
     enquiry: 'Business automation',
     title: 'Business automation',
     body: 'The repetitive work between your tools, done for you. Follow-ups go out, leads are logged, invoices and approvals move along, and the weekly report writes itself. It starts with a short audit of what is actually worth automating.',
-    points: ['WhatsApp and lead follow-up', 'CRM and spreadsheet sync', 'Invoices, onboarding, approvals', 'A weekly report of hours saved'],
+    points: ['WhatsApp and lead follow-up', 'CRM and spreadsheet sync', 'Invoices, onboarding, approvals', 'A weekly report of what ran'],
   },
   {
     index: '05',
@@ -124,7 +124,7 @@ export const services = [
     enquiry: 'AI assistant',
     title: 'AI assistant',
     body: 'A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.',
-    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Updated every month'],
+    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Kept current on the care plan'],
   },
   {
     index: '06',
@@ -139,7 +139,7 @@ export const services = [
     group: 'Run',
     enquiry: 'Care plan',
     title: 'Care plan',
-    body: 'Hosting, updates and a monthly report, so the site stays fast and current instead of quietly going stale.',
+    body: 'Hosting, updates and a monthly report, so what we built stays fast and current instead of quietly going stale.',
     points: ['Managed hosting', 'Content changes', 'Assistant and automation upkeep', 'A monthly report'],
   },
   {
@@ -171,7 +171,7 @@ export const services = [
     group: 'Grow',
     enquiry: 'Creative design',
     title: 'Creative design',
-    body: 'The visuals everything else runs on: posters, ad creatives, reels and short videos, made to stop a thumb and still look like your brand.',
+    body: 'The visuals everything else runs on: posters, ad creatives, reels and short videos, made to catch the eye in a busy feed and still look like your brand.',
     points: ['Posts and ad creatives', 'Reels and short videos', 'Motion graphics', 'Sized for every platform'],
   },
 ]
@@ -204,7 +204,7 @@ export const work = [
     year: '2026',
     role: 'Website & SEO',
     summary:
-      'The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.',
+      'The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. The audits found that Google had indexed none of its pages, and that a lack of reviews was holding back its Google Maps ranking.',
     stack: ['Website', 'SEO', 'Google Business Profile'],
     href: 'https://safaritypingservices.com',
     metrics: [
@@ -238,7 +238,7 @@ export const problems = [
  * The step numbers match the first and last steps of `process`.
  */
 export const heroStage = {
-  before: { step: '01', title: 'You name the problem', body: 'In plain words. We cut it to the smallest version that does the job.' },
+  before: { step: '01', title: 'You name the problem', body: 'In plain words. We work out what would actually fix it.' },
   solutions: ['SaaS or web application', 'Website or landing page', 'AI assistant', 'Business automation'],
   after: { step: '04', title: 'It goes live', body: 'Fast on a phone, and kept current with a care plan if you want one.' },
 }
@@ -267,12 +267,12 @@ export const audiences = [
   {
     title: 'Institutions',
     body: 'Admissions season should not mean the office phone ringing all day about eligibility and fees.',
-    outcomes: ['Programme explorer', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can edit', 'Admission campaigns on Meta and Google'],
+    outcomes: ['Programme explorer', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can update', 'Admission campaigns on Meta and Google'],
   },
   {
     title: 'Founders',
     body: 'One page that makes a stranger trust you, and a way to catch everyone it convinces.',
-    outcomes: ['A landing site in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read', 'An MVP or SaaS product, built in stages'],
+    outcomes: ['A landing page in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read', 'An MVP or SaaS product, built in stages'],
   },
 ]
 
@@ -285,37 +285,36 @@ export const process = [
   {
     step: '02',
     title: 'Direction',
-    body: 'One look, one layout, one voice, agreed with you before any code is written.',
+    body: 'One look, one layout, one voice, agreed with you before anything is built.',
   },
   {
     step: '03',
     title: 'Build',
-    body: 'Built to a speed target, not only a design. It has to be fast on a mid-range phone over 4G before we call it done.',
+    body: 'Built to a speed target, not only a design. A site or app has to be fast on a mid-range phone over 4G before we call it done.',
   },
   {
     step: '04',
     title: 'Ship & keep',
-    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. What gets built is something you run, not something you buy once.',
+    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. A site or app keeps working for you; it is not something you buy once and forget.',
   },
 ]
 
 export const capabilities = [
-  'React', 'TypeScript', 'Next.js', 'Node.js', 'Three.js / R3F', 'GSAP',
-  'Tailwind', 'FastAPI', 'Python', 'PostgreSQL', 'MongoDB', 'Firebase',
-  'RAG pipelines', 'LLM integration', 'PyTorch', 'Docker', 'React Native',
+  'React', 'Next.js', 'Node.js', 'Python', 'PostgreSQL', 'Firebase',
+  'React Native', 'AI chat (LLM) integration',
 ]
 
 export const studio = {
   lead: 'One studio. No hand-offs.',
   body: [
-    'Orbelis builds whatever the problem needs: software from a landing page to a SaaS product, AI that answers from your own content, and the automation that takes repetitive work off people. Most agencies do one of these; the useful work is usually in the overlap.',
+    'Orbelis builds whatever the problem needs: a website or a SaaS product, a brand, an AI assistant, an automation or a dashboard. Most agencies do one of these. The useful work is usually where they meet.',
     'The marketing that brings people in is done here too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together, and nothing is handed to a vendor you have never met.',
   ],
   facts: [
-    { k: 'Based', v: 'Kerala, India' },
+    { k: 'Based', v: 'Edappal, Kerala, India' },
     { k: 'Founded', v: '2026' },
     { k: 'Languages', v: 'English & Malayalam' },
-    { k: 'Typical build', v: '2 weeks' },
+    { k: 'Typical website', v: '2 weeks' },
   ],
 }
 
@@ -331,31 +330,11 @@ export const assurances = [
   'One studio, start to finish',
 ]
 
-export const marquee = [
-  'Fast websites',
-  'AI assistants',
-  'Business automation',
-  'SaaS & web apps',
-  'Brand identity',
-  'Dashboards',
-  'Meta & Google ads',
-  'SEO',
-  'Social media',
-  'Creative design',
-  'Clinics & healthcare',
-  'Institutions',
-  'Founders',
-  'Brands',
-  'Malayalam + English',
-  'Two week builds',
-  'No paid ranking',
-]
-
 export const stats = [
-  { value: '<1', suffix: 's', label: 'Load target on 4G, on a mid-range phone' },
-  { value: 2, suffix: ' weeks', label: 'Typical delivery, once scope is agreed' },
+  { value: '<1', suffix: 's', label: 'Website load target on a mid-range phone over 4G' },
+  { value: 2, suffix: ' weeks', label: 'Typical website delivery, once scope is agreed' },
   { value: 0, suffix: '', label: 'Hand-offs to outside vendors on your project' },
-  { value: 90, suffix: '+', label: 'Lighthouse performance target on mobile' },
+  { value: 90, suffix: '+', label: 'Google speed score target on mobile' },
 ]
 
 /**
@@ -426,7 +405,7 @@ export const faq = [
   },
   {
     q: 'How long does it take?',
-    a: 'Two weeks for most websites, from agreed scope to launch. Larger sites take three to four. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
+    a: 'Two weeks for most websites, from agreed scope to launch. Larger sites take three to four weeks. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
   },
   {
     q: 'Do you build SaaS products and web applications?',
@@ -438,7 +417,7 @@ export const faq = [
   },
   {
     q: 'Do I have to change the tools I already use?',
-    a: 'No. Automation is built around what your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.',
+    a: 'No. What we build works with the tools your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.',
   },
   {
     q: 'What is the AI assistant, in plain terms?',

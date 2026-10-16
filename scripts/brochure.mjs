@@ -63,7 +63,7 @@ const serviceBlock = (s) => `
 
 const groups = [...new Set(services.map((s) => s.group))]
 const groupIntro = {
-  Build: 'What gets built once.',
+  Build: 'What gets built.',
   Grow: 'What brings people in.',
   Run: 'What keeps running afterwards.',
 }
@@ -149,7 +149,7 @@ const pages = [
   ),
 
   page(
-    `${head('Process', 'From what if to live, in four steps.')}
+    `${head('Process', 'From idea to launch, in four steps.')}
      <div class="grid2">${steps
        .map((p) => `<article class="card"><span class="num">${esc(p.step)}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`)
        .join('')}</div>

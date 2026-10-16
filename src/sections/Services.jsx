@@ -112,7 +112,7 @@ export default function Services() {
       id="services"
       label="Services"
       title="Pick what you need."
-      intro="What gets built first: apps, websites and the brand. Then what keeps them running, and the marketing that brings people in. Each is quoted to what you actually need."
+      intro="What gets built first: apps, websites and the brand. Then what keeps them running, and the marketing that brings people in. Each is quoted to what you need."
     >
       {/* The two lead services, applications and websites, get the wide cards. */}
       <div id="service-list" ref={list} className="stagger grid gap-4 md:grid-cols-2 lg:grid-cols-6">
@@ -197,7 +197,7 @@ export default function Services() {
           href="#contact"
           className="mt-6 inline-flex h-11 items-center rounded-full bg-action px-6 text-[17px] text-onaction transition hover:bg-actionhover active:scale-[0.95]"
         >
-          Ask us
+          Ask us<span className="sr-only"> which service fits your business</span>
         </a>
       </div>
     </Section>
