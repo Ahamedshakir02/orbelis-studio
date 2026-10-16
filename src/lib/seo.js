@@ -47,7 +47,6 @@ function graph() {
         foundingDate: '2026',
         ...(socials.length > 0 && { sameAs: socials.map((s) => s.href) }),
         slogan: brand.tagline,
-        numberOfEmployees: { '@type': 'QuantitativeValue', value: 1 },
         makesOffer: services.map((s) => ({
           '@type': 'Offer',
           itemOffered: {

@@ -1,7 +1,7 @@
 {
   "name": "Orbelis Studio",
   "short_name": "Orbelis",
-  "description": "Software, websites, AI and marketing, built around your business by a founder-led studio.",
+  "description": "Software, websites, AI and marketing, built around your business.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#08090c",
