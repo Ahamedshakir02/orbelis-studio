@@ -299,6 +299,9 @@ Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap:
 
 ### Straight answers.
 
+**What is Orbelis Studio?**  
+Orbelis Studio is a software, web and digital marketing studio based in Edappal, Kerala, India, working with clients in India and the UAE. We build SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and run the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins.
+
 **What do you build?**  
 Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.
 
@@ -336,10 +339,16 @@ No. The site is yours either way, and you can host it wherever you like. The car
 A 20-minute call. You tell us what you want to build or what is holding the business back, and you do not need to know which service you want. We come back with a clear recommendation: what we would build, what it would cost, and what is not worth doing.
 
 **Where are you based? Do you work outside Kerala?**  
-We are based in Edappal, Kerala, with clients in India and the UAE. The work is delivered remotely, so we take on businesses anywhere.
+We are based in Edappal, Kerala, and work with clients across India and in the UAE. Calls and reviews happen online, so you do not need to be near Edappal to work with us.
+
+**Do you set up Google Business Profile and local SEO?**  
+Yes. Local SEO is part of our SEO service: we set up or complete your Google Business Profile, keep your name, address and phone number the same everywhere they appear, and build the pages nearby customers search for. Results build over months, not days.
 
 **Who does the work? Do you outsource it?**  
 Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.
+
+**How do I contact Orbelis Studio?**  
+Email orbelisstudio@gmail.com, call or WhatsApp +91 75105 33289, or use the enquiry form on this page. The first step is a free 20-minute consultation.
 
 ---
 
