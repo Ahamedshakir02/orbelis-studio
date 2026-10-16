@@ -178,10 +178,10 @@ const pages = [
 
   page(
     `<div class="orb low"></div>
-     <p class="eyebrow">Start a project</p>
-     <h2 class="xl">Tell us what you want built.</h2>
+     <p class="eyebrow">Book a free consultation</p>
+     <h2 class="xl">Let’s talk about your business.</h2>
      <dl class="contact">${contactLines.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-     <p class="note">Tell us what the business does and what it needs. You get a straight answer, usually the same day.</p>`,
+     <p class="note">A free 20-minute call. Tell us what you want to build or what is holding the business back, and we come back with a clear recommendation: what we would build, what it would cost, and what isn’t worth doing.</p>`,
   ),
 ]
 

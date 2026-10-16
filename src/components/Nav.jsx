@@ -82,7 +82,7 @@ export default function Nav() {
               onClick={close}
               className="hidden h-10 items-center rounded-full bg-action px-4 text-[15px] font-medium md:h-11 md:px-5 text-onaction transition hover:bg-actionhover active:scale-[0.95] sm:inline-flex"
             >
-              Start a project
+              Free consultation
             </a>
 
             <button

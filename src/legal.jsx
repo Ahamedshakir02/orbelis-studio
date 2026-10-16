@@ -43,7 +43,7 @@ function NotFound() {
     { href: '/#work', label: 'The work' },
     { href: '/#services', label: 'Services' },
     { href: '/#faq', label: 'Questions, answered' },
-    { href: '/#contact', label: 'Start a project' },
+    { href: '/#contact', label: 'Book a free consultation' },
   ]
 
   return (

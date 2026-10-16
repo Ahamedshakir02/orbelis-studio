@@ -28,15 +28,15 @@ export default function Hero() {
           className="rise mx-auto mt-4 max-w-4xl text-[clamp(30px,8.4vw,40px)] font-semibold leading-[1.04] tracking-[-0.035em] [text-wrap:balance] md:text-[72px] lg:text-[80px]"
           style={delay(80)}
         >
-          Solutions built <span className="block text-muted">around your business.</span>
+          Your ideas, <span className="block text-muted">built and launched.</span>
         </h1>
 
         <p
           className="rise mx-auto mt-6 max-w-2xl text-lg leading-snug text-muted [text-wrap:balance] md:text-2xl md:leading-[1.3]"
           style={delay(180)}
         >
-          Software, websites, AI and marketing, designed for how you work. Tell us the problem. We build what
-          solves it and see it through to launch.
+          Software, websites, AI and marketing, designed for how you work. Bring us an idea or a problem. We
+          build what solves it and see it through to launch.
         </p>
 
         <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3" style={delay(280)}>
@@ -44,7 +44,7 @@ export default function Hero() {
             href="#contact"
             className="inline-flex h-11 items-center rounded-full bg-action px-6 text-[17px] text-onaction transition hover:bg-actionhover active:scale-[0.95]"
           >
-            Start a project
+            Book a free consultation
           </a>
           <a
             href="#services"

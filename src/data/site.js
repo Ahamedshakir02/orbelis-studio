@@ -15,7 +15,7 @@ export const brand = {
   name: 'Orbelis',
   suffix: 'Studio',
   full: 'Orbelis Studio',
-  tagline: 'Solutions built around your business.',
+  tagline: 'Your ideas, built and launched.',
   email: 'orbelisstudio@gmail.com',
   /**
    * Phone, WhatsApp, street and social links are null until the real value
@@ -449,6 +449,14 @@ export const faq = [
   {
     q: 'Do I have to take the care plan?',
     a: 'No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.',
+  },
+  {
+    q: 'What happens on the free consultation?',
+    a: 'A 20-minute call. You tell us what you want to build or what is holding the business back, and you do not need to know which service you want. We come back with a clear recommendation: what we would build, what it would cost, and what is not worth doing.',
+  },
+  {
+    q: 'Where are you based? Do you work outside Kerala?',
+    a: 'We are based in Edappal, Kerala, with clients in India and the UAE. The work is delivered remotely, so we take on businesses anywhere.',
   },
   {
     q: 'Who does the work? Do you outsource it?',

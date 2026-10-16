@@ -61,7 +61,7 @@ export default function MobileCta() {
         href="#contact"
         className="flex h-11 flex-1 items-center justify-center gap-2 rounded-full bg-action px-5 text-sm font-medium text-onaction"
       >
-        Start a project
+        Book a free consultation
         <span aria-hidden>→</span>
       </a>
 
