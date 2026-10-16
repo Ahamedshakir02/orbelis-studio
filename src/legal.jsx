@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import PageShell from './components/PageShell.jsx'
-import { privacy, terms, notFound, lastUpdated } from './data/legal.js'
-import { brand } from './data/site.js'
+import { legalView } from './components/LegalPages.jsx'
 import './index.css'
 
 /**
@@ -13,82 +11,13 @@ import './index.css'
  * real, separately crawlable documents with their own <title> and description
  * in the served markup — which is the point of building them as pages instead
  * of client-side routes — while they share one small bundle and one layout.
+ *
+ * The build prerenders each page into #root (scripts/prerender.mjs), so in
+ * production React hydrates the markup that is already there; in dev the root
+ * is empty and it renders from scratch.
  */
+const root = document.getElementById('root')
+const view = <React.StrictMode>{legalView(document.body.dataset.page)}</React.StrictMode>
 
-function Legal({ doc }) {
-  return (
-    <PageShell
-      title={doc.title}
-      intro={doc.intro}
-      footNote={`Last updated ${lastUpdated}`}
-    >
-      {doc.sections.map((s) => (
-        <section key={s.h}>
-          <h2 className="font-semibold text-2xl tracking-tight md:text-3xl">{s.h}</h2>
-          <div className="mt-4 space-y-4">
-            {s.p.map((para, i) => (
-              <p key={i} className="text-sm leading-relaxed text-muted md:text-base">
-                {para}
-              </p>
-            ))}
-          </div>
-        </section>
-      ))}
-    </PageShell>
-  )
-}
-
-function NotFound() {
-  const links = [
-    { href: '/#work', label: 'The work' },
-    { href: '/#services', label: 'Services' },
-    { href: '/#faq', label: 'Questions, answered' },
-    { href: '/#contact', label: 'Book a free consultation' },
-  ]
-
-  return (
-    <PageShell title={notFound.title} intro={notFound.intro}>
-      <section>
-        <h2 className="font-semibold text-2xl tracking-tight md:text-3xl">
-          Where you were probably going
-        </h2>
-        <ul className="mt-6 divide-y divide-line border-y border-line">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="flex items-center justify-between py-5 font-semibold text-xl tracking-tight transition-colors hover:text-link md:text-2xl"
-              >
-                {l.label}
-                <span aria-hidden className="font-mono text-link">
-                  →
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-8 text-sm text-muted">
-          If a link brought you here, telling us where it was is genuinely
-          useful —{' '}
-          <a
-            href={'mailto:' + brand.email}
-            className="text-link underline underline-offset-4"
-          >
-            {brand.email}
-          </a>
-          .
-        </p>
-      </section>
-    </PageShell>
-  )
-}
-
-const page = document.body.dataset.page
-const view =
-  page === 'privacy' ? <Legal doc={privacy} />
-  : page === 'terms' ? <Legal doc={terms} />
-  : <NotFound />
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>{view}</React.StrictMode>,
-)
+if (root.hasChildNodes()) ReactDOM.hydrateRoot(root, view)
+else ReactDOM.createRoot(root).render(view)
