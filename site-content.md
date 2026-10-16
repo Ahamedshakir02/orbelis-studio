@@ -15,18 +15,18 @@ Every piece of copy on orbelisstudio.com, in page order, generated from the site
 
 ### Solutions built around your business.
 
-Software, websites, AI and marketing, designed for how you actually work. Tell me the problem and I build what solves it, from what if to live.
+Software, websites, AI and marketing, designed for how you actually work. Tell us the problem and we build what solves it, from what if to live.
 
 *Buttons:* Start a project · See the services
 
 *Under the buttons:*
 - Quoted to your requirements
 - Most sites live in two weeks
-- You talk to the founder
+- One studio, start to finish
 
 **Animated card under the hero**
 
-- Left card: **01 You name the problem**: In plain words. I cut it to the smallest version that does the job.
+- Left card: **01 You name the problem**: In plain words. We cut it to the smallest version that does the job.
 - Centre card, cycling: SaaS & web applications → Websites & landing pages → AI assistant → Business automation (each shows its four points, with "built for you" and "One studio, whatever it takes")
 - Right card: **04 It goes live**: Fast on a phone, and kept current with a care plan if you want one.
 
@@ -100,7 +100,7 @@ A chat assistant that has read your prices, timings and policies. It answers cus
 - Updated every month
 
 **06 · Dashboards & analytics**  
-The numbers that run the business, in one place and up to date. I agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.
+The numbers that run the business, in one place and up to date. We agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.
 
 - The few numbers that matter, agreed first
 - Live dashboards
@@ -118,7 +118,7 @@ Hosting, updates and a monthly report, so the site stays fast and current instea
 #### Grow
 
 **08 · Meta & Google ads**  
-Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. I set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.
+Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. We set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.
 
 - Campaign setup and targeting
 - Ad copy and creatives
@@ -126,7 +126,7 @@ Paid campaigns on Instagram, Facebook and Google. Google reaches the people alre
 - A plain monthly report
 
 **09 · SEO**  
-Being found on Google without paying for every click. I fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.
+Being found on Google without paying for every click. We fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.
 
 - Technical and speed fixes
 - Pages for what people search
@@ -150,7 +150,7 @@ The visuals everything else runs on: posters, ad creatives, reels and short vide
 - Sized for every platform
 
 **Not sure which one?**  
-Most people are not. Tell me what is slowing the business down and I will tell you which of these fixes it, or that none of them does. *(Button: Ask me)*
+Most people are not. Tell us what is slowing the business down and we will tell you which of these fixes it, or that none of them does. *(Button: Ask us)*
 
 ---
 
@@ -166,7 +166,7 @@ The marketing website for a construction and design firm in Kerala. It presents 
 Market: Kerala · Scope: Design, build, launch
 
 **Safari Typing Services** · Client · 2026 · Website & SEO  
-The website for a typing and document services centre in Ajman, UAE. I built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.
+The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.
 
 Market: Ajman, UAE · Scope: Build, launch, SEO audits · https://safaritypingservices.com
 
@@ -179,13 +179,13 @@ Market: Ajman, UAE · Scope: Build, launch, SEO audits · https://safaritypingse
 Scope is fixed before any code is written, which is why the date holds.
 
 **01 Scope**  
-I cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.
+We cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.
 
 **02 Direction**  
 One look, one layout, one voice, agreed with you before any code is written.
 
 **03 Build**  
-Built to a speed target, not only a design. It has to be fast on a mid-range phone over 4G before I call it done.
+Built to a speed target, not only a design. It has to be fast on a mid-range phone over 4G before we call it done.
 
 **04 Ship & keep**  
 Launch, then a care plan if you want one, to keep it fast, current and answering. What gets built is something you run, not something you buy once.
@@ -210,7 +210,7 @@ What one of these solutions looks like once it is running: an assistant answers,
 
 ### For businesses that run on enquiries.
 
-Four kinds I build for, and what each one gets.
+Four kinds we build for, and what each one gets.
 
 **Brands & companies**  
 Software built around how you already work, and the busywork between your tools taken off your people.
@@ -252,29 +252,29 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 
 ## 8. Standards
 
-### Numbers you can hold me to.
+### Numbers you can hold us to.
 
 - **<1s**: Load target on 4G, on a mid-range phone
 - **2 weeks**: Typical delivery, once scope is agreed
-- **0**: Account managers between you and the founder
+- **0**: Hand-offs to outside vendors on your project
 - **90+**: Lighthouse performance target on mobile
 
 ---
 
 ## 9. Studio
 
-### Founder-led. No hand-offs.
+### One studio. No hand-offs.
 
-I run Orbelis. You talk to the person who designs it, builds it and answers when something breaks. I build whatever the problem needs: software from a landing page to a SaaS product, AI that answers from your own content, and the automation that takes repetitive work off people. Most agencies do one of these; the useful work is usually in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.
+Orbelis builds whatever the problem needs: software from a landing page to a SaaS product, AI that answers from your own content, and the automation that takes repetitive work off people. Most agencies do one of these; the useful work is usually in the overlap.
 
-I am a computer science and engineering graduate with a background in NLP and deep learning, and I build web and mobile apps.
+The marketing that brings people in is done here too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together, and nothing is handed to a vendor you have never met.
 
 *Beliefs:*
 - Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.
 - Built around how your business already works, not a template it has to fit into.
-- You work with the founder directly. No account manager, no template.
+- One studio owns the result, from the first sketch to the campaign that brings people in.
 
-*Facts:* Based: Kerala, India · Founded: 2026 · Team: Founder-led · Typical build: 2 weeks
+*Facts:* Based: Kerala, India · Founded: 2026 · Languages: English & Malayalam · Typical build: 2 weeks
 
 *Working with:* React · TypeScript · Next.js · Node.js · Three.js / R3F · GSAP · Tailwind · FastAPI · Python · PostgreSQL · MongoDB · Firebase · RAG pipelines · LLM integration · PyTorch · Docker · React Native
 
@@ -285,7 +285,7 @@ I am a computer science and engineering graduate with a background in NLP and de
 ### Straight answers.
 
 **What do you build?**  
-Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, I suggest the smallest thing that solves it, and I say so when the answer is none of these.
+Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.
 
 **How is a project priced?**  
 To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.
@@ -309,7 +309,7 @@ A chat window on your site that has read your own documents: prices, timings, po
 Yes. Meta and Google ads, SEO, social media management, and the creative design for all of them. They work best as one lead system: ads and search bring people in, the landing page turns them into enquiries, and automation follows each one up. You can also take any one of them on its own.
 
 **Who pays for the ads?**  
-You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. My fee is for running the campaigns and is quoted separately. I do not promise a number of leads; I report what was spent and what came in.
+You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. Our fee is for running the campaigns and is quoted separately. We do not promise a number of leads; we report what was spent and what came in.
 
 **Can I edit the site myself afterwards?**  
 Yes. Sites whose content changes often come with an editor your team can use without touching code. For simpler sites, content changes are part of the care plan.
@@ -317,14 +317,14 @@ Yes. Sites whose content changes often come with an editor your team can use wit
 **Do I have to take the care plan?**  
 No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.
 
-**Who actually does the work?**  
-You talk to the founder directly, and I am the one who does the work. No account managers, nothing handed to someone you have never met.
+**Who does the work? Do you outsource it?**  
+Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.
 
 ---
 
 ## 11. Contact
 
-### Tell me what you want built.
+### Tell us what you want built.
 
 Or the problem you want gone. You get a straight answer, usually the same day.
 
