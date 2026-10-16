@@ -231,6 +231,18 @@ export const problems = [
   },
 ]
 
+/**
+ * The hero's image: a problem goes in on the left, a live solution comes out on
+ * the right, and the centre card cycles through what gets built in between.
+ * `solutions` are `enquiry` values from `services`, in the order they rotate.
+ * The step numbers match the first and last steps of `process`.
+ */
+export const heroStage = {
+  before: { step: '01', title: 'You name the problem', body: 'In plain words. I cut it to the smallest version that does the job.' },
+  solutions: ['SaaS or web application', 'Website or landing page', 'AI assistant', 'Business automation'],
+  after: { step: '04', title: 'It goes live', body: 'Fast on a phone, and kept current with a care plan if you want one.' },
+}
+
 /** One enquiry, followed end to end — what the assistant and automation do together. */
 export const flow = [
   { step: '01', title: 'Enquiry arrives', body: 'By form, chat or WhatsApp, at any hour.' },
