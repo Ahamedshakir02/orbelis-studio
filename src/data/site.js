@@ -215,19 +215,19 @@ export const work = [
   },
 ]
 
-/** The three costs a visitor recognises before any service is named. */
+/** The three gaps a visitor recognises before any service is named. */
 export const problems = [
   {
-    title: 'The copy-paste job',
-    body: 'A form, a spreadsheet, a WhatsApp group and an invoice tool, held together by someone retyping between them.',
+    title: 'The idea that stays an idea.',
+    body: 'An app, a booking system, a better website. You can picture it, but there is no one to build it, so it stays in a notebook.',
   },
   {
     title: 'The late reply',
     body: 'A customer asks at ten at night. You answer at eleven the next morning. By then they have booked somewhere else.',
   },
   {
-    title: 'The repeated answer',
-    body: 'Timings, fees, eligibility, delivery. The same ten questions, typed out again by whoever picks up the phone.',
+    title: 'The work no one should be doing.',
+    body: 'Retyping between a form, a spreadsheet and WhatsApp. Answering the same ten questions every day. Hours gone, every week.',
   },
 ]
 
