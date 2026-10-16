@@ -218,7 +218,7 @@ export const work = [
 /** The three gaps a visitor recognises before any service is named. */
 export const problems = [
   {
-    title: 'The idea that stays an idea.',
+    title: 'The idea that stays an idea',
     body: 'An app, a booking system, a better website. You can picture it, but there is no one to build it, so it stays in a notebook.',
   },
   {
@@ -226,7 +226,7 @@ export const problems = [
     body: 'A customer asks at ten at night. You answer at eleven the next morning. By then they have booked somewhere else.',
   },
   {
-    title: 'The work no one should be doing.',
+    title: 'The work no one should be doing',
     body: 'Retyping between a form, a spreadsheet and WhatsApp. Answering the same ten questions every day. Hours gone, every week.',
   },
 ]
