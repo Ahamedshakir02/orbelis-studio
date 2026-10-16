@@ -25,13 +25,13 @@ export default function App() {
   return (
     <>
       {/* First tab stop on the page, so a keyboard user can skip the nav. */}
-      <a href="#services" className="skip-link">
+      <a href="#main" className="skip-link">
         Skip to content
       </a>
 
       <Nav />
 
-      <main>
+      <main id="main" tabIndex={-1} className="focus:outline-none">
         {/* Solutions lead: the gap, what gets built to close it, the proof,
             how a project runs, one example at work, then the people. */}
         <Hero />

@@ -11,12 +11,12 @@ export default function Stats() {
     <Section label="Standards" title="Numbers you can hold us to.">
       <dl className="stagger grid grid-cols-2 gap-x-6 gap-y-12 text-center md:grid-cols-4">
         {stats.map((s) => (
-          <div key={s.label}>
+          <div key={s.label} className="flex flex-col-reverse">
+            <dt className="mx-auto mt-4 max-w-[13rem] text-sm leading-relaxed text-muted">{s.label}</dt>
             <dd className="whitespace-nowrap text-[34px] font-semibold tracking-[-0.03em] sm:text-5xl md:text-6xl">
               {s.value}
               {s.suffix}
             </dd>
-            <dt className="mx-auto mt-4 max-w-[13rem] text-sm leading-relaxed text-muted">{s.label}</dt>
           </div>
         ))}
       </dl>
