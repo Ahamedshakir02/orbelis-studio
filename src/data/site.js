@@ -226,19 +226,28 @@ export const work = [
   },
 ]
 
-/** The three gaps a visitor recognises before any service is named. */
+/**
+ * The problem section: ideas that never get built and problems that never get
+ * solved. A visitor should recognise their own business in one of these three
+ * before any service is named.
+ */
+export const problemIntro = {
+  title: 'Ideas that never get built. Problems that never get solved.',
+  intro: 'Every business has ideas it wants to bring to life and problems it needs to fix. What most lack is the technical team to deliver either.',
+}
+
 export const problems = [
   {
     title: 'The idea that stays an idea',
-    body: 'An app, a booking system, a better website. You can picture it, but there is no one to build it, so it stays in a notebook.',
+    body: 'A new app, a booking system, a stronger website. The business can see the opportunity, but without the right team it remains on paper.',
   },
   {
-    title: 'The late reply',
-    body: 'A customer asks at ten at night. You answer at eleven the next morning. By then they have booked somewhere else.',
+    title: 'The problem that keeps costing money',
+    body: 'Enquiries answered too late, customers lost to faster competitors, processes that break as the business grows. Everyone knows the problem exists, but no one has the time or skills to solve it.',
   },
   {
     title: 'The work no one should be doing',
-    body: 'Retyping between a form, a spreadsheet and WhatsApp. Answering the same ten questions every day. Hours gone, every week.',
+    body: 'Re-entering data between forms, spreadsheets and WhatsApp. Answering the same questions every day. Hours lost every week to tasks that could run on their own.',
   },
 ]
 

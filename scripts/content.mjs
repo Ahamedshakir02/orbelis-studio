@@ -35,7 +35,7 @@ L(`- Centre card, cycling: ${d.heroStage.solutions.map((e) => {
 }).join(' → ')} (each shows its four points, with "built for you" and "Whatever the problem needs")`)
 L(`- Right card: **${d.heroStage.after.step} ${d.heroStage.after.title}**: ${d.heroStage.after.body}`); L()
 L('---'); L(); L('## 2. The problem'); L()
-L('### Good ideas stuck at "what if".'); L(); L('Most businesses know what would help. What they lack is a tech team to build it.'); L()
+L(`### ${d.problemIntro.title}`); L(); L(d.problemIntro.intro); L()
 d.problems.forEach((p, i) => { L(`**${i + 1}. ${p.title}**  `); L(p.body); L() })
 L('---'); L(); L('## 3. Services'); L()
 L('### Pick what you need.'); L(); L('What gets built first: apps, websites and the brand. Then what keeps them running, and the marketing that brings people in. Each is quoted to what you need.'); L()

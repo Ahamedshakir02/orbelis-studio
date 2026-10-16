@@ -22,6 +22,7 @@ import {
   manifesto,
   services,
   problems,
+  problemIntro,
   flow,
   audiences,
   process as steps,
@@ -101,7 +102,8 @@ const pages = [
   ),
 
   page(
-    `${head('The problem', 'Good ideas stuck at “what if”.')}
+    `${head('The problem', problemIntro.title)}
+     <p class="lede">${esc(problemIntro.intro)}</p>
      <div class="grid3">${problems
        .map(
          (p, i) =>
