@@ -39,7 +39,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A founder-led studio that builds the solution a business needs: SaaS products and web applications, fast websites, brand identity and UI/UX design, AI assistants that answer from the client's own content, automation of repetitive work, and the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} A studio that builds the solution a business needs: SaaS products and web applications, fast websites, brand identity and UI/UX design, AI assistants that answer from the client's own content, automation of repetitive work, and the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where offer',
   },
   {
@@ -47,7 +47,7 @@ export const passages = [
     section: 'Contact',
     title: 'Getting in touch',
     href: '#contact',
-    text: `Email ${brand.email}, or send the form at the bottom of this page. The studio is in ${brand.location}. You talk to the person who writes the code. There is no account manager in between.`,
+    text: `Email ${brand.email}, or send the form at the bottom of this page. The studio is in ${brand.location}. You hear back from the studio directly, usually the same day.`,
     keywords:
       'contact email reach call phone whatsapp hire start begin enquiry enquire quote talk speak book meeting get in touch',
   },
@@ -130,7 +130,7 @@ export const passages = [
   {
     id: 'studio-lead',
     section: 'Studio',
-    title: 'Who does the work',
+    title: 'The studio',
     href: '#studio',
     text: `${studio.lead} ${studio.body.join(' ')} ${studio.facts.map((f) => `${f.k}: ${f.v}`).join('. ')}.`,
     keywords:

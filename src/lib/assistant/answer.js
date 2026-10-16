@@ -53,7 +53,7 @@ function matchIntent(query) {
   if (has(q, 'services', 'what do you do', 'what do you offer', 'what can you do', 'what do you build')) {
     const lines = services.map((s) => `· ${s.title}`).join('\n')
     return {
-      text: `${services.length} things, all founder-led:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
+      text: `${services.length} things, all built in one studio:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
       source: { label: 'Services', href: '#services' },
       actions: ['enquiry'],
     }
@@ -85,10 +85,17 @@ function matchIntent(query) {
   // is a language question, not a request for the phone number.
   if (has(q, 'contact', 'email', 'reach you', 'hire', 'get in touch', 'talk to', 'speak to', 'speak with', 'call you')) {
     return {
-      text: `Two ways: the form at the bottom of this page, or ${brand.email}. Either one reaches the person who writes the code. There is no account manager in between.`,
+      text: `Two ways: the form at the bottom of this page, or ${brand.email}. Either one reaches the studio directly, and you usually hear back the same day.`,
       source: { label: 'Contact', href: '#contact' },
       actions: ['enquiry', 'email'],
     }
+  }
+
+  // "Who does the work" is about the studio, not the portfolio, though "work"
+  // pulls retrieval toward the Work section. Answered from the FAQ entry.
+  if (has(q, 'who does', 'who will', 'who builds', 'who works', 'outsource', 'in-house', 'in house', 'your team', 'how many people')) {
+    const f = faq.find((x) => x.q.toLowerCase().includes('outsource'))
+    if (f) return { text: f.a, source: { label: 'FAQ', href: '#faq' } }
   }
 
   // "Show me your work" should survey the shelf, not hand over one arbitrary
@@ -104,7 +111,7 @@ function matchIntent(query) {
   // A question every prospect asks and no site answers well.
   if (has(q, 'why you', 'why should', 'better than', 'different', 'instead of')) {
     return {
-      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here it is all done in one studio, and you talk to the founder directly.`,
+      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here it is all done in one studio, which answers for the whole result.`,
       source: { label: 'Studio', href: '#studio' },
     }
   }
