@@ -124,7 +124,7 @@ export const passages = [
     section: 'Process',
     title: 'How long a build takes',
     href: '#process',
-    text: 'Two weeks for most websites, from agreed scope to launch. Larger multi-page sites run three to four weeks. An application or SaaS product is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts rather than renegotiated halfway.',
+    text: 'About two weeks for a landing page or a small site, from agreed scope to launch. Larger sites take three to four weeks. Apps are built in stages, with a date agreed for each, and SEO builds over months. The schedule holds because scope is locked before work starts, not renegotiated halfway.',
     keywords: `${timing} quick soon rush urgent`,
   },
   {

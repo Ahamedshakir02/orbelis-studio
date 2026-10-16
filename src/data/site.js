@@ -92,7 +92,7 @@ export const services = [
     enquiry: 'SaaS or web application',
     title: 'SaaS & web applications',
     body: 'Software built for your business or your idea: a SaaS product, a customer portal, an internal tool, a mobile app. It starts as a first version real users can try, and is built so it can grow from there.',
-    points: ['An MVP for a startup', 'Custom web and mobile apps', 'Logins, payments and integrations', 'Built to scale, in stages'],
+    points: ['A first version for a startup', 'Custom web and mobile apps', 'Logins, payments and integrations', 'Built in stages, each with a date'],
   },
   {
     index: '02',
@@ -100,7 +100,7 @@ export const services = [
     enquiry: 'Website or landing page',
     title: 'Websites & landing pages',
     body: 'From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team where the content changes often.',
-    points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'An editor for content that changes often', 'Most sites live in two weeks'],
+    points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'An editor for content that changes often', 'Small sites live in two weeks'],
   },
   {
     index: '03',
@@ -108,7 +108,7 @@ export const services = [
     enquiry: 'Brand identity & UI/UX',
     title: 'Brand identity & UI/UX',
     body: 'How the business looks and how its product feels to use. A logo and a visual identity with rules you can follow, and screens designed so people find what they came for.',
-    points: ['Logo and visual identity', 'Brand guidelines', 'UI/UX for websites and apps', 'Usability review of what you have'],
+    points: ['Logo and visual identity', 'Brand guidelines', 'Screen design for websites and apps', 'A check of where people get stuck'],
   },
   {
     index: '04',
@@ -156,7 +156,7 @@ export const services = [
     enquiry: 'SEO',
     title: 'SEO',
     body: 'Being found on Google without paying for every click. We fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
-    points: ['Technical and speed fixes', 'Pages for what people search', 'Google Business Profile', 'A monthly ranking report'],
+    points: ['Technical and speed fixes', 'Pages for what people search for', 'Google Business Profile', 'A monthly ranking report'],
   },
   {
     index: '10',
@@ -267,12 +267,12 @@ export const audiences = [
   {
     title: 'Institutions',
     body: 'Admissions season should not mean the office phone ringing all day about eligibility and fees.',
-    outcomes: ['Programme explorer', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can update', 'Admission campaigns on Meta and Google'],
+    outcomes: ['Courses easy to browse and compare', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can update', 'Admission campaigns on Meta and Google'],
   },
   {
     title: 'Founders',
     body: 'One page that makes a stranger trust you, and a way to catch everyone it convinces.',
-    outcomes: ['A landing page in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read', 'An MVP or SaaS product, built in stages'],
+    outcomes: ['A landing page in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read', 'A first version of your app, built in stages'],
   },
 ]
 
@@ -294,7 +294,7 @@ export const process = [
   },
   {
     step: '04',
-    title: 'Ship & keep',
+    title: 'Launch & care',
     body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. A site or app keeps working for you; it is not something you buy once and forget.',
   },
 ]
@@ -326,7 +326,7 @@ export const availability = {
 /** Three things a buyer wants settled before reading further. Shown under the hero. */
 export const assurances = [
   'Quoted to your requirements',
-  'Most sites live in two weeks',
+  'Small sites live in two weeks',
   'One studio, start to finish',
 ]
 
@@ -405,7 +405,7 @@ export const faq = [
   },
   {
     q: 'How long does it take?',
-    a: 'Two weeks for most websites, from agreed scope to launch. Larger sites take three to four weeks. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
+    a: 'About two weeks for a landing page or a small site, from agreed scope to launch. Larger sites take three to four weeks. Apps are built in stages, with a date agreed for each, and SEO builds over months. The schedule holds because scope is locked before work starts, not renegotiated halfway.',
   },
   {
     q: 'Do you build SaaS products and web applications?',
