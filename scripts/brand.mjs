@@ -14,6 +14,7 @@
  *   logo-dark.png, logo-light.png   the wordmark on the brand background.
  *   logo-transparent-for-*.png      no background, for your own artwork.
  *   profile-dark.png, profile-light.png
+ *   profile-instagram.png    1080px, a bigger mark for Instagram's small circle.
  *                            square, 1024px, for a profile picture; platforms
  *                            crop to a circle, so the wordmark sits well inside.
  *   social-post-1080.png     square post (Instagram, LinkedIn, Facebook).
@@ -39,7 +40,10 @@ const MIST = '#e8eaf0'
 const MUTED = '#878e9e'
 const BRASS = '#e8a33d'
 const host = brand.url.replace(/^https?:\/\//, '')
-const [line1, line2] = brand.tagline.split(/(?<=\.)\s+/)
+// Two lines: split between sentences, or after the first comma when the
+// tagline is a single sentence ("Your ideas, / built and launched.").
+const [line1, ...rest] = brand.tagline.split(brand.tagline.includes('. ') ? /(?<=\.)\s+/ : /(?<=,)\s+/)
+const line2 = rest.join(' ')
 
 const wordmark = (px, color) =>
   `<span style="font-family:'Clash Display',Georgia,serif;font-weight:600;font-size:${px}px;letter-spacing:-0.03em;color:${color};line-height:1">${brand.name}<span style="color:${BRASS}">.</span></span>`
@@ -58,7 +62,11 @@ const headline = (px) => `
 const small = (px, text) =>
   `<div style="font-family:Inter,sans-serif;font-size:${px}px;color:${MUTED};letter-spacing:-0.01em">${text}</div>`
 
-const services = 'Software · Websites · AI · Marketing'
+const services = 'Software · Websites · AI · Design · Marketing'
+const cta = 'Book a free consultation'
+
+const pill = (px, text) =>
+  `<div style="display:inline-block;font-family:Inter,sans-serif;font-weight:600;font-size:${px}px;color:${INK};background:${BRASS};border-radius:999px;padding:${Math.round(px * 0.55)}px ${Math.round(px * 1.1)}px">${text}</div>`
 
 const files = [
   // ---- logo
@@ -68,13 +76,17 @@ const files = [
   { name: 'logo-transparent-for-light.png', w: 1600, h: 600, bg: null, body: centre(wordmark(240, INK)) },
   { name: 'profile-dark.png', w: 1024, h: 1024, bg: INK, body: centre(wordmark(190, MIST)) },
   { name: 'profile-light.png', w: 1024, h: 1024, bg: PAPER, body: centre(wordmark(190, INK)) },
+  // Instagram shows the picture at about 110px in a circle: a bigger mark and
+  // a little warmth from the brand glow keep it legible that small.
+  { name: 'profile-instagram.png', w: 1080, h: 1080, bg: INK, body: `${glow(540, 540, 520)}${centre(wordmark(230, MIST))}` },
 
   // ---- social
   {
     name: 'social-post-1080.png', w: 1080, h: 1080, bg: INK,
     body: `${glow(860, 250, 420)}
       <div style="position:absolute;left:84px;top:84px">${wordmark(64, MIST)}</div>
-      <div style="position:absolute;left:84px;right:84px;bottom:190px">${headline(104)}</div>
+      <div style="position:absolute;left:84px;right:84px;bottom:290px">${headline(110)}</div>
+      <div style="position:absolute;left:84px;bottom:180px">${pill(32, cta)}</div>
       <div style="position:absolute;left:84px;right:84px;bottom:84px;display:flex;justify-content:space-between;border-top:1px solid #242831;padding-top:28px">
         ${small(30, services)}${small(30, host)}
       </div>`,
@@ -85,6 +97,7 @@ const files = [
       <div style="position:absolute;left:0;right:0;top:540px;display:flex;justify-content:center">${wordmark(170, MIST)}</div>
       <div style="position:absolute;left:60px;right:60px;top:980px;text-align:center">${headline(78)}</div>
       <div style="position:absolute;left:0;right:0;top:1210px;text-align:center">${small(36, services)}</div>
+      <div style="position:absolute;left:0;right:0;top:1340px;text-align:center">${pill(38, cta)}</div>
       <div style="position:absolute;left:0;right:0;bottom:180px;text-align:center">${small(32, host)}</div>`,
   },
   {
@@ -96,11 +109,12 @@ const files = [
   },
   {
     name: 'banner-linkedin-1584x396.png', w: 1584, h: 396, bg: INK,
-    // LinkedIn covers the lower left with the profile picture; keep that corner empty.
+    // LinkedIn covers the lower left with the logo and crops the sides on
+    // phones; keep the copy between x=470 and the wordmark.
     body: `${glow(1349, 198, 300)}
       <div style="position:absolute;right:110px;top:162px">${wordmark(72, MIST)}</div>
-      <div style="position:absolute;left:470px;top:92px">${headline(60)}</div>
-      <div style="position:absolute;left:470px;bottom:74px">${small(22, services + ' · ' + host)}</div>`,
+      <div style="position:absolute;left:470px;top:70px">${headline(62)}</div>
+      <div style="position:absolute;left:470px;bottom:64px;display:flex;align-items:center;gap:28px">${pill(22, cta)}${small(22, services)}</div>`,
   },
 ]
 
