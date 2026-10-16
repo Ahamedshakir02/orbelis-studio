@@ -13,7 +13,7 @@
  */
 import { brand } from './site.js'
 
-export const lastUpdated = '16 August 2026'
+export const lastUpdated = '16 October 2026'
 
 export const privacy = {
   slug: 'privacy',
@@ -46,13 +46,13 @@ export const privacy = {
       h: 'Who else sees it',
       p: [
         'The site is served by a static hosting provider, which necessarily processes the network request that delivers the page. Enquiries arrive by email, so the email provider handles them in transit and at rest. Where a form-handling service or an answering endpoint is configured, that provider processes the submission in order to deliver it.',
-        'Beyond those processors, nobody. There is no data broker, no advertising network and no subcontractor in the chain.',
+        'The page also loads its fonts from Google Fonts and Fontshare, which receive your IP address when the page loads. Beyond those processors, nobody. There is no data broker, no advertising network and no subcontractor in the chain.',
       ],
     },
     {
       h: 'How long it is kept',
       p: [
-        'Enquiry correspondence is kept while there is an active conversation or project, and for as long afterwards as is needed for tax and contractual records. Enquiries that go nowhere are deleted once it is clear they have.',
+        'Enquiry correspondence is kept while there is an active conversation or project, and for as long afterwards as is needed for tax and contractual records. Enquiries that do not lead to a project are deleted once that is clear.',
       ],
     },
     {
@@ -104,8 +104,8 @@ export const terms = {
     {
       h: 'Work, ownership and warranties',
       p: [
-        'On full payment, the delivered site and its custom code are yours. Third-party dependencies stay under their own licences, and the studio keeps the right to describe and show the work in a portfolio unless the agreement says otherwise.',
-        'The site is provided as it is. Everything here is built to a stated performance and accessibility standard and tested against it, but no site is warranted to be uninterrupted or error-free, and nothing here guarantees a commercial outcome.',
+        'On full payment, the delivered work and its custom code are yours. Third-party dependencies stay under their own licences, and the studio keeps the right to describe and show the work in a portfolio unless the agreement says otherwise.',
+        'The site is provided as it is. Websites are built to the performance targets stated on this site and tested against them, but no software is warranted to be uninterrupted or error-free, and nothing here guarantees a commercial outcome.',
       ],
     },
     {
