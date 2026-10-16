@@ -65,8 +65,8 @@ export const nav = [
 ]
 
 export const manifesto = [
-  'Most business websites look finished and answer nothing.',
-  'A good one replies at 2am and hands the follow-up to automation.',
+  'Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.',
+  'Built around how your business already works, not a template it has to fit into.',
   'You work with the founder directly. No account manager, no template.',
 ]
 
@@ -256,8 +256,8 @@ export const flow = [
 export const audiences = [
   {
     title: 'Brands & companies',
-    body: 'The work between your tools, taken off the people now doing it by hand.',
-    outcomes: ['Follow-up that never forgets', 'Orders, invoices and approvals moved along', 'Reports that write themselves', 'The tools you already use, connected', 'Ads, SEO and social media run for you'],
+    body: 'Software built around how you already work, and the busywork between your tools taken off your people.',
+    outcomes: ['Custom apps, portals and internal tools', 'Follow-up that never forgets', 'Reports that write themselves', 'The tools you already use, connected', 'Ads, SEO and social media run for you'],
   },
   {
     title: 'Clinics & healthcare',
@@ -295,7 +295,7 @@ export const process = [
   {
     step: '04',
     title: 'Ship & keep',
-    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. A site is something you run, not something you buy once.',
+    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. What gets built is something you run, not something you buy once.',
   },
 ]
 
@@ -308,7 +308,7 @@ export const capabilities = [
 export const studio = {
   lead: 'Founder-led. No hand-offs.',
   body: [
-    'I run Orbelis. You talk to the person who designs it, builds it and answers when something breaks. I work where three things meet: automation, applied machine learning and careful, fast software, from a landing page to a SaaS product. Most agencies do one of them; the useful work is in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.',
+    'I run Orbelis. You talk to the person who designs it, builds it and answers when something breaks. I build whatever the problem needs: software from a landing page to a SaaS product, AI that answers from your own content, and the automation that takes repetitive work off people. Most agencies do one of these; the useful work is usually in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.',
     'I am a computer science and engineering graduate with a background in NLP and deep learning, and I build web and mobile apps.',
   ],
   facts: [
@@ -369,9 +369,9 @@ export const stats = [
 export const assistant = {
   name: 'Orb',
   intro:
-    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: services, automation, marketing, how pricing works, process and timelines. Ask anything, or start here:",
+    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: what gets built, how pricing works, process and timelines. Ask anything, or start here:",
   suggestions: [
-    'What can you automate for a business?',
+    'What can you build for my business?',
     'How is a project priced?',
     'How long does a build take?',
     'Do you run ads and social media?',
@@ -383,17 +383,17 @@ export const assistant = {
 
 /** Project types offered in the enquiry form; mirrors the service list. */
 export const projectTypes = [
-  'Business automation',
-  'AI assistant',
   'SaaS or web application',
   'Website or landing page',
   'Brand identity & UI/UX',
+  'Business automation',
+  'AI assistant',
+  'Dashboards & analytics',
+  'Care plan',
   'Meta & Google ads',
   'SEO',
   'Social media management',
   'Creative design',
-  'Dashboards & analytics',
-  'Care plan',
   'Something else',
 ]
 
@@ -417,6 +417,22 @@ export const budgets = [
 
 export const faq = [
   {
+    q: 'What do you build?',
+    a: 'Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, I suggest the smallest thing that solves it, and I say so when the answer is none of these.',
+  },
+  {
+    q: 'How is a project priced?',
+    a: 'To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'Two weeks for most websites, from agreed scope to launch. Larger sites take three to four. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
+  },
+  {
+    q: 'Do you build SaaS products and web applications?',
+    a: 'Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there.',
+  },
+  {
     q: 'What can you automate?',
     a: 'The repetitive steps between your tools: following up an enquiry on WhatsApp or email, logging leads into a CRM or spreadsheet, sending reminders, moving invoices and approvals along, and compiling a weekly report. It starts with a short audit, and you are told plainly when something is not worth automating.',
   },
@@ -425,12 +441,8 @@ export const faq = [
     a: 'No. Automation is built around what your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.',
   },
   {
-    q: 'How is a project priced?',
-    a: 'To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.',
-  },
-  {
-    q: 'Do you build SaaS products and web applications?',
-    a: 'Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there.',
+    q: 'What is the AI assistant, in plain terms?',
+    a: 'A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies in Malayalam or English, and hands over to a person when a question is beyond it.',
   },
   {
     q: 'Do you do marketing as well?',
@@ -439,14 +451,6 @@ export const faq = [
   {
     q: 'Who pays for the ads?',
     a: 'You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. My fee is for running the campaigns and is quoted separately. I do not promise a number of leads; I report what was spent and what came in.',
-  },
-  {
-    q: 'How long does it take?',
-    a: 'Two weeks for most websites, from agreed scope to launch. Larger sites take three to four. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
-  },
-  {
-    q: 'What is the AI assistant, in plain terms?',
-    a: 'A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies in Malayalam or English, and hands over to a person when a question is beyond it.',
   },
   {
     q: 'Can I edit the site myself afterwards?',
