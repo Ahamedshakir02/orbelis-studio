@@ -25,18 +25,18 @@ const ENDPOINT = import.meta.env?.VITE_FORM_ENDPOINT || ''
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 const FIELD =
-  'w-full rounded-xl border border-line bg-tile px-4 py-3 text-[15px] text-mist outline-none ' +
-  'transition-colors placeholder:text-muted/60 focus:border-link/70'
+  'w-full rounded-xl border border-muted/75 bg-tile px-4 py-3 text-[15px] text-mist ' +
+  'transition-colors placeholder:text-muted'
 
 const LABEL = 'mb-2 block text-[13px] font-medium text-muted'
 
 function validate(values) {
   const errors = {}
-  if (!values.name.trim()) errors.name = 'Your name, so I know who I am replying to.'
-  if (!values.email.trim()) errors.email = 'An email address, so I can reply.'
+  if (!values.name.trim()) errors.name = 'Your name, so we know who we are replying to.'
+  if (!values.email.trim()) errors.email = 'An email address, so we can reply.'
   else if (!EMAIL_RE.test(values.email.trim())) errors.email = 'That address looks incomplete.'
   if (values.message.trim().length < 12)
-    errors.message = 'A sentence or two about the project, so I can answer properly.'
+    errors.message = 'A sentence or two about the project, so we can answer properly.'
   return errors
 }
 
@@ -72,6 +72,9 @@ export default function EnquiryForm() {
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const formRef = useRef(null)
+  // On success the form unmounts; focus moves to the confirmation so a
+  // keyboard or screen-reader user is not dropped back at the top.
+  const doneRef = useRef(null)
 
   // "Enquire" on a service row arrives here with that service's project type,
   // so the visitor does not have to find it again in the list.
@@ -140,6 +143,10 @@ export default function EnquiryForm() {
     }
   }
 
+  useEffect(() => {
+    if (status === 'sent') doneRef.current?.focus()
+  }, [status])
+
   if (status === 'sent') {
     return (
       <div
@@ -147,12 +154,13 @@ export default function EnquiryForm() {
         className="rounded-2xl border border-link/30 bg-surface/70 p-8 md:p-10"
       >
         <p className="eyebrow mb-4">Received</p>
-        <h3 className="font-semibold text-2xl tracking-tight md:text-3xl">
-          Got it. That came straight to me.
+        <h3 ref={doneRef} tabIndex={-1} className="font-semibold text-2xl tracking-tight focus:outline-none md:text-3xl">
+          {ENDPOINT ? 'Got it. That came straight to the studio.' : 'Your email app should now be open.'}
         </h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-          I reply from {brand.email}, usually the same day. If it is urgent, send a
-          second note to that address.
+          {ENDPOINT
+            ? `We reply from ${brand.email}, usually the same day. If it is urgent, send a second note to that address.`
+            : `The message is ready to go. Press send and it comes straight to ${brand.email}. If nothing opened, write to that address directly.`}
         </p>
       </div>
     )
@@ -167,6 +175,7 @@ export default function EnquiryForm() {
           </label>
           <input
             id="ef-name"
+            aria-required="true"
             name="name"
             value={values.name}
             onChange={set('name')}
@@ -189,6 +198,7 @@ export default function EnquiryForm() {
           </label>
           <input
             id="ef-email"
+            aria-required="true"
             name="email"
             type="email"
             value={values.email}
@@ -282,10 +292,11 @@ export default function EnquiryForm() {
 
       <div>
         <label className={LABEL} htmlFor="ef-message">
-          What do you need built?
+          What do you need?
         </label>
         <textarea
           id="ef-message"
+          aria-required="true"
           name="message"
           rows={4}
           value={values.message}
@@ -293,7 +304,7 @@ export default function EnquiryForm() {
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'ef-message-error' : undefined}
           className={FIELD + ' resize-none' + (errors.message ? ' border-link' : '')}
-          placeholder="Enquiries followed up on WhatsApp and logged to our sheet, plus a site that takes bookings."
+          placeholder="A booking system for our clinic, and a website that answers patients at night."
         />
         {errors.message && (
           <p id="ef-message-error" role="alert" className="mt-2 text-xs text-link">
@@ -338,11 +349,11 @@ export default function EnquiryForm() {
 
       {status === 'error' && (
         <p role="alert" className="text-xs leading-relaxed text-link">
-          That did not send, and the fault is mine, not yours. Email{' '}
+          That did not send, and the fault is ours, not yours. Email{' '}
           <a href={'mailto:' + brand.email} className="underline underline-offset-4">
             {brand.email}
           </a>{' '}
-          and I will pick it up.
+          and we will pick it up.
         </p>
       )}
     </form>

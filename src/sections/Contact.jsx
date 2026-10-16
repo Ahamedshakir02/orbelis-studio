@@ -12,12 +12,14 @@ export default function Contact() {
     <footer id="contact" className="bg-tile pt-20 md:pt-32">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="eyebrow">Start a project</p>
+          <p className="eyebrow">Book a free consultation</p>
           <h2 className="mt-3 text-[32px] font-semibold leading-[1.08] tracking-[-0.03em] [text-wrap:balance] md:text-[48px] lg:text-[56px]">
-            Tell me what is slowing you down.
+            Let’s talk about your business.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-snug text-muted [text-wrap:balance] md:text-[21px] md:leading-[1.4]">
-            Name the task that eats your week. You get a straight answer, usually the same day.
+            Tell us what you want to build or what is holding the business back. In a free 20-minute call we
+            come back with a clear recommendation: what we would build, what it would cost, and what isn’t worth
+            doing.
           </p>
         </div>
 
@@ -70,6 +72,7 @@ export default function Contact() {
                     className="inline-flex h-10 items-center text-[15px] text-muted transition-colors hover:text-mist"
                   >
                     {s.label}
+                    <span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 </li>
               ))}

@@ -39,7 +39,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A founder-led studio that automates the repetitive work in a business, adds an AI assistant that answers from the client's own content, builds SaaS products, web applications and the fast website they run on, designs the brand, and runs the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} A studio that builds the solution a business needs: SaaS products and web applications, fast websites, brand identity and UI/UX design, AI assistants that answer from the client's own content, automation of repetitive work, and the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where offer',
   },
   {
@@ -47,7 +47,7 @@ export const passages = [
     section: 'Contact',
     title: 'Getting in touch',
     href: '#contact',
-    text: `Email ${brand.email}, or send the form at the bottom of this page. The studio is in ${brand.location}. You talk to the person who writes the code. There is no account manager in between.`,
+    text: `Email ${brand.email}, or send the form at the bottom of this page. The studio is in ${brand.location}. You hear back from the studio directly, usually the same day.`,
     keywords:
       'contact email reach call phone whatsapp hire start begin enquiry enquire quote talk speak book meeting get in touch',
   },
@@ -63,7 +63,7 @@ export const passages = [
     id: 'manifesto',
     section: 'Approach',
     title: 'What the studio believes',
-    href: '#top',
+    href: '#studio',
     text: manifesto.join(' '),
     keywords: 'why different approach philosophy belief template agency brochure',
   },
@@ -74,7 +74,7 @@ export const passages = [
     href: '#services',
     text: `Every project is quoted to its requirements; there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run; the ad budget itself is paid by you directly to Meta or Google. A short brief through the form gets a quote before any work starts. Services that can be quoted: ${services
       .map((s) => s.title)
-      .join(', ')}. Every build includes the speed and accessibility checks; they are not billed as extras.`,
+      .join(', ')}.`,
     keywords: `${money} how much expensive cheap afford total range`,
   },
   ...services.map((s) => ({
@@ -95,8 +95,8 @@ export const passages = [
   })),
   {
     id: 'automation-flow',
-    section: 'Services',
-    title: 'How automation works',
+    section: 'One example',
+    title: 'An enquiry, handled end to end',
     href: '#services',
     text: `One enquiry, followed start to finish. ${flow.map((f) => `${f.title}: ${f.body}`).join(' ')}`,
     keywords:
@@ -124,13 +124,13 @@ export const passages = [
     section: 'Process',
     title: 'How long a build takes',
     href: '#process',
-    text: 'Two weeks for most websites, from agreed scope to launch. Larger multi-page sites run three to four weeks. An application or SaaS product is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts rather than renegotiated halfway.',
+    text: 'About two weeks for a landing page or a small site, from agreed scope to launch. Larger sites take three to four weeks. Apps are built in stages, with a date agreed for each, and SEO builds over months. The schedule holds because scope is locked before work starts, not renegotiated halfway.',
     keywords: `${timing} quick soon rush urgent`,
   },
   {
     id: 'studio-lead',
     section: 'Studio',
-    title: 'Who does the work',
+    title: 'The studio',
     href: '#studio',
     text: `${studio.lead} ${studio.body.join(' ')} ${studio.facts.map((f) => `${f.k}: ${f.v}`).join('. ')}.`,
     keywords:
@@ -139,9 +139,9 @@ export const passages = [
   {
     id: 'languages',
     section: 'Services',
-    title: 'Languages the assistant speaks',
+    title: 'Languages',
     href: '#services',
-    text: 'The AI assistant answers in Malayalam and English, and hands over to a person when a question goes beyond the content it has read. The sites themselves can be bilingual where the audience needs it.',
+    text: 'Every assistant is built the way the business and its customers need it, language included, and hands over to a person when a question goes beyond the content it has read.',
     keywords:
       'malayalam english language languages bilingual speak speaks translate regional local hindi tamil',
   },

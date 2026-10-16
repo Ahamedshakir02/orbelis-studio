@@ -3,8 +3,8 @@
  *
  * Two things this buys that meta tags alone do not:
  *
- *   · The FAQ block is eligible for rich results, so the questions this studio
- *     already answers on the page can answer them in the search listing too.
+ *   · The FAQ block. Google has limited FAQ rich results to a few kinds of site
+ *     since 2023, but Bing and AI answer engines still read it.
  *   · A ProfessionalService entity with a real location is what local search
  *     reads. No price range is emitted: projects are quoted, not listed. "Web designer near Edappal" is a query this studio
  *     should win and cannot win as an unlabelled div.
@@ -25,8 +25,10 @@ function graph() {
         '@type': 'ProfessionalService',
         '@id': `${brand.url}/#studio`,
         name: brand.full,
-        description: `${brand.tagline} Business automation, an AI assistant that answers from your own content, SaaS and web applications, fast websites, and the ads, SEO and social media that bring people to them.`,
+        description: `${brand.tagline} SaaS and web applications, fast websites, brand and product design, AI assistants and business automation, and the ads, SEO and social media that bring people in.`,
         url: brand.url,
+        logo: `${brand.url}/icon-512.png`,
+        image: `${brand.url}/og.png`,
         email: brand.email,
         // Unset fields are left out entirely: a null or placeholder value in
         // structured data is worse than an absent one.
@@ -40,14 +42,16 @@ function graph() {
           addressCountry: brand.address.country,
         },
         areaServed: [
+          { '@type': 'City', name: 'Edappal' },
+          { '@type': 'AdministrativeArea', name: 'Malappuram' },
+          { '@type': 'State', name: 'Kerala' },
           { '@type': 'Country', name: 'India' },
-          { '@type': 'Place', name: 'Worldwide' },
+          { '@type': 'Country', name: 'United Arab Emirates' },
         ],
         knowsLanguage: ['en', 'ml'],
         foundingDate: '2026',
         ...(socials.length > 0 && { sameAs: socials.map((s) => s.href) }),
         slogan: brand.tagline,
-        numberOfEmployees: { '@type': 'QuantitativeValue', value: 1 },
         makesOffer: services.map((s) => ({
           '@type': 'Offer',
           itemOffered: {

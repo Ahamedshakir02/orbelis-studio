@@ -18,7 +18,12 @@
 import { retrieve, CONFIDENCE_FLOOR } from './retrieve.js'
 import { brand, services, work, availability, faq, assistant as cfg } from '../../data/site.js'
 
-const has = (q, ...words) => words.some((w) => q.includes(w))
+// A keyword must start a word: "rate" should not fire on "integrate" or
+// "separately". Phrases and stems ("case stud") still match as prefixes.
+const esc = (w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+// A trailing space in a keyword means the word must end there too ("are you
+// free " should not match "are you freelancers"); `q + ' '` lets it end the query.
+const has = (q, ...words) => words.some((w) => new RegExp('(^|[^a-z])' + esc(w)).test(q + ' '))
 
 /**
  * @returns {{ text: string, source?: {label: string, href: string}, actions?: string[] }}
@@ -28,7 +33,7 @@ function matchIntent(query) {
 
   if (/^(hi|hey|hello|yo|hai|namaskaram|good (morning|evening|afternoon))\b/.test(q)) {
     return {
-      text: `Hello. I can answer anything on this page: services, how pricing works, timelines, what the assistant does, what can be automated. What do you need built?`,
+      text: `Hello. I can answer anything on this page: what gets built, how pricing works, timelines and marketing. What problem do you want solved?`,
     }
   }
 
@@ -53,7 +58,7 @@ function matchIntent(query) {
   if (has(q, 'services', 'what do you do', 'what do you offer', 'what can you do', 'what do you build')) {
     const lines = services.map((s) => `· ${s.title}`).join('\n')
     return {
-      text: `${services.length} things, all founder-led:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
+      text: `${services.length} services, all from one studio:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
       source: { label: 'Services', href: '#services' },
       actions: ['enquiry'],
     }
@@ -73,7 +78,7 @@ function matchIntent(query) {
   }
 
   // "start" on its own would also catch "startup".
-  if (has(q, 'available', 'availability', 'free', 'busy', 'booked', 'capacity', 'can you start', 'start now', 'start soon', 'start immediately')) {
+  if (has(q, 'available', 'availability', 'are you free ', 'are you free?', 'free slot', 'busy', 'booked', 'capacity', 'can you start', 'start now', 'start soon', 'start immediately')) {
     return {
       text: `${availability.status}: ${availability.detail.toLowerCase()}. Scope is agreed before a project starts, which is why the schedule holds. If timing matters, say so in the enquiry and you will get a straight answer.`,
       source: { label: 'Contact', href: '#contact' },
@@ -83,12 +88,19 @@ function matchIntent(query) {
 
   // "speak" is deliberately not a bare keyword here: "do you speak Malayalam"
   // is a language question, not a request for the phone number.
-  if (has(q, 'contact', 'email', 'reach you', 'hire', 'get in touch', 'talk to', 'speak to', 'speak with', 'call you')) {
+  if (has(q, 'contact', 'email', 'who will reply', 'reply to me', 'reach you', 'hire', 'get in touch', 'talk to', 'speak to', 'speak with', 'call you')) {
     return {
-      text: `Two ways: the form at the bottom of this page, or ${brand.email}. Either one reaches the person who writes the code. There is no account manager in between.`,
+      text: `Two ways: the form at the bottom of this page, or ${brand.email}. Either one reaches the studio directly, and you usually hear back the same day.`,
       source: { label: 'Contact', href: '#contact' },
       actions: ['enquiry', 'email'],
     }
+  }
+
+  // "Who does the work" is about the studio, not the portfolio, though "work"
+  // pulls retrieval toward the Work section. Answered from the FAQ entry.
+  if (has(q, 'who does the work', 'who will do', 'who will build', 'who builds', 'who works on', 'who will work on', 'outsource', 'subcontract', 'freelancer', 'in-house', 'in house', 'how many people work', 'size of your team', 'your team size')) {
+    const f = faq.find((x) => x.q.toLowerCase().includes('outsource'))
+    if (f) return { text: f.a, source: { label: 'FAQ', href: '#faq' } }
   }
 
   // "Show me your work" should survey the shelf, not hand over one arbitrary
@@ -96,7 +108,7 @@ function matchIntent(query) {
   if (has(q, 'your work', 'portfolio', 'case stud', 'examples', 'show me', 'projects you', 'previous work')) {
     const lines = work.map((w) => `· ${w.title} (${w.status}, ${w.year}) — ${w.role}`).join('\n')
     return {
-      text: `${work.length} on the page, and the status on each is honest:\n\n${lines}\n\nThe Work section has the detail on each, including what it was built with.`,
+      text: `${work.length} client projects so far:\n\n${lines}\n\nThe Work section has the detail on each, including what it was built with.`,
       source: { label: 'Work', href: '#work' },
     }
   }
@@ -104,7 +116,7 @@ function matchIntent(query) {
   // A question every prospect asks and no site answers well.
   if (has(q, 'why you', 'why should', 'better than', 'different', 'instead of')) {
     return {
-      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here it is all done in one studio, and you talk to the founder directly.`,
+      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here one studio does all of it and answers for it.`,
       source: { label: 'Studio', href: '#studio' },
     }
   }
@@ -134,7 +146,7 @@ export function answer(query) {
   if (!top || top.raw < CONFIDENCE_FLOOR) {
     return {
       grounded: false,
-      text: `${cfg.fallback} ${brand.email} gets a real answer from a person, usually the same day.`,
+      text: `${cfg.fallback} ${brand.email}.`,
       actions: ['enquiry', 'email'],
     }
   }

@@ -22,6 +22,7 @@ import {
   manifesto,
   services,
   problems,
+  problemIntro,
   flow,
   audiences,
   process as steps,
@@ -63,7 +64,7 @@ const serviceBlock = (s) => `
 
 const groups = [...new Set(services.map((s) => s.group))]
 const groupIntro = {
-  Build: 'What gets built once.',
+  Build: 'What gets built.',
   Grow: 'What brings people in.',
   Run: 'What keeps running afterwards.',
 }
@@ -72,7 +73,7 @@ const contactLines = [
   ['Email', brand.email],
   ['Web', host],
   // Phone appears only once a real number is set in site.js.
-  ...(brand.phone ? [['Phone', brand.phone]] : []),
+  ...(brand.phone ? [['Phone / WhatsApp', brand.phone]] : []),
   [
     'Studio',
     [brand.address.street, `${brand.address.locality}, ${brand.address.region} ${brand.address.postalCode}`, 'India']
@@ -96,20 +97,23 @@ const pages = [
      ${studio.body.map((p) => `<p class="lede">${esc(p)}</p>`).join('')}
      <dl class="facts">${studio.facts.map((f) => `<div><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join('')}</dl>
      <div class="rule"></div>
-     <p class="eyebrow">What I believe</p>
+     <p class="eyebrow">What we believe</p>
      ${manifesto.map((m) => `<p class="belief">${esc(m)}</p>`).join('')}`,
   ),
 
   page(
-    `${head('The problem', 'Enquiries do not wait for office hours.')}
+    `${head('The problem', problemIntro.title)}
+     <p class="lede">${esc(problemIntro.intro)}</p>
      <div class="grid3">${problems
        .map(
          (p, i) =>
            `<article class="card"><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`,
        )
-       .join('')}</div>
-     <div class="rule"></div>
-     <p class="eyebrow">Services at a glance</p>
+       .join('')}</div>`,
+  ),
+
+  page(
+    `${head('Services at a glance', 'Build, run and grow, from one studio.')}
      <table>${services
        .map(
          (s) =>
@@ -134,27 +138,29 @@ const pages = [
   }),
 
   page(
-    `${head('How it works', 'From first message to follow-up, handled.')}
+    `${head('One example', 'An enquiry, handled end to end.')}
      <ol class="flow">${flow
        .map((f) => `<li><span class="num">${esc(f.step)}</span><h3>${esc(f.title)}</h3><p>${esc(f.body)}</p></li>`)
-       .join('')}</ol>
-     <div class="rule"></div>
-     <p class="eyebrow">Who it is for</p>
-     <div class="grid2">${audiences
+       .join('')}</ol>`,
+  ),
+
+  page(
+    `${head('Who it is for', 'For businesses that run on enquiries.')}
+     <div class="grid3 tight">${audiences
        .map(
          (a) =>
-           `<article class="card"><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p><ul class="dots">${a.outcomes.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></article>`,
+           `<article class="card"><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p><ul class="dots one">${a.outcomes.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></article>`,
        )
        .join('')}</div>`,
   ),
 
   page(
-    `${head('Process', 'Two weeks. Four steps.')}
+    `${head('Process', 'From idea to launch, in four steps.')}
      <div class="grid2">${steps
        .map((p) => `<article class="card"><span class="num">${esc(p.step)}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`)
        .join('')}</div>
      <div class="rule"></div>
-     <p class="eyebrow">Numbers you can hold me to</p>
+     <p class="eyebrow">Numbers you can hold us to</p>
      <div class="grid4">${stats
        .map((s) => `<div class="stat"><span class="big">${esc(s.value)}${esc(s.suffix)}</span><p>${esc(s.label)}</p></div>`)
        .join('')}</div>`,
@@ -178,10 +184,10 @@ const pages = [
 
   page(
     `<div class="orb low"></div>
-     <p class="eyebrow">Start a project</p>
-     <h2 class="xl">Tell me what is slowing you down.</h2>
+     <p class="eyebrow">Book a free consultation</p>
+     <h2 class="xl">Let’s talk about your business.</h2>
      <dl class="contact">${contactLines.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-     <p class="note">Tell me what the business does and what is slowing it down. You talk to the person who writes the code. There is no account manager in between.</p>`,
+     <p class="note">A free 20-minute call. Tell us what you want to build or what is holding the business back, and we come back with a clear recommendation: what we would build, what it would cost, and what isn’t worth doing.</p>`,
   ),
 ]
 
@@ -223,6 +229,12 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
   .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
   .dots, .chips { list-style: none; margin: 4mm 0 0; padding: 0; }
   .dots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5mm 5mm; font-size: 9pt; }
+  .dots.one { grid-template-columns: 1fr; }
+  /* Five audiences, three to a row, have to fit one sheet. */
+  .tight .card { padding: 5mm; }
+  .tight h3 { font-size: 13pt; }
+  .tight .card p { font-size: 9pt; line-height: 1.45; }
+  .tight .dots { font-size: 8.5pt; gap: 1.2mm; }
   .dots li::before { content: ""; display: inline-block; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: #e8a33d; margin-right: 2.5mm; vertical-align: middle; }
   .chips { display: flex; flex-wrap: wrap; gap: 2mm; }
   .chips li { border: 1px solid #22262f; border-radius: 99px; padding: 1mm 3mm; color: #878e9e; font-size: 6.5pt; }

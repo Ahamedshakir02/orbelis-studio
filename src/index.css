@@ -164,6 +164,10 @@ html.loading .rise {
 .glow {
   animation: breathe 9s ease-in-out infinite;
 }
+[data-paused] .float,
+[data-paused] .glow {
+  animation-play-state: paused;
+}
 .plx {
   transform: translate3d(
     calc(var(--px, 0) * var(--depth, 0) * 1px),
@@ -218,19 +222,21 @@ body,
 }
 
 /*
-  On phones the assistant button sits low, in the corner. When the sticky call
-  to action slides up it would be covered, so it steps up out of the way.
-  MobileCta sets `data-cta` on <html> while its bar is showing.
+  On phones the WhatsApp button sits low, in the corner. When the sticky call
+  to action slides up it carries its own WhatsApp button, so this one steps
+  aside rather than doubling up. MobileCta sets `data-cta` on <html> while its
+  bar is showing.
 */
 @media (max-width: 767px) {
-  .launcher {
+  .wa-launcher {
     transition:
-      bottom 0.3s ease,
-      background-color 0.15s ease,
-      transform 0.15s ease;
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
-  html[data-cta] .launcher {
-    bottom: 5.5rem;
+  html[data-cta] .wa-launcher {
+    opacity: 0;
+    transform: translateY(1rem);
+    pointer-events: none;
   }
 }
 
@@ -255,7 +261,9 @@ body,
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
   }
 }

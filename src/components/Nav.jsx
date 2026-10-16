@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { brand, nav } from '../data/site.js'
+import { brand, nav, whatsappHref } from '../data/site.js'
 import { lockScroll } from '../lib/scroll.js'
 import ThemeToggle from './ThemeToggle.jsx'
 
@@ -66,9 +66,9 @@ export default function Nav() {
             <ThemeToggle />
 
             {/* Only once a real number is set in site.js — see brand.whatsapp. */}
-            {brand.whatsapp && (
+            {whatsappHref && (
               <a
-                href={`https://wa.me/${brand.whatsapp}`}
+                href={whatsappHref}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="hidden h-10 items-center rounded-full border border-line bg-surface px-5 text-[15px] font-medium text-mist transition hover:bg-raised active:scale-[0.95] lg:inline-flex"
@@ -82,7 +82,7 @@ export default function Nav() {
               onClick={close}
               className="hidden h-10 items-center rounded-full bg-action px-4 text-[15px] font-medium md:h-11 md:px-5 text-onaction transition hover:bg-actionhover active:scale-[0.95] sm:inline-flex"
             >
-              Start a project
+              Free consultation
             </a>
 
             <button

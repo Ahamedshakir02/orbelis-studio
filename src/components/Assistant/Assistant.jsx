@@ -21,7 +21,8 @@ const uid = () => Math.random().toString(36).slice(2)
 
 function Typing() {
   return (
-    <div className="flex items-center gap-1.5 px-1 py-2" aria-label="Thinking">
+    <div className="flex items-center gap-1.5 px-1 py-2" role="status">
+      <span className="sr-only">Thinking…</span>
       {[0, 1, 2].map((i) => (
         <span
           key={i}
@@ -294,7 +295,7 @@ export default function Assistant() {
           }}
           className="border-t border-line p-3"
         >
-          <div className="flex items-center gap-2 rounded-xl border border-line bg-bg px-3 py-2 focus-within:border-link/60">
+          <div className="flex items-center gap-2 rounded-xl border border-line bg-bg px-3 py-2 focus-within:border-link/60 focus-within:outline focus-within:outline-2 focus-within:outline-link">
             <input
               ref={field}
               value={input}
@@ -302,7 +303,7 @@ export default function Assistant() {
               placeholder="Ask about services, timeline, pricing…"
               aria-label="Ask the studio assistant a question"
               maxLength={300}
-              className="min-w-0 flex-1 bg-transparent text-[13px] text-mist outline-none placeholder:text-muted/70"
+              className="min-w-0 flex-1 bg-transparent text-base text-mist outline-none placeholder:text-muted md:text-[13px]"
             />
             <button
               type="submit"

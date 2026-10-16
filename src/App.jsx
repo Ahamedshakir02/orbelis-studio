@@ -1,7 +1,7 @@
-import { Suspense, lazy } from 'react'
 import Nav from './components/Nav.jsx'
 import MobileCta from './components/MobileCta.jsx'
 import ConsentBanner from './components/ConsentBanner.jsx'
+import WhatsAppButton from './components/WhatsApp.jsx'
 import Hero from './sections/Hero.jsx'
 import Stats from './sections/Stats.jsx'
 import Work from './sections/Work.jsx'
@@ -14,43 +14,35 @@ import Studio from './sections/Studio.jsx'
 import Faq from './sections/Faq.jsx'
 import Contact from './sections/Contact.jsx'
 
-/**
- * The assistant is split out. Nobody opens it in the first second, so its
- * corpus and retrieval index have no business competing with the page for
- * bandwidth on first paint.
- */
-const Assistant = lazy(() => import('./components/Assistant/Assistant.jsx'))
-
 export default function App() {
   return (
     <>
       {/* First tab stop on the page, so a keyboard user can skip the nav. */}
-      <a href="#services" className="skip-link">
+      <a href="#main" className="skip-link">
         Skip to content
       </a>
 
       <Nav />
 
-      <main>
-        {/* Automation leads: the pain, what automation does about it, the
-            services, then the proof and the people. */}
+      <main id="main" tabIndex={-1} className="focus:outline-none">
+        {/* Solutions lead: the gap, what gets built to close it, the proof,
+            how a project runs, one example at work, then the people. */}
         <Hero />
         <Problems />
-        <Flow />
         <Services />
         <Work />
-        <Audience />
         <Process />
+        <Flow />
+        <Audience />
         <Stats />
         <Studio />
         <Faq />
       </main>
       <Contact />
 
-      {/* The product, demonstrated on the product's own site. */}
-      <Suspense fallback={null}>
-        <Assistant />
-      </Suspense>
+      {/* Visitors message us directly. The chat assistant is not mounted;
+          its code stays in components/Assistant if it is wanted back. */}
+      <WhatsAppButton />
 
       {/* Phones only — keeps one CTA in thumb reach once the hero scrolls off. */}
       <MobileCta />

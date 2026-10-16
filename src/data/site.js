@@ -1,8 +1,8 @@
 /**
  * Single source of truth for every piece of copy on the site.
  *
- * VOICE. Orbelis is founder-led, so for now the copy says "I" (the founder),
- * not "we". It switches to "we" only when a partner actually joins. Sentences
+ * VOICE. The studio speaks as "we", and the copy is about the client's
+ * business, never about who works here: no founder, no team size, no CVs. Sentences
  * are short and plain, written for a clinic owner rather than a developer:
  * name what a thing does, not what it is called. No claim here is softer or
  * louder than what is actually delivered.
@@ -15,8 +15,8 @@ export const brand = {
   name: 'Orbelis',
   suffix: 'Studio',
   full: 'Orbelis Studio',
-  tagline: 'Automate the busywork. Answer every enquiry.',
-  email: 'hello@orbelisstudio.com',
+  tagline: 'Your ideas, built and launched.',
+  email: 'orbelisstudio@gmail.com',
   /**
    * Phone, WhatsApp, street and social links are null until the real value
    * exists. Nothing renders while a field is null — not in the footer, not in
@@ -24,10 +24,10 @@ export const brand = {
    * reach a visitor or a crawler. Fill one in and it appears everywhere.
    */
   // Display format, e.g. '+91 98765 43210'.
-  phone: '+91 94475 33289',
+  phone: '+91 75105 33289',
   // Digits only, with country code — used to build wa.me links.
-  whatsapp: null,
-  location: 'Edappal, Kerala — working worldwide',
+  whatsapp: '917510533289',
+  location: 'Edappal, Kerala. Clients in India and the UAE',
   url: 'https://orbelisstudio.com',
 
   /**
@@ -53,6 +53,17 @@ export const brand = {
   ],
 }
 
+/**
+ * The WhatsApp link every button on the site uses, with a short opening line
+ * already typed so the visitor only has to press send. Null while
+ * brand.whatsapp is null, and every button hides itself then.
+ */
+export const whatsappHref = brand.whatsapp
+  ? `https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(
+      "Hi Orbelis, I'd like to talk about a project.",
+    )}`
+  : null
+
 /** Only the social links that actually point somewhere. */
 export const socials = brand.socials.filter((s) => s.href)
 
@@ -65,21 +76,21 @@ export const nav = [
 ]
 
 export const manifesto = [
-  'Most business websites look finished and answer nothing.',
-  'A good one replies at 2am and hands the follow-up to automation.',
-  'You work with the founder directly. No account manager, no template.',
+  'Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.',
+  'Shaped to how your business already runs, not a template it has to fit into.',
+  'We own the result, from the first sketch to the campaign that brings people in.',
 ]
 
 /**
- * ORDER MATTERS. Automation leads, then the assistant, then what gets built
- * (applications, websites, the brand), then the marketing that brings people
- * to it: that is the order the
- * studio sells them in, and the first two get the wide cards. After those two
+ * ORDER MATTERS. What gets built leads (applications, websites, the brand),
+ * then what keeps running (automation, the assistant, dashboards, care), then
+ * the marketing that brings people to it: that is the order the studio sells
+ * them in, and the first two get the wide cards. After those two
  * the cards sit three to a row, so keep the count at two plus a multiple of
  * three.
  *
- * `group` sorts the list into three bands: what gets built once (Build), what
- * brings people in (Grow), and what keeps running afterwards (Run). `enquiry` is the matching option in `projectTypes`, so
+ * `group` sorts the list into three bands: what gets built (Build), what keeps
+ * running afterwards (Run), and what brings people in (Grow). `enquiry` is the matching option in `projectTypes`, so
  * "Get a quote" on a service opens the form with that service already chosen.
  *
  * There is no `price` field, on purpose. Projects are quoted to their
@@ -88,62 +99,78 @@ export const manifesto = [
 export const services = [
   {
     index: '01',
-    group: 'Run',
-    enquiry: 'Business automation',
-    title: 'Business automation',
-    body: 'The repetitive work between your tools, done for you. Follow-ups go out, leads are logged, invoices and approvals move along, and the weekly report writes itself. It starts with a short audit of what is actually worth automating.',
-    points: ['WhatsApp and lead follow-up', 'CRM and spreadsheet sync', 'Invoices, onboarding, approvals', 'A weekly report of hours saved'],
-  },
-  {
-    index: '02',
-    group: 'Run',
-    enquiry: 'AI assistant',
-    title: 'AI assistant',
-    body: 'A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.',
-    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Updated every month'],
-  },
-  {
-    index: '03',
     group: 'Build',
     enquiry: 'SaaS or web application',
     title: 'SaaS & web applications',
     body: 'Software built for your business or your idea: a SaaS product, a customer portal, an internal tool, a mobile app. It starts as a first version real users can try, and is built so it can grow from there.',
-    points: ['An MVP for a startup', 'Custom web and mobile apps', 'Logins, payments and integrations', 'Built to scale, in stages'],
+    points: ['A first version for a startup', 'Custom web and mobile apps', 'Logins, payments and integrations', 'Built in stages, each with a date'],
   },
   {
-    index: '04',
+    index: '02',
     group: 'Build',
     enquiry: 'Website or landing page',
     title: 'Websites & landing pages',
-    body: 'From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team.',
-    points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'Your team edits the content', 'A landing page is live in two weeks'],
+    body: 'From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team where the content changes often.',
+    points: ['One page, or as many as the business needs', 'Enquiry and booking forms', 'An editor for content that changes often', 'Small sites live in two weeks'],
   },
   {
-    index: '05',
+    index: '03',
     group: 'Build',
     enquiry: 'Brand identity & UI/UX',
     title: 'Brand identity & UI/UX',
     body: 'How the business looks and how its product feels to use. A logo and a visual identity with rules you can follow, and screens designed so people find what they came for.',
-    points: ['Logo and visual identity', 'Brand guidelines', 'UI/UX for websites and apps', 'Usability review of what you have'],
+    points: ['Logo and visual identity', 'Brand guidelines', 'Screen design for websites and apps', 'A check of where people get stuck'],
+  },
+  {
+    index: '04',
+    group: 'Run',
+    enquiry: 'Business automation',
+    title: 'Business automation',
+    body: 'The repetitive work between your tools, done for you. Follow-ups go out, leads are logged, invoices and approvals move along, and the weekly report writes itself. It starts with a short audit of what is actually worth automating.',
+    points: ['WhatsApp and lead follow-up', 'CRM and spreadsheet sync', 'Invoices, onboarding, approvals', 'A weekly report of what ran'],
+  },
+  {
+    index: '05',
+    group: 'Run',
+    enquiry: 'AI assistant',
+    title: 'AI assistant',
+    body: 'A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.',
+    points: ['Answers only from your content', 'Replies at any hour', 'Hands over on WhatsApp', 'Kept current on the care plan'],
   },
   {
     index: '06',
-    group: 'Grow',
-    enquiry: 'Meta & Google ads',
-    title: 'Meta & Google ads',
-    body: 'Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. I set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.',
-    points: ['Campaign setup and targeting', 'Ad copy and creatives', 'Tracking from click to enquiry', 'A plain monthly report'],
+    group: 'Run',
+    enquiry: 'Dashboards & analytics',
+    title: 'Dashboards & analytics',
+    body: 'The numbers that run the business, in one place and up to date. We agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.',
+    points: ['The few numbers that matter, agreed first', 'Live dashboards', 'Reports sent automatically', 'Pulled from your existing tools'],
   },
   {
     index: '07',
-    group: 'Grow',
-    enquiry: 'SEO',
-    title: 'SEO',
-    body: 'Being found on Google without paying for every click. I fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
-    points: ['Technical and speed fixes', 'Pages for what people search', 'Google Business Profile', 'A monthly ranking report'],
+    group: 'Run',
+    enquiry: 'Care plan',
+    title: 'Care plan',
+    body: 'Hosting, updates and a monthly report, so what we built stays fast and current instead of quietly going stale.',
+    points: ['Managed hosting', 'Content changes', 'Assistant and automation upkeep', 'A monthly report'],
   },
   {
     index: '08',
+    group: 'Grow',
+    enquiry: 'Meta & Google ads',
+    title: 'Meta & Google ads',
+    body: 'Paid campaigns on Instagram, Facebook and Google. Google reaches the people already searching for what you sell; Meta reaches the ones who have not searched yet. We set the campaigns up, trace each enquiry back to the ad it came from, and move the budget to what works.',
+    points: ['Campaign setup and targeting', 'Ad copy and creatives', 'Tracking from click to enquiry', 'A plain monthly report'],
+  },
+  {
+    index: '09',
+    group: 'Grow',
+    enquiry: 'SEO',
+    title: 'SEO',
+    body: 'Being found on Google without paying for every click. We fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.',
+    points: ['Technical and speed fixes', 'Pages for what people search for', 'Google Business Profile', 'A monthly ranking report'],
+  },
+  {
+    index: '10',
     group: 'Grow',
     enquiry: 'Social media management',
     title: 'Social media management',
@@ -151,28 +178,12 @@ export const services = [
     points: ['A monthly content calendar', 'Posts, reels and captions', 'Comments and messages handled', 'A report on what worked'],
   },
   {
-    index: '09',
+    index: '11',
     group: 'Grow',
     enquiry: 'Creative design',
     title: 'Creative design',
-    body: 'The visuals everything else runs on: posters, ad creatives, reels and short videos, made to stop a thumb and still look like your brand.',
+    body: 'The visuals everything else runs on: posters, ad creatives, reels and short videos, made to catch the eye in a busy feed and still look like your brand.',
     points: ['Posts and ad creatives', 'Reels and short videos', 'Motion graphics', 'Sized for every platform'],
-  },
-  {
-    index: '10',
-    group: 'Run',
-    enquiry: 'Dashboards & analytics',
-    title: 'Dashboards & analytics',
-    body: 'The numbers that run the business, in one place and up to date. I agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.',
-    points: ['The few numbers that matter, agreed first', 'Live dashboards', 'Reports sent automatically', 'Pulled from your existing tools'],
-  },
-  {
-    index: '11',
-    group: 'Run',
-    enquiry: 'Care plan',
-    title: 'Care plan',
-    body: 'Hosting, updates and a monthly report, so the site stays fast and current instead of quietly going stale.',
-    points: ['Managed hosting', 'Content changes', 'Assistant and automation upkeep', 'A monthly report'],
   },
 ]
 
@@ -204,7 +215,7 @@ export const work = [
     year: '2026',
     role: 'Website & SEO',
     summary:
-      'The website for a typing and document services centre in Ajman, UAE. I built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.',
+      'The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. The audits found that Google had indexed none of its pages, and that a lack of reviews was holding back its Google Maps ranking.',
     stack: ['Website', 'SEO', 'Google Business Profile'],
     href: 'https://safaritypingservices.com',
     metrics: [
@@ -215,26 +226,47 @@ export const work = [
   },
 ]
 
-/** The three costs a visitor recognises before any service is named. */
+/**
+ * The problem section: ideas that never get built and problems that never get
+ * solved. A visitor should recognise their own business in one of these three
+ * before any service is named.
+ */
+export const problemIntro = {
+  title: 'Ideas that never get built. Problems that never get solved.',
+  intro: 'Every business has ideas it wants to bring to life and problems it needs to fix. What most lack is the technical team to deliver either.',
+}
+
 export const problems = [
   {
-    title: 'The copy-paste job',
-    body: 'A form, a spreadsheet, a WhatsApp group and an invoice tool, held together by someone retyping between them.',
+    title: 'The idea that stays an idea',
+    body: 'A new app, a booking system, a stronger website. The business can see the opportunity, but without the right team it remains on paper.',
   },
   {
-    title: 'The late reply',
-    body: 'A customer asks at ten at night. You answer at eleven the next morning. By then they have booked somewhere else.',
+    title: 'The problem that keeps costing money',
+    body: 'Enquiries answered too late, customers lost to faster competitors, processes that break as the business grows. Everyone knows the problem exists, but no one has the time or skills to solve it.',
   },
   {
-    title: 'The repeated answer',
-    body: 'Timings, fees, eligibility, delivery. The same ten questions, typed out again by whoever picks up the phone.',
+    title: 'The work no one should be doing',
+    body: 'Re-entering data between forms, spreadsheets and WhatsApp. Answering the same questions every day. Hours lost every week to tasks that could run on their own.',
   },
 ]
+
+/**
+ * The hero's image: a problem goes in on the left, a live solution comes out on
+ * the right, and the centre card cycles through what gets built in between.
+ * `solutions` are `enquiry` values from `services`, in the order they rotate.
+ * The step numbers match the first and last steps of `process`.
+ */
+export const heroStage = {
+  before: { step: '01', title: 'You name the problem', body: 'In plain words. We work out what would actually fix it.' },
+  solutions: ['SaaS or web application', 'Website or landing page', 'AI assistant', 'Business automation'],
+  after: { step: '04', title: 'It goes live', body: 'Fast on a phone, and kept current with a care plan if you want one.' },
+}
 
 /** One enquiry, followed end to end — what the assistant and automation do together. */
 export const flow = [
   { step: '01', title: 'Enquiry arrives', body: 'By form, chat or WhatsApp, at any hour.' },
-  { step: '02', title: 'Assistant answers', body: 'From your own documents, in Malayalam or English.' },
+  { step: '02', title: 'Assistant answers', body: 'From your own documents, at any hour.' },
   { step: '03', title: 'Lead is logged', body: 'Into your CRM or spreadsheet, with what was asked.' },
   { step: '04', title: 'Follow-up goes out', body: 'On WhatsApp or email, at the right moment. Nobody has to remember.' },
   { step: '05', title: 'You get the report', body: 'Weekly: what came in, what was answered, what still needs a person.' },
@@ -244,8 +276,8 @@ export const flow = [
 export const audiences = [
   {
     title: 'Brands & companies',
-    body: 'The work between your tools, taken off the people now doing it by hand.',
-    outcomes: ['Follow-up that never forgets', 'Orders, invoices and approvals moved along', 'Reports that write themselves', 'The tools you already use, connected', 'Ads, SEO and social media run for you'],
+    body: 'Software built around how you already work, and the busywork between your tools taken off your people.',
+    outcomes: ['Custom apps, portals and internal tools', 'Follow-up that never forgets', 'Reports that write themselves', 'The tools you already use, connected', 'Ads, SEO and social media run for you'],
   },
   {
     title: 'Clinics & healthcare',
@@ -253,14 +285,19 @@ export const audiences = [
     outcomes: ['Appointment requests without phone tag', 'Timings, fees and preparation answered', 'Reminders sent automatically', 'Departments and doctors easy to find', 'Found on Google by patients nearby'],
   },
   {
+    title: 'Shops & local businesses',
+    body: 'Retailers, restaurants, salons, showrooms and service businesses: customers nearby are searching and messaging, and the shop that answers first gets the sale.',
+    outcomes: ['A website or online store', 'Orders and enquiries handled on WhatsApp', 'A Google Maps listing that brings in nearby customers', 'Social media kept active', 'Ads that keep customers coming back'],
+  },
+  {
     title: 'Institutions',
     body: 'Admissions season should not mean the office phone ringing all day about eligibility and fees.',
-    outcomes: ['Programme explorer', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can edit', 'Admission campaigns on Meta and Google'],
+    outcomes: ['Courses easy to browse and compare', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can update', 'Admission campaigns on Meta and Google'],
   },
   {
     title: 'Founders',
     body: 'One page that makes a stranger trust you, and a way to catch everyone it convinces.',
-    outcomes: ['A landing site in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read', 'An MVP or SaaS product, built in stages'],
+    outcomes: ['A landing page in two weeks', 'Leads routed to your inbox and CRM', 'An assistant that knows the product', 'Analytics you can read', 'A first version of your app, built in stages'],
   },
 ]
 
@@ -268,42 +305,44 @@ export const process = [
   {
     step: '01',
     title: 'Scope',
-    body: 'I cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.',
+    body: 'We cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.',
   },
   {
     step: '02',
     title: 'Direction',
-    body: 'One look, one layout, one voice, agreed with you before any code is written.',
+    body: 'One look, one layout, one voice, agreed with you before anything is built.',
   },
   {
     step: '03',
     title: 'Build',
-    body: 'Built to a speed target, not only a design. It has to be fast on a mid-range phone over 4G before I call it done.',
+    body: 'Built to a speed target, not only a design. A site or app has to be fast on a mid-range phone over 4G before we call it done.',
   },
   {
     step: '04',
-    title: 'Ship & keep',
-    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. A site is something you run, not something you buy once.',
+    title: 'Launch & care',
+    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. A site or app keeps working for you; it is not something you buy once and forget.',
   },
 ]
 
 export const capabilities = [
-  'React', 'TypeScript', 'Next.js', 'Node.js', 'Three.js / R3F', 'GSAP',
-  'Tailwind', 'FastAPI', 'Python', 'PostgreSQL', 'MongoDB', 'Firebase',
-  'RAG pipelines', 'LLM integration', 'PyTorch', 'Docker', 'React Native',
+  'React', 'Next.js', 'Node.js', 'Python', 'PostgreSQL', 'Firebase',
+  'React Native', 'AI chat (LLM) integration',
 ]
 
 export const studio = {
-  lead: 'Founder-led. No hand-offs.',
+  lead: 'One studio. No hand-offs.',
+  // From the company profile's long description and story; keep them in step.
   body: [
-    'I run Orbelis. You talk to the person who designs it, builds it and answers when something breaks. I work where three things meet: automation, applied machine learning and careful, fast software, from a landing page to a SaaS product. Most agencies do one of them; the useful work is in the overlap. The marketing that brings people in is mine too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together.',
-    'I am a computer science and engineering graduate with a background in NLP and deep learning, and I build web and mobile apps.',
+    'Orbelis Studio is a technology partner for growing businesses, taking ideas from concept to launch. Most businesses already know what would move them forward: a custom application, a booking system, faster responses to customers, or a stronger online presence. What they often lack is the in-house technical capability to deliver it. We provide that capability.',
+    'We begin by understanding the business challenge, not by selling a package, and recommend the most effective solution for it. That may be software, a website, an AI assistant, a business automation, a brand identity or a digital marketing campaign.',
+    'All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.',
+    'Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.',
   ],
   facts: [
-    { k: 'Based', v: 'Kerala, India' },
+    { k: 'Based', v: 'Edappal, Kerala, India' },
     { k: 'Founded', v: '2026' },
-    { k: 'Team', v: 'Founder-led' },
-    { k: 'Typical build', v: '2 weeks' },
+    { k: 'Clients in', v: 'India & the UAE' },
+    { k: 'Typical website', v: '2 weeks' },
   ],
 }
 
@@ -315,35 +354,15 @@ export const availability = {
 /** Three things a buyer wants settled before reading further. Shown under the hero. */
 export const assurances = [
   'Quoted to your requirements',
-  'Most sites live in two weeks',
-  'You talk to the founder',
-]
-
-export const marquee = [
-  'Fast websites',
-  'AI assistants',
-  'Business automation',
-  'SaaS & web apps',
-  'Brand identity',
-  'Dashboards',
-  'Meta & Google ads',
-  'SEO',
-  'Social media',
-  'Creative design',
-  'Clinics & healthcare',
-  'Institutions',
-  'Founders',
-  'Brands',
-  'Malayalam + English',
-  'Two week builds',
-  'No paid ranking',
+  'Small sites live in two weeks',
+  'One studio, start to finish',
 ]
 
 export const stats = [
-  { value: '<1', suffix: 's', label: 'Load target on 4G, on a mid-range phone' },
-  { value: 2, suffix: ' weeks', label: 'Typical delivery, once scope is agreed' },
-  { value: 0, suffix: '', label: 'Account managers between you and the founder' },
-  { value: 90, suffix: '+', label: 'Lighthouse performance target on mobile' },
+  { value: '<1', suffix: 's', label: 'Website load target on a mid-range phone over 4G' },
+  { value: 2, suffix: ' weeks', label: 'Typical website delivery, once scope is agreed' },
+  { value: 0, suffix: '', label: 'Hand-offs to outside vendors on your project' },
+  { value: 90, suffix: '+', label: 'Google speed score target on mobile' },
 ]
 
 /**
@@ -357,9 +376,9 @@ export const stats = [
 export const assistant = {
   name: 'Orb',
   intro:
-    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: services, automation, marketing, how pricing works, process and timelines. Ask anything, or start here:",
+    "I'm Orb, the kind of assistant Orbelis builds into client sites. I answer from this site's own content: what gets built, how pricing works, process and timelines. Ask anything, or start here:",
   suggestions: [
-    'What can you automate for a business?',
+    'What can you build for my business?',
     'How is a project priced?',
     'How long does a build take?',
     'Do you run ads and social media?',
@@ -371,17 +390,17 @@ export const assistant = {
 
 /** Project types offered in the enquiry form; mirrors the service list. */
 export const projectTypes = [
-  'Business automation',
-  'AI assistant',
   'SaaS or web application',
   'Website or landing page',
   'Brand identity & UI/UX',
+  'Business automation',
+  'AI assistant',
+  'Dashboards & analytics',
+  'Care plan',
   'Meta & Google ads',
   'SEO',
   'Social media management',
   'Creative design',
-  'Dashboards & analytics',
-  'Care plan',
   'Something else',
 ]
 
@@ -389,6 +408,7 @@ export const projectTypes = [
 export const businessTypes = [
   'Brand or company',
   'Clinic or healthcare',
+  'Shop or local business',
   'School, college or institute',
   'Founder or startup',
   'Something else',
@@ -405,20 +425,32 @@ export const budgets = [
 
 export const faq = [
   {
-    q: 'What can you automate?',
-    a: 'The repetitive steps between your tools: following up an enquiry on WhatsApp or email, logging leads into a CRM or spreadsheet, sending reminders, moving invoices and approvals along, and compiling a weekly report. It starts with a short audit, and you are told plainly when something is not worth automating.',
-  },
-  {
-    q: 'Do I have to change the tools I already use?',
-    a: 'No. Automation is built around what your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.',
+    q: 'What do you build?',
+    a: 'Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.',
   },
   {
     q: 'How is a project priced?',
     a: 'To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.',
   },
   {
+    q: 'How long does it take?',
+    a: 'About two weeks for a landing page or a small site, from agreed scope to launch. Larger sites take three to four weeks. Apps are built in stages, with a date agreed for each, and SEO builds over months. The schedule holds because scope is locked before work starts, not renegotiated halfway.',
+  },
+  {
     q: 'Do you build SaaS products and web applications?',
     a: 'Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there.',
+  },
+  {
+    q: 'What can you automate?',
+    a: 'The repetitive steps between your tools: following up an enquiry on WhatsApp or email, logging leads into a CRM or spreadsheet, sending reminders, moving invoices and approvals along, and compiling a weekly report. It starts with a short audit, and you are told plainly when something is not worth automating.',
+  },
+  {
+    q: 'Do I have to change the tools I already use?',
+    a: 'No. What we build works with the tools your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.',
+  },
+  {
+    q: 'What is the AI assistant, in plain terms?',
+    a: 'A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies at any hour, and hands over to a person when a question is beyond it.',
   },
   {
     q: 'Do you do marketing as well?',
@@ -426,15 +458,7 @@ export const faq = [
   },
   {
     q: 'Who pays for the ads?',
-    a: 'You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. My fee is for running the campaigns and is quoted separately. I do not promise a number of leads; I report what was spent and what came in.',
-  },
-  {
-    q: 'How long does it take?',
-    a: 'Two weeks for most websites, from agreed scope to launch. Larger sites take three to four. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.',
-  },
-  {
-    q: 'What is the AI assistant, in plain terms?',
-    a: 'A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies in Malayalam or English, and hands over to a person when a question is beyond it.',
+    a: 'You do, straight to Meta or Google from your own ad account, so you can see everything that is spent. Our fee is for running the campaigns and is quoted separately. We do not promise a number of leads; we report what was spent and what came in.',
   },
   {
     q: 'Can I edit the site myself afterwards?',
@@ -445,7 +469,15 @@ export const faq = [
     a: 'No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.',
   },
   {
-    q: 'Who actually does the work?',
-    a: 'You talk to the founder directly, and I am the one who does the work. No account managers, nothing handed to someone you have never met.',
+    q: 'What happens on the free consultation?',
+    a: 'A 20-minute call. You tell us what you want to build or what is holding the business back, and you do not need to know which service you want. We come back with a clear recommendation: what we would build, what it would cost, and what is not worth doing.',
+  },
+  {
+    q: 'Where are you based? Do you work outside Kerala?',
+    a: 'We are based in Edappal, Kerala, with clients in India and the UAE. The work is delivered remotely, so we take on businesses anywhere.',
+  },
+  {
+    q: 'Who does the work? Do you outsource it?',
+    a: 'Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.',
   },
 ]

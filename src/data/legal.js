@@ -13,7 +13,7 @@
  */
 import { brand } from './site.js'
 
-export const lastUpdated = '16 August 2026'
+export const lastUpdated = '16 October 2026'
 
 export const privacy = {
   slug: 'privacy',
@@ -24,7 +24,7 @@ export const privacy = {
       h: 'What is collected',
       p: [
         'The enquiry form collects the name, email address, kind of business, project type, budget range and message you type into it, plus the optional note on what is slowing you down if you fill it in. Nothing else is taken from that form, and none of it is inferred or enriched from other sources.',
-        'The on-site assistant processes the questions you type into it in order to answer them. Retrieval runs in your own browser against this site\'s published content. If a hosted answering endpoint is configured, your question and the matched passages from this site are sent to it to phrase a reply.',
+        'If you message us on WhatsApp from this site, that conversation runs on WhatsApp, under WhatsApp\'s own terms and privacy policy. We see your number, your profile name and what you send, and use them only to reply to your enquiry.',
         'No account is created, because there is nothing here to log in to.',
       ],
     },
@@ -46,13 +46,13 @@ export const privacy = {
       h: 'Who else sees it',
       p: [
         'The site is served by a static hosting provider, which necessarily processes the network request that delivers the page. Enquiries arrive by email, so the email provider handles them in transit and at rest. Where a form-handling service or an answering endpoint is configured, that provider processes the submission in order to deliver it.',
-        'Beyond those processors, nobody. There is no data broker, no advertising network and no subcontractor in the chain.',
+        'The page also loads its fonts from Google Fonts and Fontshare, which receive your IP address when the page loads. Beyond those processors, nobody. There is no data broker, no advertising network and no subcontractor in the chain.',
       ],
     },
     {
       h: 'How long it is kept',
       p: [
-        'Enquiry correspondence is kept while there is an active conversation or project, and for as long afterwards as is needed for tax and contractual records. Enquiries that go nowhere are deleted once it is clear they have.',
+        'Enquiry correspondence is kept while there is an active conversation or project, and for as long afterwards as is needed for tax and contractual records. Enquiries that do not lead to a project are deleted once that is clear.',
       ],
     },
     {
@@ -96,16 +96,10 @@ export const terms = {
       ],
     },
     {
-      h: 'The assistant',
-      p: [
-        'The assistant on this site answers from this site\'s own published content and declines when a question falls outside it. It is a demonstration of the studio\'s work and a convenience for visitors. It is not advice, not a quotation, and not a contract. Where its answer and a written proposal disagree, the proposal is correct.',
-      ],
-    },
-    {
       h: 'Work, ownership and warranties',
       p: [
-        'On full payment, the delivered site and its custom code are yours. Third-party dependencies stay under their own licences, and the studio keeps the right to describe and show the work in a portfolio unless the agreement says otherwise.',
-        'The site is provided as it is. Everything here is built to a stated performance and accessibility standard and tested against it, but no site is warranted to be uninterrupted or error-free, and nothing here guarantees a commercial outcome.',
+        'On full payment, the delivered work and its custom code are yours. Third-party dependencies stay under their own licences, and the studio keeps the right to describe and show the work in a portfolio unless the agreement says otherwise.',
+        'The site is provided as it is. Websites are built to the performance targets stated on this site and tested against them, but no software is warranted to be uninterrupted or error-free, and nothing here guarantees a commercial outcome.',
       ],
     },
     {
