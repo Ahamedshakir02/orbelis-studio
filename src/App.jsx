@@ -1,7 +1,7 @@
-import { Suspense, lazy } from 'react'
 import Nav from './components/Nav.jsx'
 import MobileCta from './components/MobileCta.jsx'
 import ConsentBanner from './components/ConsentBanner.jsx'
+import WhatsAppButton from './components/WhatsApp.jsx'
 import Hero from './sections/Hero.jsx'
 import Stats from './sections/Stats.jsx'
 import Work from './sections/Work.jsx'
@@ -13,13 +13,6 @@ import Process from './sections/Process.jsx'
 import Studio from './sections/Studio.jsx'
 import Faq from './sections/Faq.jsx'
 import Contact from './sections/Contact.jsx'
-
-/**
- * The assistant is split out. Nobody opens it in the first second, so its
- * corpus and retrieval index have no business competing with the page for
- * bandwidth on first paint.
- */
-const Assistant = lazy(() => import('./components/Assistant/Assistant.jsx'))
 
 export default function App() {
   return (
@@ -47,10 +40,9 @@ export default function App() {
       </main>
       <Contact />
 
-      {/* The product, demonstrated on the product's own site. */}
-      <Suspense fallback={null}>
-        <Assistant />
-      </Suspense>
+      {/* Visitors message us directly. The chat assistant is not mounted;
+          its code stays in components/Assistant if it is wanted back. */}
+      <WhatsAppButton />
 
       {/* Phones only — keeps one CTA in thumb reach once the hero scrolls off. */}
       <MobileCta />
