@@ -2,8 +2,8 @@
 
 Every piece of copy on orbelisstudio.com, in page order, generated from the site’s own data by `npm run content`. Edit the wording here and send it back, and we will put it into the site.
 
-**Tagline:** Solutions built around your business.  
-**Email:** hello@orbelisstudio.com · **Phone:** +91 94475 33289 · **Location:** Edappal, Kerala — working worldwide
+**Tagline:** Your ideas, built and launched.  
+**Email:** orbelisstudio@gmail.com · **Phone:** +91 75105 33289 · **Location:** Edappal, Kerala. Clients in India and the UAE
 
 **Menu:** Services · Work · Process · Studio
 
@@ -13,11 +13,13 @@ Every piece of copy on orbelisstudio.com, in page order, generated from the site
 
 *Label:* Orbelis Studio · Edappal, Kerala
 
-### Solutions built around your business.
+### Your ideas, built and launched.
 
-Software, websites, AI and marketing, designed for how you work. Tell us the problem. We build what solves it and see it through to launch.
+Software, websites, AI and marketing, designed for how you work. Bring us an idea or a problem. We build what solves it and see it through to launch.
 
-*Buttons:* Start a project · See the services
+*Buttons:* Book a free consultation · See the services
+
+*Menu button:* Free consultation · *Phone bar:* Book a free consultation
 
 *Under the buttons:*
 - Quoted to your requirements
@@ -34,18 +36,18 @@ Software, websites, AI and marketing, designed for how you work. Tell us the pro
 
 ## 2. The problem
 
-### Good ideas stuck at "what if".
+### Ideas that never get built. Problems that never get solved.
 
-Most businesses know what would help. What they lack is a tech team to build it.
+Every business has ideas it wants to bring to life and problems it needs to fix. What most lack is the technical team to deliver either.
 
 **1. The idea that stays an idea**  
-An app, a booking system, a better website. You can picture it, but there is no one to build it, so it stays in a notebook.
+A new app, a booking system, a stronger website. The business can see the opportunity, but without the right team it remains on paper.
 
-**2. The late reply**  
-A customer asks at ten at night. You answer at eleven the next morning. By then they have booked somewhere else.
+**2. The problem that keeps costing money**  
+Enquiries answered too late, customers lost to faster competitors, processes that break as the business grows. Everyone knows the problem exists, but no one has the time or skills to solve it.
 
 **3. The work no one should be doing**  
-Retyping between a form, a spreadsheet and WhatsApp. Answering the same ten questions every day. Hours gone, every week.
+Re-entering data between forms, spreadsheets and WhatsApp. Answering the same questions every day. Hours lost every week to tasks that could run on their own.
 
 ---
 
@@ -95,7 +97,7 @@ The repetitive work between your tools, done for you. Follow-ups go out, leads a
 A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.
 
 - Answers only from your content
-- Malayalam and English
+- Replies at any hour
 - Hands over on WhatsApp
 - Kept current on the care plan
 
@@ -199,7 +201,7 @@ Launch, then a care plan if you want one, to keep it fast, current and answering
 What one of these solutions looks like once it is running: an assistant answers, automation does the rest.
 
 01. **Enquiry arrives**: By form, chat or WhatsApp, at any hour.
-02. **Assistant answers**: From your own documents, in Malayalam or English.
+02. **Assistant answers**: From your own documents, at any hour.
 03. **Lead is logged**: Into your CRM or spreadsheet, with what was asked.
 04. **Follow-up goes out**: On WhatsApp or email, at the right moment. Nobody has to remember.
 05. **You get the report**: Weekly: what came in, what was answered, what still needs a person.
@@ -210,7 +212,7 @@ What one of these solutions looks like once it is running: an assistant answers,
 
 ### For businesses that run on enquiries.
 
-Four kinds we build for, and what each one gets.
+Five kinds we build for, and what each one gets.
 
 **Brands & companies**  
 Software built around how you already work, and the busywork between your tools taken off your people.
@@ -229,6 +231,15 @@ Patients ask the same questions at every hour. The site answers them, and the fr
 - Reminders sent automatically
 - Departments and doctors easy to find
 - Found on Google by patients nearby
+
+**Shops & local businesses**  
+Retailers, restaurants, salons, showrooms and service businesses: customers nearby are searching and messaging, and the shop that answers first gets the sale.
+
+- A website or online store
+- Orders and enquiries handled on WhatsApp
+- A Google Maps listing that brings in nearby customers
+- Social media kept active
+- Ads that keep customers coming back
 
 **Institutions**  
 Admissions season should not mean the office phone ringing all day about eligibility and fees.
@@ -265,16 +276,20 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 
 ### One studio. No hand-offs.
 
-Orbelis builds whatever the problem needs: a website or a SaaS product, a brand, an AI assistant, an automation or a dashboard. Most agencies do one of these. The useful work is usually where they meet.
+Orbelis Studio is a technology partner for growing businesses, taking ideas from concept to launch. Most businesses already know what would move them forward: a custom application, a booking system, faster responses to customers, or a stronger online presence. What they often lack is the in-house technical capability to deliver it. We provide that capability.
 
-The marketing that brings people in is done here too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together, and nothing is handed to a vendor you have never met.
+We begin by understanding the business challenge, not by selling a package, and recommend the most effective solution for it. That may be software, a website, an AI assistant, a business automation, a brand identity or a digital marketing campaign.
+
+All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.
+
+Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.
 
 *Beliefs:*
 - Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.
 - Shaped to how your business already runs, not a template it has to fit into.
 - We own the result, from the first sketch to the campaign that brings people in.
 
-*Facts:* Based: Edappal, Kerala, India · Founded: 2026 · Languages: English & Malayalam · Typical website: 2 weeks
+*Facts:* Based: Edappal, Kerala, India · Founded: 2026 · Clients in: India & the UAE · Typical website: 2 weeks
 
 *Working with:* React · Next.js · Node.js · Python · PostgreSQL · Firebase · React Native · AI chat (LLM) integration
 
@@ -303,7 +318,7 @@ The repetitive steps between your tools: following up an enquiry on WhatsApp or 
 No. What we build works with the tools your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.
 
 **What is the AI assistant, in plain terms?**  
-A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies in Malayalam or English, and hands over to a person when a question is beyond it.
+A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies at any hour, and hands over to a person when a question is beyond it.
 
 **Do you do marketing as well?**  
 Yes. Meta and Google ads, SEO, social media management, and the creative design for all of them. They work best as one lead system: ads and search bring people in, the landing page turns them into enquiries, and automation follows each one up. You can also take any one of them on its own.
@@ -317,6 +332,12 @@ Yes. Sites whose content changes often come with an editor your team can use wit
 **Do I have to take the care plan?**  
 No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.
 
+**What happens on the free consultation?**  
+A 20-minute call. You tell us what you want to build or what is holding the business back, and you do not need to know which service you want. We come back with a clear recommendation: what we would build, what it would cost, and what is not worth doing.
+
+**Where are you based? Do you work outside Kerala?**  
+We are based in Edappal, Kerala, with clients in India and the UAE. The work is delivered remotely, so we take on businesses anywhere.
+
 **Who does the work? Do you outsource it?**  
 Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.
 
@@ -324,14 +345,16 @@ Everything is done in-house at Orbelis: design, build and marketing. Nothing is 
 
 ## 11. Contact
 
-### Tell us what you want built.
+*Label:* Book a free consultation
 
-Or the problem you want gone. You get a straight answer, usually the same day.
+### Let’s talk about your business.
+
+Tell us what you want to build or what is holding the business back. In a free 20-minute call we come back with a clear recommendation: what we would build, what it would cost, and what isn’t worth doing.
 
 **Enquiry form**
 
 - Name, Email
-- Business type: Brand or company / Clinic or healthcare / School, college or institute / Founder or startup / Something else
+- Business type: Brand or company / Clinic or healthcare / Shop or local business / School, college or institute / Founder or startup / Something else
 - Project type: SaaS or web application / Website or landing page / Brand identity & UI/UX / Business automation / AI assistant / Dashboards & analytics / Care plan / Meta & Google ads / SEO / Social media management / Creative design / Something else
 - Budget: Under ₹50k / ₹50k — ₹1L / ₹1L — ₹2L / Above ₹2L / Not sure yet
 - What is slowing you down? (optional), example: "Late replies, reports built by hand"
