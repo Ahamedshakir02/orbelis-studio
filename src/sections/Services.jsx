@@ -112,9 +112,9 @@ export default function Services() {
       id="services"
       label="Services"
       title="Pick what you need."
-      intro="Automation first, then the assistant, the apps and sites they run on, and the marketing that brings people in. Each is quoted to what you actually need."
+      intro="What gets built first: apps, websites and the brand. Then what keeps them running, and the marketing that brings people in. Each is quoted to what you actually need."
     >
-      {/* The two lead services, automation and the assistant, get the wide cards. */}
+      {/* The two lead services, applications and websites, get the wide cards. */}
       <div id="service-list" ref={list} className="stagger grid gap-4 md:grid-cols-2 lg:grid-cols-6">
         {services.map((s, i) => (
           <article
