@@ -1,6 +1,6 @@
 # Orbelis Studio: website content
 
-Every piece of copy on orbelisstudio.com, in page order, generated from the site’s own data by `npm run content`. Edit the wording here and send it back, and I will put it into the site.
+Every piece of copy on orbelisstudio.com, in page order, generated from the site’s own data by `npm run content`. Edit the wording here and send it back, and we will put it into the site.
 
 **Tagline:** Solutions built around your business.  
 **Email:** hello@orbelisstudio.com · **Phone:** +91 94475 33289 · **Location:** Edappal, Kerala — working worldwide
@@ -11,11 +11,11 @@ Every piece of copy on orbelisstudio.com, in page order, generated from the site
 
 ## 1. Hero
 
-*Label:* Orbelis Studio · Software, websites, AI, marketing
+*Label:* Orbelis Studio · Edappal, Kerala
 
 ### Solutions built around your business.
 
-Software, websites, AI and marketing, designed for how you actually work. Tell us the problem and we build what solves it, from what if to live.
+Software, websites, AI and marketing, designed for how you work. Tell us the problem. We build what solves it and see it through to launch.
 
 *Buttons:* Start a project · See the services
 
@@ -26,8 +26,8 @@ Software, websites, AI and marketing, designed for how you actually work. Tell u
 
 **Animated card under the hero**
 
-- Left card: **01 You name the problem**: In plain words. We cut it to the smallest version that does the job.
-- Centre card, cycling: SaaS & web applications → Websites & landing pages → AI assistant → Business automation (each shows its four points, with "built for you" and "One studio, whatever it takes")
+- Left card: **01 You name the problem**: In plain words. We work out what would actually fix it.
+- Centre card, cycling: SaaS & web applications → Websites & landing pages → AI assistant → Business automation (each shows its four points, with "built for you" and "Whatever the problem needs")
 - Right card: **04 It goes live**: Fast on a phone, and kept current with a care plan if you want one.
 
 ---
@@ -53,7 +53,7 @@ Retyping between a form, a spreadsheet and WhatsApp. Answering the same ten ques
 
 ### Pick what you need.
 
-What gets built first: apps, websites and the brand. Then what keeps them running, and the marketing that brings people in. Each is quoted to what you actually need.
+What gets built first: apps, websites and the brand. Then what keeps them running, and the marketing that brings people in. Each is quoted to what you need.
 
 #### Build
 
@@ -66,12 +66,12 @@ Software built for your business or your idea: a SaaS product, a customer portal
 - Built to scale, in stages
 
 **02 · Websites & landing pages**  
-From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team.
+From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team where the content changes often.
 
 - One page, or as many as the business needs
 - Enquiry and booking forms
-- Your team edits the content
-- A landing page is live in two weeks
+- An editor for content that changes often
+- Most sites live in two weeks
 
 **03 · Brand identity & UI/UX**  
 How the business looks and how its product feels to use. A logo and a visual identity with rules you can follow, and screens designed so people find what they came for.
@@ -89,7 +89,7 @@ The repetitive work between your tools, done for you. Follow-ups go out, leads a
 - WhatsApp and lead follow-up
 - CRM and spreadsheet sync
 - Invoices, onboarding, approvals
-- A weekly report of hours saved
+- A weekly report of what ran
 
 **05 · AI assistant**  
 A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.
@@ -97,7 +97,7 @@ A chat assistant that has read your prices, timings and policies. It answers cus
 - Answers only from your content
 - Malayalam and English
 - Hands over on WhatsApp
-- Updated every month
+- Kept current on the care plan
 
 **06 · Dashboards & analytics**  
 The numbers that run the business, in one place and up to date. We agree with you which figures matter, pull them out of the tools you already use, and put them on a dashboard that updates itself.
@@ -108,7 +108,7 @@ The numbers that run the business, in one place and up to date. We agree with yo
 - Pulled from your existing tools
 
 **07 · Care plan**  
-Hosting, updates and a monthly report, so the site stays fast and current instead of quietly going stale.
+Hosting, updates and a monthly report, so what we built stays fast and current instead of quietly going stale.
 
 - Managed hosting
 - Content changes
@@ -142,7 +142,7 @@ Your Instagram, Facebook and LinkedIn planned and kept active, so the page looks
 - A report on what worked
 
 **11 · Creative design**  
-The visuals everything else runs on: posters, ad creatives, reels and short videos, made to stop a thumb and still look like your brand.
+The visuals everything else runs on: posters, ad creatives, reels and short videos, made to catch the eye in a busy feed and still look like your brand.
 
 - Posts and ad creatives
 - Reels and short videos
@@ -156,9 +156,9 @@ Most people are not. Tell us what is slowing the business down and we will tell 
 
 ## 4. Work
 
-### Proof, labelled honestly.
+### Recent client work.
 
-Client work, shown with permission.
+Shown with permission.
 
 **Holytouch** · Client · 2026 · Design & build  
 The marketing website for a construction and design firm in Kerala. It presents the firm and its services, and gives a visitor a way to get in touch.
@@ -166,7 +166,7 @@ The marketing website for a construction and design firm in Kerala. It presents 
 Market: Kerala · Scope: Design, build, launch
 
 **Safari Typing Services** · Client · 2026 · Website & SEO  
-The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. They found that Google had indexed none of its pages, and that a gap in reviews was holding back its Google Maps ranking.
+The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. The audits found that Google had indexed none of its pages, and that a lack of reviews was holding back its Google Maps ranking.
 
 Market: Ajman, UAE · Scope: Build, launch, SEO audits · https://safaritypingservices.com
 
@@ -174,27 +174,27 @@ Market: Ajman, UAE · Scope: Build, launch, SEO audits · https://safaritypingse
 
 ## 5. Process
 
-### From what if to live, in four steps.
+### From idea to launch, in four steps.
 
-Scope is fixed before any code is written, which is why the date holds.
+Scope is agreed before any work starts, which is why the date holds.
 
 **01 Scope**  
 We cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.
 
 **02 Direction**  
-One look, one layout, one voice, agreed with you before any code is written.
+One look, one layout, one voice, agreed with you before anything is built.
 
 **03 Build**  
-Built to a speed target, not only a design. It has to be fast on a mid-range phone over 4G before we call it done.
+Built to a speed target, not only a design. A site or app has to be fast on a mid-range phone over 4G before we call it done.
 
 **04 Ship & keep**  
-Launch, then a care plan if you want one, to keep it fast, current and answering. What gets built is something you run, not something you buy once.
+Launch, then a care plan if you want one, to keep it fast, current and answering. A site or app keeps working for you; it is not something you buy once and forget.
 
 ---
 
 ## 6. One example
 
-### One example: an enquiry, handled end to end.
+### An enquiry, handled end to end.
 
 What one of these solutions looks like once it is running: an assistant answers, automation does the rest.
 
@@ -236,13 +236,13 @@ Admissions season should not mean the office phone ringing all day about eligibi
 - Programme explorer
 - Eligibility and fee questions answered
 - Every enquiry logged in one place
-- Content your staff can edit
+- Content your staff can update
 - Admission campaigns on Meta and Google
 
 **Founders**  
 One page that makes a stranger trust you, and a way to catch everyone it convinces.
 
-- A landing site in two weeks
+- A landing page in two weeks
 - Leads routed to your inbox and CRM
 - An assistant that knows the product
 - Analytics you can read
@@ -254,10 +254,10 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 
 ### Numbers you can hold us to.
 
-- **<1s**: Load target on 4G, on a mid-range phone
-- **2 weeks**: Typical delivery, once scope is agreed
+- **<1s**: Website load target on a mid-range phone over 4G
+- **2 weeks**: Typical website delivery, once scope is agreed
 - **0**: Hand-offs to outside vendors on your project
-- **90+**: Lighthouse performance target on mobile
+- **90+**: Google speed score target on mobile
 
 ---
 
@@ -265,18 +265,18 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 
 ### One studio. No hand-offs.
 
-Orbelis builds whatever the problem needs: software from a landing page to a SaaS product, AI that answers from your own content, and the automation that takes repetitive work off people. Most agencies do one of these; the useful work is usually in the overlap.
+Orbelis builds whatever the problem needs: a website or a SaaS product, a brand, an AI assistant, an automation or a dashboard. Most agencies do one of these. The useful work is usually where they meet.
 
 The marketing that brings people in is done here too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together, and nothing is handed to a vendor you have never met.
 
 *Beliefs:*
 - Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.
-- Built around how your business already works, not a template it has to fit into.
-- One studio owns the result, from the first sketch to the campaign that brings people in.
+- Shaped to how your business already runs, not a template it has to fit into.
+- We own the result, from the first sketch to the campaign that brings people in.
 
-*Facts:* Based: Kerala, India · Founded: 2026 · Languages: English & Malayalam · Typical build: 2 weeks
+*Facts:* Based: Edappal, Kerala, India · Founded: 2026 · Languages: English & Malayalam · Typical website: 2 weeks
 
-*Working with:* React · TypeScript · Next.js · Node.js · Three.js / R3F · GSAP · Tailwind · FastAPI · Python · PostgreSQL · MongoDB · Firebase · RAG pipelines · LLM integration · PyTorch · Docker · React Native
+*Working with:* React · Next.js · Node.js · Python · PostgreSQL · Firebase · React Native · AI chat (LLM) integration
 
 ---
 
@@ -291,7 +291,7 @@ Whatever the problem needs: a SaaS product or web app, a website or landing page
 To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.
 
 **How long does it take?**  
-Two weeks for most websites, from agreed scope to launch. Larger sites take three to four. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.
+Two weeks for most websites, from agreed scope to launch. Larger sites take three to four weeks. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.
 
 **Do you build SaaS products and web applications?**  
 Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there.
@@ -300,7 +300,7 @@ Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps
 The repetitive steps between your tools: following up an enquiry on WhatsApp or email, logging leads into a CRM or spreadsheet, sending reminders, moving invoices and approvals along, and compiling a weekly report. It starts with a short audit, and you are told plainly when something is not worth automating.
 
 **Do I have to change the tools I already use?**  
-No. Automation is built around what your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.
+No. What we build works with the tools your team already uses: your forms, spreadsheets, CRM, WhatsApp and email. Nobody has to move to something new.
 
 **What is the AI assistant, in plain terms?**  
 A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies in Malayalam or English, and hands over to a person when a question is beyond it.
@@ -335,7 +335,7 @@ Or the problem you want gone. You get a straight answer, usually the same day.
 - Project type: SaaS or web application / Website or landing page / Brand identity & UI/UX / Business automation / AI assistant / Dashboards & analytics / Care plan / Meta & Google ads / SEO / Social media management / Creative design / Something else
 - Budget: Under ₹50k / ₹50k — ₹1L / ₹1L — ₹2L / Above ₹2L / Not sure yet
 - What is slowing you down? (optional), example: "Late replies, reports built by hand"
-- What do you need built?, example: "A booking system for our clinic, and a website that answers patients at night."
+- What do you need?, example: "A booking system for our clinic, and a website that answers patients at night."
 
 *Availability:* Available, Taking on new projects
 
