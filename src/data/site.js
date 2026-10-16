@@ -423,7 +423,17 @@ export const budgets = [
   'Not sure yet',
 ]
 
+/**
+ * Each answer is written to stand on its own: answer engines lift one Q&A out
+ * of the page and quote it, so an answer that leans on the one above it gets
+ * quoted wrong. The first sentence answers the question; the rest supports it.
+ * The same list feeds the FAQPage structured data and llms.txt.
+ */
 export const faq = [
+  {
+    q: 'What is Orbelis Studio?',
+    a: 'Orbelis Studio is a software, web and digital marketing studio based in Edappal, Kerala, India, working with clients in India and the UAE. We build SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and run the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins.',
+  },
   {
     q: 'What do you build?',
     a: 'Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.',
@@ -474,10 +484,18 @@ export const faq = [
   },
   {
     q: 'Where are you based? Do you work outside Kerala?',
-    a: 'We are based in Edappal, Kerala, with clients in India and the UAE. The work is delivered remotely, so we take on businesses anywhere.',
+    a: 'We are based in Edappal, Kerala, and work with clients across India and in the UAE. Calls and reviews happen online, so you do not need to be near Edappal to work with us.',
+  },
+  {
+    q: 'Do you set up Google Business Profile and local SEO?',
+    a: 'Yes. Local SEO is part of our SEO service: we set up or complete your Google Business Profile, keep your name, address and phone number the same everywhere they appear, and build the pages nearby customers search for. Results build over months, not days.',
   },
   {
     q: 'Who does the work? Do you outsource it?',
     a: 'Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.',
+  },
+  {
+    q: 'How do I contact Orbelis Studio?',
+    a: `Email ${brand.email}, call or WhatsApp ${brand.phone}, or use the enquiry form on this page. The first step is a free 20-minute consultation.`,
   },
 ]
