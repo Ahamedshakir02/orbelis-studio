@@ -13,7 +13,7 @@
  */
 import { brand } from './site.js'
 
-export const lastUpdated = '16 August 2026'
+export const lastUpdated = '16 October 2026'
 
 export const privacy = {
   slug: 'privacy',
@@ -24,7 +24,7 @@ export const privacy = {
       h: 'What is collected',
       p: [
         'The enquiry form collects the name, email address, kind of business, project type, budget range and message you type into it, plus the optional note on what is slowing you down if you fill it in. Nothing else is taken from that form, and none of it is inferred or enriched from other sources.',
-        'The on-site assistant processes the questions you type into it in order to answer them. Retrieval runs in your own browser against this site\'s published content. If a hosted answering endpoint is configured, your question and the matched passages from this site are sent to it to phrase a reply.',
+        'If you message us on WhatsApp from this site, that conversation runs on WhatsApp, under WhatsApp\'s own terms and privacy policy. We see your number, your profile name and what you send, and use them only to reply to your enquiry.',
         'No account is created, because there is nothing here to log in to.',
       ],
     },
@@ -93,12 +93,6 @@ export const terms = {
       p: [
         'This site does not publish prices. Each project is quoted to its requirements, and what a specific project costs depends on its scope. The number that binds is the one in a written proposal you have accepted.',
         'Quotes are in Indian Rupees and exclude any taxes that apply.',
-      ],
-    },
-    {
-      h: 'The assistant',
-      p: [
-        'The assistant on this site answers from this site\'s own published content and declines when a question falls outside it. It is a demonstration of the studio\'s work and a convenience for visitors. It is not advice, not a quotation, and not a contract. Where its answer and a written proposal disagree, the proposal is correct.',
       ],
     },
     {
