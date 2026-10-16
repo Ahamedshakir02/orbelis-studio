@@ -293,7 +293,7 @@ export default function EnquiryForm() {
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'ef-message-error' : undefined}
           className={FIELD + ' resize-none' + (errors.message ? ' border-link' : '')}
-          placeholder="Enquiries followed up on WhatsApp and logged to our sheet, plus a site that takes bookings."
+          placeholder="A booking system for our clinic, and a website that answers patients at night."
         />
         {errors.message && (
           <p id="ef-message-error" role="alert" className="mt-2 text-xs text-link">
