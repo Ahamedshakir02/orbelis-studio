@@ -63,7 +63,7 @@ export const passages = [
     id: 'manifesto',
     section: 'Approach',
     title: 'What the studio believes',
-    href: '#top',
+    href: '#studio',
     text: manifesto.join(' '),
     keywords: 'why different approach philosophy belief template agency brochure',
   },
@@ -74,7 +74,7 @@ export const passages = [
     href: '#services',
     text: `Every project is quoted to its requirements; there is no fixed price list. The cost depends on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run; the ad budget itself is paid by you directly to Meta or Google. A short brief through the form gets a quote before any work starts. Services that can be quoted: ${services
       .map((s) => s.title)
-      .join(', ')}. Every build includes the speed and accessibility checks; they are not billed as extras.`,
+      .join(', ')}.`,
     keywords: `${money} how much expensive cheap afford total range`,
   },
   ...services.map((s) => ({
@@ -95,8 +95,8 @@ export const passages = [
   })),
   {
     id: 'automation-flow',
-    section: 'Services',
-    title: 'How automation works',
+    section: 'One example',
+    title: 'An enquiry, handled end to end',
     href: '#services',
     text: `One enquiry, followed start to finish. ${flow.map((f) => `${f.title}: ${f.body}`).join(' ')}`,
     keywords:
@@ -141,7 +141,7 @@ export const passages = [
     section: 'Services',
     title: 'Languages the assistant speaks',
     href: '#services',
-    text: 'The AI assistant answers in Malayalam and English, and hands over to a person when a question goes beyond the content it has read. The sites themselves can be bilingual where the audience needs it.',
+    text: 'The AI assistant answers in Malayalam and English, and hands over to a person when a question goes beyond the content it has read.',
     keywords:
       'malayalam english language languages bilingual speak speaks translate regional local hindi tamil',
   },
