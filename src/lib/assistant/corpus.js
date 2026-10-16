@@ -139,9 +139,9 @@ export const passages = [
   {
     id: 'languages',
     section: 'Services',
-    title: 'Languages the assistant speaks',
+    title: 'Languages',
     href: '#services',
-    text: 'The AI assistant answers in Malayalam and English, and hands over to a person when a question goes beyond the content it has read.',
+    text: 'Every assistant is built the way the business and its customers need it, language included, and hands over to a person when a question goes beyond the content it has read.',
     keywords:
       'malayalam english language languages bilingual speak speaks translate regional local hindi tamil',
   },

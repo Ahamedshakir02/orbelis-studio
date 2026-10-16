@@ -27,7 +27,7 @@ export const brand = {
   phone: '+91 75105 33289',
   // Digits only, with country code — used to build wa.me links.
   whatsapp: '917510533289',
-  location: 'Edappal, Kerala — working worldwide',
+  location: 'Edappal, Kerala. Clients in India and the UAE',
   url: 'https://orbelisstudio.com',
 
   /**
@@ -135,7 +135,7 @@ export const services = [
     enquiry: 'AI assistant',
     title: 'AI assistant',
     body: 'A chat assistant that has read your prices, timings and policies. It answers customers day and night, in your words, and hands over to you when it should.',
-    points: ['Answers only from your content', 'Malayalam and English', 'Hands over on WhatsApp', 'Kept current on the care plan'],
+    points: ['Answers only from your content', 'Replies at any hour', 'Hands over on WhatsApp', 'Kept current on the care plan'],
   },
   {
     index: '06',
@@ -266,7 +266,7 @@ export const heroStage = {
 /** One enquiry, followed end to end — what the assistant and automation do together. */
 export const flow = [
   { step: '01', title: 'Enquiry arrives', body: 'By form, chat or WhatsApp, at any hour.' },
-  { step: '02', title: 'Assistant answers', body: 'From your own documents, in Malayalam or English.' },
+  { step: '02', title: 'Assistant answers', body: 'From your own documents, at any hour.' },
   { step: '03', title: 'Lead is logged', body: 'Into your CRM or spreadsheet, with what was asked.' },
   { step: '04', title: 'Follow-up goes out', body: 'On WhatsApp or email, at the right moment. Nobody has to remember.' },
   { step: '05', title: 'You get the report', body: 'Weekly: what came in, what was answered, what still needs a person.' },
@@ -338,7 +338,7 @@ export const studio = {
   facts: [
     { k: 'Based', v: 'Edappal, Kerala, India' },
     { k: 'Founded', v: '2026' },
-    { k: 'Languages', v: 'English & Malayalam' },
+    { k: 'Clients in', v: 'India & the UAE' },
     { k: 'Typical website', v: '2 weeks' },
   ],
 }
@@ -447,7 +447,7 @@ export const faq = [
   },
   {
     q: 'What is the AI assistant, in plain terms?',
-    a: 'A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies in Malayalam or English, and hands over to a person when a question is beyond it.',
+    a: 'A chat window on your site that has read your own documents: prices, timings, policies, procedures. It answers from those rather than making things up, replies at any hour, and hands over to a person when a question is beyond it.',
   },
   {
     q: 'Do you do marketing as well?',
