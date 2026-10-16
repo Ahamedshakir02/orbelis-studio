@@ -285,6 +285,11 @@ export const audiences = [
     outcomes: ['Appointment requests without phone tag', 'Timings, fees and preparation answered', 'Reminders sent automatically', 'Departments and doctors easy to find', 'Found on Google by patients nearby'],
   },
   {
+    title: 'Shops & local businesses',
+    body: 'Retailers, restaurants, salons, showrooms and service businesses: customers nearby are searching and messaging, and the shop that answers first gets the sale.',
+    outcomes: ['A website or online store', 'Orders and enquiries handled on WhatsApp', 'A Google Maps listing that brings in nearby customers', 'Social media kept active', 'Ads that keep customers coming back'],
+  },
+  {
     title: 'Institutions',
     body: 'Admissions season should not mean the office phone ringing all day about eligibility and fees.',
     outcomes: ['Courses easy to browse and compare', 'Eligibility and fee questions answered', 'Every enquiry logged in one place', 'Content your staff can update', 'Admission campaigns on Meta and Google'],
@@ -400,6 +405,7 @@ export const projectTypes = [
 export const businessTypes = [
   'Brand or company',
   'Clinic or healthcare',
+  'Shop or local business',
   'School, college or institute',
   'Founder or startup',
   'Something else',

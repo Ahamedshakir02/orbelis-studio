@@ -50,7 +50,7 @@ L('---'); L(); L('## 5. Process'); L(); L('### From idea to launch, in four step
 d.process.forEach((p) => { L(`**${p.step} ${p.title}**  `); L(p.body); L() })
 L('---'); L(); L('## 6. One example'); L(); L('### An enquiry, handled end to end.'); L(); L('What one of these solutions looks like once it is running: an assistant answers, automation does the rest.'); L()
 d.flow.forEach((f) => L(`${f.step}. **${f.title}**: ${f.body}`)); L()
-L('---'); L(); L('## 7. Who it is for'); L(); L('### For businesses that run on enquiries.'); L(); L('Four kinds we build for, and what each one gets.'); L()
+L('---'); L(); L('## 7. Who it is for'); L(); L('### For businesses that run on enquiries.'); L(); L('Five kinds we build for, and what each one gets.'); L()
 d.audiences.forEach((a) => { L(`**${a.title}**  `); L(a.body); L(); list(a.outcomes); L() })
 L('---'); L(); L('## 8. Standards'); L(); L('### Numbers you can hold us to.'); L()
 d.stats.forEach((s) => L(`- **${s.value}${s.suffix}**: ${s.label}`)); L()
