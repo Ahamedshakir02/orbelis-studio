@@ -324,7 +324,7 @@ ${bio}
 
 ## LinkedIn cover
 
-[brand/banner-linkedin-1584x396.png](../../brand/banner-linkedin-1584x396.png): upload on the company page under *Edit page → Header → Cover image*. The lower-left corner is left empty because the logo covers it.
+[brand/banner-linkedin-company-1128x191.png](../../brand/banner-linkedin-company-1128x191.png): upload on the company page under *Edit page → Header → Cover image*. LinkedIn's company cover size is 1128x191; the file is saved at twice that (2256x382) so it stays sharp. Everything sits in the centre because phones crop the sides and the logo covers the lower left. (\`banner-linkedin-1584x396.png\` is the personal-profile size, for Shakir's own profile.)
 
 ## Posts
 
