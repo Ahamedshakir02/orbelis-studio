@@ -12,7 +12,8 @@
     "icons": "node scripts/icons.mjs",
     "brochure": "node scripts/brochure.mjs",
     "brand": "node scripts/brand.mjs",
-    "content": "node scripts/content.mjs"
+    "content": "node scripts/content.mjs",
+    "social": "node scripts/social.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
