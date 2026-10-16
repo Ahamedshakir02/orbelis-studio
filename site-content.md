@@ -21,7 +21,7 @@ Software, websites, AI and marketing, designed for how you work. Tell us the pro
 
 *Under the buttons:*
 - Quoted to your requirements
-- Most sites live in two weeks
+- Small sites live in two weeks
 - One studio, start to finish
 
 **Animated card under the hero**
@@ -60,10 +60,10 @@ What gets built first: apps, websites and the brand. Then what keeps them runnin
 **01 · SaaS & web applications**  
 Software built for your business or your idea: a SaaS product, a customer portal, an internal tool, a mobile app. It starts as a first version real users can try, and is built so it can grow from there.
 
-- An MVP for a startup
+- A first version for a startup
 - Custom web and mobile apps
 - Logins, payments and integrations
-- Built to scale, in stages
+- Built in stages, each with a date
 
 **02 · Websites & landing pages**  
 From one landing page that turns a stranger into an enquiry to a complete site that takes bookings. Designed for your brand, not from a template, fast on a phone, and editable by your team where the content changes often.
@@ -71,15 +71,15 @@ From one landing page that turns a stranger into an enquiry to a complete site t
 - One page, or as many as the business needs
 - Enquiry and booking forms
 - An editor for content that changes often
-- Most sites live in two weeks
+- Small sites live in two weeks
 
 **03 · Brand identity & UI/UX**  
 How the business looks and how its product feels to use. A logo and a visual identity with rules you can follow, and screens designed so people find what they came for.
 
 - Logo and visual identity
 - Brand guidelines
-- UI/UX for websites and apps
-- Usability review of what you have
+- Screen design for websites and apps
+- A check of where people get stuck
 
 #### Run
 
@@ -129,7 +129,7 @@ Paid campaigns on Instagram, Facebook and Google. Google reaches the people alre
 Being found on Google without paying for every click. We fix what holds the site back, write the pages people actually search for, and set up your Google Business Profile so nearby customers can find you. It builds over months, not days.
 
 - Technical and speed fixes
-- Pages for what people search
+- Pages for what people search for
 - Google Business Profile
 - A monthly ranking report
 
@@ -187,7 +187,7 @@ One look, one layout, one voice, agreed with you before anything is built.
 **03 Build**  
 Built to a speed target, not only a design. A site or app has to be fast on a mid-range phone over 4G before we call it done.
 
-**04 Ship & keep**  
+**04 Launch & care**  
 Launch, then a care plan if you want one, to keep it fast, current and answering. A site or app keeps working for you; it is not something you buy once and forget.
 
 ---
@@ -233,7 +233,7 @@ Patients ask the same questions at every hour. The site answers them, and the fr
 **Institutions**  
 Admissions season should not mean the office phone ringing all day about eligibility and fees.
 
-- Programme explorer
+- Courses easy to browse and compare
 - Eligibility and fee questions answered
 - Every enquiry logged in one place
 - Content your staff can update
@@ -246,7 +246,7 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 - Leads routed to your inbox and CRM
 - An assistant that knows the product
 - Analytics you can read
-- An MVP or SaaS product, built in stages
+- A first version of your app, built in stages
 
 ---
 
@@ -291,7 +291,7 @@ Whatever the problem needs: a SaaS product or web app, a website or landing page
 To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.
 
 **How long does it take?**  
-Two weeks for most websites, from agreed scope to launch. Larger sites take three to four weeks. An application is built in stages, with a date agreed for each. The schedule holds because scope is locked before code starts, not renegotiated halfway.
+About two weeks for a landing page or a small site, from agreed scope to launch. Larger sites take three to four weeks. Apps are built in stages, with a date agreed for each, and SEO builds over months. The schedule holds because scope is locked before work starts, not renegotiated halfway.
 
 **Do you build SaaS products and web applications?**  
 Yes. SaaS products, customer portals, internal tools, dashboards and mobile apps. A build starts with a first version real users can try, and grows in agreed stages from there.
