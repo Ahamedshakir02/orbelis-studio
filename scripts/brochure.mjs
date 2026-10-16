@@ -109,9 +109,11 @@ const pages = [
          (p, i) =>
            `<article class="card"><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`,
        )
-       .join('')}</div>
-     <div class="rule"></div>
-     <p class="eyebrow">Services at a glance</p>
+       .join('')}</div>`,
+  ),
+
+  page(
+    `${head('Services at a glance', 'Build, run and grow, from one studio.')}
      <table>${services
        .map(
          (s) =>
@@ -139,13 +141,15 @@ const pages = [
     `${head('One example', 'An enquiry, handled end to end.')}
      <ol class="flow">${flow
        .map((f) => `<li><span class="num">${esc(f.step)}</span><h3>${esc(f.title)}</h3><p>${esc(f.body)}</p></li>`)
-       .join('')}</ol>
-     <div class="rule"></div>
-     <p class="eyebrow">Who it is for</p>
-     <div class="grid2">${audiences
+       .join('')}</ol>`,
+  ),
+
+  page(
+    `${head('Who it is for', 'For businesses that run on enquiries.')}
+     <div class="grid3 tight">${audiences
        .map(
          (a) =>
-           `<article class="card"><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p><ul class="dots">${a.outcomes.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></article>`,
+           `<article class="card"><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p><ul class="dots one">${a.outcomes.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></article>`,
        )
        .join('')}</div>`,
   ),
@@ -225,6 +229,12 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
   .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
   .dots, .chips { list-style: none; margin: 4mm 0 0; padding: 0; }
   .dots { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5mm 5mm; font-size: 9pt; }
+  .dots.one { grid-template-columns: 1fr; }
+  /* Five audiences, three to a row, have to fit one sheet. */
+  .tight .card { padding: 5mm; }
+  .tight h3 { font-size: 13pt; }
+  .tight .card p { font-size: 9pt; line-height: 1.45; }
+  .tight .dots { font-size: 8.5pt; gap: 1.2mm; }
   .dots li::before { content: ""; display: inline-block; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: #e8a33d; margin-right: 2.5mm; vertical-align: middle; }
   .chips { display: flex; flex-wrap: wrap; gap: 2mm; }
   .chips li { border: 1px solid #22262f; border-radius: 99px; padding: 1mm 3mm; color: #878e9e; font-size: 6.5pt; }
