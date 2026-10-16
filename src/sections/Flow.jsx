@@ -2,8 +2,8 @@ import Section from '../components/Section.jsx'
 import { flow } from '../data/site.js'
 
 /**
- * One enquiry followed end to end — the assistant and the automation shown as
- * a single sequence rather than described as two services.
+ * One example, not the main story: a single enquiry followed end to end, the
+ * assistant and the automation shown as one sequence rather than two services.
  *
  * An ordered list, because it is one: the order is the content.
  */
@@ -11,8 +11,8 @@ export default function Flow() {
   return (
     <Section
       label="How it works"
-      title="From first message to follow-up, handled."
-      intro="What happens to one enquiry once automation is in place. Nobody has to remember any of it."
+      title="One example: an enquiry, handled end to end."
+      intro="What one of these solutions looks like once it is running: an assistant answers, automation does the rest."
     >
       <ol className="stagger grid gap-8 sm:grid-cols-2 md:gap-6 lg:grid-cols-5">
         {flow.map((f) => (
