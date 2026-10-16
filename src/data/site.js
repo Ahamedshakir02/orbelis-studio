@@ -331,9 +331,12 @@ export const capabilities = [
 
 export const studio = {
   lead: 'One studio. No hand-offs.',
+  // From the company profile's long description and story; keep them in step.
   body: [
-    'Orbelis builds whatever the problem needs: a website or a SaaS product, a brand, an AI assistant, an automation or a dashboard. Most agencies do one of these. The useful work is usually where they meet.',
-    'The marketing that brings people in is done here too: the ads, the SEO, the social media and the creatives, so a campaign and the page it lands on are built together, and nothing is handed to a vendor you have never met.',
+    'Orbelis Studio is a technology partner for growing businesses, taking ideas from concept to launch. Most businesses already know what would move them forward: a custom application, a booking system, faster responses to customers, or a stronger online presence. What they often lack is the in-house technical capability to deliver it. We provide that capability.',
+    'We begin by understanding the business challenge, not by selling a package, and recommend the most effective solution for it. That may be software, a website, an AI assistant, a business automation, a brand identity or a digital marketing campaign.',
+    'All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.',
+    'Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.',
   ],
   facts: [
     { k: 'Based', v: 'Edappal, Kerala, India' },
