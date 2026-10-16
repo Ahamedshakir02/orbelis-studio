@@ -26,7 +26,7 @@ export const brand = {
   // Display format, e.g. '+91 98765 43210'.
   phone: '+91 94475 33289',
   // Digits only, with country code — used to build wa.me links.
-  whatsapp: null,
+  whatsapp: '917510533289',
   location: 'Edappal, Kerala — working worldwide',
   url: 'https://orbelisstudio.com',
 
@@ -52,6 +52,17 @@ export const brand = {
     { label: 'Instagram', href: null },
   ],
 }
+
+/**
+ * The WhatsApp link every button on the site uses, with a short opening line
+ * already typed so the visitor only has to press send. Null while
+ * brand.whatsapp is null, and every button hides itself then.
+ */
+export const whatsappHref = brand.whatsapp
+  ? `https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(
+      "Hi Orbelis, I'd like to talk about a project.",
+    )}`
+  : null
 
 /** Only the social links that actually point somewhere. */
 export const socials = brand.socials.filter((s) => s.href)
