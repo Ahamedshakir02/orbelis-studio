@@ -164,6 +164,10 @@ html.loading .rise {
 .glow {
   animation: breathe 9s ease-in-out infinite;
 }
+[data-paused] .float,
+[data-paused] .glow {
+  animation-play-state: paused;
+}
 .plx {
   transform: translate3d(
     calc(var(--px, 0) * var(--depth, 0) * 1px),
@@ -255,7 +259,9 @@ body,
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
   }
 }
