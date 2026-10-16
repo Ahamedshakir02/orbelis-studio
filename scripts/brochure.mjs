@@ -72,7 +72,7 @@ const contactLines = [
   ['Email', brand.email],
   ['Web', host],
   // Phone appears only once a real number is set in site.js.
-  ...(brand.phone ? [['Phone', brand.phone]] : []),
+  ...(brand.phone ? [['Phone / WhatsApp', brand.phone]] : []),
   [
     'Studio',
     [brand.address.street, `${brand.address.locality}, ${brand.address.region} ${brand.address.postalCode}`, 'India']

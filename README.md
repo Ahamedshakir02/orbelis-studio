@@ -267,14 +267,14 @@ Add when available — each is `null` in `src/data/site.js` and stays hidden
 from the footer, the mobile CTA and the structured data until it is set:
 
 - [ ] Street address in `brand.address.street`
-- [ ] Phone and WhatsApp number in `brand.phone` / `brand.whatsapp`
-- [ ] Social profile URLs in `brand.socials` — the studio's own profiles, not the bare domain
+- [x] Phone and WhatsApp number in `brand.phone` / `brand.whatsapp` (+91 75105 33289)
+- [ ] Social profile URLs in `brand.socials` — the studio's own profiles, not the bare domain (LinkedIn is set; Instagram still to add)
 - [ ] Public URL for a work entry, as `href` — the card then links to it
 
 Then:
 
 - [ ] Add real case-study imagery to the work cards — `image` + `imageAlt` on each entry in `work`
-- [ ] Set up the domain and a `hello@` mailbox
+- [ ] Set up the domain. Enquiries go to orbelisstudio@gmail.com until a mailbox on the domain exists
 - [ ] Run Lighthouse; keep performance ≥ 90 on mobile
 - [ ] Validate the JSON-LD in Google's Rich Results Test
 - [ ] Re-run the assistant question set after any copy change

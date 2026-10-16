@@ -16,7 +16,7 @@ export const brand = {
   suffix: 'Studio',
   full: 'Orbelis Studio',
   tagline: 'Solutions built around your business.',
-  email: 'hello@orbelisstudio.com',
+  email: 'orbelisstudio@gmail.com',
   /**
    * Phone, WhatsApp, street and social links are null until the real value
    * exists. Nothing renders while a field is null — not in the footer, not in
@@ -24,7 +24,7 @@ export const brand = {
    * reach a visitor or a crawler. Fill one in and it appears everywhere.
    */
   // Display format, e.g. '+91 98765 43210'.
-  phone: '+91 94475 33289',
+  phone: '+91 75105 33289',
   // Digits only, with country code — used to build wa.me links.
   whatsapp: '917510533289',
   location: 'Edappal, Kerala — working worldwide',
