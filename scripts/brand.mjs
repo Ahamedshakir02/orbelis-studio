@@ -14,12 +14,15 @@
  *   logo-dark.png, logo-light.png   the wordmark on the brand background.
  *   logo-transparent-for-*.png      no background, for your own artwork.
  *   profile-dark.png, profile-light.png
+ *   profile-instagram.png    1080px, a bigger mark for Instagram's small circle.
  *                            square, 1024px, for a profile picture; platforms
  *                            crop to a circle, so the wordmark sits well inside.
  *   social-post-1080.png     square post (Instagram, LinkedIn, Facebook).
  *   social-story-1080x1920   story / reel cover.
  *   banner-x-1500x500        X (Twitter) header.
- *   banner-linkedin-1584x396 LinkedIn cover.
+ *   banner-linkedin-1584x396 LinkedIn personal-profile cover.
+ *   banner-linkedin-company-1128x191
+ *                            LinkedIn company page cover, saved at 2x (2256x382).
  */
 import { execFileSync } from 'node:child_process'
 import { existsSync, mkdirSync, mkdtempSync, rmSync, statSync, writeFileSync } from 'node:fs'
@@ -39,7 +42,10 @@ const MIST = '#e8eaf0'
 const MUTED = '#878e9e'
 const BRASS = '#e8a33d'
 const host = brand.url.replace(/^https?:\/\//, '')
-const [line1, line2] = brand.tagline.split(/(?<=\.)\s+/)
+// Two lines: split between sentences, or after the first comma when the
+// tagline is a single sentence ("Your ideas, / built and launched.").
+const [line1, ...rest] = brand.tagline.split(brand.tagline.includes('. ') ? /(?<=\.)\s+/ : /(?<=,)\s+/)
+const line2 = rest.join(' ')
 
 const wordmark = (px, color) =>
   `<span style="font-family:'Clash Display',Georgia,serif;font-weight:600;font-size:${px}px;letter-spacing:-0.03em;color:${color};line-height:1">${brand.name}<span style="color:${BRASS}">.</span></span>`
@@ -58,7 +64,11 @@ const headline = (px) => `
 const small = (px, text) =>
   `<div style="font-family:Inter,sans-serif;font-size:${px}px;color:${MUTED};letter-spacing:-0.01em">${text}</div>`
 
-const services = 'Software · Websites · AI · Marketing'
+const services = 'Software · Websites · AI · Design · Marketing'
+const cta = 'Book a free consultation'
+
+const pill = (px, text) =>
+  `<div style="display:inline-block;font-family:Inter,sans-serif;font-weight:600;font-size:${px}px;color:${INK};background:${BRASS};border-radius:999px;padding:${Math.round(px * 0.55)}px ${Math.round(px * 1.1)}px">${text}</div>`
 
 const files = [
   // ---- logo
@@ -68,13 +78,17 @@ const files = [
   { name: 'logo-transparent-for-light.png', w: 1600, h: 600, bg: null, body: centre(wordmark(240, INK)) },
   { name: 'profile-dark.png', w: 1024, h: 1024, bg: INK, body: centre(wordmark(190, MIST)) },
   { name: 'profile-light.png', w: 1024, h: 1024, bg: PAPER, body: centre(wordmark(190, INK)) },
+  // Instagram shows the picture at about 110px in a circle: a bigger mark and
+  // a little warmth from the brand glow keep it legible that small.
+  { name: 'profile-instagram.png', w: 1080, h: 1080, bg: INK, body: `${glow(540, 540, 520)}${centre(wordmark(230, MIST))}` },
 
   // ---- social
   {
     name: 'social-post-1080.png', w: 1080, h: 1080, bg: INK,
     body: `${glow(860, 250, 420)}
       <div style="position:absolute;left:84px;top:84px">${wordmark(64, MIST)}</div>
-      <div style="position:absolute;left:84px;right:84px;bottom:190px">${headline(104)}</div>
+      <div style="position:absolute;left:84px;right:84px;bottom:290px">${headline(110)}</div>
+      <div style="position:absolute;left:84px;bottom:180px">${pill(32, cta)}</div>
       <div style="position:absolute;left:84px;right:84px;bottom:84px;display:flex;justify-content:space-between;border-top:1px solid #242831;padding-top:28px">
         ${small(30, services)}${small(30, host)}
       </div>`,
@@ -85,6 +99,7 @@ const files = [
       <div style="position:absolute;left:0;right:0;top:540px;display:flex;justify-content:center">${wordmark(170, MIST)}</div>
       <div style="position:absolute;left:60px;right:60px;top:980px;text-align:center">${headline(78)}</div>
       <div style="position:absolute;left:0;right:0;top:1210px;text-align:center">${small(36, services)}</div>
+      <div style="position:absolute;left:0;right:0;top:1340px;text-align:center">${pill(38, cta)}</div>
       <div style="position:absolute;left:0;right:0;bottom:180px;text-align:center">${small(32, host)}</div>`,
   },
   {
@@ -95,12 +110,25 @@ const files = [
       <div style="position:absolute;left:110px;bottom:92px">${small(26, services + ' · ' + host)}</div>`,
   },
   {
+    // Personal-profile cover (4:1). The company page uses the one below.
     name: 'banner-linkedin-1584x396.png', w: 1584, h: 396, bg: INK,
-    // LinkedIn covers the lower left with the profile picture; keep that corner empty.
-    body: `${glow(1349, 198, 300)}
-      <div style="position:absolute;right:110px;top:162px">${wordmark(72, MIST)}</div>
-      <div style="position:absolute;left:470px;top:92px">${headline(60)}</div>
-      <div style="position:absolute;left:470px;bottom:74px">${small(22, services + ' · ' + host)}</div>`,
+    // LinkedIn covers the lower left with the logo and crops both sides on
+    // narrower screens, so the copy sits in the middle band and the wordmark
+    // is left out: the page's logo already carries it.
+    body: `${glow(1180, 198, 300)}
+      <div style="position:absolute;left:470px;top:70px">${headline(62)}</div>
+      <div style="position:absolute;left:470px;bottom:64px;display:flex;align-items:center;gap:28px">${pill(22, cta)}${small(22, services)}</div>`,
+  },
+  {
+    // Company page cover. LinkedIn asks for 1128x191; rendered at 2x
+    // (2256x382). Phones crop the sides and the logo covers the lower left,
+    // so everything sits in the centre band.
+    name: 'banner-linkedin-company-1128x191.png', w: 1128, h: 191, scale: 2, bg: INK,
+    body: `${glow(564, 96, 260)}
+      <div style="position:absolute;left:0;right:0;top:44px;text-align:center;font-family:Inter,sans-serif;font-weight:600;font-size:40px;line-height:1;letter-spacing:-0.035em">
+        <span style="color:${MIST}">${line1}</span> <span style="color:${MUTED}">${line2}</span>
+      </div>
+      <div style="position:absolute;left:0;right:0;top:112px;display:flex;justify-content:center;align-items:center;gap:20px">${pill(15, cta)}${small(15, services)}</div>`,
   },
 ]
 
@@ -126,7 +154,8 @@ body{position:relative;width:${f.w}px;height:${f.h}px}svg{display:block}</style>
         '--headless=new',
         '--disable-gpu',
         '--hide-scrollbars',
-        '--force-device-scale-factor=1',
+        // `scale` renders a small canvas at 2x so it stays sharp when shown large.
+        `--force-device-scale-factor=${f.scale ?? 1}`,
         `--window-size=${f.w},${f.h}`,
         // No background means a real alpha channel, not white.
         ...(f.bg ? [] : ['--default-background-color=00000000']),
@@ -138,7 +167,7 @@ body{position:relative;width:${f.w}px;height:${f.h}px}svg{display:block}</style>
       { stdio: 'ignore' },
     )
     if (!existsSync(out)) throw new Error(`Browser exited without writing ${out}`)
-    console.log(`brand/${f.name.padEnd(40)} ${String(f.w).padStart(4)}x${String(f.h).padEnd(4)} ${(statSync(out).size / 1024).toFixed(1)} kB`)
+    console.log(`brand/${f.name.padEnd(40)} ${String(f.w * (f.scale ?? 1)).padStart(4)}x${String(f.h * (f.scale ?? 1)).padEnd(4)} ${(statSync(out).size / 1024).toFixed(1)} kB`)
   }
 } catch (err) {
   console.error('Brand export failed:', err.message)
