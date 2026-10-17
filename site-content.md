@@ -15,7 +15,7 @@ Every piece of copy on orbelisstudio.com, in page order, generated from the site
 
 ### Your ideas, built and launched.
 
-Software, websites, AI and marketing, designed for how you work. Bring us an idea or a problem. We build what solves it and see it through to launch.
+We work inside your business like your own tech team. We learn how you run, build what you need, and stay until it works.
 
 *Buttons:* Book a free consultation · See the services
 
@@ -24,7 +24,7 @@ Software, websites, AI and marketing, designed for how you work. Bring us an ide
 *Under the buttons:*
 - Quoted to your requirements
 - Small sites live in two weeks
-- One studio, start to finish
+- Your tech team, without the hiring
 
 **Animated card under the hero**
 
@@ -110,7 +110,7 @@ The numbers that run the business, in one place and up to date. We agree with yo
 - Pulled from your existing tools
 
 **07 · Care plan**  
-Hosting, updates and a monthly report, so what we built stays fast and current instead of quietly going stale.
+Hosting, updates and a monthly report, so what we built stays fast and current instead of quietly going stale. Or take the tech team plan: monthly building time with the care plan included.
 
 - Managed hosting
 - Content changes
@@ -176,21 +176,21 @@ Market: Ajman, UAE · Scope: Build, launch, SEO audits · https://safaritypingse
 
 ## 5. Process
 
-### From idea to launch, in four steps.
+### How we work: like your own tech team.
 
-Scope is agreed before any work starts, which is why the date holds.
+Close to your business, built in small steps, and still here after launch.
 
-**01 Scope**  
-We cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.
+**01 Learn how you work**  
+A free consultation first. Then we look at how your business really runs: your tools, your customers' questions and the jobs that eat your day. In person in Kerala, online everywhere else.
 
-**02 Direction**  
-One look, one layout, one voice, agreed with you before anything is built.
+**02 Pick what to build first**  
+The smallest thing that fixes the biggest problem. It is scoped and quoted before any work starts, which is why the date holds.
 
-**03 Build**  
-Built to a speed target, not only a design. A site or app has to be fast on a mid-range phone over 4G before we call it done.
+**03 Build it with you**  
+Built on your real information, with working pieces shown as we go, so there are no surprises at the end. A site or app has to be fast on a mid-range phone over 4G before we call it done.
 
-**04 Launch & care**  
-Launch, then a care plan if you want one, to keep it fast, current and answering. A site or app keeps working for you; it is not something you buy once and forget.
+**04 Launch, then stay**  
+We launch it, show your people how to use it and check it is working. Then, if you want, we stay on as your tech team to keep it current and build what comes next.
 
 ---
 
@@ -274,11 +274,11 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 
 ## 9. Studio
 
-### One studio. No hand-offs.
+### Your tech team, inside your business.
 
-Orbelis Studio is a technology partner for growing businesses, taking ideas from concept to launch. Most businesses already know what would move them forward: a custom application, a booking system, faster responses to customers, or a stronger online presence. What they often lack is the in-house technical capability to deliver it. We provide that capability.
+Most businesses know what would help them grow. What they lack is a tech team to build it, and hiring one is out of reach for most. Orbelis works as that team. We don't start from a menu of services. We start by learning how your business actually runs: the tools you use, the questions your customers ask and where time and money are lost.
 
-We begin by understanding the business challenge, not by selling a package, and recommend the most effective solution for it. That may be software, a website, an AI assistant, a business automation, a brand identity or a digital marketing campaign.
+Then we build what fits, whether that's software, a website, an AI assistant, an automation, a brand or a campaign. We build it on your real information, show you working pieces early and change course as we learn. We don't treat a project as finished when it's handed over. It's finished when your business is using it, and we stay on to keep it working and improving.
 
 All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.
 
@@ -304,6 +304,9 @@ Orbelis Studio is a software, web and digital marketing studio based in Edappal,
 
 **What do you build?**  
 Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.
+
+**What does "your own tech team" mean?**  
+It means we work the way an in-house team would. We learn how your business runs before suggesting anything, build in small steps you can see, and stay after launch to keep it working and build what comes next. You get the attention of an in-house team without having to hire one.
 
 **How is a project priced?**  
 To your requirements. There is no fixed price list, because a five-page site and a booking system with an assistant are not the same job. Send a short brief and you get a quote before any work starts, based on the number of pages, whether the site takes bookings, and whether it needs an assistant or automation. Applications are quoted stage by stage. Marketing work is quoted by the month, to the channels you want run.
@@ -335,11 +338,14 @@ Yes. Sites whose content changes often come with an editor your team can use wit
 **Do I have to take the care plan?**  
 No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.
 
+**Can you stay on as our tech team every month?**  
+Yes. The tech team plan is a monthly plan with a set amount of building time each month, a monthly check-in on what to build next, and the care plan included. It is quoted to your business, like every project, and you can stop it at any time.
+
 **What happens on the free consultation?**  
 A 20-minute call. You tell us what you want to build or what is holding the business back, and you do not need to know which service you want. We come back with a clear recommendation: what we would build, what it would cost, and what is not worth doing.
 
 **Where are you based? Do you work outside Kerala?**  
-We are based in Edappal, Kerala, and work with clients across India and in the UAE. Calls and reviews happen online, so you do not need to be near Edappal to work with us.
+We are based in Edappal, Kerala, and work with clients across India and in the UAE. In Kerala we can meet in person; everywhere else, calls and reviews happen online, so you do not need to be near Edappal to work with us.
 
 **Do you set up Google Business Profile and local SEO?**  
 Yes. Local SEO is part of our SEO service: we set up or complete your Google Business Profile, keep your name, address and phone number the same everywhere they appear, and build the pages nearby customers search for. Results build over months, not days.
