@@ -9,6 +9,13 @@
  * said about websites and landing pages; the call to action is
  * "Book a free consultation".
  *
+ * Positioning (approved 16 Oct 2026, strategy/orbelis-forward-deployed-2026-10-16.md):
+ * we work inside the client's business like their own tech team. We learn how
+ * it runs, build what it needs on its real information and stay until it is
+ * used. Say it in plain words ("your own tech team, without the hiring"); the
+ * phrase "forward deployed" is kept for the LinkedIn About only, and we never
+ * say "engineers".
+ *
  * Slide types (see scripts/social.mjs):
  *   statement  kicker, title[], muted[], sub
  *   point      n, title, body
@@ -27,15 +34,15 @@ export const linkedin = [
     day: 'Tue 20 Oct',
     format: 'Single image',
     slides: [
-      { type: 'statement', kicker: 'Introducing Orbelis Studio', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Your business’s tech team.' },
+      { type: 'statement', kicker: 'Introducing Orbelis Studio', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Your own tech team, without the hiring.' },
     ],
     caption: `Most businesses already know what would help them grow.
 
 A booking system. A faster reply to every customer. A website that brings in enquiries instead of just sitting there.
 
-What they usually don't have is the team to build it.
+What they usually don't have is a tech team to build it, and hiring one is out of reach for most.
 
-That's the gap Orbelis Studio fills. Bring us a problem or an idea, and we design, build and launch the solution: software, websites, AI, design and marketing, all from one studio.
+That's the gap Orbelis Studio fills. We work inside your business like your own tech team. We learn how you actually run, build what you need (software, websites, AI, design or marketing) and stay until it's working.
 
 We're based in Edappal, Kerala, working with businesses in India and the UAE.
 
@@ -64,30 +71,36 @@ Both lists tend to stay the same length for years. Rarely for lack of trying: th
 
 We've broken down the three shapes this takes in the slides.
 
+The fix isn't another vendor. It's a tech team of your own that learns how the business runs and stays with it, without the cost of hiring one.
+
 Which one sounds most like your business right now?`,
     tags: ['#SmallBusiness', '#BusinessGrowth', '#Entrepreneurship', '#Automation'],
   },
   {
-    id: 'li-03-diagnose-before-we-quote',
+    id: 'li-03-how-we-work',
     day: 'Tue 27 Oct',
-    format: 'Single image',
+    format: 'Carousel (upload the PDF as a document)',
     slides: [
-      { type: 'statement', kicker: 'How we start', title: ['We diagnose'], muted: ['before we quote.'], sub: 'A free 20-minute consultation, before anything is sold.' },
+      { type: 'statement', kicker: 'How we work', title: ['Like your own'], muted: ['tech team.'], sub: 'Close to the business, in small steps, and still there after launch.' },
+      { type: 'point', n: '01', title: 'Learn how you work.', body: 'A free consultation first. Then we look at how the business really runs: your tools, your customers’ questions and the jobs that eat your day.' },
+      { type: 'point', n: '02', title: 'Pick what to build first.', body: 'The smallest thing that fixes the biggest problem, scoped and quoted before any work starts.' },
+      { type: 'point', n: '03', title: 'Build it with you.', body: 'Built on your real information, with working pieces shown as we go, so there are no surprises at the end.' },
+      { type: 'point', n: '04', title: 'Launch, then stay.', body: 'We launch it, show your people how to use it and check it’s working. Then we can stay on as your tech team.' },
+      { type: 'cta' },
     ],
-    caption: `Most businesses are asked to pick a package before anyone has looked at the problem.
+    caption: `Most businesses are asked to pick a package before anyone has looked at how they actually work.
 
-We do it the other way round.
+We do it the other way round, the way your own tech team would:
 
-Every project starts with a free 20-minute consultation. You don't need to know which service you want. You tell us what you want to build, or what's holding the business back, and we come back with three things:
-
-1. What we would build
-2. What it would cost
-3. What isn't worth doing
+1. Learn how you work: your tools, your customers' questions, the jobs that eat your day
+2. Pick what to build first: the smallest thing that fixes the biggest problem, quoted before work starts
+3. Build it with you: on your real information, with working pieces shown along the way
+4. Launch, then stay: a project isn't finished when it's handed over, it's finished when your business is using it
 
 Sometimes the honest answer is that you don't need anything from us. We'd rather say that than sell you something you won't use.
 
 Book a free consultation: orbelisstudio.com`,
-    tags: ['#SmallBusiness', '#Consulting', '#WebDevelopment', '#OrbelisStudio'],
+    tags: ['#SmallBusiness', '#TechTeam', '#DigitalTransformation', '#OrbelisStudio'],
   },
   {
     id: 'li-04-where-is-your-business',
@@ -117,23 +130,23 @@ Which stage are you at?`,
     day: 'Tue 3 Nov',
     format: 'Carousel (upload the PDF as a document)',
     slides: [
-      { type: 'statement', kicker: 'What we do', title: ['Build. Design.'], muted: ['Grow. Keep.'], sub: 'One studio, from the first sketch to the campaign that brings customers in.' },
+      { type: 'statement', kicker: 'What we do', title: ['Build. Design.'], muted: ['Grow. Keep.'], sub: 'One tech team, from the first sketch to the campaign that brings customers in.' },
       { type: 'list', kicker: 'Build', title: 'What gets made', items: [['SaaS and web applications', 'Portals, internal tools and mobile apps'], ['Websites and landing pages', 'Designed for the brand, fast on a phone'], ['AI assistants', 'Answer customers from your own content'], ['Business automation', 'Follow-ups, invoices, approvals, reports'], ['Dashboards', 'The few numbers that run the business']] },
       { type: 'list', kicker: 'Design', title: 'How it looks and feels', items: [['Brand identity', 'A logo and rules a team can follow'], ['UI/UX and product design', 'Screens people find their way around'], ['Creative design', 'Posters, ad creatives, reels and short videos']] },
       { type: 'list', kicker: 'Grow', title: 'Bringing customers in', items: [['Meta and Google ads', 'Every enquiry traced to the ad it came from'], ['SEO', 'Found on Google and Google Maps'], ['Social media management', 'Instagram, Facebook and LinkedIn kept active']] },
-      { type: 'list', kicker: 'Keep', title: 'After launch', items: [['Care plan', 'Hosting, updates, content changes and a monthly report, so what we built stays fast and current']] },
+      { type: 'list', kicker: 'Keep', title: 'After launch', items: [['Care plan', 'Hosting, updates, content changes and a monthly report, so what we built stays fast and current'], ['Tech team plan', 'Building time every month and a monthly check-in on what to build next, with the care plan included']] },
       { type: 'cta' },
     ],
     caption: `Most agencies do one thing well. Then the business owner becomes the project manager, passing files between a developer, a designer and an ads person who never speak to each other.
 
-At Orbelis, everything is done in-house:
+Orbelis works as your own tech team instead, so everything is done in-house:
 
 Build: software, websites, AI assistants, automation and dashboards
 Design: brand identity, UI/UX and creative
 Grow: Meta and Google ads, SEO and social media
-Keep: a care plan after launch
+Keep: a care plan after launch, or a monthly tech team plan to keep building
 
-The campaign and the page it lands on are built together, by the same studio.
+The campaign and the page it lands on are built together, by the same team that learned how your business runs.
 
 Full list in the slides.`,
     tags: ['#WebDevelopment', '#Branding', '#DigitalMarketing', '#AI', '#OrbelisStudio'],
@@ -147,7 +160,7 @@ Full list in the slides.`,
     ],
     caption: `New software usually comes with a hidden cost: everyone has to learn a new system, and half the team quietly goes back to the old way.
 
-We start from the other end. What does the business already use every day?
+We start from the other end, the way your own tech team would: by learning how the business already runs. What does it use every day?
 
 For most of the businesses we speak to, it's WhatsApp, a spreadsheet and email. So that's where we build.
 
@@ -205,13 +218,13 @@ export const instagram = [
     day: 'Mon 19 Oct',
     format: 'Single image',
     slides: [
-      { type: 'statement', kicker: 'Orbelis Studio', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Software · Websites · AI · Design · Marketing' },
+      { type: 'statement', kicker: 'Orbelis Studio', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Your own tech team, without the hiring.' },
     ],
     caption: `Hello, we're Orbelis Studio 👋
 
-Your business's tech team. Bring us a problem or an idea, and we design, build and launch the solution.
+Your own tech team, without the hiring. We learn how your business runs, build what it needs and stay until it works.
 
-Software, websites, AI, design and marketing, all from one studio in Edappal, Kerala, working with businesses in India and the UAE.
+Software, websites, AI, design and marketing, from Edappal, Kerala, for businesses in India and the UAE.
 
 First step? A free consultation. Link in bio.`,
     tags: ['#orbelisstudio', '#kerala', '#edappal', '#malappuram', '#keralabusiness', '#smallbusinessindia', '#uaebusiness', '#webdesign', '#appdevelopment', '#digitalmarketing'],
@@ -221,21 +234,21 @@ First step? A free consultation. Link in bio.`,
     day: 'Fri 23 Oct',
     format: 'Carousel, 6 slides',
     slides: [
-      { type: 'statement', kicker: 'What we do', title: ['Build. Design.'], muted: ['Grow. Keep.'], sub: 'Everything in one studio. Swipe →' },
+      { type: 'statement', kicker: 'What we do', title: ['Build. Design.'], muted: ['Grow. Keep.'], sub: 'One tech team for all of it. Swipe →' },
       { type: 'list', kicker: 'Build', title: 'What gets made', items: [['Apps and software', 'Portals, tools and mobile apps'], ['Websites', 'Fast on a phone, built to bring enquiries'], ['AI assistants', 'Answer customers at any hour'], ['Automation', 'The busywork, done for you']] },
       { type: 'list', kicker: 'Design', title: 'How it looks', items: [['Brand identity', 'Logo and visual identity'], ['UI/UX', 'Screens people enjoy using'], ['Creatives', 'Posters, ads, reels and short videos']] },
       { type: 'list', kicker: 'Grow', title: 'Bringing customers in', items: [['Meta and Google ads', 'Every enquiry traced to its ad'], ['SEO', 'Found on Google and Google Maps'], ['Social media', 'Planned, posted and answered']] },
-      { type: 'list', kicker: 'Keep', title: 'After launch', items: [['Care plan', 'Hosting, updates and a monthly report, so it stays fast and current']] },
+      { type: 'list', kicker: 'Keep', title: 'After launch', items: [['Care plan', 'Hosting, updates and a monthly report, so it stays fast and current'], ['Tech team plan', 'Building time every month, so the next idea gets built too']] },
       { type: 'cta' },
     ],
-    caption: `One studio for the whole job 🛠️
+    caption: `Your own tech team for the whole job 🛠️
 
 Build → apps, websites, AI assistants and automation
 Design → brand identity, UI/UX and creatives
 Grow → ads, SEO and social media
-Keep → a care plan after launch
+Keep → a care plan, or a monthly tech team plan
 
-No juggling five vendors. Save this for when you need it 📌`,
+No juggling five vendors, and no hiring. Save this for when you need it 📌`,
     tags: ['#orbelisstudio', '#webdevelopment', '#appdevelopment', '#branding', '#uiux', '#digitalmarketing', '#seo', '#keralabusiness', '#smallbusinessindia'],
   },
   {
@@ -259,7 +272,7 @@ Here's what usually makes the biggest difference:
 3️⃣ Showing up on Google Maps when people nearby search
 4️⃣ Social media and ads that bring customers back
 
-Not sure where to start? That's what the free consultation is for. Link in bio.`,
+Not sure where to start? That's what the free consultation is for. We learn how your shop runs first, then build what helps most. Link in bio.`,
     tags: ['#orbelisstudio', '#localbusiness', '#shoplocal', '#keralabusiness', '#edappal', '#malappuram', '#googlemaps', '#whatsappbusiness', '#smallbusinessindia'],
   },
   {
@@ -313,7 +326,7 @@ Swipe to see how, and book a free consultation via the link in bio.`,
       { type: 'statement', kicker: 'Our values', title: ['Four words'], muted: ['we work by.'] },
       { type: 'point', n: '01', title: 'Curiosity', body: 'We start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes nothing at all.' },
       { type: 'point', n: '02', title: 'Craft', body: 'Shaped to how your business already runs, fast and clean, never from a template.' },
-      { type: 'point', n: '03', title: 'Ownership', body: 'From the first sketch to the campaign that brings people in, one studio answers for the result.' },
+      { type: 'point', n: '03', title: 'Ownership', body: 'A project isn’t done when it’s handed over. It’s done when your business is using it, and we stay until it is.' },
       { type: 'point', n: '04', title: 'Honesty', body: 'Quotes before work, real timelines, and a plain "this isn’t worth building" when that’s the truth.' },
       { type: 'cta' },
     ],
@@ -362,7 +375,7 @@ Here's how we take a founder's idea to launch:
 
 1. Test it with a landing page (live in about two weeks)
 2. Build a first version real users can try
-3. Launch it, market it and keep improving it
+3. Launch it, market it and keep improving it, as your own tech team
 
 Got an idea you keep coming back to? Tell us about it. Free consultation via the link in bio 🚀`,
     tags: ['#orbelisstudio', '#startup', '#founder', '#mvp', '#startupindia', '#appdevelopment', '#saas', '#entrepreneur'],
@@ -384,6 +397,13 @@ export const stories = [
     note: 'Add a Poll sticker in the empty space with four options: Just an idea / Launching / Running / Growing.',
     slide: { type: 'statement', kicker: 'Quick question', title: ['Which stage is', 'your business at?'], muted: ['Vote below ↓'] },
   },
+  {
+    id: 'story-03-your-own-tech-team',
+    day: 'Tue 27 Oct (with the LinkedIn how-we-work post)',
+    format: 'Story',
+    note: 'Add a Link sticker pointing to orbelisstudio.com, or a Question sticker: "What would you build if you had a tech team?"',
+    slide: { type: 'statement', kicker: 'Orbelis Studio', title: ['Your own tech team,'], muted: ['without the hiring.'], sub: 'We learn how you run, build what you need and stay until it works.' },
+  },
 ]
 
 export const instagramProfile = {
@@ -391,9 +411,9 @@ export const instagramProfile = {
   username: '@HANDLE (not chosen yet)',
   category: 'Software company',
   bio: [
-    'Your ideas, built and launched.',
-    'Software · Web · AI · Design · Marketing',
-    '📍 Edappal, Kerala · Clients in India & UAE',
+    'Your own tech team, without the hiring.',
+    'Apps · Web · AI · Design · Marketing',
+    '📍 Edappal, Kerala · India & UAE',
     '👇 Book a free consultation',
   ],
   link: 'https://orbelisstudio.com',
