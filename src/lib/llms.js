@@ -17,7 +17,7 @@ export function llmsTxt() {
   const lines = [
     `# ${brand.full}`,
     '',
-    `> ${brand.full} is a software, web and digital marketing studio based in Edappal, Kerala, India, with clients in India and the UAE. ${brand.tagline}`,
+    `> ${brand.full} works as the tech team a growing business doesn't have. It learns how the business runs, builds the software, websites, AI and marketing it needs, and stays on after launch. Based in Edappal, Kerala, India, with clients in India and the UAE. ${brand.tagline}`,
     '',
     'We build SaaS products, web and mobile apps, websites and landing pages, brand identities, AI assistants and business automation, and we run the Meta and Google ads, SEO and social media that bring customers in. All design, development and marketing is done in-house.',
     '',

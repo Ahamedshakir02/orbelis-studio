@@ -39,7 +39,7 @@ export const passages = [
     section: 'Studio',
     title: brand.full,
     href: '#top',
-    text: `${brand.full}. ${brand.tagline} A studio that builds the solution a business needs: SaaS products and web applications, fast websites, brand identity and UI/UX design, AI assistants that answer from the client's own content, automation of repetitive work, and the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
+    text: `${brand.full}. ${brand.tagline} It works as a business's own tech team, learning how the business runs and then building the solution it needs: SaaS products and web applications, fast websites, brand identity and UI/UX design, AI assistants that answer from the client's own content, automation of repetitive work, and the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
     keywords: 'orbelis studio who what about intro name based located kerala india where offer',
   },
   {

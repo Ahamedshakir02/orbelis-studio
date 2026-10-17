@@ -300,7 +300,7 @@ Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap:
 ### Straight answers.
 
 **What is Orbelis Studio?**  
-Orbelis Studio is a software, web and digital marketing studio based in Edappal, Kerala, India, working with clients in India and the UAE. We build SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and run the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins.
+Orbelis Studio is your own tech team, without the hiring. We are based in Edappal, Kerala, India, and work with clients in India and the UAE. We learn how your business runs, then build what it needs: SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins, and we can stay on each month after launch.
 
 **What do you build?**  
 Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.

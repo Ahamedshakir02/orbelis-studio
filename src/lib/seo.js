@@ -31,7 +31,7 @@ export function graph() {
         '@id': `${brand.url}/#studio`,
         name: brand.full,
         alternateName: brand.name,
-        description: `${brand.tagline} SaaS and web applications, fast websites, brand and product design, AI assistants and business automation, and the ads, SEO and social media that bring people in.`,
+        description: `${brand.tagline} Your own tech team, without the hiring: we learn how a business runs, then build what it needs (SaaS and web applications, fast websites, brand and product design, AI assistants and business automation, and the ads, SEO and social media that bring people in) and stay on after launch.`,
         url: brand.url,
         logo: `${brand.url}/icon-512.png`,
         image: `${brand.url}/og.png`,
