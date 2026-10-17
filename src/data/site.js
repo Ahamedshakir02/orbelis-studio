@@ -432,7 +432,7 @@ export const budgets = [
 export const faq = [
   {
     q: 'What is Orbelis Studio?',
-    a: 'Orbelis Studio is a software, web and digital marketing studio based in Edappal, Kerala, India, working with clients in India and the UAE. We build SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and run the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins.',
+    a: 'Orbelis Studio is your own tech team, without the hiring. We are based in Edappal, Kerala, India, and work with clients in India and the UAE. We learn how your business runs, then build what it needs: SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins, and we can stay on each month after launch.',
   },
   {
     q: 'What do you build?',
