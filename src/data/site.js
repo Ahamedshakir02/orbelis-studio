@@ -150,7 +150,7 @@ export const services = [
     group: 'Run',
     enquiry: 'Care plan',
     title: 'Care plan',
-    body: 'Hosting, updates and a monthly report, so what we built stays fast and current instead of quietly going stale.',
+    body: 'Hosting, updates and a monthly report, so what we built stays fast and current instead of quietly going stale. Or take the tech team plan: monthly building time with the care plan included.',
     points: ['Managed hosting', 'Content changes', 'Assistant and automation upkeep', 'A monthly report'],
   },
   {
@@ -304,23 +304,23 @@ export const audiences = [
 export const process = [
   {
     step: '01',
-    title: 'Scope',
-    body: 'We cut the brief to the smallest version that still does the job. Most projects are half the size they first look, and the smaller one ships.',
+    title: 'Learn how you work',
+    body: 'A free consultation first. Then we look at how your business really runs: your tools, your customers\' questions and the jobs that eat your day. In person in Kerala, online everywhere else.',
   },
   {
     step: '02',
-    title: 'Direction',
-    body: 'One look, one layout, one voice, agreed with you before anything is built.',
+    title: 'Pick what to build first',
+    body: 'The smallest thing that fixes the biggest problem. It is scoped and quoted before any work starts, which is why the date holds.',
   },
   {
     step: '03',
-    title: 'Build',
-    body: 'Built to a speed target, not only a design. A site or app has to be fast on a mid-range phone over 4G before we call it done.',
+    title: 'Build it with you',
+    body: 'Built on your real information, with working pieces shown as we go, so there are no surprises at the end. A site or app has to be fast on a mid-range phone over 4G before we call it done.',
   },
   {
     step: '04',
-    title: 'Launch & care',
-    body: 'Launch, then a care plan if you want one, to keep it fast, current and answering. A site or app keeps working for you; it is not something you buy once and forget.',
+    title: 'Launch, then stay',
+    body: 'We launch it, show your people how to use it and check it is working. Then, if you want, we stay on as your tech team to keep it current and build what comes next.',
   },
 ]
 
@@ -330,11 +330,11 @@ export const capabilities = [
 ]
 
 export const studio = {
-  lead: 'One studio. No hand-offs.',
+  lead: 'Your tech team, inside your business.',
   // From the company profile's long description and story; keep them in step.
   body: [
-    'Orbelis Studio is a technology partner for growing businesses, taking ideas from concept to launch. Most businesses already know what would move them forward: a custom application, a booking system, faster responses to customers, or a stronger online presence. What they often lack is the in-house technical capability to deliver it. We provide that capability.',
-    'We begin by understanding the business challenge, not by selling a package, and recommend the most effective solution for it. That may be software, a website, an AI assistant, a business automation, a brand identity or a digital marketing campaign.',
+    'Most businesses know what would help them grow. What they lack is a tech team to build it, and hiring one is out of reach for most. Orbelis works as that team. We don\'t start from a menu of services. We start by learning how your business actually runs: the tools you use, the questions your customers ask and where time and money are lost.',
+    'Then we build what fits, whether that\'s software, a website, an AI assistant, an automation, a brand or a campaign. We build it on your real information, show you working pieces early and change course as we learn. We don\'t treat a project as finished when it\'s handed over. It\'s finished when your business is using it, and we stay on to keep it working and improving.',
     'All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.',
     'Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.',
   ],
@@ -355,7 +355,7 @@ export const availability = {
 export const assurances = [
   'Quoted to your requirements',
   'Small sites live in two weeks',
-  'One studio, start to finish',
+  'Your tech team, without the hiring',
 ]
 
 export const stats = [
@@ -423,10 +423,24 @@ export const budgets = [
   'Not sure yet',
 ]
 
+/**
+ * Each answer is written to stand on its own: answer engines lift one Q&A out
+ * of the page and quote it, so an answer that leans on the one above it gets
+ * quoted wrong. The first sentence answers the question; the rest supports it.
+ * The same list feeds the FAQPage structured data and llms.txt.
+ */
 export const faq = [
+  {
+    q: 'What is Orbelis Studio?',
+    a: 'Orbelis Studio is a software, web and digital marketing studio based in Edappal, Kerala, India, working with clients in India and the UAE. We build SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and run the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins.',
+  },
   {
     q: 'What do you build?',
     a: 'Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.',
+  },
+  {
+    q: 'What does "your own tech team" mean?',
+    a: 'It means we work the way an in-house team would. We learn how your business runs before suggesting anything, build in small steps you can see, and stay after launch to keep it working and build what comes next. You get the attention of an in-house team without having to hire one.',
   },
   {
     q: 'How is a project priced?',
@@ -469,15 +483,27 @@ export const faq = [
     a: 'No. The site is yours either way, and you can host it wherever you like. The care plan exists because sites age: content goes stale, software needs updating, the assistant needs new material. It is optional.',
   },
   {
+    q: 'Can you stay on as our tech team every month?',
+    a: 'Yes. The tech team plan is a monthly plan with a set amount of building time each month, a monthly check-in on what to build next, and the care plan included. It is quoted to your business, like every project, and you can stop it at any time.',
+  },
+  {
     q: 'What happens on the free consultation?',
     a: 'A 20-minute call. You tell us what you want to build or what is holding the business back, and you do not need to know which service you want. We come back with a clear recommendation: what we would build, what it would cost, and what is not worth doing.',
   },
   {
     q: 'Where are you based? Do you work outside Kerala?',
-    a: 'We are based in Edappal, Kerala, with clients in India and the UAE. The work is delivered remotely, so we take on businesses anywhere.',
+    a: 'We are based in Edappal, Kerala, and work with clients across India and in the UAE. In Kerala we can meet in person; everywhere else, calls and reviews happen online, so you do not need to be near Edappal to work with us.',
+  },
+  {
+    q: 'Do you set up Google Business Profile and local SEO?',
+    a: 'Yes. Local SEO is part of our SEO service: we set up or complete your Google Business Profile, keep your name, address and phone number the same everywhere they appear, and build the pages nearby customers search for. Results build over months, not days.',
   },
   {
     q: 'Who does the work? Do you outsource it?',
     a: 'Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.',
+  },
+  {
+    q: 'How do I contact Orbelis Studio?',
+    a: `Email ${brand.email}, call or WhatsApp ${brand.phone}, or use the enquiry form on this page. The first step is a free 20-minute consultation.`,
   },
 ]
