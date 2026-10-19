@@ -49,7 +49,7 @@ export const brand = {
   socials: [
     { label: 'GitHub', href: null },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/company/orbelis/' },
-    { label: 'Instagram', href: null },
+    { label: 'Instagram', href: 'https://www.instagram.com/orbelisstudio/' },
   ],
 }
 
