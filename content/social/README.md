@@ -37,11 +37,11 @@ Four weeks from 2026-10-19: LinkedIn on Tuesday and Thursday, Instagram on Monda
 
 ## Instagram profile
 
-Instagram handle: **not chosen yet**. Once you pick it, add it to `src/data/site.js` (socials) and the company profile.
+Instagram: [@orbelisstudio](https://www.instagram.com/orbelisstudio/). The website footer and its search data already link to it.
 
 - **Profile picture:** [brand/profile-instagram.png](../../brand/profile-instagram.png)
 - **Name:** Orbelis Studio | Tech team
-- **Username:** @HANDLE (not chosen yet)
+- **Username:** @orbelisstudio
 - **Category:** Software company
 - **Link:** https://orbelisstudio.com
 - **Contact buttons:** Email: orbelisstudio@gmail.com; Phone / WhatsApp: +91 75105 33289

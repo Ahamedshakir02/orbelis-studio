@@ -306,7 +306,7 @@ ${rows.map((p) => `| ${p.day} | ${p.platform} | ${title(p)} | ${p.format} | ${fi
 
 ## Instagram profile
 
-Instagram handle: **not chosen yet**. Once you pick it, add it to \`src/data/site.js\` (socials) and the company profile.
+Instagram: [@orbelisstudio](https://www.instagram.com/orbelisstudio/). The website footer and its search data already link to it.
 
 - **Profile picture:** [brand/profile-instagram.png](../../brand/profile-instagram.png)
 - **Name:** ${instagramProfile.name}

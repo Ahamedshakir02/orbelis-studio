@@ -408,7 +408,7 @@ export const stories = [
 
 export const instagramProfile = {
   name: 'Orbelis Studio | Tech team',
-  username: '@HANDLE (not chosen yet)',
+  username: '@orbelisstudio',
   category: 'Software company',
   bio: [
     'Your own tech team, without the hiring.',
