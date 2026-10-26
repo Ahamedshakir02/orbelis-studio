@@ -37,13 +37,13 @@ Four weeks from 2026-10-19: LinkedIn on Tuesday and Thursday, Instagram on Monda
 
 ## Instagram profile
 
-Instagram: [@orbelisstudio](https://www.instagram.com/orbelisstudio/). The website footer and its search data already link to it.
+Instagram: [@orbelis.co](https://www.instagram.com/orbelis.co/). The website footer and its search data already link to it.
 
 - **Profile picture:** [brand/profile-instagram.png](../../brand/profile-instagram.png)
 - **Name:** Orbelis | Tech team
-- **Username:** @orbelisstudio
+- **Username:** @orbelis.co
 - **Category:** Software company
-- **Link:** https://orbelis-studio.vercel.app
+- **Link:** https://orbelis.vercel.app
 - **Contact buttons:** Email: orbelisstudio@gmail.com; Phone / WhatsApp: +91 75105 33289
 - **Highlight covers to create:** About, Services, Work, Contact
 
@@ -72,7 +72,7 @@ Hello, we're Orbelis 👋
 
 Your own tech team, without the hiring. We learn how your business runs, build what it needs and stay until it works.
 
-Software, websites, AI, design and marketing, from Edappal, Kerala, for businesses in India and the UAE.
+Software, websites, AI, design and marketing, for businesses in India and the UAE.
 
 First step? A free consultation. Link in bio.
 
@@ -93,11 +93,11 @@ What they usually don't have is a tech team to build it, and hiring one is out o
 
 That's the gap Orbelis fills. We work inside your business like your own tech team. We learn how you actually run, build what you need (software, websites, AI, design or marketing) and stay until it's working.
 
-We're based in Edappal, Kerala, working with businesses in India and the UAE.
+We work with businesses in India and the UAE.
 
 The first step is a free 20-minute consultation. Tell us what you want to build or what's holding the business back, and we'll come back with a clear recommendation.
 
-Book a free consultation: orbelis-studio.vercel.app
+Book a free consultation: orbelis.vercel.app
 
 #Orbelis #SmallBusiness #Kerala #WebDevelopment #DigitalTransformation
 ```
@@ -178,7 +178,7 @@ We do it the other way round, the way your own tech team would:
 
 Sometimes the honest answer is that you don't need anything from us. We'd rather say that than sell you something you won't use.
 
-Book a free consultation: orbelis-studio.vercel.app
+Book a free consultation: orbelis.vercel.app
 
 #SmallBusiness #TechTeam #DigitalTransformation #Orbelis
 ```
@@ -355,7 +355,7 @@ Safari Typing Services is a typing and document services centre in Ajman. We bui
 
 Different industries, different countries, same approach: understand the business first, then build the smallest thing that does the job well.
 
-If your business is next, book a free consultation at orbelis-studio.vercel.app
+If your business is next, book a free consultation at orbelis.vercel.app
 
 #WebDevelopment #Kerala #UAE #SmallBusiness #Orbelis
 ```
@@ -381,6 +381,6 @@ Got an idea you keep coming back to? Tell us about it. Free consultation via the
 
 ## Stories
 
-- **Mon 19 Oct, and again any quiet day:** [story-01-book-a-free-consultation.png](stories/story-01-book-a-free-consultation.png). Add a Link sticker over the button area, pointing to orbelis-studio.vercel.app.
+- **Mon 19 Oct, and again any quiet day:** [story-01-book-a-free-consultation.png](stories/story-01-book-a-free-consultation.png). Add a Link sticker over the button area, pointing to orbelis.vercel.app.
 - **Thu 29 Oct (with the LinkedIn stages post):** [story-02-which-stage-are-you-at.png](stories/story-02-which-stage-are-you-at.png). Add a Poll sticker in the empty space with four options: Just an idea / Launching / Running / Growing.
-- **Tue 27 Oct (with the LinkedIn how-we-work post):** [story-03-your-own-tech-team.png](stories/story-03-your-own-tech-team.png). Add a Link sticker pointing to orbelis-studio.vercel.app, or a Question sticker: "What would you build if you had a tech team?"
+- **Tue 27 Oct (with the LinkedIn how-we-work post):** [story-03-your-own-tech-team.png](stories/story-03-your-own-tech-team.png). Add a Link sticker pointing to orbelis.vercel.app, or a Question sticker: "What would you build if you had a tech team?"
