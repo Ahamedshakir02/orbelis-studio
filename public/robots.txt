@@ -6,6 +6,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /demo/
 
 # Search
 User-agent: Googlebot
@@ -13,6 +14,7 @@ User-agent: Bingbot
 User-agent: DuckDuckBot
 User-agent: Applebot
 Allow: /
+Disallow: /demo/
 
 # AI assistants and answer engines
 User-agent: GPTBot
@@ -28,5 +30,6 @@ User-agent: Applebot-Extended
 User-agent: Meta-ExternalAgent
 User-agent: CCBot
 Allow: /
+Disallow: /demo/
 
 Sitemap: https://orbelisstudio.com/sitemap.xml
