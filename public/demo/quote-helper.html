@@ -7,7 +7,7 @@
 <title>Print Quote Helper</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Malayalam:wght@400;600&display=swap">
 <style>
 /* Layout: a print-bed grid ground; three stations left to right: enquiry in, details read, quote out */
 :root {
@@ -24,8 +24,8 @@
   --warn: #a35a00;
   --warn-soft: #f8e8d2;
   --bubble: #ffffff;
-  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
-  --body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Archivo", "Noto Sans Malayalam", "Arial Narrow", system-ui, sans-serif;
+  --body: "Archivo", "Noto Sans Malayalam", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
@@ -161,7 +161,8 @@ h1 {
 details.calc summary { cursor: pointer; font-size: 13px; color: var(--muted); }
 details.calc[open] summary { margin-bottom: 8px; }
 
-.reply-label { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.reply-label select { font: inherit; font-size: 12px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; }
+.reply-label { align-items: center; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
 .reply {
   width: 100%; min-height: 215px; resize: vertical; font: inherit; font-size: 14px; line-height: 1.5; color: var(--ink);
   background: var(--accent-soft); border: 1px solid transparent; border-radius: 14px 4px 14px 14px; padding: 12px;
@@ -207,6 +208,8 @@ footer b { color: var(--ink); }
     <button class="chip" data-s="1">Rush stand order</button>
     <button class="chip" data-s="2">Vague broken part</button>
     <button class="chip" data-s="3">Needs a design</button>
+    <button class="chip" data-s="5">Manglish message</button>
+    <button class="chip" data-s="6">Malayalam message</button>
   </div>
 
   <div class="stations">
@@ -289,7 +292,8 @@ footer b { color: var(--ink); }
         <summary>How this price was worked out</summary>
         <table class="breakdown" id="breakdown"></table>
       </details>
-      <div class="reply-label"><span>Drafted reply · edit before sending</span><span id="conf"></span></div>
+      <div class="reply-label"><span>Drafted reply · edit before sending</span><label>Reply in <select id="lang" aria-label="Reply language"><option value="en">English</option><option value="manglish">Manglish</option><option value="ml">Malayalam</option></select></label></div>
+      <div class="reply-label"><span id="conf"></span></div>
       <textarea class="reply" id="reply" aria-label="Drafted reply"></textarea>
       <div class="row">
         <button class="btn" id="approve">Approve and copy</button>
@@ -340,7 +344,9 @@ footer b { color: var(--ink); }
     "Hello, I want 25 phone stands in white PETG, size 80x70x90mm. I have the STL file. Need it urgently by this Saturday for an event. How much including courier?",
     "Hi, a plastic clip on my mixer broke. Can you print a new one? I can send a photo.",
     "Hey, I need a custom name plate for my shop counter, around 30cm x 8cm. No file, can you design it? 2 pieces, any colour except red. Need in 2 weeks.",
-    "Hi, need 4 phone mounts for my car dashboard, about 90 x 60 x 40 mm, ABS in black because it gets hot inside the car. I have the STL. Can you ship in 7 days?"
+    "Hi, need 4 phone mounts for my car dashboard, about 90 x 60 x 40 mm, ABS in black because it gets hot inside the car. I have the STL. Can you ship in 7 days?",
+    "Chetta, 60 keychain venam, 5cm x 3cm x 4mm, black PLA il. Shop logo und, STL ayakkam. 10 divasathinullil kittumo? Rate ethra aakum?",
+    "നമസ്കാരം, 30 കീചെയിൻ വേണം. 5cm x 3cm x 4mm, കറുപ്പ് PLA. 10 ദിവസത്തിനുള്ളിൽ കിട്ടുമോ? റേറ്റ് എത്രയാകും?"
   ];
 
   const $ = (id) => document.getElementById(id);
@@ -374,14 +380,14 @@ footer b { color: var(--ink); }
     // size: 50 x 30 x 4 mm | 30cm x 8cm | 80x70x90mm
     const m3 = t.match(/(\d+(?:\.\d+)?)\s*(mm|cm|in)?\s*[x*]\s*(\d+(?:\.\d+)?)\s*(mm|cm|in)?\s*(?:[x*]\s*(\d+(?:\.\d+)?)\s*(mm|cm|in)?)?/);
     if (m3) {
-      const unit = m3[6] || m3[4] || m3[2] || (/\bcm\b/.test(t) ? "cm" : "mm");
-      const f = unit === "cm" ? 10 : unit === "in" ? 25.4 : 1;
-      out.L = Math.round(parseFloat(m3[1]) * f);
-      out.W = Math.round(parseFloat(m3[3]) * f);
-      out.H = m3[5] ? Math.round(parseFloat(m3[5]) * f) : null;
+      const last = m3[6] || m3[4] || m3[2] || (/\bcm\b/.test(t) ? "cm" : "mm");
+      const mm = (n, u) => Math.round(parseFloat(n) * ({ cm: 10, in: 25.4, mm: 1 }[u || last]));
+      out.L = mm(m3[1], m3[2]);
+      out.W = mm(m3[3], m3[4]);
+      out.H = m3[5] ? mm(m3[5], m3[6]) : null;
     }
     // quantity
-    let q = t.match(/(\d+)\s*(?:pcs|pieces|nos|units|qty|numbers|keychains|stands|plates|pieces?)\b/) ||
+    let q = t.match(/(\d+)\s*(?:pcs|pieces|nos|units|qty|numbers|ennam|enam|keychains?|stands?|plates?|mounts?|pieces?)\b/) || t.match(/(\d+)\s*(?:എണ്ണം|കീചെയിൻ|പീസ്)/) ||
             t.match(/\b(?:need|want|order|make)\s+(\d+)\b/) || t.match(/\bqty\s*:?\s*(\d+)/);
     if (q) out.qty = parseInt(q[1], 10);
     else if (/\b(a|one)\s+(new\s+)?(one|piece|clip|part|name ?plate|plate|stand)\b/.test(t)) out.qty = 1;
@@ -392,10 +398,12 @@ footer b { color: var(--ink); }
     const cols = ["black","white","gold","silver","red","blue","green","yellow","orange","grey","gray","pink","purple","transparent","clear"];
     const neg = t.match(/except\s+(\w+)/);
     const found = cols.filter((c) => new RegExp("\\b" + c + "\\b").test(t) && !(neg && neg[1] === c));
+    const mlCols = { "കറുപ്പ്": "Black", "കറുത്ത": "Black", "വെള്ള": "White", "ചുവപ്പ്": "Red", "നീല": "Blue", "പച്ച": "Green", "മഞ്ഞ": "Yellow", "സ്വർണ്ണ": "Gold" };
+    for (const [k, v] of Object.entries(mlCols)) if (t.includes(k) && !found.includes(v.toLowerCase())) found.push(v.toLowerCase());
     if (/any colou?r/.test(t)) out.colour = neg ? "Any except " + neg[1] : "Any";
     else if (found.length) out.colour = found.map((c) => c[0].toUpperCase() + c.slice(1)).join(" and ");
     // deadline in days
-    let d = t.match(/(?:within|in|by)\s+(\d+)\s*days?/);
+    let d = t.match(/(?:within|in|by)\s+(\d+)\s*days?/) || t.match(/(\d+)\s*(?:divas|dhivas|days?\b|ദിവസ)/);
     if (d) out.deadline = parseInt(d[1], 10);
     else if ((d = t.match(/(\d+)\s*weeks?/))) out.deadline = parseInt(d[1], 10) * 7;
     else if (/\b(two|2)\s+weeks?\b/.test(t)) out.deadline = 14;
@@ -413,8 +421,10 @@ footer b { color: var(--ink); }
     out.photoOnly = /photo|picture|pic\b/.test(t) && !m3;
     // item name
     const items = ["keychain","phone mount","phone stand","mount","name plate","nameplate","clip","stand","figurine","bracket","cover","case","gear","holder","logo","trophy","lamp"];
-    const it = items.find((w) => t.includes(w));
+    let it = items.find((w) => t.includes(w));
+    if (!it && t.includes("കീചെയിൻ")) it = "keychain";
     if (it) out.item = it === "nameplate" ? "Name plate" : it[0].toUpperCase() + it.slice(1) + (out.qty > 1 && !it.endsWith("s") ? "s" : "");
+    out.lang = /[\u0D00-\u0D7F]/.test(text) ? "ml" : /\b(venam|undo|ethra|cheyyamo|kittumo|chetta|chechi|divas\w*|aakum|ayakkam|mathi|alle|enthanu|und)\b/.test(t) ? "manglish" : "en";
     return out;
   }
 
@@ -423,6 +433,7 @@ footer b { color: var(--ink); }
   function readMessage() {
     const p = parse(el.msg.value);
     flags = { urgent: p.urgent, hasFile: p.hasFile || !!stl, photoOnly: p.photoOnly };
+    $("lang").value = p.lang;
     el.item.value = p.item || "";
     if (stl) { el.L.value = stl.L; el.W.value = stl.W; el.H.value = stl.H; }
     else { el.L.value = p.L ?? ""; el.W.value = p.W ?? ""; el.H.value = p.H ?? (p.L ? 5 : ""); }
@@ -448,7 +459,7 @@ footer b { color: var(--ink); }
     while (left > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0) left--; }
     return d;
   }
-  const fmtDate = (d) => d.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" });
+  const fmtDate = (d, lang) => d.toLocaleDateString(lang === "ml" ? "ml-IN" : "en-IN", { weekday: "short", day: "numeric", month: "short" });
 
   function compute() {
     const t0 = performance.now();
@@ -499,7 +510,7 @@ footer b { color: var(--ink); }
       rows.push(["Total", total]);
       $("grams").textContent = (grams * qty >= 1000 ? (grams * qty / 1000).toFixed(2) + " kg" : Math.round(grams * qty) + " g");
       $("hours").textContent = totalHours.toFixed(1) + " h";
-      $("ready").textContent = fmtDate(readyDate);
+      $("ready").textContent = fmtDate(readyDate, "en");
       $("total").textContent = rs(total);
       $("per").textContent = `${rs(each)} per piece · incl. courier`;
     } else {
@@ -524,6 +535,8 @@ footer b { color: var(--ink); }
   }
 
   function draft(o) {
+    const lang = $("lang").value;
+    if (lang !== "en") return draftLocal(o, lang);
     const item = (el.item.value || "item").toLowerCase();
     if (o.missing.length) {
       const asks = [];
@@ -545,6 +558,37 @@ footer b { color: var(--ink); }
     lines.push(``);
     lines.push(o.exact ? `Final price after we check your file. To start, please confirm and pay a 50% advance.` : `This is an estimate. Send the STL file if you have it and we'll confirm the exact price.`);
     return lines.join("\n");
+  }
+
+  // Replies in the customer's own way of writing
+  function draftLocal(o, lang) {
+    const ml = lang === "ml";
+    const item = (el.item.value || "item").toLowerCase();
+    if (o.missing.length) {
+      return ml
+        ? "നമസ്കാരം! സഹായിക്കാം.\n\nകൃത്യമായ വിലയും തീയതിയും പറയാൻ, " + (o.missing.includes("size") ? "ഏകദേശ വലിപ്പം (നീളം, വീതി, ഉയരം)" : "") + (o.missing.length > 1 ? ", " : "") + (o.missing.includes("quantity") ? "എത്ര എണ്ണം വേണം" : "") + " എന്നൊന്ന് അറിയിക്കാമോ? STL ഫയൽ ഉണ്ടെങ്കിൽ അതും അയക്കൂ, ഉടനെ വില പറയാം."
+        : "Hi! Help cheyyam.\n\nCorrect rate um date um parayan, " + (o.missing.includes("size") ? "size (length, width, height)" : "") + (o.missing.length > 1 ? " um " : "") + (o.missing.includes("quantity") ? "ethra ennam venam ennum" : "") + " onnu parayamo? STL file undengil athum ayakkoo, udane rate parayam.";
+    }
+    const cv = el.colour.value.trim();
+    const spec = `${o.qty} × ${item} (${el.L.value} × ${el.W.value} × ${el.H.value} mm), ${cv ? cv.toLowerCase() + " " : ""}${o.mat.name}:`;
+    const ML_MONTHS = ["ജനുവരി","ഫെബ്രുവരി","മാർച്ച്","ഏപ്രിൽ","മേയ്","ജൂൺ","ജൂലൈ","ഓഗസ്റ്റ്","സെപ്റ്റംബർ","ഒക്ടോബർ","നവംബർ","ഡിസംബർ"];
+    const d = o.readyDate;
+    const date = ml ? `${ML_MONTHS[d.getMonth()]} ${d.getDate()}` : d.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+    const L = ml ? [
+      "നമസ്കാരം! അന്വേഷിച്ചതിന് നന്ദി.", "", spec,
+      `• ഒന്നിന് ${rs(o.each)}, ആകെ ${rs(o.total)} (പാക്കിംഗും കൊറിയറും ഉൾപ്പെടെ)`,
+      `• ${date}-നുള്ളിൽ എത്തിക്കാം${o.rushOn ? " (അർജന്റ് ഓർഡർ)" : ""}`
+    ] : [
+      "Hi! Enquiry-kku nanni.", "", spec,
+      `• Onninu ${rs(o.each)}, total ${rs(o.total)} (packing um courier um ulpede)`,
+      `• ${date}-nu munne ethikkam${o.rushOn ? " (urgent order)" : ""}`
+    ];
+    if (o.design === "new") L.push(ml ? `• ഡിസൈനും ചെയ്തു തരാം, ${rs(R.designNew)} മുതൽ. ഒന്ന് സംസാരിച്ച ശേഷം ഉറപ്പിക്കാം` : `• Design um cheythu tharam, ${rs(R.designNew)} muthal. Onnu samsarichittu confirm cheyyam`);
+    L.push("");
+    L.push(o.exact
+      ? (ml ? "ഫയൽ പരിശോധിച്ച ശേഷം ഫൈനൽ വില ഉറപ്പിക്കാം. തുടങ്ങാൻ 50% അഡ്വാൻസ് അയച്ചാൽ മതി." : "File check cheythittu final rate parayam. Start cheyyan 50% advance ayachal mathi.")
+      : (ml ? "ഇതൊരു ഏകദേശ വിലയാണ്. STL ഫയൽ ഉണ്ടെങ്കിൽ അയക്കൂ, കൃത്യമായ വില പറയാം." : "Ithu oru estimate aanu. STL file undengil ayakkoo, exact rate parayam."));
+    return L.join("\n");
   }
 
   // ---------- STL reading (binary and text) ----------
@@ -600,6 +644,7 @@ footer b { color: var(--ink); }
   document.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => loadSample(+c.dataset.s)));
   $("read").addEventListener("click", readMessage);
   $("redo").addEventListener("click", compute);
+  $("lang").addEventListener("change", compute);
   Object.values(el).forEach((n) => { if (n !== el.msg) n.addEventListener("input", compute); });
   $("approve").addEventListener("click", () => {
     const txt = $("reply").value;
