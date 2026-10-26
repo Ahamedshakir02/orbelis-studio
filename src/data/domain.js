@@ -14,7 +14,7 @@
 export const DOMAIN_LIVE = false
 
 export const DOMAIN = 'orbelis.co'
-export const FALLBACK_URL = 'https://orbelis-studio.vercel.app'
+export const FALLBACK_URL = 'https://orbelis.vercel.app'
 
 export const SITE_URL = DOMAIN_LIVE ? `https://${DOMAIN}` : FALLBACK_URL
 export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, '')
