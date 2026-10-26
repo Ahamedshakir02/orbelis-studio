@@ -274,7 +274,7 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 
 ## 9. Studio
 
-### Your tech team, inside your business.
+### Your own tech team, without the hiring.
 
 Most businesses know what would help them grow. What they lack is a tech team to build it, and hiring one is out of reach for most. Orbelis works as that team. We don't start from a menu of services. We start by learning how your business actually runs: the tools you use, the questions your customers ask and where time and money are lost.
 
