@@ -32,7 +32,7 @@ components, so changing the name or a service is a one-file edit.
 
 The web address lives in `src/data/domain.js`. The chosen domain is
 **orbelis.co** (not bought yet); until it is, everything uses
-https://orbelis-studio.vercel.app. When the domain is live, set
+https://orbelis.vercel.app. When the domain is live, set
 `DOMAIN_LIVE = true` there and rebuild: canonicals, Open Graph, the sitemap,
 robots.txt, the structured data, llms.txt, the brochure and the social pack
 all switch together. Then re-run `npm run brochure`, `npm run social` and

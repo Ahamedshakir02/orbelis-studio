@@ -46,7 +46,7 @@ What they usually don't have is a tech team to build it, and hiring one is out o
 
 That's the gap Orbelis fills. We work inside your business like your own tech team. We learn how you actually run, build what you need (software, websites, AI, design or marketing) and stay until it's working.
 
-We're based in Edappal, Kerala, working with businesses in India and the UAE.
+We work with businesses in India and the UAE.
 
 The first step is a free 20-minute consultation. Tell us what you want to build or what's holding the business back, and we'll come back with a clear recommendation.
 
@@ -226,7 +226,7 @@ export const instagram = [
 
 Your own tech team, without the hiring. We learn how your business runs, build what it needs and stay until it works.
 
-Software, websites, AI, design and marketing, from Edappal, Kerala, for businesses in India and the UAE.
+Software, websites, AI, design and marketing, for businesses in India and the UAE.
 
 First step? A free consultation. Link in bio.`,
     tags: ['#orbelis', '#kerala', '#edappal', '#malappuram', '#keralabusiness', '#smallbusinessindia', '#uaebusiness', '#webdesign', '#appdevelopment', '#digitalmarketing'],
@@ -410,7 +410,7 @@ export const stories = [
 
 export const instagramProfile = {
   name: 'Orbelis | Tech team',
-  username: '@orbelisstudio',
+  username: '@orbelis.co',
   category: 'Software company',
   bio: [
     'Your own tech team, without the hiring.',
