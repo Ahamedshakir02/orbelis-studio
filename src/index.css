@@ -209,6 +209,49 @@ html.loading .rise {
     border-color: rgb(var(--c-muted) / 0.45);
   }
 }
+/*
+  Studio: the hiring list crosses itself out. The line is drawn by default;
+  only a revealed block replays it, one item after another, so nothing depends
+  on the animation running.
+*/
+.strike {
+  text-decoration-line: line-through;
+  text-decoration-color: rgb(var(--c-brass) / 0.85);
+  text-decoration-thickness: 1.5px;
+}
+@keyframes strike {
+  from {
+    text-decoration-color: transparent;
+    color: rgb(var(--c-mist));
+  }
+}
+.reveal.in .strike {
+  animation: strike 0.45s ease-out backwards;
+  animation-delay: calc(500ms + var(--i, 0) * 220ms);
+}
+/* A soft brass light in the corner of the "with us" panel. */
+.studio-instead::before {
+  content: '';
+  position: absolute;
+  inset: -40% -40% auto auto;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgb(var(--c-brass) / 0.16), transparent);
+  pointer-events: none;
+}
+.studio-instead > * {
+  position: relative;
+}
+@media (hover: hover) {
+  .belief p {
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .belief:hover p {
+    transform: translateX(6px);
+  }
+}
+
 /* An answer eases in under its question instead of snapping open. */
 details[open] > summary ~ * {
   animation: rise 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;

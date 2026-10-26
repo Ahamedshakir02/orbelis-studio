@@ -330,7 +330,32 @@ export const capabilities = [
 ]
 
 export const studio = {
-  lead: 'Your tech team, inside your business.',
+  lead: 'Your own tech team, without the hiring.',
+  // The one line the Studio section shows under its headline.
+  intro: 'We learn how your business runs, then design, build and market what it needs, all in-house. One studio answers for the result.',
+  // The section's centrepiece: what building a team yourself takes, crossed
+  // out line by line, beside what working with us takes instead.
+  hiring: {
+    label: 'Building a tech team yourself',
+    items: [
+      'Write job posts for a developer, a designer and a marketer',
+      'Spend months interviewing',
+      'Pay salaries before anything is built',
+      'Buy laptops, software and desk space',
+      'Manage the work yourself',
+      'Start again when someone leaves',
+    ],
+    total: 'Months before anything ships',
+  },
+  instead: {
+    label: 'Bringing in Orbelis',
+    steps: [
+      'Tell us how your business runs.',
+      'We build what it needs, quoted before we start.',
+      'We stay on to keep it working and growing.',
+    ],
+    total: 'Small sites live in two weeks',
+  },
   // From the company profile's long description and story; keep them in step.
   body: [
     'Most businesses know what would help them grow. What they lack is a tech team to build it, and hiring one is out of reach for most. Orbelis works as that team. We don\'t start from a menu of services. We start by learning how your business actually runs: the tools you use, the questions your customers ask and where time and money are lost.',
