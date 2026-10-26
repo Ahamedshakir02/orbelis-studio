@@ -155,7 +155,7 @@ function frame(slide, { w, h, page, total }) {
     <div style="position:absolute;left:${pad}px;right:${pad}px;top:${story ? 200 : pad}px;display:flex;justify-content:space-between;align-items:center">${wordmark(story ? 64 : 52)}${counter}</div>
     <div style="position:absolute;left:${pad}px;right:${pad}px;top:${story ? 300 : 200}px;bottom:${story ? 420 : 190}px;display:flex;flex-direction:column;justify-content:center">${body}</div>
     <div style="position:absolute;left:${pad}px;right:${pad}px;bottom:${story ? 260 : pad}px;display:flex;justify-content:space-between;border-top:1px solid ${LINE};padding-top:28px">
-      <div style="${sans(28, MUTED, 400)}">${slide.type === 'cta' || !host ? 'Edappal, Kerala · India and UAE' : host}</div>${story ? `<div style="${sans(28, BRASS, 500)}">Book a free consultation</div>` : swipe}
+      <div style="${sans(28, MUTED, 400)}">${slide.type === 'cta' || !host ? '' : host}</div>${story ? `<div style="${sans(28, BRASS, 500)}">Book a free consultation</div>` : swipe}
     </div>`
 }
 
@@ -173,8 +173,12 @@ let n = 0
 
 // Wait for the browser to exit, not for its pipes to close: Chrome's helper
 // processes inherit them and can hold them open long after the shot is taken.
-const run = (cmd, args) =>
-  new Promise((ok, fail) => spawn(cmd, args, { stdio: 'ignore' }).on('error', fail).on('exit', ok))
+const run = (cmd, args, timeout = 0) =>
+  new Promise((ok, fail) => {
+    const child = spawn(cmd, args, { stdio: 'ignore' })
+    const timer = timeout ? setTimeout(() => child.kill(), timeout) : null
+    child.on('error', fail).on('exit', (code) => { clearTimeout(timer); ok(code) })
+  })
 const jobs = []
 
 function shoot(html, w, h, out, pdf = false) {
@@ -194,7 +198,10 @@ function shoot(html, w, h, out, pdf = false) {
   ]
   jobs.push(async () => {
     // Each browser needs its own profile to run side by side with the others.
-    await run(browser, [...args, `--user-data-dir=${join(tmp, `u${n++}`)}`])
+    // A headless browser can stall now and then; give it a minute, then retry once.
+    for (let attempt = 0; attempt < 2 && !existsSync(out); attempt++) {
+      await run(browser, [...args, `--user-data-dir=${join(tmp, `u${n++}`)}`], 60_000)
+    }
     if (!existsSync(out)) throw new Error(`Browser exited without writing ${out}`)
     console.log(out.slice(root.length + 1).replace(/\\/g, '/'))
   })
@@ -308,7 +315,7 @@ ${rows.map((p) => `| ${p.day} | ${p.platform} | ${title(p)} | ${p.format} | ${fi
 
 ## Instagram profile
 
-Instagram: [@orbelisstudio](https://www.instagram.com/orbelisstudio/). The website footer and its search data already link to it.
+Instagram: [@orbelis.co](https://www.instagram.com/orbelis.co/). The website footer and its search data already link to it.
 
 - **Profile picture:** [brand/profile-instagram.png](../../brand/profile-instagram.png)
 - **Name:** ${instagramProfile.name}
