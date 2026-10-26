@@ -30,6 +30,7 @@ import {
   studio,
   work,
 } from '../src/data/site.js'
+import { SITE_HOST, PRINT_HOST } from '../src/data/domain.js'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const output = join(root, 'public', 'orbelis-profile.pdf')
@@ -37,7 +38,10 @@ const output = join(root, 'public', 'orbelis-profile.pdf')
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
-const host = brand.url.replace(/^https?:\/\//, '')
+// The working link (Vercel until orbelis.co is live) goes in the contact list;
+// page footers and the cover print the address only once the domain is live.
+const host = SITE_HOST
+const printHost = PRINT_HOST
 let pageNo = 0
 
 /** One A4 sheet. Every page after the cover carries the same quiet footer. */
@@ -45,7 +49,7 @@ function page(body, { cover = false } = {}) {
   pageNo += 1
   const footer = cover
     ? ''
-    : `<footer><span>${esc(brand.full)}</span><span>${esc(host)}</span><span>${String(pageNo).padStart(2, '0')}</span></footer>`
+    : `<footer><span>${esc(brand.full)}</span><span>${esc(printHost ?? '')}</span><span>${String(pageNo).padStart(2, '0')}</span></footer>`
   return `<section class="page${cover ? ' cover' : ''}">${body}${footer}</section>`
 }
 
@@ -75,7 +79,7 @@ const contactLines = [
   // Phone appears only once a real number is set in site.js.
   ...(brand.phone ? [['Phone / WhatsApp', brand.phone]] : []),
   [
-    'Studio',
+    'Based in',
     [brand.address.street, `${brand.address.locality}, ${brand.address.region} ${brand.address.postalCode}`, 'India']
       .filter(Boolean)
       .join(', '),
@@ -88,12 +92,12 @@ const pages = [
      <p class="eyebrow">Company profile</p>
      <h1>${esc(brand.name)}<span class="brass">.</span></h1>
      <p class="tagline">${esc(brand.tagline)}</p>
-     <p class="cover-foot">${esc(brand.location)}<br>${esc(host)}</p>`,
+     <p class="cover-foot">${esc(brand.location)}${printHost ? `<br>${esc(printHost)}` : ''}</p>`,
     { cover: true },
   ),
 
   page(
-    `${head('The studio', studio.lead)}
+    `${head('Who we are', studio.lead)}
      ${studio.body.map((p) => `<p class="lede">${esc(p)}</p>`).join('')}
      <dl class="facts">${studio.facts.map((f) => `<div><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join('')}</dl>
      <div class="rule"></div>
@@ -113,7 +117,7 @@ const pages = [
   ),
 
   page(
-    `${head('Services at a glance', 'Build, run and grow, from one studio.')}
+    `${head('Services at a glance', 'Build, run and grow, from one team.')}
      <table>${services
        .map(
          (s) =>

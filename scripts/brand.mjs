@@ -31,6 +31,7 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { findBrowser } from './render.mjs'
 import { brand } from '../src/data/site.js'
+import { PRINT_HOST } from '../src/data/domain.js'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const outDir = join(root, 'brand')
@@ -41,7 +42,8 @@ const PAPER = '#ffffff'
 const MIST = '#e8eaf0'
 const MUTED = '#878e9e'
 const BRASS = '#e8a33d'
-const host = brand.url.replace(/^https?:\/\//, '')
+// Null until orbelis.co is live; images leave the address out until then.
+const host = PRINT_HOST
 // Two lines: split between sentences, or after the first comma when the
 // tagline is a single sentence ("Your ideas, / built and launched.").
 const [line1, ...rest] = brand.tagline.split(brand.tagline.includes('. ') ? /(?<=\.)\s+/ : /(?<=,)\s+/)
@@ -90,7 +92,7 @@ const files = [
       <div style="position:absolute;left:84px;right:84px;bottom:290px">${headline(110)}</div>
       <div style="position:absolute;left:84px;bottom:180px">${pill(32, cta)}</div>
       <div style="position:absolute;left:84px;right:84px;bottom:84px;display:flex;justify-content:space-between;border-top:1px solid #242831;padding-top:28px">
-        ${small(30, services)}${small(30, host)}
+        ${small(30, services)}${host ? small(30, host) : ''}
       </div>`,
   },
   {
@@ -100,14 +102,14 @@ const files = [
       <div style="position:absolute;left:60px;right:60px;top:980px;text-align:center">${headline(78)}</div>
       <div style="position:absolute;left:0;right:0;top:1210px;text-align:center">${small(36, services)}</div>
       <div style="position:absolute;left:0;right:0;top:1340px;text-align:center">${pill(38, cta)}</div>
-      <div style="position:absolute;left:0;right:0;bottom:180px;text-align:center">${small(32, host)}</div>`,
+      <div style="position:absolute;left:0;right:0;bottom:180px;text-align:center">${host ? small(32, host) : ''}</div>`,
   },
   {
     name: 'banner-x-1500x500.png', w: 1500, h: 500, bg: INK,
     body: `${glow(1250, 250, 360)}
       <div style="position:absolute;right:120px;top:198px">${wordmark(104, MIST)}</div>
       <div style="position:absolute;left:110px;top:120px">${headline(74)}</div>
-      <div style="position:absolute;left:110px;bottom:92px">${small(26, services + ' · ' + host)}</div>`,
+      <div style="position:absolute;left:110px;bottom:92px">${small(26, [services, host].filter(Boolean).join(' · '))}</div>`,
   },
   {
     // Personal-profile cover (4:1). The company page uses the one below.

@@ -36,18 +36,18 @@ const groupHints = {
 export const passages = [
   {
     id: 'brand',
-    section: 'Studio',
+    section: 'About',
     title: brand.full,
     href: '#top',
     text: `${brand.full}. ${brand.tagline} It works as a business's own tech team, learning how the business runs and then building the solution it needs: SaaS products and web applications, fast websites, brand identity and UI/UX design, AI assistants that answer from the client's own content, automation of repetitive work, and the marketing that brings people to it (Meta and Google ads, SEO, social media and creative design), based in ${brand.location}.`,
-    keywords: 'orbelis studio who what about intro name based located kerala india where offer',
+    keywords: 'orbelis who what about intro name based located kerala india where offer',
   },
   {
     id: 'contact',
     section: 'Contact',
     title: 'Getting in touch',
     href: '#contact',
-    text: `Email ${brand.email}, or send the form at the bottom of this page. The studio is in ${brand.location}. You hear back from the studio directly, usually the same day.`,
+    text: `Email ${brand.email}, or send the form at the bottom of this page. We are in ${brand.location}. You hear back from us directly, usually the same day.`,
     keywords:
       'contact email reach call phone whatsapp hire start begin enquiry enquire quote talk speak book meeting get in touch',
   },
@@ -62,7 +62,7 @@ export const passages = [
   {
     id: 'manifesto',
     section: 'Approach',
-    title: 'What the studio believes',
+    title: 'What we believe',
     href: '#studio',
     text: manifesto.join(' '),
     keywords: 'why different approach philosophy belief template agency brochure',
@@ -129,8 +129,8 @@ export const passages = [
   },
   {
     id: 'studio-lead',
-    section: 'Studio',
-    title: 'The studio',
+    section: 'About',
+    title: 'About Orbelis',
     href: '#studio',
     text: `${studio.lead} ${studio.body.join(' ')} ${studio.facts.map((f) => `${f.k}: ${f.v}`).join('. ')}.`,
     keywords:
@@ -147,16 +147,16 @@ export const passages = [
   },
   {
     id: 'capabilities',
-    section: 'Studio',
+    section: 'About',
     title: 'Technology used',
     href: '#studio',
-    text: `The studio works across: ${capabilities.join(', ')}.`,
+    text: `We work across: ${capabilities.join(', ')}.`,
     keywords:
       'tech stack technology framework react next node python language build tools wordpress shopify',
   },
   {
     id: 'stats',
-    section: 'Studio',
+    section: 'About',
     title: 'Standards held to',
     href: '#studio',
     text: stats.map((s) => `${s.value}${s.suffix} — ${s.label}`).join('. ') + '.',

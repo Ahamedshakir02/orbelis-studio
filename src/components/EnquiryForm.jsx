@@ -155,7 +155,7 @@ export default function EnquiryForm() {
       >
         <p className="eyebrow mb-4">Received</p>
         <h3 ref={doneRef} tabIndex={-1} className="font-semibold text-2xl tracking-tight focus:outline-none md:text-3xl">
-          {ENDPOINT ? 'Got it. That came straight to the studio.' : 'Your email app should now be open.'}
+          {ENDPOINT ? 'Got it. That came straight to us.' : 'Your email app should now be open.'}
         </h3>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
           {ENDPOINT

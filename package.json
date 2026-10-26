@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Orbelis Studio — studio site.",
+  "description": "Orbelis — company website.",
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/prerender.mjs",

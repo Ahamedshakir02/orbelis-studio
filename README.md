@@ -1,6 +1,6 @@
-# Orbelis Studio
+# Orbelis
 
-Studio site for Orbelis Studio — business automation, an AI assistant that
+Company website for Orbelis — business automation, an AI assistant that
 answers from the client's own content, the applications and websites they run on,
 and the marketing that brings people to them.
 
@@ -28,7 +28,15 @@ npm run preview  # serve the production build locally
 
 Every piece of copy lives in `src/data/site.js` — services, case studies,
 process, capabilities, contact details. Nothing is hard-coded in the
-components, so changing the studio name or a service is a one-file edit.
+components, so changing the name or a service is a one-file edit.
+
+The web address lives in `src/data/domain.js`. The chosen domain is
+**orbelis.co** (not bought yet); until it is, everything uses
+https://orbelis-studio.vercel.app. When the domain is live, set
+`DOMAIN_LIVE = true` there and rebuild: canonicals, Open Graph, the sitemap,
+robots.txt, the structured data, llms.txt, the brochure and the social pack
+all switch together. Then re-run `npm run brochure`, `npm run social` and
+`npm run brand` so the images print the address.
 
 **No prices are published.** Every project is quoted to its requirements, so
 the site explains how pricing works and never states a figure. There is no
@@ -259,7 +267,7 @@ and the same file can be uploaded to a flipbook host.
 
 Blocking — the site should not go live with these:
 
-- [ ] Point `brand.url`, the canonical and OG URLs in all four HTML files, `robots.txt` and `sitemap.xml` at the real domain
+- [ ] Buy orbelis.co, point it at Vercel, then set `DOMAIN_LIVE = true` in `src/data/domain.js`
 - [ ] Have a lawyer read `src/data/legal.js`, especially if you take EU or UK clients
 - [ ] Set `VITE_FORM_ENDPOINT` and send a test enquiry end to end
 
@@ -268,13 +276,13 @@ from the footer, the mobile CTA and the structured data until it is set:
 
 - [ ] Street address in `brand.address.street`
 - [x] Phone and WhatsApp number in `brand.phone` / `brand.whatsapp` (+91 75105 33289)
-- [ ] Social profile URLs in `brand.socials` — the studio's own profiles, not the bare domain (LinkedIn is set; Instagram still to add)
+- [ ] Social profile URLs in `brand.socials` — our own profiles, not the bare domain (LinkedIn is set; Instagram still to add)
 - [ ] Public URL for a work entry, as `href` — the card then links to it
 
 Then:
 
 - [ ] Add real case-study imagery to the work cards — `image` + `imageAlt` on each entry in `work`
-- [ ] Set up the domain. Enquiries go to orbelisstudio@gmail.com until a mailbox on the domain exists
+- [ ] Set up a mailbox on orbelis.co. Enquiries go to orbelisstudio@gmail.com until a mailbox on the domain exists
 - [ ] Run Lighthouse; keep performance ≥ 90 on mobile
 - [ ] Validate the JSON-LD in Google's Rich Results Test
 - [ ] Re-run the assistant question set after any copy change
