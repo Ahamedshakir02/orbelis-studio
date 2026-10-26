@@ -28,6 +28,7 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { findBrowser } from './render.mjs'
 import { brand } from '../src/data/site.js'
+import { PRINT_HOST } from '../src/data/domain.js'
 import { linkedin, instagram, stories, instagramProfile, start } from '../content/social/posts.js'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
@@ -38,7 +39,8 @@ const LINE = '#242831'
 const MIST = '#e8eaf0'
 const MUTED = '#878e9e'
 const BRASS = '#e8a33d'
-const host = brand.url.replace(/^https?:\/\//, '')
+// Null until orbelis.co is live; images leave the address out until then.
+const host = PRINT_HOST
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
@@ -134,7 +136,7 @@ const bodies = {
       <div style="${H(104)}"><div>Let’s talk about</div><div style="color:${MUTED}">your business.</div></div>
       <div style="align-self:flex-start;background:${BRASS};color:${INK};${sans(40, INK, 600)};border-radius:999px;padding:30px 52px">Book a free consultation</div>
       <div style="display:flex;flex-direction:column;gap:18px;margin-top:8px">
-        ${[`WhatsApp  ${brand.phone}`, brand.email, host].map((t) => `<div style="${sans(36, MIST, 400)}">${esc(t)}</div>`).join('')}
+        ${[`WhatsApp  ${brand.phone}`, brand.email, host].filter(Boolean).map((t) => `<div style="${sans(36, MIST, 400)}">${esc(t)}</div>`).join('')}
       </div>
     </div>`,
 }
@@ -153,7 +155,7 @@ function frame(slide, { w, h, page, total }) {
     <div style="position:absolute;left:${pad}px;right:${pad}px;top:${story ? 200 : pad}px;display:flex;justify-content:space-between;align-items:center">${wordmark(story ? 64 : 52)}${counter}</div>
     <div style="position:absolute;left:${pad}px;right:${pad}px;top:${story ? 300 : 200}px;bottom:${story ? 420 : 190}px;display:flex;flex-direction:column;justify-content:center">${body}</div>
     <div style="position:absolute;left:${pad}px;right:${pad}px;bottom:${story ? 260 : pad}px;display:flex;justify-content:space-between;border-top:1px solid ${LINE};padding-top:28px">
-      <div style="${sans(28, MUTED, 400)}">${slide.type === 'cta' ? 'Edappal, Kerala · India and UAE' : host}</div>${story ? `<div style="${sans(28, BRASS, 500)}">Book a free consultation</div>` : swipe}
+      <div style="${sans(28, MUTED, 400)}">${slide.type === 'cta' || !host ? 'Edappal, Kerala · India and UAE' : host}</div>${story ? `<div style="${sans(28, BRASS, 500)}">Book a free consultation</div>` : swipe}
     </div>`
 }
 

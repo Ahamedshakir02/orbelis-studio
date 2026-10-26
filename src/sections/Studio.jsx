@@ -18,7 +18,7 @@ export default function Studio() {
   const { hiring, instead, facts } = studio
 
   return (
-    <Section id="studio" label="Studio" title={studio.lead} intro={studio.intro}>
+    <Section id="studio" label="About" title={studio.lead} intro={studio.intro}>
       <div className="grid items-stretch gap-4 md:grid-cols-[1fr_auto_1fr] md:gap-5">
         {/* What you'd have to do without us. */}
         <div className="rounded-[22px] border border-line bg-surface p-7 md:p-9">

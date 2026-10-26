@@ -1,9 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'node:path'
+import { SITE_URL } from './src/data/domain.js'
+
+/** Fills %SITE_URL% in the HTML pages from the one domain setting. */
+const siteUrl = () => ({
+  name: 'site-url',
+  transformIndexHtml: { order: 'pre', handler: (html) => html.replaceAll('%SITE_URL%', SITE_URL) },
+})
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), siteUrl()],
   build: {
     rollupOptions: {
       /**

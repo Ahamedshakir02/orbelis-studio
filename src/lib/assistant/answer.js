@@ -58,7 +58,7 @@ function matchIntent(query) {
   if (has(q, 'services', 'what do you do', 'what do you offer', 'what can you do', 'what do you build')) {
     const lines = services.map((s) => `· ${s.title}`).join('\n')
     return {
-      text: `${services.length} services, all from one studio:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
+      text: `${services.length} services, all from one team:\n\n${lines}\n\nEach is quoted to what you need. The Services section says what is in each.`,
       source: { label: 'Services', href: '#services' },
       actions: ['enquiry'],
     }
@@ -90,7 +90,7 @@ function matchIntent(query) {
   // is a language question, not a request for the phone number.
   if (has(q, 'contact', 'email', 'who will reply', 'reply to me', 'reach you', 'hire', 'get in touch', 'talk to', 'speak to', 'speak with', 'call you')) {
     return {
-      text: `Two ways: the form at the bottom of this page, or ${brand.email}. Either one reaches the studio directly, and you usually hear back the same day.`,
+      text: `Two ways: the form at the bottom of this page, or ${brand.email}. Either one reaches us directly, and you usually hear back the same day.`,
       source: { label: 'Contact', href: '#contact' },
       actions: ['enquiry', 'email'],
     }
@@ -116,7 +116,7 @@ function matchIntent(query) {
   // A question every prospect asks and no site answers well.
   if (has(q, 'why you', 'why should', 'better than', 'different', 'instead of')) {
     return {
-      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here one studio does all of it and answers for it.`,
+      text: `Because the pieces usually come from different vendors. One builds the site or the app, another runs the ads, a third wires up the automation, and nobody owns the result. Here one team does all of it and answers for it.`,
       source: { label: 'Studio', href: '#studio' },
     }
   }

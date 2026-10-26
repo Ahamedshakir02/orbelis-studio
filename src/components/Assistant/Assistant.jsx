@@ -194,7 +194,7 @@ export default function Assistant() {
         /* Steps up when the sticky mobile CTA shows — see .launcher in index.css. */
         className="launcher fixed bottom-5 right-4 z-[95] flex h-12 w-12 items-center justify-center rounded-full bg-action text-onaction transition hover:bg-actionhover active:scale-[0.95] md:bottom-8 md:right-8 md:h-14 md:w-14"
       >
-        <span className="sr-only">{open ? 'Close' : 'Open'} the studio assistant</span>
+        <span className="sr-only">{open ? 'Close' : 'Open'} the Orbelis assistant</span>
         {open ? (
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
             <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
@@ -301,7 +301,7 @@ export default function Assistant() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about services, timeline, pricing…"
-              aria-label="Ask the studio assistant a question"
+              aria-label="Ask the Orbelis assistant a question"
               maxLength={300}
               className="min-w-0 flex-1 bg-transparent text-base text-mist outline-none placeholder:text-muted md:text-[13px]"
             />

@@ -11,10 +11,11 @@
  * `brand` and nothing else in the codebase needs to move.
  */
 
+import { SITE_URL } from './domain.js'
+
 export const brand = {
   name: 'Orbelis',
-  suffix: 'Studio',
-  full: 'Orbelis Studio',
+  full: 'Orbelis',
   tagline: 'Your ideas, built and launched.',
   email: 'orbelisstudio@gmail.com',
   /**
@@ -28,7 +29,8 @@ export const brand = {
   // Digits only, with country code — used to build wa.me links.
   whatsapp: '917510533289',
   location: 'Edappal, Kerala. Clients in India and the UAE',
-  url: 'https://orbelisstudio.com',
+  // From src/data/domain.js: the Vercel address until orbelis.co is live.
+  url: SITE_URL,
 
   /**
    * Postal address. Shown in the footer and emitted as schema.org PostalAddress,
@@ -72,7 +74,7 @@ export const nav = [
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'Process', href: '#process' },
-  { label: 'Studio', href: '#studio' },
+  { label: 'About', href: '#studio' },
 ]
 
 export const manifesto = [
@@ -332,7 +334,7 @@ export const capabilities = [
 export const studio = {
   lead: 'Your own tech team, without the hiring.',
   // The one line the Studio section shows under its headline.
-  intro: 'We learn how your business runs, then design, build and market what it needs, all in-house. One studio answers for the result.',
+  intro: 'We learn how your business runs, then design, build and market what it needs, all in-house. One team answers for the result.',
   // The section's centrepiece: what building a team yourself takes, crossed
   // out line by line, beside what working with us takes instead.
   hiring: {
@@ -361,7 +363,7 @@ export const studio = {
     'Most businesses know what would help them grow. What they lack is a tech team to build it, and hiring one is out of reach for most. Orbelis works as that team. We don\'t start from a menu of services. We start by learning how your business actually runs: the tools you use, the questions your customers ask and where time and money are lost.',
     'Then we build what fits, whether that\'s software, a website, an AI assistant, an automation, a brand or a campaign. We build it on your real information, show you working pieces early and change course as we learn. We don\'t treat a project as finished when it\'s handed over. It\'s finished when your business is using it, and we stay on to keep it working and improving.',
     'All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.',
-    'Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.',
+    'Orbelis was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.',
   ],
   facts: [
     { k: 'Based', v: 'Edappal, Kerala, India' },
@@ -456,8 +458,8 @@ export const budgets = [
  */
 export const faq = [
   {
-    q: 'What is Orbelis Studio?',
-    a: 'Orbelis Studio is your own tech team, without the hiring. We are based in Edappal, Kerala, India, and work with clients in India and the UAE. We learn how your business runs, then build what it needs: SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins, and we can stay on each month after launch.',
+    q: 'What is Orbelis?',
+    a: 'Orbelis is your own tech team, without the hiring. We are based in Edappal, Kerala, India, and work with clients in India and the UAE. We learn how your business runs, then build what it needs: SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins, and we can stay on each month after launch.',
   },
   {
     q: 'What do you build?',
@@ -525,10 +527,10 @@ export const faq = [
   },
   {
     q: 'Who does the work? Do you outsource it?',
-    a: 'Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.',
+    a: 'Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one team answers for the result.',
   },
   {
-    q: 'How do I contact Orbelis Studio?',
+    q: 'How do I contact Orbelis?',
     a: `Email ${brand.email}, call or WhatsApp ${brand.phone}, or use the enquiry form on this page. The first step is a free 20-minute consultation.`,
   },
 ]

@@ -65,7 +65,7 @@ export const privacy = {
     {
       h: 'Children',
       p: [
-        'This is a business-to-business studio site. It is not directed at children and no information is knowingly collected from them.',
+        'This is a business-to-business site. It is not directed at children and no information is knowingly collected from them.',
       ],
     },
     {
@@ -98,7 +98,7 @@ export const terms = {
     {
       h: 'Work, ownership and warranties',
       p: [
-        'On full payment, the delivered work and its custom code are yours. Third-party dependencies stay under their own licences, and the studio keeps the right to describe and show the work in a portfolio unless the agreement says otherwise.',
+        'On full payment, the delivered work and its custom code are yours. Third-party dependencies stay under their own licences, and Orbelis keeps the right to describe and show the work in a portfolio unless the agreement says otherwise.',
         'The site is provided as it is. Websites are built to the performance targets stated on this site and tested against them, but no software is warranted to be uninterrupted or error-free, and nothing here guarantees a commercial outcome.',
       ],
     },

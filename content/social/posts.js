@@ -26,6 +26,8 @@
  *   cta        (contact slide, no fields)
  */
 
+import { SITE_URL, SITE_HOST } from '../../src/data/domain.js'
+
 export const start = '2026-10-19' // Monday of week 1
 
 export const linkedin = [
@@ -34,7 +36,7 @@ export const linkedin = [
     day: 'Tue 20 Oct',
     format: 'Single image',
     slides: [
-      { type: 'statement', kicker: 'Introducing Orbelis Studio', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Your own tech team, without the hiring.' },
+      { type: 'statement', kicker: 'Introducing Orbelis', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Your own tech team, without the hiring.' },
     ],
     caption: `Most businesses already know what would help them grow.
 
@@ -42,14 +44,14 @@ A booking system. A faster reply to every customer. A website that brings in enq
 
 What they usually don't have is a tech team to build it, and hiring one is out of reach for most.
 
-That's the gap Orbelis Studio fills. We work inside your business like your own tech team. We learn how you actually run, build what you need (software, websites, AI, design or marketing) and stay until it's working.
+That's the gap Orbelis fills. We work inside your business like your own tech team. We learn how you actually run, build what you need (software, websites, AI, design or marketing) and stay until it's working.
 
 We're based in Edappal, Kerala, working with businesses in India and the UAE.
 
 The first step is a free 20-minute consultation. Tell us what you want to build or what's holding the business back, and we'll come back with a clear recommendation.
 
-Book a free consultation: orbelisstudio.com`,
-    tags: ['#OrbelisStudio', '#SmallBusiness', '#Kerala', '#WebDevelopment', '#DigitalTransformation'],
+Book a free consultation: ${SITE_HOST}`,
+    tags: ['#Orbelis', '#SmallBusiness', '#Kerala', '#WebDevelopment', '#DigitalTransformation'],
   },
   {
     id: 'li-02-ideas-that-never-get-built',
@@ -99,8 +101,8 @@ We do it the other way round, the way your own tech team would:
 
 Sometimes the honest answer is that you don't need anything from us. We'd rather say that than sell you something you won't use.
 
-Book a free consultation: orbelisstudio.com`,
-    tags: ['#SmallBusiness', '#TechTeam', '#DigitalTransformation', '#OrbelisStudio'],
+Book a free consultation: ${SITE_HOST}`,
+    tags: ['#SmallBusiness', '#TechTeam', '#DigitalTransformation', '#Orbelis'],
   },
   {
     id: 'li-04-where-is-your-business',
@@ -149,7 +151,7 @@ Keep: a care plan after launch, or a monthly tech team plan to keep building
 The campaign and the page it lands on are built together, by the same team that learned how your business runs.
 
 Full list in the slides.`,
-    tags: ['#WebDevelopment', '#Branding', '#DigitalMarketing', '#AI', '#OrbelisStudio'],
+    tags: ['#WebDevelopment', '#Branding', '#DigitalMarketing', '#AI', '#Orbelis'],
   },
   {
     id: 'li-06-built-around-your-tools',
@@ -187,7 +189,7 @@ So we build every site to a speed target, not just a design:
 - Under 1 second to load on a mid-range phone over 4G
 - 90+ on Google's mobile speed score
 - Most websites live in two weeks once the scope is agreed
-- No hand-offs to outside vendors: design, build and marketing stay in one studio
+- No hand-offs to outside vendors: design, build and marketing stay under one roof
 
 Curious how your own site does? Run it through PageSpeed Insights (pagespeed.web.dev) and look at the mobile score.`,
     tags: ['#WebDevelopment', '#WebPerformance', '#SEO', '#WebDesign'],
@@ -207,8 +209,8 @@ Safari Typing Services is a typing and document services centre in Ajman. We bui
 
 Different industries, different countries, same approach: understand the business first, then build the smallest thing that does the job well.
 
-If your business is next, book a free consultation at orbelisstudio.com`,
-    tags: ['#WebDevelopment', '#Kerala', '#UAE', '#SmallBusiness', '#OrbelisStudio'],
+If your business is next, book a free consultation at ${SITE_HOST}`,
+    tags: ['#WebDevelopment', '#Kerala', '#UAE', '#SmallBusiness', '#Orbelis'],
   },
 ]
 
@@ -218,16 +220,16 @@ export const instagram = [
     day: 'Mon 19 Oct',
     format: 'Single image',
     slides: [
-      { type: 'statement', kicker: 'Orbelis Studio', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Your own tech team, without the hiring.' },
+      { type: 'statement', kicker: 'Orbelis', title: ['Your ideas,'], muted: ['built and launched.'], sub: 'Your own tech team, without the hiring.' },
     ],
-    caption: `Hello, we're Orbelis Studio 👋
+    caption: `Hello, we're Orbelis 👋
 
 Your own tech team, without the hiring. We learn how your business runs, build what it needs and stay until it works.
 
 Software, websites, AI, design and marketing, from Edappal, Kerala, for businesses in India and the UAE.
 
 First step? A free consultation. Link in bio.`,
-    tags: ['#orbelisstudio', '#kerala', '#edappal', '#malappuram', '#keralabusiness', '#smallbusinessindia', '#uaebusiness', '#webdesign', '#appdevelopment', '#digitalmarketing'],
+    tags: ['#orbelis', '#kerala', '#edappal', '#malappuram', '#keralabusiness', '#smallbusinessindia', '#uaebusiness', '#webdesign', '#appdevelopment', '#digitalmarketing'],
   },
   {
     id: 'ig-02-what-we-build',
@@ -249,7 +251,7 @@ Grow → ads, SEO and social media
 Keep → a care plan, or a monthly tech team plan
 
 No juggling five vendors, and no hiring. Save this for when you need it 📌`,
-    tags: ['#orbelisstudio', '#webdevelopment', '#appdevelopment', '#branding', '#uiux', '#digitalmarketing', '#seo', '#keralabusiness', '#smallbusinessindia'],
+    tags: ['#orbelis', '#webdevelopment', '#appdevelopment', '#branding', '#uiux', '#digitalmarketing', '#seo', '#keralabusiness', '#smallbusinessindia'],
   },
   {
     id: 'ig-03-for-shops-and-local-businesses',
@@ -273,7 +275,7 @@ Here's what usually makes the biggest difference:
 4️⃣ Social media and ads that bring customers back
 
 Not sure where to start? That's what the free consultation is for. We learn how your shop runs first, then build what helps most. Link in bio.`,
-    tags: ['#orbelisstudio', '#localbusiness', '#shoplocal', '#keralabusiness', '#edappal', '#malappuram', '#googlemaps', '#whatsappbusiness', '#smallbusinessindia'],
+    tags: ['#orbelis', '#localbusiness', '#shoplocal', '#keralabusiness', '#edappal', '#malappuram', '#googlemaps', '#whatsappbusiness', '#smallbusinessindia'],
   },
   {
     id: 'ig-04-you-dont-need-to-know',
@@ -293,7 +295,7 @@ Book a free 20-minute consultation, tell us what you want to build or what's hol
 ✅ What isn't worth doing
 
 Link in bio, or WhatsApp us on +91 75105 33289.`,
-    tags: ['#orbelisstudio', '#freeconsultation', '#smallbusiness', '#keralabusiness', '#uaebusiness', '#entrepreneur', '#businessgrowth'],
+    tags: ['#orbelis', '#freeconsultation', '#smallbusiness', '#keralabusiness', '#uaebusiness', '#entrepreneur', '#businessgrowth'],
   },
   {
     id: 'ig-05-for-clinics',
@@ -316,7 +318,7 @@ We help clinics:
 📍 Get found by patients nearby on Google
 
 Swipe to see how, and book a free consultation via the link in bio.`,
-    tags: ['#orbelisstudio', '#clinic', '#healthcare', '#dentalclinic', '#clinicmarketing', '#keralabusiness', '#uaebusiness', '#healthcaremarketing'],
+    tags: ['#orbelis', '#clinic', '#healthcare', '#dentalclinic', '#clinicmarketing', '#keralabusiness', '#uaebusiness', '#healthcaremarketing'],
   },
   {
     id: 'ig-06-what-we-stand-for',
@@ -333,7 +335,7 @@ Swipe to see how, and book a free consultation via the link in bio.`,
     caption: `Curiosity. Craft. Ownership. Honesty. ✨
 
 Four words, and what each one means in practice when you work with us. Swipe through 👉`,
-    tags: ['#orbelisstudio', '#values', '#studiolife', '#design', '#webdevelopment', '#keralabusiness', '#smallbusinessindia'],
+    tags: ['#orbelis', '#values', '#design', '#webdevelopment', '#keralabusiness', '#smallbusinessindia'],
   },
   {
     id: 'ig-07-admission-season-sorted',
@@ -356,7 +358,7 @@ We help schools, colleges and institutes:
 📣 Run admission campaigns that reach the right students
 
 Get ready before the rush. Free consultation via the link in bio.`,
-    tags: ['#orbelisstudio', '#admissions', '#education', '#college', '#school', '#institute', '#keralaeducation', '#edtech'],
+    tags: ['#orbelis', '#admissions', '#education', '#college', '#school', '#institute', '#keralaeducation', '#edtech'],
   },
   {
     id: 'ig-08-from-idea-to-launch',
@@ -378,7 +380,7 @@ Here's how we take a founder's idea to launch:
 3. Launch it, market it and keep improving it, as your own tech team
 
 Got an idea you keep coming back to? Tell us about it. Free consultation via the link in bio 🚀`,
-    tags: ['#orbelisstudio', '#startup', '#founder', '#mvp', '#startupindia', '#appdevelopment', '#saas', '#entrepreneur'],
+    tags: ['#orbelis', '#startup', '#founder', '#mvp', '#startupindia', '#appdevelopment', '#saas', '#entrepreneur'],
   },
 ]
 
@@ -387,7 +389,7 @@ export const stories = [
     id: 'story-01-book-a-free-consultation',
     day: 'Mon 19 Oct, and again any quiet day',
     format: 'Story',
-    note: 'Add a Link sticker over the button area, pointing to orbelisstudio.com.',
+    note: `Add a Link sticker over the button area, pointing to ${SITE_HOST}.`,
     slide: { type: 'cta' },
   },
   {
@@ -401,13 +403,13 @@ export const stories = [
     id: 'story-03-your-own-tech-team',
     day: 'Tue 27 Oct (with the LinkedIn how-we-work post)',
     format: 'Story',
-    note: 'Add a Link sticker pointing to orbelisstudio.com, or a Question sticker: "What would you build if you had a tech team?"',
-    slide: { type: 'statement', kicker: 'Orbelis Studio', title: ['Your own tech team,'], muted: ['without the hiring.'], sub: 'We learn how you run, build what you need and stay until it works.' },
+    note: `Add a Link sticker pointing to ${SITE_HOST}, or a Question sticker: "What would you build if you had a tech team?"`,
+    slide: { type: 'statement', kicker: 'Orbelis', title: ['Your own tech team,'], muted: ['without the hiring.'], sub: 'We learn how you run, build what you need and stay until it works.' },
   },
 ]
 
 export const instagramProfile = {
-  name: 'Orbelis Studio | Tech team',
+  name: 'Orbelis | Tech team',
   username: '@orbelisstudio',
   category: 'Software company',
   bio: [
@@ -416,7 +418,7 @@ export const instagramProfile = {
     '📍 Edappal, Kerala · India & UAE',
     '👇 Book a free consultation',
   ],
-  link: 'https://orbelisstudio.com',
+  link: SITE_URL,
   contact: ['Email: orbelisstudio@gmail.com', 'Phone / WhatsApp: +91 75105 33289'],
   highlights: ['About', 'Services', 'Work', 'Contact'],
 }

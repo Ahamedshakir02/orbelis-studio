@@ -39,7 +39,7 @@ export default function Contact() {
           </div>
 
           <div>
-            <p className="eyebrow mb-2">Studio</p>
+            <p className="eyebrow mb-2">Based in</p>
             {/* Real postal address: local search reads it, and anyone paying
                 by invoice looks for it. Street and phone appear only once
                 they are set in site.js. */}
