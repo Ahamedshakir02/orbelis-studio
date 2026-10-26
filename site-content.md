@@ -1,17 +1,17 @@
-# Orbelis Studio: website content
+# Orbelis: website content
 
-Every piece of copy on orbelisstudio.com, in page order, generated from the site’s own data by `npm run content`. Edit the wording here and send it back, and we will put it into the site.
+Every piece of copy on the Orbelis website, in page order, generated from the site’s own data by `npm run content`. Edit the wording here and send it back, and we will put it into the site.
 
 **Tagline:** Your ideas, built and launched.  
 **Email:** orbelisstudio@gmail.com · **Phone:** +91 75105 33289 · **Location:** Edappal, Kerala. Clients in India and the UAE
 
-**Menu:** Services · Work · Process · Studio
+**Menu:** Services · Work · Process · About
 
 ---
 
 ## 1. Hero
 
-*Label:* Orbelis Studio · Edappal, Kerala
+*Label:* Orbelis · Edappal, Kerala
 
 ### Your ideas, built and launched.
 
@@ -272,7 +272,7 @@ One page that makes a stranger trust you, and a way to catch everyone it convinc
 
 ---
 
-## 9. Studio
+## 9. About
 
 ### Your own tech team, without the hiring.
 
@@ -282,7 +282,7 @@ Then we build what fits, whether that's software, a website, an AI assistant, an
 
 All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.
 
-Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.
+Orbelis was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.
 
 *Beliefs:*
 - Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.
@@ -299,8 +299,8 @@ Orbelis Studio was established in 2026 in Edappal, Kerala, to close a clear gap:
 
 ### Straight answers.
 
-**What is Orbelis Studio?**  
-Orbelis Studio is your own tech team, without the hiring. We are based in Edappal, Kerala, India, and work with clients in India and the UAE. We learn how your business runs, then build what it needs: SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins, and we can stay on each month after launch.
+**What is Orbelis?**  
+Orbelis is your own tech team, without the hiring. We are based in Edappal, Kerala, India, and work with clients in India and the UAE. We learn how your business runs, then build what it needs: SaaS products and web apps, websites and landing pages, brand identities, AI assistants and business automation, and the ads, SEO and social media that bring people in. Every project is scoped and quoted before work begins, and we can stay on each month after launch.
 
 **What do you build?**  
 Whatever the problem needs: a SaaS product or web app, a website or landing page, a brand, an AI assistant, automation between your tools, or the marketing that brings people in. You describe the problem, we suggest the smallest thing that solves it, and we say so when the answer is none of these.
@@ -351,9 +351,9 @@ We are based in Edappal, Kerala, and work with clients across India and in the U
 Yes. Local SEO is part of our SEO service: we set up or complete your Google Business Profile, keep your name, address and phone number the same everywhere they appear, and build the pages nearby customers search for. Results build over months, not days.
 
 **Who does the work? Do you outsource it?**  
-Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one studio answers for the result.
+Everything is done in-house at Orbelis: design, build and marketing. Nothing is handed to an outside vendor you have never met, and one team answers for the result.
 
-**How do I contact Orbelis Studio?**  
+**How do I contact Orbelis?**  
 Email orbelisstudio@gmail.com, call or WhatsApp +91 75105 33289, or use the enquiry form on this page. The first step is a free 20-minute consultation.
 
 ---

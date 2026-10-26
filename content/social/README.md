@@ -40,10 +40,10 @@ Four weeks from 2026-10-19: LinkedIn on Tuesday and Thursday, Instagram on Monda
 Instagram: [@orbelisstudio](https://www.instagram.com/orbelisstudio/). The website footer and its search data already link to it.
 
 - **Profile picture:** [brand/profile-instagram.png](../../brand/profile-instagram.png)
-- **Name:** Orbelis Studio | Tech team
+- **Name:** Orbelis | Tech team
 - **Username:** @orbelisstudio
 - **Category:** Software company
-- **Link:** https://orbelisstudio.com
+- **Link:** https://orbelis-studio.vercel.app
 - **Contact buttons:** Email: orbelisstudio@gmail.com; Phone / WhatsApp: +91 75105 33289
 - **Highlight covers to create:** About, Services, Work, Contact
 
@@ -68,7 +68,7 @@ Apps · Web · AI · Design · Marketing
 - **Files:** [`instagram/ig-01-your-ideas-built-and-launched/`](instagram/ig-01-your-ideas-built-and-launched/)
 
 ```text
-Hello, we're Orbelis Studio 👋
+Hello, we're Orbelis 👋
 
 Your own tech team, without the hiring. We learn how your business runs, build what it needs and stay until it works.
 
@@ -76,7 +76,7 @@ Software, websites, AI, design and marketing, from Edappal, Kerala, for business
 
 First step? A free consultation. Link in bio.
 
-#orbelisstudio #kerala #edappal #malappuram #keralabusiness #smallbusinessindia #uaebusiness #webdesign #appdevelopment #digitalmarketing
+#orbelis #kerala #edappal #malappuram #keralabusiness #smallbusinessindia #uaebusiness #webdesign #appdevelopment #digitalmarketing
 ```
 
 ### Tue 20 Oct · LinkedIn · Your ideas, built and launched.
@@ -91,15 +91,15 @@ A booking system. A faster reply to every customer. A website that brings in enq
 
 What they usually don't have is a tech team to build it, and hiring one is out of reach for most.
 
-That's the gap Orbelis Studio fills. We work inside your business like your own tech team. We learn how you actually run, build what you need (software, websites, AI, design or marketing) and stay until it's working.
+That's the gap Orbelis fills. We work inside your business like your own tech team. We learn how you actually run, build what you need (software, websites, AI, design or marketing) and stay until it's working.
 
 We're based in Edappal, Kerala, working with businesses in India and the UAE.
 
 The first step is a free 20-minute consultation. Tell us what you want to build or what's holding the business back, and we'll come back with a clear recommendation.
 
-Book a free consultation: orbelisstudio.com
+Book a free consultation: orbelis-studio.vercel.app
 
-#OrbelisStudio #SmallBusiness #Kerala #WebDevelopment #DigitalTransformation
+#Orbelis #SmallBusiness #Kerala #WebDevelopment #DigitalTransformation
 ```
 
 ### Thu 22 Oct · LinkedIn · Ideas that never get built. Problems that never get solved.
@@ -138,7 +138,7 @@ Keep → a care plan, or a monthly tech team plan
 
 No juggling five vendors, and no hiring. Save this for when you need it 📌
 
-#orbelisstudio #webdevelopment #appdevelopment #branding #uiux #digitalmarketing #seo #keralabusiness #smallbusinessindia
+#orbelis #webdevelopment #appdevelopment #branding #uiux #digitalmarketing #seo #keralabusiness #smallbusinessindia
 ```
 
 ### Mon 26 Oct · Instagram · More customers, less running around.
@@ -158,7 +158,7 @@ Here's what usually makes the biggest difference:
 
 Not sure where to start? That's what the free consultation is for. We learn how your shop runs first, then build what helps most. Link in bio.
 
-#orbelisstudio #localbusiness #shoplocal #keralabusiness #edappal #malappuram #googlemaps #whatsappbusiness #smallbusinessindia
+#orbelis #localbusiness #shoplocal #keralabusiness #edappal #malappuram #googlemaps #whatsappbusiness #smallbusinessindia
 ```
 
 ### Tue 27 Oct · LinkedIn · Like your own tech team.
@@ -178,9 +178,9 @@ We do it the other way round, the way your own tech team would:
 
 Sometimes the honest answer is that you don't need anything from us. We'd rather say that than sell you something you won't use.
 
-Book a free consultation: orbelisstudio.com
+Book a free consultation: orbelis-studio.vercel.app
 
-#SmallBusiness #TechTeam #DigitalTransformation #OrbelisStudio
+#SmallBusiness #TechTeam #DigitalTransformation #Orbelis
 ```
 
 ### Thu 29 Oct · LinkedIn · Where is your business right now? The right first step depends on it.
@@ -220,7 +220,7 @@ Book a free 20-minute consultation, tell us what you want to build or what's hol
 
 Link in bio, or WhatsApp us on +91 75105 33289.
 
-#orbelisstudio #freeconsultation #smallbusiness #keralabusiness #uaebusiness #entrepreneur #businessgrowth
+#orbelis #freeconsultation #smallbusiness #keralabusiness #uaebusiness #entrepreneur #businessgrowth
 ```
 
 ### Mon 2 Nov · Instagram · Fewer missed calls. More booked appointments.
@@ -240,7 +240,7 @@ We help clinics:
 
 Swipe to see how, and book a free consultation via the link in bio.
 
-#orbelisstudio #clinic #healthcare #dentalclinic #clinicmarketing #keralabusiness #uaebusiness #healthcaremarketing
+#orbelis #clinic #healthcare #dentalclinic #clinicmarketing #keralabusiness #uaebusiness #healthcaremarketing
 ```
 
 ### Tue 3 Nov · LinkedIn · Build. Design. Grow. Keep.
@@ -262,7 +262,7 @@ The campaign and the page it lands on are built together, by the same team that 
 
 Full list in the slides.
 
-#WebDevelopment #Branding #DigitalMarketing #AI #OrbelisStudio
+#WebDevelopment #Branding #DigitalMarketing #AI #Orbelis
 ```
 
 ### Thu 5 Nov · LinkedIn · Built around the tools you already use.
@@ -296,7 +296,7 @@ Curiosity. Craft. Ownership. Honesty. ✨
 
 Four words, and what each one means in practice when you work with us. Swipe through 👉
 
-#orbelisstudio #values #studiolife #design #webdevelopment #keralabusiness #smallbusinessindia
+#orbelis #values #design #webdevelopment #keralabusiness #smallbusinessindia
 ```
 
 ### Mon 9 Nov · Instagram · Admission season, sorted.
@@ -316,7 +316,7 @@ We help schools, colleges and institutes:
 
 Get ready before the rush. Free consultation via the link in bio.
 
-#orbelisstudio #admissions #education #college #school #institute #keralaeducation #edtech
+#orbelis #admissions #education #college #school #institute #keralaeducation #edtech
 ```
 
 ### Tue 10 Nov · LinkedIn · What we hold every website to.
@@ -334,7 +334,7 @@ So we build every site to a speed target, not just a design:
 - Under 1 second to load on a mid-range phone over 4G
 - 90+ on Google's mobile speed score
 - Most websites live in two weeks once the scope is agreed
-- No hand-offs to outside vendors: design, build and marketing stay in one studio
+- No hand-offs to outside vendors: design, build and marketing stay under one roof
 
 Curious how your own site does? Run it through PageSpeed Insights (pagespeed.web.dev) and look at the mobile score.
 
@@ -355,9 +355,9 @@ Safari Typing Services is a typing and document services centre in Ajman. We bui
 
 Different industries, different countries, same approach: understand the business first, then build the smallest thing that does the job well.
 
-If your business is next, book a free consultation at orbelisstudio.com
+If your business is next, book a free consultation at orbelis-studio.vercel.app
 
-#WebDevelopment #Kerala #UAE #SmallBusiness #OrbelisStudio
+#WebDevelopment #Kerala #UAE #SmallBusiness #Orbelis
 ```
 
 ### Fri 13 Nov · Instagram · Got an idea? Let’s build it.
@@ -376,11 +376,11 @@ Here's how we take a founder's idea to launch:
 
 Got an idea you keep coming back to? Tell us about it. Free consultation via the link in bio 🚀
 
-#orbelisstudio #startup #founder #mvp #startupindia #appdevelopment #saas #entrepreneur
+#orbelis #startup #founder #mvp #startupindia #appdevelopment #saas #entrepreneur
 ```
 
 ## Stories
 
-- **Mon 19 Oct, and again any quiet day:** [story-01-book-a-free-consultation.png](stories/story-01-book-a-free-consultation.png). Add a Link sticker over the button area, pointing to orbelisstudio.com.
+- **Mon 19 Oct, and again any quiet day:** [story-01-book-a-free-consultation.png](stories/story-01-book-a-free-consultation.png). Add a Link sticker over the button area, pointing to orbelis-studio.vercel.app.
 - **Thu 29 Oct (with the LinkedIn stages post):** [story-02-which-stage-are-you-at.png](stories/story-02-which-stage-are-you-at.png). Add a Poll sticker in the empty space with four options: Just an idea / Launching / Running / Growing.
-- **Tue 27 Oct (with the LinkedIn how-we-work post):** [story-03-your-own-tech-team.png](stories/story-03-your-own-tech-team.png). Add a Link sticker pointing to orbelisstudio.com, or a Question sticker: "What would you build if you had a tech team?"
+- **Tue 27 Oct (with the LinkedIn how-we-work post):** [story-03-your-own-tech-team.png](stories/story-03-your-own-tech-team.png). Add a Link sticker pointing to orbelis-studio.vercel.app, or a Question sticker: "What would you build if you had a tech team?"
