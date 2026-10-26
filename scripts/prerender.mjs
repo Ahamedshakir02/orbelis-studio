@@ -22,7 +22,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = resolve(root, 'dist')
 const tmp = resolve(root, 'node_modules/.prerender')
-const site = 'https://orbelisstudio.com'
+import { SITE_URL as site } from '../src/data/domain.js'
 
 await build({
   root,
@@ -50,6 +50,10 @@ for (const { file, page } of pages) {
 }
 
 writeFileSync(resolve(dist, 'llms.txt'), llmsTxt())
+
+// robots.txt is copied from public/ with a %SITE_URL% placeholder for the sitemap line.
+const robots = resolve(dist, 'robots.txt')
+writeFileSync(robots, readFileSync(robots, 'utf8').replaceAll('%SITE_URL%', site))
 
 /** Date of the last commit touching any of `paths`, or today outside git. */
 function lastmod(paths) {

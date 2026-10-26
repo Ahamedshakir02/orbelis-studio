@@ -1,4 +1,4 @@
-# Orbelis Studio
+# Orbelis
 # Everything here is public and meant to be read: by search engines, and by
 # the AI assistants people ask about local studios. The named rules below are
 # the same as the default; they are listed so the choice is explicit, and so a
@@ -32,4 +32,4 @@ User-agent: CCBot
 Allow: /
 Disallow: /demo/
 
-Sitemap: https://orbelisstudio.com/sitemap.xml
+Sitemap: %SITE_URL%/sitemap.xml
