@@ -170,9 +170,8 @@ const pages = [
        .join('')}</div>`,
   ),
 
-  page(
+  work.length && page(
     `${head('Work', 'Proof, labelled honestly.')}
-     <p class="note">Client work, shown with permission.</p>
      <div class="stack">${work
        .map(
          (w) => `
@@ -265,7 +264,7 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
   /* Everything in the flow sits above the orb; the footer and the cover's
      corner note keep their own absolute positions. */
   .page > *:not(.orb):not(footer):not(.cover-foot) { position: relative; }
-</style></head><body>${pages.join('')}</body></html>`
+</style></head><body>${pages.filter(Boolean).join('')}</body></html>`
 
 const tmp = mkdtempSync(join(tmpdir(), 'orbelis-brochure-'))
 const file = join(tmp, 'brochure.html')

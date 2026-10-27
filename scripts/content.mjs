@@ -44,7 +44,7 @@ for (const g of ['Build', 'Run', 'Grow']) {
   d.services.filter((s) => s.group === g).forEach((s) => { L(`**${s.index} · ${s.title}**  `); L(s.body); L(); list(s.points); L() })
 }
 L('**Not sure which one?**  '); L('Most people are not. Tell us what is slowing the business down and we will tell you which of these fixes it, or that none of them does. *(Button: Ask us)*'); L()
-L('---'); L(); L('## 4. Work'); L(); L('### Recent client work.'); L(); L('Shown with permission.'); L()
+if (d.work.length) { L('---'); L(); L('## 4. Work'); L(); L('### Recent client work.'); L() }
 d.work.forEach((w) => { L(`**${w.title}** · ${w.status} · ${w.year} · ${w.role}  `); L(w.summary); L(); L(w.metrics.map((m) => `${m.k}: ${m.v}`).join(' · ') + (w.href ? ` · ${w.href}` : '')); L() })
 L('---'); L(); L('## 5. Process'); L(); L('### How we work: like your own tech team.'); L(); L('Close to your business, built in small steps, and still here after launch.'); L()
 d.process.forEach((p) => { L(`**${p.step} ${p.title}**  `); L(p.body); L() })

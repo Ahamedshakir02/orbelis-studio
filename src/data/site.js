@@ -72,7 +72,6 @@ export const socials = brand.socials.filter((s) => s.href)
 // In page order: what is sold comes before what has been built.
 export const nav = [
   { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
   { label: 'Process', href: '#process' },
   { label: 'About', href: '#studio' },
 ]
@@ -194,39 +193,10 @@ export const services = [
  * `href` is optional: add it once a project has a public URL and the card
  * grows a link; leave it off and nothing renders.
  */
-export const work = [
-  {
-    id: 'holytouch',
-    title: 'Holytouch',
-    status: 'Client',
-    year: '2026',
-    role: 'Design & build',
-    summary:
-      'The marketing website for a construction and design firm in Kerala. It presents the firm and its services, and gives a visitor a way to get in touch.',
-    stack: ['React', 'Vite', 'Tailwind', 'Framer Motion'],
-    metrics: [
-      { k: 'Market', v: 'Kerala' },
-      { k: 'Scope', v: 'Design, build, launch' },
-    ],
-    accent: '#e8a33d',
-  },
-  {
-    id: 'safari-typing',
-    title: 'Safari Typing Services',
-    status: 'Client',
-    year: '2026',
-    role: 'Website & SEO',
-    summary:
-      'The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. The audits found that Google had indexed none of its pages, and that a lack of reviews was holding back its Google Maps ranking.',
-    stack: ['Website', 'SEO', 'Google Business Profile'],
-    href: 'https://safaritypingservices.com',
-    metrics: [
-      { k: 'Market', v: 'Ajman, UAE' },
-      { k: 'Scope', v: 'Build, launch, SEO audits' },
-    ],
-    accent: '#7fb3d5',
-  },
-]
+// Empty until a client agrees in writing to be named. The Work section, its
+// nav link, the brochure page and the assistant's answer all hide while this
+// list is empty.
+export const work = []
 
 /**
  * The problem section: ideas that never get built and problems that never get
@@ -363,7 +333,7 @@ export const studio = {
     'Most businesses know what would help them grow. What they lack is a tech team to build it, and hiring one is out of reach for most. Orbelis works as that team. We don\'t start from a menu of services. We start by learning how your business actually runs: the tools you use, the questions your customers ask and where time and money are lost.',
     'Then we build what fits, whether that\'s software, a website, an AI assistant, an automation, a brand or a campaign. We build it on your real information, show you working pieces early and change course as we learn. We don\'t treat a project as finished when it\'s handed over. It\'s finished when your business is using it, and we stay on to keep it working and improving.',
     'All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.',
-    'Orbelis was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.',
+    'Orbelis was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most.',
   ],
   facts: [
     { k: 'Based', v: 'Edappal, Kerala, India' },

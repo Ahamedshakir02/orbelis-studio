@@ -38,7 +38,7 @@ function Legal({ doc }) {
 
 function NotFound() {
   const links = [
-    { href: '/#work', label: 'The work' },
+    { href: '/#process', label: 'How we work' },
     { href: '/#services', label: 'Services' },
     { href: '/#faq', label: 'Questions, answered' },
     { href: '/#contact', label: 'Book a free consultation' },

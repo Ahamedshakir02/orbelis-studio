@@ -105,7 +105,7 @@ function matchIntent(query) {
 
   // "Show me your work" should survey the shelf, not hand over one arbitrary
   // project because it happened to rank first.
-  if (has(q, 'your work', 'portfolio', 'case stud', 'examples', 'show me', 'projects you', 'previous work')) {
+  if (work.length && has(q, 'your work', 'portfolio', 'case stud', 'examples', 'show me', 'projects you', 'previous work')) {
     const lines = work.map((w) => `· ${w.title} (${w.status}, ${w.year}) — ${w.role}`).join('\n')
     return {
       text: `${work.length} client projects so far:\n\n${lines}\n\nThe Work section has the detail on each, including what it was built with.`,

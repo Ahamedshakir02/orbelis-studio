@@ -43,6 +43,7 @@ function Figure({ src, alt, title }) {
  * anything else about the project is read.
  */
 export default function Work() {
+  if (!work.length) return null
   return (
     <Section
       id="work"

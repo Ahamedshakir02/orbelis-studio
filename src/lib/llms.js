@@ -40,7 +40,7 @@ export function llmsTxt() {
     '- Applications are built and quoted in stages. Marketing is quoted by the month.',
     '- The first step is a free 20-minute consultation.',
     '',
-    '## Work',
+    ...(work.length ? ['## Work'] : []),
     ...work.map((w) => `- ${w.title} (${w.year}): ${w.summary}${w.href ? ` ${w.href}` : ''}`),
     '',
     '## Location and contact',
