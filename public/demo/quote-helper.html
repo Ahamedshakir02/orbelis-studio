@@ -27,20 +27,21 @@
   --card: #ffffff;
   --warn: #a35a00;
   --warn-soft: #f8e8d2;
+  --wa-wall: #efeae2; --wa-out: #d9fdd3; --wa-ink: #111b21; --ig-wall: #ffffff; --ig-out: #3797f0; --ig-in: #efefef;
   --display: "Archivo", "Noto Sans Malayalam", "Arial Narrow", system-ui, sans-serif;
   --body: "Archivo", "Noto Sans Malayalam", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1716; --grid: rgba(140, 220, 205, 0.06); --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
+    --wa-wall: #0b141a; --wa-out: #005c4b; --wa-ink: #e9edef; --ig-wall: #000000; --ig-out: #3797f0; --ig-in: #262626; --bg: #0f1716; --grid: rgba(140, 220, 205, 0.06); --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
     --accent: #3cc4b0; --accent-ink: #05201c; --accent-soft: #1b3a36; --phone: #050909; --screen: #121b1a;
     --bar: #182322; --in: #1e2b2a; --out: #1d4a43; --card: #1a2625; --warn: #f0a94a; --warn-soft: #3a2a14;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1716; --grid: rgba(140, 220, 205, 0.06); --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
+  --wa-wall: #0b141a; --wa-out: #005c4b; --wa-ink: #e9edef; --ig-wall: #000000; --ig-out: #3797f0; --ig-in: #262626; --bg: #0f1716; --grid: rgba(140, 220, 205, 0.06); --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
   --accent: #3cc4b0; --accent-ink: #05201c; --accent-soft: #1b3a36; --phone: #050909; --screen: #121b1a;
   --bar: #182322; --in: #1e2b2a; --out: #1d4a43; --card: #1a2625; --warn: #f0a94a; --warn-soft: #3a2a14;
   color-scheme: dark;
@@ -84,6 +85,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
 .chat { flex: 1; overflow-y: auto; padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; scroll-behavior: smooth; }
 .msg { max-width: 86%; padding: 8px 11px; border-radius: 14px; font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
+.wa .chat { background: var(--wa-wall); }
+.wa .msg.out { background: var(--wa-out); color: var(--wa-ink); }
+.ig .chat { background: var(--ig-wall); }
+.ig .msg.out { background: var(--ig-out); color: #fff; border-radius: 18px; }
+.ig .msg.out .meta { color: rgba(255,255,255,.75); }
+.ig .msg.in { background: var(--ig-in); border-radius: 18px; }
 .msg.in { background: var(--in); align-self: flex-start; border-top-left-radius: 4px; }
 .msg.out { background: var(--out); align-self: flex-end; border-top-right-radius: 4px; }
 .msg .meta { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; text-align: right; }
@@ -142,20 +149,11 @@ footer b { color: var(--ink); }
     <p class="lede">No new app for you or your customers. They message you on Instagram or WhatsApp like they do now. The helper reads it, works out the price and date from your rates, and sends you the reply on your WhatsApp. One tap and it goes out from your own account.</p>
   </header>
 
-  <div class="samples" role="group" aria-label="Sample customer messages">
-    <span class="eyebrow">Send as a customer</span>
-    <button class="chip" data-s="0">Car mod parts</button>
-    <button class="chip" data-s="1">Manglish</button>
-    <button class="chip" data-s="2">Malayalam</button>
-    <button class="chip" data-s="3">Bulk keychains</button>
-    <button class="chip" data-s="4">Broken part, no size</button>
-    <button class="chip" data-s="5">Needs a design</button>
-  </div>
 
   <div class="phones">
     <section class="side" aria-labelledby="l-cust">
       <div class="side-label" id="l-cust"><b>Your customer's phone</b> what they see</div>
-      <div class="phone"><div class="screen">
+      <div class="phone"><div class="screen ig" id="cust-screen">
         <div class="topbar">
           <div class="avatar" aria-hidden="true">SC</div>
           <div class="who"><b>Your shop</b><span id="chan-label">Instagram message</span></div>
@@ -180,7 +178,7 @@ footer b { color: var(--ink); }
 
     <section class="side" aria-labelledby="l-own">
       <div class="side-label" id="l-own"><b>Your WhatsApp</b> chat with the helper</div>
-      <div class="phone"><div class="screen">
+      <div class="phone"><div class="screen wa">
         <div class="topbar">
           <div class="avatar" aria-hidden="true">QH</div>
           <div class="who"><b>Quote helper</b><span id="own-status">online</span></div>
@@ -194,6 +192,16 @@ footer b { color: var(--ink); }
         </form>
       </div></div>
     </section>
+  </div>
+
+  <div class="samples" role="group" aria-label="Sample customer messages">
+    <span class="eyebrow">Try another customer message</span>
+    <button class="chip" data-s="0">Car mod parts</button>
+    <button class="chip" data-s="1">Manglish</button>
+    <button class="chip" data-s="2">Malayalam</button>
+    <button class="chip" data-s="3">Bulk keychains</button>
+    <button class="chip" data-s="4">Broken part, no size</button>
+    <button class="chip" data-s="5">Needs a design</button>
   </div>
 
   <div class="notes">
@@ -473,6 +481,7 @@ footer b { color: var(--ink); }
   function setChannel(c) {
     channel = c; $("ch-ig").setAttribute("aria-pressed", String(c === "Instagram")); $("ch-wa").setAttribute("aria-pressed", String(c === "WhatsApp"));
     $("chan-label").textContent = c === "Instagram" ? "Instagram message" : "WhatsApp";
+    $("cust-screen").className = "screen " + (c === "Instagram" ? "ig" : "wa");
   }
   $("ch-ig").addEventListener("click", () => setChannel("Instagram"));
   $("ch-wa").addEventListener("click", () => setChannel("WhatsApp"));
