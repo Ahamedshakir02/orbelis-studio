@@ -5,7 +5,7 @@ Every piece of copy on the Orbelis website, in page order, generated from the si
 **Tagline:** Your ideas, built and launched.  
 **Email:** orbelisstudio@gmail.com · **Phone:** +91 75105 33289 · **Location:** Edappal, Kerala. Clients in India and the UAE
 
-**Menu:** Services · Work · Process · About
+**Menu:** Services · Process · About
 
 ---
 
@@ -156,24 +156,6 @@ Most people are not. Tell us what is slowing the business down and we will tell 
 
 ---
 
-## 4. Work
-
-### Recent client work.
-
-Shown with permission.
-
-**Holytouch** · Client · 2026 · Design & build  
-The marketing website for a construction and design firm in Kerala. It presents the firm and its services, and gives a visitor a way to get in touch.
-
-Market: Kerala · Scope: Design, build, launch
-
-**Safari Typing Services** · Client · 2026 · Website & SEO  
-The website for a typing and document services centre in Ajman, UAE. We built and launched it, then ran SEO audits. The audits found that Google had indexed none of its pages, and that a lack of reviews was holding back its Google Maps ranking.
-
-Market: Ajman, UAE · Scope: Build, launch, SEO audits · https://safaritypingservices.com
-
----
-
 ## 5. Process
 
 ### How we work: like your own tech team.
@@ -282,7 +264,7 @@ Then we build what fits, whether that's software, a website, an AI assistant, an
 
 All design, development and marketing is delivered in-house, giving you a single point of accountability from start to finish. Every engagement is scoped and quoted before work begins, and ongoing support is available after launch to keep each solution secure, current and performing.
 
-Orbelis was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most. Our early engagements include a construction and design firm in Kerala and a document services provider in Ajman, UAE.
+Orbelis was established in 2026 in Edappal, Kerala, to close a clear gap: growing businesses knew what would help them but lacked the technical team to deliver it. Agencies typically offered a single service, and building an in-house team was beyond the reach of most.
 
 *Beliefs:*
 - Start with the problem, not the package. Sometimes the answer is an app, sometimes a page, sometimes one automation.
