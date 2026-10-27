@@ -32,7 +32,6 @@ Four weeks from 2026-10-19: LinkedIn on Tuesday and Thursday, Instagram on Monda
 | Fri 6 Nov | Instagram | Four words we work by. | Carousel, 6 slides | [slide-01.png](instagram/ig-06-what-we-stand-for/slide-01.png) |
 | Mon 9 Nov | Instagram | Admission season, sorted. | Carousel, 5 slides | [slide-01.png](instagram/ig-07-admission-season-sorted/slide-01.png) |
 | Tue 10 Nov | LinkedIn | What we hold every website to. | Single image | [slide-01.png](linkedin/li-07-our-standards/slide-01.png) |
-| Thu 12 Nov | LinkedIn | Two businesses, two countries. | Single image | [slide-01.png](linkedin/li-08-work-so-far/slide-01.png) |
 | Fri 13 Nov | Instagram | Got an idea? Let’s build it. | Carousel, 5 slides | [slide-01.png](instagram/ig-08-from-idea-to-launch/slide-01.png) |
 
 ## Instagram profile
@@ -339,25 +338,6 @@ So we build every site to a speed target, not just a design:
 Curious how your own site does? Run it through PageSpeed Insights (pagespeed.web.dev) and look at the mobile score.
 
 #WebDevelopment #WebPerformance #SEO #WebDesign
-```
-
-### Thu 12 Nov · LinkedIn · Two businesses, two countries.
-
-- **Format:** Single image
-- **Files:** [`linkedin/li-08-work-so-far/`](linkedin/li-08-work-so-far/)
-
-```text
-Two recent projects, one in Kerala and one in the UAE.
-
-Holytouch is a construction and design firm in Kerala. We designed and built their marketing website: it presents the firm and its services and gives visitors a clear way to get in touch.
-
-Safari Typing Services is a typing and document services centre in Ajman. We built and launched their website, then audited it for search so nearby customers can find it.
-
-Different industries, different countries, same approach: understand the business first, then build the smallest thing that does the job well.
-
-If your business is next, book a free consultation at orbelis.vercel.app
-
-#WebDevelopment #Kerala #UAE #SmallBusiness #Orbelis
 ```
 
 ### Fri 13 Nov · Instagram · Got an idea? Let’s build it.

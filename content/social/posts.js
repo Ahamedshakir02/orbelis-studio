@@ -194,24 +194,6 @@ So we build every site to a speed target, not just a design:
 Curious how your own site does? Run it through PageSpeed Insights (pagespeed.web.dev) and look at the mobile score.`,
     tags: ['#WebDevelopment', '#WebPerformance', '#SEO', '#WebDesign'],
   },
-  {
-    id: 'li-08-work-so-far',
-    day: 'Thu 12 Nov',
-    format: 'Single image',
-    slides: [
-      { type: 'work', kicker: 'Recent work', title: 'Two businesses, two countries.', items: [['Holytouch', 'Kerala, India', 'Marketing website for a construction and design firm: designed, built and launched.'], ['Safari Typing Services', 'Ajman, UAE', 'Website for a typing and document services centre: built, launched and audited for search.']] },
-    ],
-    caption: `Two recent projects, one in Kerala and one in the UAE.
-
-Holytouch is a construction and design firm in Kerala. We designed and built their marketing website: it presents the firm and its services and gives visitors a clear way to get in touch.
-
-Safari Typing Services is a typing and document services centre in Ajman. We built and launched their website, then audited it for search so nearby customers can find it.
-
-Different industries, different countries, same approach: understand the business first, then build the smallest thing that does the job well.
-
-If your business is next, book a free consultation at ${SITE_HOST}`,
-    tags: ['#WebDevelopment', '#Kerala', '#UAE', '#SmallBusiness', '#Orbelis'],
-  },
 ]
 
 export const instagram = [
