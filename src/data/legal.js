@@ -105,7 +105,7 @@ export const terms = {
     {
       h: 'Liability',
       p: [
-        'Nothing in these terms limits liability for fraud, for death or personal injury caused by negligence, or for anything else that cannot lawfully be limited. Subject to that, liability arising out of this site is limited to the amount you have paid the studio, if any.',
+        'Nothing in these terms limits liability for fraud, for death or personal injury caused by negligence, or for anything else that cannot lawfully be limited. Subject to that, liability arising out of this site is limited to the amount you have paid Orbelis, if any.',
       ],
     },
     {
