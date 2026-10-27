@@ -84,6 +84,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .seg button { font: inherit; font-size: 11.5px; border: 0; background: transparent; color: var(--muted); padding: 4px 9px; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
 .chat { flex: 1; overflow-y: auto; padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; scroll-behavior: smooth; }
+.chat > * { flex-shrink: 0; }
+.chat { min-height: 0; }
 .msg { max-width: 86%; padding: 8px 11px; border-radius: 14px; font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
 .wa .chat { background: var(--wa-wall); }
 .wa .msg.out { background: var(--wa-out); color: var(--wa-ink); }
@@ -402,6 +404,7 @@ footer b { color: var(--ink); }
     if (e.done) return;
     if (what === "send") {
       e.done = true; closeCard(card, "Sent " + now());
+      if (window.innerWidth <= 820) $("l-cust").scrollIntoView({ behavior: "smooth", block: "start" });
       const t = typing("cust"); await wait(700); t.remove();
       bubble("cust", "in", draft(e), now());
     } else if (what === "skip") {
@@ -420,6 +423,7 @@ footer b { color: var(--ink); }
     const file = pendingFile; pendingFile = null; $("pending").hidden = true;
     if (file) bubble("cust", "out file", `STL file · ${file.name}\n${file.L} × ${file.W} × ${file.H} mm`, now());
     if (text.trim()) bubble("cust", "out", text.trim(), now());
+    if (window.innerWidth <= 820) $("l-own").scrollIntoView({ behavior: "smooth", block: "start" });
     $("own-status").textContent = "typing…";
     const t = typing("own"); await wait(900); t.remove(); $("own-status").textContent = "online";
     const t0 = performance.now();
