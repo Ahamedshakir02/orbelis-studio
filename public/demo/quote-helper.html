@@ -381,7 +381,7 @@ footer b { color: var(--ink); }
         ${Math.round(c.grams * c.qty)} g · ${c.hours.toFixed(1)} h printing · ready ${c.ready.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })}${c.exact ? " · measured from file" : ""}</div>
         <div>Reply ready (${langName}):</div>`;
     }
-    d.innerHTML = `<div class="hd"><span>New ${esc(e.channel)} enquiry · ${esc(e.who)}</span><span>worked out in ${e.ms < 1 ? "under 0.01" : (e.ms / 1000).toFixed(2)} s</span></div>
+    d.innerHTML = `<div class="hd"><span>New ${esc(e.channel)} enquiry · ${esc(e.who)}</span><span>worked out in ${e.ms < 10 ? "under 0.01" : (e.ms / 1000).toFixed(2)} s</span></div>
       <div class="bd">${body}<div class="draft">${esc(draft(e))}</div></div>
       <div class="acts"><button data-a="send">Send</button><button data-a="edit">${c.missing.length ? "Edit" : "Change price"}</button><button data-a="skip">Skip</button></div>`;
     d.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => act(e, b.dataset.a, d)));
