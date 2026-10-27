@@ -335,12 +335,12 @@ footer b { color: var(--ink); }
     const p = e.p, c = e.calc, lang = p.lang;
     if (c.missing.length) {
       const sz = c.missing.includes("size"), qn = c.missing.includes("quantity");
-      if (lang === "ml") return "നമസ്കാരം! സഹായിക്കാം.\n\nകൃത്യമായ വിലയും തീയതിയും പറയാൻ, " + (sz ? "ഏകദേശ വലിപ്പം (നീളം, വീതി, ഉയരം)" : "") + (sz && qn ? ", " : "") + (qn ? "എത്ര എണ്ണം വേണം" : "") + " എന്നൊന്ന് അറിയിക്കാമോ? STL ഫയൽ ഉണ്ടെങ്കിൽ അതും അയക്കൂ.";
-      if (lang === "manglish") return "Hi! Help cheyyam.\n\nCorrect rate um date um parayan, " + (sz ? "size (length, width, height)" : "") + (sz && qn ? " um " : "") + (qn ? "ethra ennam venam ennum" : "") + " onnu parayamo? STL file undengil athum ayakkoo.";
-      return "Hi! Happy to help with this.\n\nTo give you an exact price and date, could you send " + (sz ? (p.photoOnly ? "a photo with a ruler next to it, or the rough size (length, width, height)" : "the rough size (length, width, height)") : "") + (sz && qn ? " and " : "") + (qn ? "how many you need" : "") + "? If you have a 3D file (STL), send that too.";
+      if (lang === "ml") return "നമസ്കാരം! സഹായിക്കാം.\n\nകൃത്യമായ വിലയും തീയതിയും പറയാൻ, " + (sz ? "ഏകദേശ വലിപ്പം (നീളം, വീതി, ഉയരം)" : "") + (sz && qn ? ", " : "") + (qn ? "എത്ര എണ്ണം വേണം" : "") + " എന്നൊന്ന് അറിയിക്കാമോ? " + (p.hasFile ? "" : "STL ഫയൽ ഉണ്ടെങ്കിൽ അതും അയക്കൂ.");
+      if (lang === "manglish") return "Hi! Help cheyyam.\n\nCorrect rate um date um parayan, " + (sz ? "size (length, width, height)" : "") + (sz && qn ? " um " : "") + (qn ? "ethra ennam venam ennum" : "") + " onnu parayamo?" + (p.hasFile ? "" : " STL file undengil athum ayakkoo.");
+      return "Hi! Happy to help with this.\n\nTo give you an exact price and date, could you send " + (sz ? (p.photoOnly ? "a photo with a ruler next to it, or the rough size (length, width, height)" : "the rough size (length, width, height)") : "") + (sz && qn ? " and " : "") + (qn ? "how many you need" : "") + "?" + (p.hasFile ? "" : " If you have a 3D file (STL), send that too.");
     }
     const total = e.override ?? c.total, each = total / c.qty;
-    const item = (p.item || "item") + (c.qty > 1 && !/s$/.test(p.item || "") ? "s" : "");
+    const item = (p.item || "part") + (c.qty > 1 && !/s$/.test(p.item || "") ? "s" : "");
     const spec = `${c.qty} × ${item} (${c.L} × ${c.W} × ${c.H} mm)${p.colour ? ", " + p.colour : ""}, ${c.mat.name}`;
     const d = c.ready;
     if (lang === "ml") {
@@ -385,7 +385,7 @@ footer b { color: var(--ink); }
       const total = e.override ?? c.total;
       body = `${p.design === "new" ? '<span class="ask">Design job: check the price before sending</span>' : ""}
         <div class="price">${rs(total)} <small>${rs(total / c.qty)} each · incl. courier${e.override ? " · your price" : ""}</small></div>
-        <div class="facts">${c.qty} × ${esc(p.item || "item")} · ${c.L}×${c.W}×${c.H} mm · ${c.mat.name}${p.colour ? " " + esc(p.colour) : ""}<br>
+        <div class="facts">${c.qty} × ${esc(p.item || "part")} · ${c.L}×${c.W}×${c.H} mm · ${c.mat.name}${p.colour ? " " + esc(p.colour) : ""}<br>
         ${Math.round(c.grams * c.qty)} g · ${c.hours.toFixed(1)} h printing · ready ${c.ready.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })}${c.exact ? " · measured from file" : ""}</div>
         <div>Reply ready (${langName}):</div>`;
     }
@@ -408,6 +408,7 @@ footer b { color: var(--ink); }
       e.done = true; closeCard(card, "Skipped");
       bubble("own", "in", "OK, I've left this one for you to answer yourself.", now());
     } else {
+      e.editing = true;
       bubble("own", "in", e.calc.missing.length ? "Type the message you'd like to send instead, and I'll send it." : "Type the total price you want (e.g. 1400) and I'll update the reply.", now());
       $("own-in").focus();
     }
@@ -442,7 +443,7 @@ footer b { color: var(--ink); }
       } else if (last && !last.done && num && !last.calc.missing.length) {
         last.override = +num[1]; last.card && closeCard(last.card, "Replaced below");
         bubble("own", "in", "Updated. Here's the new reply:", now()); const e = Object.assign({}, last); last.done = true; last = e; last.done = false; ownerCard(last);
-      } else if (last && !last.done && last.calc.missing.length) {
+      } else if (last && !last.done && last.editing && last.calc.missing.length) {
         last.done = true; last.card && closeCard(last.card, "Sent your message");
         bubble("own", "in", "Sent your message to the customer.", now());
         setTimeout(() => bubble("cust", "in", s, now()), 600);
