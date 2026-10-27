@@ -326,8 +326,11 @@ footer b { color: var(--ink); }
     const workDays = Math.ceil(hoursEach * qty / (R.machines * R.hoursPerDay) + 1 + (p.design === "new" ? 2 : p.design === "fix" ? 1 : 0));
     const rushOn = p.urgent || (p.deadline != null && p.deadline < workDays + 3);
     const sub = Math.max(pieceCost * qty * (1 - disc) + R.setup + designFee, R.minOrder);
-    const total = sub * (rushOn ? 1 + R.rush / 100 : 1) + shipping;
-    return { missing, L, W, H, mat, qty, grams, hours: hoursEach * qty, total, each: total / qty, rushOn, disc,
+    // Quote a whole-rupee price per piece and build the total from it, so
+    // per-piece x quantity always equals the total the customer sees.
+    const each = Math.round((sub * (rushOn ? 1 + R.rush / 100 : 1) + shipping) / qty);
+    const total = each * qty;
+    return { missing, L, W, H, mat, qty, grams, hours: hoursEach * qty, total, each, rushOn, disc,
       ready: addWorkingDays((rushOn ? Math.max(1, Math.ceil(workDays * 0.6)) : workDays) + 3), exact: !!file };
   }
 
@@ -341,7 +344,8 @@ footer b { color: var(--ink); }
       if (lang === "manglish") return "Hi! Help cheyyam.\n\nCorrect rate um date um parayan, " + (sz ? "size (length, width, height)" : "") + (sz && qn ? " um " : "") + (qn ? "ethra ennam venam ennum" : "") + " onnu parayamo?" + (p.hasFile ? "" : " STL file undengil athum ayakkoo.");
       return "Hi! Happy to help with this.\n\nTo give you an exact price and date, could you send " + (sz ? (p.photoOnly ? "a photo with a ruler next to it, or the rough size (length, width, height)" : "the rough size (length, width, height)") : "") + (sz && qn ? " and " : "") + (qn ? "how many you need" : "") + "?" + (p.hasFile ? "" : " If you have a 3D file (STL), send that too.");
     }
-    const total = e.override ?? c.total, each = total / c.qty;
+    // An owner-typed total is evened out to a whole rupee per piece too.
+    const each = Math.round((e.override ?? c.total) / c.qty), total = each * c.qty;
     const item = (p.item || "part") + (c.qty > 1 && !/s$/.test(p.item || "") ? "s" : "");
     const spec = `${c.qty} × ${item} (${c.L} × ${c.W} × ${c.H} mm)${p.colour ? ", " + p.colour : ""}, ${c.mat.name}`;
     const d = c.ready;
@@ -384,9 +388,9 @@ footer b { color: var(--ink); }
       body = `<span class="ask">Needs ${c.missing.join(" and ")} before I can price it</span>
         <div>Here's a question back to the customer (${langName}):</div>`;
     } else {
-      const total = e.override ?? c.total;
+      const each = Math.round((e.override ?? c.total) / c.qty), total = each * c.qty;
       body = `${p.design === "new" ? '<span class="ask">Design job: check the price before sending</span>' : ""}
-        <div class="price">${rs(total)} <small>${rs(total / c.qty)} each · incl. courier${e.override ? " · your price" : ""}</small></div>
+        <div class="price">${rs(total)} <small>${rs(each)} each · incl. courier${e.override ? " · your price" : ""}</small></div>
         <div class="facts">${c.qty} × ${esc(p.item || "part")} · ${c.L}×${c.W}×${c.H} mm · ${c.mat.name}${p.colour ? " " + esc(p.colour) : ""}<br>
         ${Math.round(c.grams * c.qty)} g · ${c.hours.toFixed(1)} h printing · ready ${c.ready.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })}${c.exact ? " · measured from file" : ""}</div>
         <div>Reply ready (${langName}):</div>`;
@@ -418,12 +422,12 @@ footer b { color: var(--ink); }
   }
 
   // ---------- Customer sends a message ----------
-  async function customerSends(text) {
+  async function customerSends(text, { scroll = true } = {}) {
     if (!text.trim() && !pendingFile) return;
     const file = pendingFile; pendingFile = null; $("pending").hidden = true;
     if (file) bubble("cust", "out file", `STL file · ${file.name}\n${file.L} × ${file.W} × ${file.H} mm`, now());
     if (text.trim()) bubble("cust", "out", text.trim(), now());
-    if (window.innerWidth <= 820) $("l-own").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (scroll && window.innerWidth <= 820) $("l-own").scrollIntoView({ behavior: "smooth", block: "start" });
     $("own-status").textContent = "typing…";
     const t = typing("own"); await wait(900); t.remove(); $("own-status").textContent = "online";
     const t0 = performance.now();
@@ -502,7 +506,8 @@ footer b { color: var(--ink); }
   bubble("own", "in", "Hi! I'll send you every new enquiry here with a price and a ready reply. Tap Send and it goes out from your account.", "9:00 am");
   // Open with one finished example so the page shows what it does
   window.__demo = { customerSends, ownerSays, parse, price };
-  customerSends(SAMPLES[0]);
+  // No scroll here: on a phone the visitor reads the customer message first.
+  customerSends(SAMPLES[0], { scroll: false });
 })();
 </script>
 </body>
