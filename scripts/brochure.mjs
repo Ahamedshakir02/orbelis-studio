@@ -249,7 +249,8 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
   .contact { grid-template-columns: 1fr 1fr; gap: 8mm 10mm; margin-bottom: 12mm; }
   dt { color: #878e9e; margin-bottom: 1.5mm; }
   dd { margin: 0; font-size: 10.5pt; }
-  .contact dd { font-family: "Clash Display", Georgia, serif; font-size: 15pt; }
+  /* Clash Display's space is very narrow: "+91 75105" read as one number. */
+  .contact dd { font-family: "Clash Display", Georgia, serif; font-size: 15pt; word-spacing: 0.22em; }
   .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 3mm; border-top: 1px solid rgba(232,163,61,0.6); padding-top: 6mm; }
   .flow h3 { font-size: 11.5pt; }
   .flow p { font-size: 8.5pt; }
