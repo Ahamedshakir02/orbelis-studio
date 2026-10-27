@@ -4,184 +4,131 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Print Quote Helper</title>
+<title>Quote Helper</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Malayalam:wght@400;600&display=swap">
 <style>
-/* Layout: a print-bed grid ground; three stations left to right: enquiry in, details read, quote out */
+/* Layout: two phones side by side on a print-bed grid: the customer's chat, and the owner's chat with the helper */
 :root {
   --bg: #eef1f0;
-  --bed: #e3e8e6;
   --grid: rgba(20, 60, 55, 0.07);
-  --panel: #fbfcfc;
   --ink: #142321;
   --muted: #566563;
   --line: #ccd6d3;
-  --accent: #0d7a6c;      /* PETG teal */
+  --accent: #0d7a6c;
   --accent-ink: #ffffff;
   --accent-soft: #d6ece8;
+  --phone: #101716;
+  --screen: #f4f6f5;
+  --bar: #ffffff;
+  --in: #ffffff;
+  --out: #d3efe9;
+  --card: #ffffff;
   --warn: #a35a00;
   --warn-soft: #f8e8d2;
-  --bubble: #ffffff;
   --display: "Archivo", "Noto Sans Malayalam", "Arial Narrow", system-ui, sans-serif;
   --body: "Archivo", "Noto Sans Malayalam", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1716; --bed: #131d1c; --grid: rgba(140, 220, 205, 0.06);
-    --panel: #172221; --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
-    --accent: #3cc4b0; --accent-ink: #05201c; --accent-soft: #1b3a36;
-    --warn: #f0a94a; --warn-soft: #3a2a14; --bubble: #1e2b2a;
+    --bg: #0f1716; --grid: rgba(140, 220, 205, 0.06); --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
+    --accent: #3cc4b0; --accent-ink: #05201c; --accent-soft: #1b3a36; --phone: #050909; --screen: #121b1a;
+    --bar: #182322; --in: #1e2b2a; --out: #1d4a43; --card: #1a2625; --warn: #f0a94a; --warn-soft: #3a2a14;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1716; --bed: #131d1c; --grid: rgba(140, 220, 205, 0.06);
-  --panel: #172221; --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
-  --accent: #3cc4b0; --accent-ink: #05201c; --accent-soft: #1b3a36;
-  --warn: #f0a94a; --warn-soft: #3a2a14; --bubble: #1e2b2a;
+  --bg: #0f1716; --grid: rgba(140, 220, 205, 0.06); --ink: #e4ecea; --muted: #93a5a2; --line: #2a3a38;
+  --accent: #3cc4b0; --accent-ink: #05201c; --accent-soft: #1b3a36; --phone: #050909; --screen: #121b1a;
+  --bar: #182322; --in: #1e2b2a; --out: #1d4a43; --card: #1a2625; --warn: #f0a94a; --warn-soft: #3a2a14;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body {
   background-color: var(--bg);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 24px 24px;
-  color: var(--ink);
-  font-family: var(--body);
-  font-size: 15px;
-  line-height: 1.5;
+  color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.45;
 }
 .wrap {
-  max-width: 1180px; margin: 0 auto;
+  max-width: 1040px; margin: 0 auto;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 28px 40px;
-  display: flex; flex-direction: column; gap: 22px;
+  padding-block: 26px 36px;
+  display: flex; flex-direction: column; gap: 20px;
 }
-header { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: end; justify-content: space-between; }
 .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-h1 {
-  font-family: var(--display); font-stretch: 118%; font-weight: 800;
-  font-size: clamp(30px, 5vw, 50px); line-height: 1; margin: 6px 0 8px; text-wrap: balance;
-  letter-spacing: -0.01em;
-}
-.lede { margin: 0; color: var(--muted); max-width: 60ch; }
-.stopwatch {
-  display: flex; gap: 18px; align-items: stretch;
-  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px;
-}
-.sw { display: flex; flex-direction: column; gap: 2px; }
-.sw b { font-family: var(--mono); font-weight: 500; font-size: 22px; font-variant-numeric: tabular-nums; }
-.sw.fast b { color: var(--accent); }
-.sw span { font-size: 12px; color: var(--muted); }
-.sw + .sw { border-left: 1px solid var(--line); padding-left: 18px; }
-
+h1 { font-family: var(--display); font-stretch: 118%; font-weight: 800; font-size: clamp(30px, 5vw, 48px); line-height: 1; margin: 6px 0 8px; text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); max-width: 62ch; }
 .samples { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.samples .eyebrow { margin-right: 4px; }
-.chip {
-  font: inherit; font-size: 13px; cursor: pointer;
-  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
-  border-radius: 999px; padding: 6px 12px;
-}
-.chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
-.chip:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 2px solid var(--accent); outline-offset: 2px;
-}
+.chip { font: inherit; font-size: 13px; cursor: pointer; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+.chip:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-.stations { display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 16px; align-items: start; }
-@media (max-width: 960px) { .stations { grid-template-columns: 1fr 1fr; } .out { grid-column: 1 / -1; } }
-@media (max-width: 640px) { .stations { grid-template-columns: 1fr; } }
-.station { min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
-.station h2 { margin: 0; font-family: var(--display); font-stretch: 105%; font-size: 17px; font-weight: 700; display: flex; gap: 10px; align-items: baseline; }
-.station h2 .step { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--accent); }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 380px)); justify-content: center; gap: 28px; align-items: start; }
+@media (max-width: 820px) { .phones { grid-template-columns: minmax(0, 400px); } }
+.side { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.side-label { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: baseline; }
+.side-label b { color: var(--ink); font-weight: 700; }
+.phone { background: var(--phone); border-radius: 34px; padding: 10px; box-shadow: 0 18px 40px rgba(10, 30, 28, .18); }
+.screen { background: var(--screen); border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; height: 600px; }
+.topbar { background: var(--bar); border-bottom: 1px solid var(--line); padding: 12px 14px; display: flex; align-items: center; gap: 10px; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 800; font-size: 13px; flex: none; }
+.who { min-width: 0; flex: 1; }
+.who b { display: block; font-size: 14px; }
+.who span { font-size: 12px; color: var(--muted); }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex: none; }
+.seg button { font: inherit; font-size: 11.5px; border: 0; background: transparent; color: var(--muted); padding: 4px 9px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.chat { flex: 1; overflow-y: auto; padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; scroll-behavior: smooth; }
+.msg { max-width: 86%; padding: 8px 11px; border-radius: 14px; font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
+.msg.in { background: var(--in); align-self: flex-start; border-top-left-radius: 4px; }
+.msg.out { background: var(--out); align-self: flex-end; border-top-right-radius: 4px; }
+.msg .meta { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; text-align: right; }
+.msg.file { font-family: var(--mono); font-size: 12px; }
+.sys { align-self: center; font-size: 11.5px; color: var(--muted); background: var(--bar); border-radius: 8px; padding: 3px 9px; text-align: center; }
+.typing { align-self: flex-start; background: var(--in); border-radius: 14px; padding: 10px 12px; display: flex; gap: 4px; }
+.typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: blink 1s infinite; }
+.typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes blink { 0%, 100% { opacity: .25 } 50% { opacity: 1 } }
+@media (prefers-reduced-motion: reduce) { .typing i { animation: none; opacity: .6; } .chat { scroll-behavior: auto; } }
 
-.bubble {
-  background: var(--bubble); border: 1px solid var(--line); border-radius: 4px 14px 14px 14px;
-  padding: 10px 12px;
-}
-.bubble textarea {
-  width: 100%; min-height: 128px; resize: vertical; border: 0; background: transparent; color: var(--ink);
-  font: inherit; line-height: 1.45; padding: 0;
-}
-.bubble textarea:focus-visible { outline: none; }
-.bubble:focus-within { border-color: var(--accent); }
-.from { font-size: 12px; color: var(--muted); }
+.card { align-self: flex-start; max-width: 94%; background: var(--card); border-radius: 14px; border-top-left-radius: 4px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.08); font-size: 13.5px; }
+.card .hd { padding: 9px 11px 0; font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; }
+.card .bd { padding: 6px 11px 10px; display: flex; flex-direction: column; gap: 6px; }
+.card .ask { color: var(--warn); background: var(--warn-soft); border-radius: 6px; padding: 3px 7px; font-weight: 600; font-size: 12px; width: fit-content; }
+.card .price { font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 24px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.card .price small { font-family: var(--body); font-stretch: 100%; font-weight: 400; font-size: 12px; color: var(--muted); }
+.card .facts { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.card .draft { background: var(--out); border-radius: 10px; padding: 8px 10px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13.5px; }
+.card .acts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.card .acts button { font: inherit; font-size: 13.5px; font-weight: 600; color: var(--accent); background: transparent; border: 0; padding: 10px 4px; cursor: pointer; }
+.card .acts button + button { border-left: 1px solid var(--line); }
+.card .acts button:disabled { color: var(--muted); cursor: default; font-weight: 400; }
 
-.drop {
-  border: 1.5px dashed var(--line); border-radius: 10px; padding: 12px; text-align: center; color: var(--muted); font-size: 13px;
-  cursor: pointer; position: relative;
-}
-.drop.over, .drop:focus-within { border-color: var(--accent); color: var(--ink); }
-.drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
-.drop strong { color: var(--ink); }
-.filetag { font-family: var(--mono); font-size: 12px; color: var(--accent); word-break: break-all; }
+.inputbar { background: var(--bar); border-top: 1px solid var(--line); padding: 8px; display: flex; gap: 6px; align-items: flex-end; }
+.inputbar textarea { flex: 1; min-width: 0; resize: none; font: inherit; font-size: 14px; color: var(--ink); background: var(--screen); border: 1px solid var(--line); border-radius: 18px; padding: 8px 12px; height: 38px; max-height: 96px; }
+.iconbtn { flex: none; width: 38px; height: 38px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); position: relative; }
+.iconbtn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.iconbtn svg { width: 18px; height: 18px; }
+.iconbtn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.pending { font-family: var(--mono); font-size: 11.5px; color: var(--accent); padding: 0 12px 6px; background: var(--bar); }
 
-.btn {
-  font: inherit; font-weight: 600; cursor: pointer; border-radius: 8px; padding: 10px 14px; border: 1px solid var(--accent);
-  background: var(--accent); color: var(--accent-ink);
-}
-.btn.ghost { background: transparent; color: var(--accent); }
-.row { display: flex; flex-wrap: wrap; gap: 8px; }
-
-.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
-.f { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.f.wide { grid-column: 1 / -1; }
-.f label { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
-.f input, .f select {
-  font: inherit; font-size: 14px; color: var(--ink); background: var(--bg); border: 1px solid var(--line);
-  border-radius: 7px; padding: 7px 9px; width: 100%; min-width: 0;
-}
-.dims { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 6px; align-items: center; }
-.dims span { color: var(--muted); font-size: 12px; }
-.tag { font-family: var(--mono); font-size: 10.5px; padding: 1px 6px; border-radius: 4px; letter-spacing: .03em; }
-.tag.read { background: var(--accent-soft); color: var(--accent); }
-.tag.miss { background: var(--warn-soft); color: var(--warn); }
-
-.status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; padding: 5px 10px; border-radius: 999px; width: fit-content; }
-.status.ok { background: var(--accent-soft); color: var(--accent); }
-.status.ask { background: var(--warn-soft); color: var(--warn); }
-.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-
-.total { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
-.total b { font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: clamp(30px, 4vw, 40px); line-height: 1; font-variant-numeric: tabular-nums; }
-.total span { color: var(--muted); font-size: 13px; }
-.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.fact { border-top: 2px solid var(--accent); padding-top: 6px; min-width: 0; }
-.fact b { display: block; font-family: var(--mono); font-weight: 500; font-size: 15px; font-variant-numeric: tabular-nums; }
-.fact span { font-size: 12px; color: var(--muted); }
-.breakdown { width: 100%; border-collapse: collapse; font-size: 13px; }
-.breakdown td { padding: 4px 0; border-bottom: 1px dotted var(--line); }
-.breakdown td:last-child { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: 10px; }
-.breakdown tr.sum td { font-weight: 700; border-bottom: 0; }
-details.calc summary { cursor: pointer; font-size: 13px; color: var(--muted); }
-details.calc[open] summary { margin-bottom: 8px; }
-
-.reply-label select { font: inherit; font-size: 12px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; }
-.reply-label { align-items: center; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
-.reply {
-  width: 100%; min-height: 215px; resize: vertical; font: inherit; font-size: 14px; line-height: 1.5; color: var(--ink);
-  background: var(--accent-soft); border: 1px solid transparent; border-radius: 14px 4px 14px 14px; padding: 12px;
-}
-.reply:focus-visible { border-color: var(--accent); outline: none; }
-.toast { font-size: 13px; color: var(--accent); min-height: 1.2em; }
-
-.rates { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
-.rates summary { cursor: pointer; font-weight: 600; }
-.rates summary span { font-weight: 400; color: var(--muted); font-size: 13px; }
-.rate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px 14px; margin-top: 14px; }
-
+.notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 820px) { .notes { grid-template-columns: 1fr; } }
+.note { border-top: 2px solid var(--accent); padding-top: 8px; font-size: 14px; color: var(--muted); min-width: 0; }
+.note b { color: var(--ink); display: block; margin-bottom: 2px; }
+details.rates { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+details.rates summary { cursor: pointer; font-weight: 600; }
+details.rates summary span { font-weight: 400; color: var(--muted); }
+.rate-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 4px 18px; margin-top: 10px; font-size: 13px; }
+.rate-list div { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px dotted var(--line); padding: 3px 0; }
+.rate-list b { font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; }
 footer { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
 footer b { color: var(--ink); }
-.num { font-family: var(--mono); user-select: all; color: var(--ink); }
-@media (prefers-reduced-motion: no-preference) {
-  .flash { animation: flash .6s ease-out; }
-  @keyframes flash { from { background-color: var(--accent-soft); } to { background-color: transparent; } }
-}
+.num { font-family: var(--mono); color: var(--ink); user-select: all; }
 </style>
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -190,471 +137,358 @@ footer b { color: var(--ink); }
 
 <div class="wrap">
   <header>
-    <div>
-      <div class="eyebrow">Demo · sample rates</div>
-      <h1>Print Quote Helper</h1>
-      <p class="lede">Paste a customer's message or drop a 3D file. It reads the details, works out price and ready-by date, and drafts the reply for you to check and send.</p>
-    </div>
-    <div class="stopwatch" aria-label="Time to quote">
-      <div class="sw"><b>10–15 min</b><span>quoting by hand</span></div>
-      <div class="sw fast"><b id="took">0.00 s</b><span>this quote</span></div>
-    </div>
+    <div class="eyebrow">Demo · sample rates</div>
+    <h1>Quote Helper</h1>
+    <p class="lede">No new app for you or your customers. They message you on Instagram or WhatsApp like they do now. The helper reads it, works out the price and date from your rates, and sends you the reply on your WhatsApp. One tap and it goes out from your own account.</p>
   </header>
 
-  <div class="samples" role="group" aria-label="Sample enquiries">
-    <span class="eyebrow">Try an enquiry</span>
-    <button class="chip" data-s="4" aria-pressed="true">Car mod parts</button>
-    <button class="chip" data-s="0">Bulk keychains</button>
-    <button class="chip" data-s="1">Rush stand order</button>
-    <button class="chip" data-s="2">Vague broken part</button>
-    <button class="chip" data-s="3">Needs a design</button>
-    <button class="chip" data-s="5">Manglish message</button>
-    <button class="chip" data-s="6">Malayalam message</button>
+  <div class="samples" role="group" aria-label="Sample customer messages">
+    <span class="eyebrow">Send as a customer</span>
+    <button class="chip" data-s="0">Car mod parts</button>
+    <button class="chip" data-s="1">Manglish</button>
+    <button class="chip" data-s="2">Malayalam</button>
+    <button class="chip" data-s="3">Bulk keychains</button>
+    <button class="chip" data-s="4">Broken part, no size</button>
+    <button class="chip" data-s="5">Needs a design</button>
   </div>
 
-  <div class="stations">
-    <section class="station" aria-labelledby="h-in">
-      <h2 id="h-in"><span class="step">1</span>Enquiry comes in</h2>
-      <div class="from">Customer · WhatsApp</div>
-      <div class="bubble"><textarea id="msg" aria-label="Customer message"></textarea></div>
-      <div class="drop" id="drop">
-        <input type="file" id="file" accept=".stl" aria-label="Attach an STL file">
-        <strong>Drop an STL file</strong> or tap to choose.<br>Its real size and volume are measured here in your browser.
-        <div class="filetag" id="filetag"></div>
-      </div>
-      <div class="row"><button class="btn" id="read">Read message</button></div>
-    </section>
-
-    <section class="station" aria-labelledby="h-read">
-      <h2 id="h-read"><span class="step">2</span>Details it picked up</h2>
-      <div class="fields">
-        <div class="f wide">
-          <label for="item">Item <i class="tag" id="t-item"></i></label>
-          <input id="item">
-        </div>
-        <div class="f wide">
-          <label>Size, mm (L × W × H) <i class="tag" id="t-size"></i></label>
-          <div class="dims">
-            <input id="L" type="number" min="0" step="1" aria-label="Length in mm"><span>×</span>
-            <input id="W" type="number" min="0" step="1" aria-label="Width in mm"><span>×</span>
-            <input id="H" type="number" min="0" step="1" aria-label="Height in mm">
+  <div class="phones">
+    <section class="side" aria-labelledby="l-cust">
+      <div class="side-label" id="l-cust"><b>Your customer's phone</b> what they see</div>
+      <div class="phone"><div class="screen">
+        <div class="topbar">
+          <div class="avatar" aria-hidden="true">SC</div>
+          <div class="who"><b>Your shop</b><span id="chan-label">Instagram message</span></div>
+          <div class="seg" role="group" aria-label="Channel">
+            <button id="ch-ig" aria-pressed="true">Instagram</button><button id="ch-wa" aria-pressed="false">WhatsApp</button>
           </div>
         </div>
-        <div class="f">
-          <label for="qty">Quantity <i class="tag" id="t-qty"></i></label>
-          <input id="qty" type="number" min="0" step="1">
-        </div>
-        <div class="f">
-          <label for="mat">Material <i class="tag" id="t-mat"></i></label>
-          <select id="mat"></select>
-        </div>
-        <div class="f">
-          <label for="colour">Colour <i class="tag" id="t-col"></i></label>
-          <input id="colour">
-        </div>
-        <div class="f">
-          <label for="quality">Finish</label>
-          <select id="quality">
-            <option value="draft">Draft (fast)</option>
-            <option value="standard" selected>Standard</option>
-            <option value="fine">Fine detail</option>
-          </select>
-        </div>
-        <div class="f">
-          <label for="infill">Strength (infill %)</label>
-          <input id="infill" type="number" min="5" max="100" step="5" value="20">
-        </div>
-        <div class="f">
-          <label for="deadline">Needed in (days) <i class="tag" id="t-dl"></i></label>
-          <input id="deadline" type="number" min="0" step="1">
-        </div>
-        <div class="f wide">
-          <label for="design">Design work <i class="tag" id="t-des"></i></label>
-          <select id="design">
-            <option value="none">None, customer has the file</option>
-            <option value="fix">Small fix to their file</option>
-            <option value="new">Design from scratch</option>
-          </select>
-        </div>
-      </div>
+        <div class="chat" id="cust" aria-live="polite"></div>
+        <div class="pending" id="pending" hidden></div>
+        <form class="inputbar" id="cust-form">
+          <label class="iconbtn ghost" title="Attach a 3D file (STL)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 01-7.1-7.1l8.6-8.6a3.5 3.5 0 015 5l-8.6 8.6a2 2 0 01-2.8-2.8l7.9-7.9"/></svg>
+            <input type="file" id="file" accept=".stl" aria-label="Attach an STL file">
+          </label>
+          <textarea id="cust-in" rows="1" placeholder="Message the shop…" aria-label="Customer message"></textarea>
+          <button class="iconbtn" type="submit" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg>
+          </button>
+        </form>
+      </div></div>
     </section>
 
-    <section class="station out" aria-labelledby="h-out" aria-live="polite">
-      <h2 id="h-out"><span class="step">3</span>Quote, ready to approve</h2>
-      <div id="status" class="status ok">Ready to send</div>
-      <div class="total"><b id="total">–</b><span id="per"></span></div>
-      <div class="facts">
-        <div class="fact"><b id="grams">–</b><span>material</span></div>
-        <div class="fact"><b id="hours">–</b><span>print time</span></div>
-        <div class="fact"><b id="ready">–</b><span>delivered by</span></div>
-      </div>
-      <details class="calc">
-        <summary>How this price was worked out</summary>
-        <table class="breakdown" id="breakdown"></table>
-      </details>
-      <div class="reply-label"><span>Drafted reply · edit before sending</span><label>Reply in <select id="lang" aria-label="Reply language"><option value="en">English</option><option value="manglish">Manglish</option><option value="ml">Malayalam</option></select></label></div>
-      <div class="reply-label"><span id="conf"></span></div>
-      <textarea class="reply" id="reply" aria-label="Drafted reply"></textarea>
-      <div class="row">
-        <button class="btn" id="approve">Approve and copy</button>
-        <button class="btn ghost" id="redo">Redo draft</button>
-      </div>
-      <div class="toast" id="toast" role="status"></div>
+    <section class="side" aria-labelledby="l-own">
+      <div class="side-label" id="l-own"><b>Your WhatsApp</b> chat with the helper</div>
+      <div class="phone"><div class="screen">
+        <div class="topbar">
+          <div class="avatar" aria-hidden="true">QH</div>
+          <div class="who"><b>Quote helper</b><span id="own-status">online</span></div>
+        </div>
+        <div class="chat" id="own" aria-live="polite"></div>
+        <form class="inputbar" id="own-form">
+          <textarea id="own-in" rows="1" placeholder="Type a new price, or e.g. PLA 1300" aria-label="Your message to the helper"></textarea>
+          <button class="iconbtn" type="submit" aria-label="Send to helper">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg>
+          </button>
+        </form>
+      </div></div>
     </section>
+  </div>
+
+  <div class="notes">
+    <div class="note"><b>Nothing new to install</b>Customers use Instagram and WhatsApp as usual. You get quotes in your own WhatsApp.</div>
+    <div class="note"><b>Your prices, your call</b>Prices come from your own rates, never guessed. Nothing reaches a customer until you tap Send.</div>
+    <div class="note"><b>Their language</b>Replies go out in English, Malayalam or Manglish, the way the customer wrote.</div>
   </div>
 
   <details class="rates">
-    <summary>Shop rates <span>· sample numbers; a real version uses your own</span></summary>
-    <div class="rate-grid" id="rates"></div>
+    <summary>Rates the helper uses <span>· sample numbers; yours replace them. Change one from your chat, e.g. "PLA 1300"</span></summary>
+    <div class="rate-list" id="rates"></div>
   </details>
 
   <footer>
-    <span>A rough demo with sample rates, made by <b>Orbelis</b>. Your own tech team, without the hiring.</span>
+    <span>A demo with sample rates, made by <b>Orbelis</b>. Your own tech team, without the hiring.</span>
     <span>WhatsApp <span class="num">+91 75105 33289</span></span>
   </footer>
 </div>
 
 <script>
 (function () {
-  // Sample shop rates. In a real build these come from the owner.
+  // ---------- Sample shop rates (the real ones come from the owner) ----------
   const MATS = {
     PLA:   { name: "PLA",   perKg: 1200, density: 1.24, gph: 1.0 },
     PETG:  { name: "PETG",  perKg: 1500, density: 1.27, gph: 0.9 },
     ABS:   { name: "ABS",   perKg: 1500, density: 1.04, gph: 0.9 },
-    TPU:   { name: "TPU (flexible)", perKg: 2400, density: 1.21, gph: 0.6 },
+    TPU:   { name: "TPU",   perKg: 2400, density: 1.21, gph: 0.6 },
     RESIN: { name: "Resin", perKg: 3800, density: 1.12, gph: 1.1 }
   };
-  const R = {
-    machineHr: 35, markup: 2.0, setup: 150, finishEach: 8, minOrder: 300,
-    machines: 3, hoursPerDay: 18, rush: 30, ship: 90, shipPer500g: 25,
-    designFix: 600, designNew: 1800, baseSpeed: 25
-  };
-  const RATE_FIELDS = [
-    ["machineHr", "Machine time, Rs per hour"], ["markup", "Price multiplier on cost"],
-    ["setup", "Setup per order, Rs"], ["finishEach", "Finishing per piece, Rs"],
-    ["minOrder", "Minimum order, Rs"], ["machines", "Printers running"],
-    ["hoursPerDay", "Print hours per day, each"], ["rush", "Rush charge, %"],
-    ["ship", "Packing and courier, Rs"], ["designFix", "Small design fix, Rs"],
-    ["designNew", "New design from, Rs"], ["baseSpeed", "Print speed, grams per hour"]
-  ];
-  const SPEED = { draft: 1.45, standard: 1, fine: 0.6 };
+  const R = { machineHr: 35, markup: 2.0, setup: 150, finishEach: 8, minOrder: 300, machines: 3, hoursPerDay: 18,
+    rush: 30, ship: 90, shipPer500g: 25, designFix: 600, designNew: 1800, baseSpeed: 25, infill: 0.2 };
+  const RATE_LABELS = [["machineHr", "Machine time per hour", "Rs "], ["setup", "Setup per order", "Rs "], ["finishEach", "Finishing per piece", "Rs "],
+    ["minOrder", "Minimum order", "Rs "], ["ship", "Packing and courier", "Rs "], ["rush", "Rush charge", "", "%"], ["designNew", "New design from", "Rs "],
+    ["machines", "Printers running", ""], ["markup", "Price multiplier on cost", "×"]];
 
   const SAMPLES = [
-    "Hi bro, need 120 keychains with our cafe logo, about 50 x 30 x 4 mm, PLA in black and gold. Can you do it within 10 days? Delivery to Kochi. What's the price?",
-    "Hello, I want 25 phone stands in white PETG, size 80x70x90mm. I have the STL file. Need it urgently by this Saturday for an event. How much including courier?",
-    "Hi, a plastic clip on my mixer broke. Can you print a new one? I can send a photo.",
-    "Hey, I need a custom name plate for my shop counter, around 30cm x 8cm. No file, can you design it? 2 pieces, any colour except red. Need in 2 weeks.",
     "Hi, need 4 phone mounts for my car dashboard, about 90 x 60 x 40 mm, ABS in black because it gets hot inside the car. I have the STL. Can you ship in 7 days?",
     "Chetta, 60 keychain venam, 5cm x 3cm x 4mm, black PLA il. Shop logo und, STL ayakkam. 10 divasathinullil kittumo? Rate ethra aakum?",
-    "നമസ്കാരം, 30 കീചെയിൻ വേണം. 5cm x 3cm x 4mm, കറുപ്പ് PLA. 10 ദിവസത്തിനുള്ളിൽ കിട്ടുമോ? റേറ്റ് എത്രയാകും?"
+    "നമസ്കാരം, 30 കീചെയിൻ വേണം. 5cm x 3cm x 4mm, കറുപ്പ് PLA. 10 ദിവസത്തിനുള്ളിൽ കിട്ടുമോ? റേറ്റ് എത്രയാകും?",
+    "Hi bro, need 120 keychains with our cafe logo, about 50 x 30 x 4 mm, PLA in black and gold. Can you do it within 10 days? Delivery to Kochi. What's the price?",
+    "Hi, a plastic clip on my mixer broke. Can you print a new one? I can send a photo.",
+    "Hey, I need a custom name plate for my shop counter, around 30cm x 8cm. No file, can you design it? 2 pieces, any colour except red. Need in 2 weeks."
   ];
 
   const $ = (id) => document.getElementById(id);
-  const el = { msg: $("msg"), item: $("item"), L: $("L"), W: $("W"), H: $("H"), qty: $("qty"), mat: $("mat"),
-    colour: $("colour"), quality: $("quality"), infill: $("infill"), deadline: $("deadline"), design: $("design") };
-  let stl = null; // { name, volume (cm3), L, W, H }
-  let flags = {};
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const rs = (n) => "Rs " + Math.round(n).toLocaleString("en-IN");
+  const now = () => new Date().toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit" });
+  let channel = "Instagram";
+  const NAMES = ["Arjun", "Fathima", "Anu", "Rahul", "Suresh", "Nihal"];
+  let customer = "Arjun";
+  let pendingFile = null;   // { name, volume, L, W, H }
+  let last = null;          // last enquiry the owner is looking at
 
-  Object.entries(MATS).forEach(([k, m]) => { const o = document.createElement("option"); o.value = k; o.textContent = m.name; el.mat.appendChild(o); });
-
-  // Rates panel
-  const rg = $("rates");
-  RATE_FIELDS.forEach(([k, label]) => {
-    const d = document.createElement("div"); d.className = "f";
-    d.innerHTML = `<label for="r-${k}">${label}</label><input id="r-${k}" type="number" step="any" value="${R[k]}">`;
-    rg.appendChild(d);
-    d.querySelector("input").addEventListener("input", (e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) { R[k] = v; compute(); } });
-  });
-  Object.entries(MATS).forEach(([k, m]) => {
-    const d = document.createElement("div"); d.className = "f";
-    d.innerHTML = `<label for="m-${k}">${m.name}, Rs per kg</label><input id="m-${k}" type="number" step="any" value="${m.perKg}">`;
-    rg.appendChild(d);
-    d.querySelector("input").addEventListener("input", (e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) { m.perKg = v; compute(); } });
-  });
-
-  // ---------- Reading the message ----------
+  // ---------- Reading a message ----------
   const WEEKDAYS = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+  const ITEMS = ["phone mount","phone stand","name plate","nameplate","gear cover","keychain","mount","clip","stand","figurine","bracket","cover","case","gear","holder","logo","trophy","lamp","part"];
   function parse(text) {
     const t = " " + text.toLowerCase().replace(/×/g, "x") + " ";
     const out = {};
-    // size: 50 x 30 x 4 mm | 30cm x 8cm | 80x70x90mm
     const m3 = t.match(/(\d+(?:\.\d+)?)\s*(mm|cm|in)?\s*[x*]\s*(\d+(?:\.\d+)?)\s*(mm|cm|in)?\s*(?:[x*]\s*(\d+(?:\.\d+)?)\s*(mm|cm|in)?)?/);
+    let rest = t;
     if (m3) {
-      const last = m3[6] || m3[4] || m3[2] || (/\bcm\b/.test(t) ? "cm" : "mm");
-      const mm = (n, u) => Math.round(parseFloat(n) * ({ cm: 10, in: 25.4, mm: 1 }[u || last]));
-      out.L = mm(m3[1], m3[2]);
-      out.W = mm(m3[3], m3[4]);
-      out.H = m3[5] ? mm(m3[5], m3[6]) : null;
+      const lastU = m3[6] || m3[4] || m3[2] || (/\bcm\b/.test(t) ? "cm" : "mm");
+      const mm = (n, u) => Math.round(parseFloat(n) * ({ cm: 10, in: 25.4, mm: 1 }[u || lastU]));
+      out.L = mm(m3[1], m3[2]); out.W = mm(m3[3], m3[4]); out.H = m3[5] ? mm(m3[5], m3[6]) : null;
+      rest = t.replace(m3[0], " ");
     }
-    // quantity
-    let q = t.match(/(\d+)\s*(?:pcs|pieces|nos|units|qty|numbers|ennam|enam|keychains?|stands?|plates?|mounts?|pieces?)\b/) || t.match(/(\d+)\s*(?:എണ്ണം|കീചെയിൻ|പീസ്)/) ||
-            t.match(/\b(?:need|want|order|make)\s+(\d+)\b/) || t.match(/\bqty\s*:?\s*(\d+)/);
-    if (q) out.qty = parseInt(q[1], 10);
+    // quantity: explicit words first, then any number followed by a word that isn't a unit or time
+    let q = rest.match(/(\d+)\s*(?:pcs|pieces?|nos|units|qty|numbers|ennam|enam)\b/) || rest.match(/(\d+)\s*(?:എണ്ണം|കീചെയിൻ|പീസ്)/) ||
+            rest.match(/\b(?:need|want|order|make|print|send)\s+(\d+)\b/) || rest.match(/\bqty\s*:?\s*(\d+)/) ||
+            rest.match(/(\d+)\s+(?!mm\b|cm\b|in\b|days?\b|weeks?\b|divas|dhivas|hours?\b|g\b|kg\b|%|rs\b|rupees?\b)[a-zഀ-ൿ]/);
+    if (q && !/(?:within|in|by)\s+$/.test(rest.slice(0, rest.indexOf(q[0])))) out.qty = parseInt(q[1], 10);
     else if (/\b(a|one)\s+(new\s+)?(one|piece|clip|part|name ?plate|plate|stand)\b/.test(t)) out.qty = 1;
-    // material
     for (const k of ["petg", "pla", "abs", "tpu", "resin"]) if (new RegExp("\\b" + k + "\\b").test(t)) { out.mat = k.toUpperCase(); break; }
     if (!out.mat && /flexible|rubber/.test(t)) out.mat = "TPU";
-    // colour
     const cols = ["black","white","gold","silver","red","blue","green","yellow","orange","grey","gray","pink","purple","transparent","clear"];
     const neg = t.match(/except\s+(\w+)/);
     const found = cols.filter((c) => new RegExp("\\b" + c + "\\b").test(t) && !(neg && neg[1] === c));
-    const mlCols = { "കറുപ്പ്": "Black", "കറുത്ത": "Black", "വെള്ള": "White", "ചുവപ്പ്": "Red", "നീല": "Blue", "പച്ച": "Green", "മഞ്ഞ": "Yellow", "സ്വർണ്ണ": "Gold" };
-    for (const [k, v] of Object.entries(mlCols)) if (t.includes(k) && !found.includes(v.toLowerCase())) found.push(v.toLowerCase());
-    if (/any colou?r/.test(t)) out.colour = neg ? "Any except " + neg[1] : "Any";
-    else if (found.length) out.colour = found.map((c) => c[0].toUpperCase() + c.slice(1)).join(" and ");
-    // deadline in days
+    const mlCols = { "കറുപ്പ്": "black", "കറുത്ത": "black", "വെള്ള": "white", "ചുവപ്പ്": "red", "നീല": "blue", "പച്ച": "green", "മഞ്ഞ": "yellow", "സ്വർണ്ണ": "gold" };
+    for (const [k, v] of Object.entries(mlCols)) if (t.includes(k) && !found.includes(v)) found.push(v);
+    if (/any colou?r/.test(t)) out.colour = neg ? "any except " + neg[1] : "any colour";
+    else if (found.length) out.colour = found.join(" and ");
     let d = t.match(/(?:within|in|by)\s+(\d+)\s*days?/) || t.match(/(\d+)\s*(?:divas|dhivas|days?\b|ദിവസ)/);
     if (d) out.deadline = parseInt(d[1], 10);
     else if ((d = t.match(/(\d+)\s*weeks?/))) out.deadline = parseInt(d[1], 10) * 7;
     else if (/\b(two|2)\s+weeks?\b/.test(t)) out.deadline = 14;
     else if (/tomorrow/.test(t)) out.deadline = 1;
-    else {
-      const wd = WEEKDAYS.findIndex((w) => t.includes(w));
-      if (wd >= 0) { const now = new Date().getDay(); out.deadline = ((wd - now + 7) % 7) || 7; }
-    }
+    else { const wd = WEEKDAYS.findIndex((w) => t.includes(w)); if (wd >= 0) out.deadline = ((wd - new Date().getDay() + 7) % 7) || 7; }
     out.urgent = /urgent|asap|rush|urgently/.test(t);
-    // design
     if (/no file|don'?t have (a |the )?file|can you design|design it|make the design/.test(t)) out.design = "new";
     else if (/(edit|change|modify|fix) (the|my) (file|design|model)/.test(t)) out.design = "fix";
     else out.design = "none";
-    out.hasFile = /\b(stl|3mf|obj|file attached|have the file|i have the stl)\b/.test(t);
+    out.hasFile = /\b(stl|3mf|obj|have the file)\b/.test(t);
     out.photoOnly = /photo|picture|pic\b/.test(t) && !m3;
-    // item name
-    const items = ["keychain","phone mount","phone stand","mount","name plate","nameplate","clip","stand","figurine","bracket","cover","case","gear","holder","logo","trophy","lamp"];
-    let it = items.find((w) => t.includes(w));
+    let it = ITEMS.filter((w) => t.includes(w)).sort((a, b) => b.length - a.length)[0];
     if (!it && t.includes("കീചെയിൻ")) it = "keychain";
-    if (it) out.item = it === "nameplate" ? "Name plate" : it[0].toUpperCase() + it.slice(1) + (out.qty > 1 && !it.endsWith("s") ? "s" : "");
-    out.lang = /[\u0D00-\u0D7F]/.test(text) ? "ml" : /\b(venam|undo|ethra|cheyyamo|kittumo|chetta|chechi|divas\w*|aakum|ayakkam|mathi|alle|enthanu|und)\b/.test(t) ? "manglish" : "en";
+    if (it) out.item = it === "nameplate" ? "name plate" : it;
+    out.lang = /[ഀ-ൿ]/.test(text) ? "ml" : /\b(venam|undo|ethra|cheyyamo|kittumo|chetta|chechi|divas\w*|aakum|ayakkam|mathi|alle|enthanu|und)\b/.test(t) ? "manglish" : "en";
     return out;
   }
 
-  function setTag(id, ok, txt) { const n = $(id); n.className = "tag " + (ok ? "read" : "miss"); n.textContent = txt || (ok ? "read" : "missing"); }
-
-  function readMessage() {
-    const p = parse(el.msg.value);
-    flags = { urgent: p.urgent, hasFile: p.hasFile || !!stl, photoOnly: p.photoOnly };
-    $("lang").value = p.lang;
-    el.item.value = p.item || "";
-    if (stl) { el.L.value = stl.L; el.W.value = stl.W; el.H.value = stl.H; }
-    else { el.L.value = p.L ?? ""; el.W.value = p.W ?? ""; el.H.value = p.H ?? (p.L ? 5 : ""); }
-    el.qty.value = p.qty ?? "";
-    el.mat.value = p.mat || "PLA";
-    el.colour.value = p.colour || "";
-    el.deadline.value = p.deadline ?? "";
-    el.design.value = p.design;
-    setTag("t-item", !!p.item);
-    setTag("t-size", !!(p.L || stl), stl ? "from file" : (p.L && !p.H ? "height guessed" : null));
-    setTag("t-qty", !!p.qty);
-    setTag("t-mat", !!p.mat, p.mat ? "read" : "assumed PLA");
-    setTag("t-col", !!p.colour);
-    setTag("t-dl", p.deadline != null, p.deadline != null ? (p.urgent ? "rush" : "read") : "not given");
-    setTag("t-des", true, p.design === "none" ? (flags.hasFile ? "has file" : "read") : "needs design");
-    compute();
-  }
-
-  // ---------- Pricing ----------
-  const rs = (n) => "Rs " + Math.round(n).toLocaleString("en-IN");
-  function addWorkingDays(days) {
-    const d = new Date(); let left = Math.max(1, Math.ceil(days));
-    while (left > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0) left--; }
-    return d;
-  }
-  const fmtDate = (d, lang) => d.toLocaleDateString(lang === "ml" ? "ml-IN" : "en-IN", { weekday: "short", day: "numeric", month: "short" });
-
-  function compute() {
-    const t0 = performance.now();
-    const L = +el.L.value, W = +el.W.value, H = +el.H.value, qty = +el.qty.value;
-    const mat = MATS[el.mat.value]; const infill = Math.min(100, Math.max(5, +el.infill.value || 20)) / 100;
-    const design = el.design.value;
+  // ---------- Pricing from the rate sheet ----------
+  function addWorkingDays(days) { const d = new Date(); let left = Math.max(1, Math.ceil(days)); while (left > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0) left--; } return d; }
+  function price(p, file) {
+    const L = file ? file.L : p.L, W = file ? file.W : p.W, H = file ? file.H : (p.H ?? (p.L ? 5 : null));
     const missing = [];
-    if (!(L && W && H) && !stl) missing.push("size");
-    if (!qty) missing.push("quantity");
-
-    let grams = 0, hoursEach = 0, rows = [], total = 0, each = 0, readyDate = null, rushOn = false;
-    if (!missing.length) {
-      // Volume of plastic in one piece
-      const shell = 0.32 + 0.68 * infill;
-      const flat = H < 0.2 * Math.min(L, W); // flat parts (tags, plates) fill more of their box
-      const solidCm3 = stl ? stl.volume : (L * W * H / 1000) * (flat ? 0.7 : 0.3);
-      grams = solidCm3 * shell * mat.density;
-      hoursEach = grams / (R.baseSpeed * SPEED[el.quality.value] * mat.gph) + 0.05;
-      const matCost = grams / 1000 * mat.perKg;
-      const machineCost = hoursEach * R.machineHr;
-      const pieceCost = (matCost + machineCost) * R.markup + R.finishEach;
-      let disc = qty >= 100 ? 0.2 : qty >= 25 ? 0.1 : 0;
-      const prints = pieceCost * qty * (1 - disc);
-      const designFee = design === "new" ? R.designNew : design === "fix" ? R.designFix : 0;
-      const shipping = R.ship + Math.floor(grams * qty / 500) * R.shipPer500g;
-      const totalHours = hoursEach * qty;
-      const printDays = totalHours / (R.machines * R.hoursPerDay);
-      const workDays = Math.ceil(printDays + 1 + (design === "new" ? 2 : design === "fix" ? 1 : 0));
-      const deadline = el.deadline.value === "" ? null : +el.deadline.value;
-      rushOn = flags.urgent || (deadline != null && deadline < workDays + 3);
-      let sub = prints + R.setup + designFee;
-      sub = Math.max(sub, R.minOrder);
-      const rushFee = rushOn ? sub * R.rush / 100 : 0;
-      total = sub + rushFee + shipping;
-      each = total / qty;
-      readyDate = addWorkingDays((rushOn ? Math.max(1, Math.ceil(workDays * 0.6)) : workDays) + 3);
-      rows = [
-        [`Material, ${grams.toFixed(1)} g × ${qty}`, matCost * qty],
-        [`Machine time, ${hoursEach.toFixed(2)} h × ${qty}`, machineCost * qty],
-        [`Shop margin and finishing`, prints / (1 - disc) - (matCost + machineCost) * qty],
-        ...(disc ? [[`Bulk discount, ${disc * 100}%`, -(prints / (1 - disc)) * disc]] : []),
-        [`Setup`, R.setup],
-        ...(designFee ? [[design === "new" ? "Design (from)" : "Design fix", designFee]] : []),
-        ...(rushFee ? [[`Rush, ${R.rush}%`, rushFee]] : []),
-        [`Packing and courier`, shipping]
-      ];
-      if (prints + R.setup + designFee < R.minOrder) rows.push(["Topped up to minimum order", R.minOrder - (prints + R.setup + designFee)]);
-      rows.push(["Total", total]);
-      $("grams").textContent = (grams * qty >= 1000 ? (grams * qty / 1000).toFixed(2) + " kg" : Math.round(grams * qty) + " g");
-      $("hours").textContent = totalHours.toFixed(1) + " h";
-      $("ready").textContent = fmtDate(readyDate, "en");
-      $("total").textContent = rs(total);
-      $("per").textContent = `${rs(each)} per piece · incl. courier`;
-    } else {
-      ["grams", "hours", "ready"].forEach((k) => $(k).textContent = "–");
-      $("total").textContent = "Needs details"; $("per").textContent = "";
-    }
-
-    $("breakdown").innerHTML = rows.map((r, i) =>
-      `<tr${i === rows.length - 1 ? ' class="sum"' : ""}><td>${r[0]}</td><td>${r[1] < 0 ? "− " + rs(-r[1]) : rs(r[1])}</td></tr>`).join("");
-
-    const st = $("status");
-    const needsOwner = missing.length || design === "new" || flags.photoOnly;
-    st.className = "status " + (needsOwner ? "ask" : "ok");
-    st.textContent = missing.length ? "Asking customer for " + missing.join(" and ") : design === "new" ? "Design job: owner to confirm price" : "Ready to approve";
-    const exact = stl || flags.hasFile;
-    $("conf").textContent = missing.length ? "" : exact && stl ? "Measured from file, ±5%" : "Estimate from size, ±15%";
-
-    $("reply").value = draft({ missing, qty, mat, total, each, readyDate, design, rushOn, exact });
-    const ms = performance.now() - t0;
-    $("took").textContent = (ms / 1000).toFixed(3) + " s";
-    $("h-out").parentElement.classList.remove("flash"); void $("h-out").offsetWidth; $("h-out").parentElement.classList.add("flash");
+    if (!(L && W && H)) missing.push("size");
+    if (!p.qty) missing.push("quantity");
+    if (missing.length) return { missing };
+    const mat = MATS[p.mat || "PLA"], qty = p.qty;
+    const flat = H < 0.2 * Math.min(L, W);
+    const solid = file ? file.volume : (L * W * H / 1000) * (flat ? 0.7 : 0.3);
+    const grams = solid * (0.32 + 0.68 * R.infill) * mat.density;
+    const hoursEach = grams / (R.baseSpeed * mat.gph) + 0.05;
+    const pieceCost = (grams / 1000 * mat.perKg + hoursEach * R.machineHr) * R.markup + R.finishEach;
+    const disc = qty >= 100 ? 0.2 : qty >= 25 ? 0.1 : 0;
+    const designFee = p.design === "new" ? R.designNew : p.design === "fix" ? R.designFix : 0;
+    const shipping = R.ship + Math.floor(grams * qty / 500) * R.shipPer500g;
+    const workDays = Math.ceil(hoursEach * qty / (R.machines * R.hoursPerDay) + 1 + (p.design === "new" ? 2 : p.design === "fix" ? 1 : 0));
+    const rushOn = p.urgent || (p.deadline != null && p.deadline < workDays + 3);
+    const sub = Math.max(pieceCost * qty * (1 - disc) + R.setup + designFee, R.minOrder);
+    const total = sub * (rushOn ? 1 + R.rush / 100 : 1) + shipping;
+    return { missing, L, W, H, mat, qty, grams, hours: hoursEach * qty, total, each: total / qty, rushOn, disc,
+      ready: addWorkingDays((rushOn ? Math.max(1, Math.ceil(workDays * 0.6)) : workDays) + 3), exact: !!file };
   }
 
-  function draft(o) {
-    const lang = $("lang").value;
-    if (lang !== "en") return draftLocal(o, lang);
-    const item = (el.item.value || "item").toLowerCase();
-    if (o.missing.length) {
-      const asks = [];
-      if (o.missing.includes("size")) asks.push(flags.photoOnly ? "a photo with a ruler or tape next to it, or the rough size (length, width, height)" : "the rough size (length, width, height)");
-      if (o.missing.includes("quantity")) asks.push("how many you need");
-      return `Hi! Thanks for reaching out, happy to help with this.\n\nTo give you an exact price and date, could you send ${asks.join(" and ")}? If you have a 3D file (STL), send that too and we can quote straight away.`;
+  // ---------- Drafting the reply in the customer's language ----------
+  const ML_MONTHS = ["ജനുവരി","ഫെബ്രുവരി","മാർച്ച്","ഏപ്രിൽ","മേയ്","ജൂൺ","ജൂലൈ","ഓഗസ്റ്റ്","സെപ്റ്റംബർ","ഒക്ടോബർ","നവംബർ","ഡിസംബർ"];
+  function draft(e) {
+    const p = e.p, c = e.calc, lang = p.lang;
+    if (c.missing.length) {
+      const sz = c.missing.includes("size"), qn = c.missing.includes("quantity");
+      if (lang === "ml") return "നമസ്കാരം! സഹായിക്കാം.\n\nകൃത്യമായ വിലയും തീയതിയും പറയാൻ, " + (sz ? "ഏകദേശ വലിപ്പം (നീളം, വീതി, ഉയരം)" : "") + (sz && qn ? ", " : "") + (qn ? "എത്ര എണ്ണം വേണം" : "") + " എന്നൊന്ന് അറിയിക്കാമോ? STL ഫയൽ ഉണ്ടെങ്കിൽ അതും അയക്കൂ.";
+      if (lang === "manglish") return "Hi! Help cheyyam.\n\nCorrect rate um date um parayan, " + (sz ? "size (length, width, height)" : "") + (sz && qn ? " um " : "") + (qn ? "ethra ennam venam ennum" : "") + " onnu parayamo? STL file undengil athum ayakkoo.";
+      return "Hi! Happy to help with this.\n\nTo give you an exact price and date, could you send " + (sz ? (p.photoOnly ? "a photo with a ruler next to it, or the rough size (length, width, height)" : "the rough size (length, width, height)") : "") + (sz && qn ? " and " : "") + (qn ? "how many you need" : "") + "? If you have a 3D file (STL), send that too.";
     }
-    const cv = el.colour.value.trim(); const anyCol = /^any/i.test(cv);
-    const col = cv && !anyCol ? `${cv.toLowerCase()} ` : "";
-    const lines = [
-      `Hi! Thanks for the enquiry.`,
-      ``,
-      `${o.qty} × ${item} (${el.L.value} × ${el.W.value} × ${el.H.value} mm) in ${col}${o.mat.name}${anyCol ? ` (colour: ${cv.toLowerCase()})` : ""}:`,
-      `• ${rs(o.each)} per piece, ${rs(o.total)} total including packing and courier`,
-      `• Delivered by ${fmtDate(o.readyDate)}${o.rushOn ? " (rush order)" : ""}`
-    ];
-    if (o.design === "new") lines.push(`• Includes the design, starting from ${rs(R.designNew)}. We'll confirm after a quick chat about what you want`);
-    if (o.design === "fix") lines.push(`• Includes a small fix to your file`);
-    lines.push(``);
-    lines.push(o.exact ? `Final price after we check your file. To start, please confirm and pay a 50% advance.` : `This is an estimate. Send the STL file if you have it and we'll confirm the exact price.`);
-    return lines.join("\n");
-  }
-
-  // Replies in the customer's own way of writing
-  function draftLocal(o, lang) {
-    const ml = lang === "ml";
-    const item = (el.item.value || "item").toLowerCase();
-    if (o.missing.length) {
-      return ml
-        ? "നമസ്കാരം! സഹായിക്കാം.\n\nകൃത്യമായ വിലയും തീയതിയും പറയാൻ, " + (o.missing.includes("size") ? "ഏകദേശ വലിപ്പം (നീളം, വീതി, ഉയരം)" : "") + (o.missing.length > 1 ? ", " : "") + (o.missing.includes("quantity") ? "എത്ര എണ്ണം വേണം" : "") + " എന്നൊന്ന് അറിയിക്കാമോ? STL ഫയൽ ഉണ്ടെങ്കിൽ അതും അയക്കൂ, ഉടനെ വില പറയാം."
-        : "Hi! Help cheyyam.\n\nCorrect rate um date um parayan, " + (o.missing.includes("size") ? "size (length, width, height)" : "") + (o.missing.length > 1 ? " um " : "") + (o.missing.includes("quantity") ? "ethra ennam venam ennum" : "") + " onnu parayamo? STL file undengil athum ayakkoo, udane rate parayam.";
+    const total = e.override ?? c.total, each = total / c.qty;
+    const item = (p.item || "item") + (c.qty > 1 && !/s$/.test(p.item || "") ? "s" : "");
+    const spec = `${c.qty} × ${item} (${c.L} × ${c.W} × ${c.H} mm)${p.colour ? ", " + p.colour : ""}, ${c.mat.name}`;
+    const d = c.ready;
+    if (lang === "ml") {
+      const L = ["നമസ്കാരം! അന്വേഷിച്ചതിന് നന്ദി.", "", spec + ":", `• ഒന്നിന് ${rs(each)}, ആകെ ${rs(total)} (പാക്കിംഗും കൊറിയറും ഉൾപ്പെടെ)`, `• ${ML_MONTHS[d.getMonth()]} ${d.getDate()}-നുള്ളിൽ എത്തിക്കാം${c.rushOn ? " (അർജന്റ് ഓർഡർ)" : ""}`];
+      if (p.design === "new") L.push(`• ഡിസൈനും ചെയ്തു തരാം. ഒന്ന് സംസാരിച്ച ശേഷം ഉറപ്പിക്കാം`);
+      L.push("", c.exact || p.hasFile ? "ഫയൽ പരിശോധിച്ച ശേഷം ഫൈനൽ വില ഉറപ്പിക്കാം. തുടങ്ങാൻ 50% അഡ്വാൻസ് അയച്ചാൽ മതി." : "ഇതൊരു ഏകദേശ വിലയാണ്. STL ഫയൽ ഉണ്ടെങ്കിൽ അയക്കൂ, കൃത്യമായ വില പറയാം.");
+      return L.join("\n");
     }
-    const cv = el.colour.value.trim();
-    const spec = `${o.qty} × ${item} (${el.L.value} × ${el.W.value} × ${el.H.value} mm), ${cv ? cv.toLowerCase() + " " : ""}${o.mat.name}:`;
-    const ML_MONTHS = ["ജനുവരി","ഫെബ്രുവരി","മാർച്ച്","ഏപ്രിൽ","മേയ്","ജൂൺ","ജൂലൈ","ഓഗസ്റ്റ്","സെപ്റ്റംബർ","ഒക്ടോബർ","നവംബർ","ഡിസംബർ"];
-    const d = o.readyDate;
-    const date = ml ? `${ML_MONTHS[d.getMonth()]} ${d.getDate()}` : d.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
-    const L = ml ? [
-      "നമസ്കാരം! അന്വേഷിച്ചതിന് നന്ദി.", "", spec,
-      `• ഒന്നിന് ${rs(o.each)}, ആകെ ${rs(o.total)} (പാക്കിംഗും കൊറിയറും ഉൾപ്പെടെ)`,
-      `• ${date}-നുള്ളിൽ എത്തിക്കാം${o.rushOn ? " (അർജന്റ് ഓർഡർ)" : ""}`
-    ] : [
-      "Hi! Enquiry-kku nanni.", "", spec,
-      `• Onninu ${rs(o.each)}, total ${rs(o.total)} (packing um courier um ulpede)`,
-      `• ${date}-nu munne ethikkam${o.rushOn ? " (urgent order)" : ""}`
-    ];
-    if (o.design === "new") L.push(ml ? `• ഡിസൈനും ചെയ്തു തരാം, ${rs(R.designNew)} മുതൽ. ഒന്ന് സംസാരിച്ച ശേഷം ഉറപ്പിക്കാം` : `• Design um cheythu tharam, ${rs(R.designNew)} muthal. Onnu samsarichittu confirm cheyyam`);
-    L.push("");
-    L.push(o.exact
-      ? (ml ? "ഫയൽ പരിശോധിച്ച ശേഷം ഫൈനൽ വില ഉറപ്പിക്കാം. തുടങ്ങാൻ 50% അഡ്വാൻസ് അയച്ചാൽ മതി." : "File check cheythittu final rate parayam. Start cheyyan 50% advance ayachal mathi.")
-      : (ml ? "ഇതൊരു ഏകദേശ വിലയാണ്. STL ഫയൽ ഉണ്ടെങ്കിൽ അയക്കൂ, കൃത്യമായ വില പറയാം." : "Ithu oru estimate aanu. STL file undengil ayakkoo, exact rate parayam."));
+    const dt = d.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+    if (lang === "manglish") {
+      const L = ["Hi! Enquiry-kku nanni.", "", spec + ":", `• Onninu ${rs(each)}, total ${rs(total)} (packing um courier um ulpede)`, `• ${dt}-nu munne ethikkam${c.rushOn ? " (urgent order)" : ""}`];
+      if (p.design === "new") L.push(`• Design um cheythu tharam. Onnu samsarichittu confirm cheyyam`);
+      L.push("", c.exact || p.hasFile ? "File check cheythittu final rate parayam. Start cheyyan 50% advance ayachal mathi." : "Ithu oru estimate aanu. STL file undengil ayakkoo, exact rate parayam.");
+      return L.join("\n");
+    }
+    const L = ["Hi! Thanks for the enquiry.", "", spec + ":", `• ${rs(each)} per piece, ${rs(total)} total including packing and courier`, `• Delivered by ${dt}${c.rushOn ? " (rush order)" : ""}`];
+    if (p.design === "new") L.push(`• Includes the design. We'll confirm after a quick chat about what you want`);
+    L.push("", c.exact || p.hasFile ? "Final price after we check your file. To start, please confirm and pay a 50% advance." : "This is an estimate. Send the STL file if you have it and we'll confirm the exact price.");
     return L.join("\n");
   }
 
-  // ---------- STL reading (binary and text) ----------
+  // ---------- Chat rendering ----------
+  function add(chatId, node) { const c = $(chatId); c.appendChild(node); c.scrollTop = c.scrollHeight; return node; }
+  function bubble(chatId, cls, text, meta) {
+    const d = document.createElement("div"); d.className = "msg " + cls;
+    d.innerHTML = esc(text) + (meta ? `<span class="meta">${esc(meta)}</span>` : "");
+    return add(chatId, d);
+  }
+  function sys(chatId, text) { const d = document.createElement("div"); d.className = "sys"; d.textContent = text; return add(chatId, d); }
+  function typing(chatId) { const d = document.createElement("div"); d.className = "typing"; d.innerHTML = "<i></i><i></i><i></i>"; return add(chatId, d); }
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  function ownerCard(e) {
+    const c = e.calc, p = e.p;
+    const d = document.createElement("div"); d.className = "card";
+    const langName = { en: "English", ml: "Malayalam", manglish: "Manglish" }[p.lang];
+    let body;
+    if (c.missing.length) {
+      body = `<span class="ask">Needs ${c.missing.join(" and ")} before I can price it</span>
+        <div>Here's a question back to the customer (${langName}):</div>`;
+    } else {
+      const total = e.override ?? c.total;
+      body = `${p.design === "new" ? '<span class="ask">Design job: check the price before sending</span>' : ""}
+        <div class="price">${rs(total)} <small>${rs(total / c.qty)} each · incl. courier${e.override ? " · your price" : ""}</small></div>
+        <div class="facts">${c.qty} × ${esc(p.item || "item")} · ${c.L}×${c.W}×${c.H} mm · ${c.mat.name}${p.colour ? " " + esc(p.colour) : ""}<br>
+        ${Math.round(c.grams * c.qty)} g · ${c.hours.toFixed(1)} h printing · ready ${c.ready.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })}${c.exact ? " · measured from file" : ""}</div>
+        <div>Reply ready (${langName}):</div>`;
+    }
+    d.innerHTML = `<div class="hd"><span>New ${esc(e.channel)} enquiry · ${esc(e.who)}</span><span>worked out in ${e.ms < 1 ? "under 0.01" : (e.ms / 1000).toFixed(2)} s</span></div>
+      <div class="bd">${body}<div class="draft">${esc(draft(e))}</div></div>
+      <div class="acts"><button data-a="send">Send</button><button data-a="edit">${c.missing.length ? "Edit" : "Change price"}</button><button data-a="skip">Skip</button></div>`;
+    d.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => act(e, b.dataset.a, d)));
+    e.card = d;
+    return add("own", d);
+  }
+  function closeCard(card, label) { card.querySelectorAll(".acts button").forEach((b) => { b.disabled = true; }); const a = card.querySelector(".acts"); a.innerHTML = `<button disabled style="grid-column:1/-1">${esc(label)}</button>`; }
+
+  async function act(e, what, card) {
+    if (e.done) return;
+    if (what === "send") {
+      e.done = true; closeCard(card, "Sent " + now());
+      const t = typing("cust"); await wait(700); t.remove();
+      bubble("cust", "in", draft(e), now());
+    } else if (what === "skip") {
+      e.done = true; closeCard(card, "Skipped");
+      bubble("own", "in", "OK, I've left this one for you to answer yourself.", now());
+    } else {
+      bubble("own", "in", e.calc.missing.length ? "Type the message you'd like to send instead, and I'll send it." : "Type the total price you want (e.g. 1400) and I'll update the reply.", now());
+      $("own-in").focus();
+    }
+  }
+
+  // ---------- Customer sends a message ----------
+  async function customerSends(text) {
+    if (!text.trim() && !pendingFile) return;
+    const file = pendingFile; pendingFile = null; $("pending").hidden = true;
+    if (file) bubble("cust", "out file", `STL file · ${file.name}\n${file.L} × ${file.W} × ${file.H} mm`, now());
+    if (text.trim()) bubble("cust", "out", text.trim(), now());
+    $("own-status").textContent = "typing…";
+    const t = typing("own"); await wait(900); t.remove(); $("own-status").textContent = "online";
+    const t0 = performance.now();
+    const p = parse(text); if (file) p.hasFile = true;
+    if (file && !text.trim()) p.lang = last ? last.p.lang : "en";
+    const calc = price(p, file);
+    last = { p, calc, file, channel, who: customer, ms: performance.now() - t0 };
+    ownerCard(last);
+  }
+
+  // ---------- Owner types in the helper chat ----------
+  function ownerSays(text) {
+    const s = text.trim(); if (!s) return;
+    bubble("own", "out", s, now());
+    const rate = s.match(/^(pla|petg|abs|tpu|resin)\s+(\d+)/i);
+    const num = s.replace(/[,\s]|rs\.?/gi, "").match(/^(\d{2,7})$/);
+    setTimeout(() => {
+      if (rate) {
+        MATS[rate[1].toUpperCase()].perKg = +rate[2]; drawRates();
+        bubble("own", "in", `Done. ${rate[1].toUpperCase()} is now ${rs(+rate[2])} per kg. New quotes will use it.`, now());
+      } else if (last && !last.done && num && !last.calc.missing.length) {
+        last.override = +num[1]; last.card && closeCard(last.card, "Replaced below");
+        bubble("own", "in", "Updated. Here's the new reply:", now()); const e = Object.assign({}, last); last.done = true; last = e; last.done = false; ownerCard(last);
+      } else if (last && !last.done && last.calc.missing.length) {
+        last.done = true; last.card && closeCard(last.card, "Sent your message");
+        bubble("own", "in", "Sent your message to the customer.", now());
+        setTimeout(() => bubble("cust", "in", s, now()), 600);
+      } else {
+        bubble("own", "in", "I'll send you every new enquiry with a price and a ready reply. Tap Send, type a new price, or change a rate like this: PLA 1300.", now());
+      }
+    }, 500);
+  }
+
+  // ---------- STL files: real size and volume, measured in the browser ----------
   function readSTL(buf) {
     const dv = new DataView(buf);
     const isBinary = buf.byteLength >= 84 && 84 + dv.getUint32(80, true) * 50 === buf.byteLength;
     const tris = [];
-    if (isBinary) {
-      const n = dv.getUint32(80, true);
-      for (let i = 0; i < n; i++) {
-        const o = 84 + i * 50 + 12; const v = [];
-        for (let j = 0; j < 9; j++) v.push(dv.getFloat32(o + j * 4, true));
-        tris.push(v);
-      }
-    } else {
-      const txt = new TextDecoder().decode(buf);
-      const nums = [...txt.matchAll(/vertex\s+([-\d.eE+]+)\s+([-\d.eE+]+)\s+([-\d.eE+]+)/g)].map((m) => [+m[1], +m[2], +m[3]]);
-      for (let i = 0; i + 2 < nums.length; i += 3) tris.push([...nums[i], ...nums[i + 1], ...nums[i + 2]]);
-    }
+    if (isBinary) { const n = dv.getUint32(80, true); for (let i = 0; i < n; i++) { const o = 84 + i * 50 + 12, v = []; for (let j = 0; j < 9; j++) v.push(dv.getFloat32(o + j * 4, true)); tris.push(v); } }
+    else { const nums = [...new TextDecoder().decode(buf).matchAll(/vertex\s+([-\d.eE+]+)\s+([-\d.eE+]+)\s+([-\d.eE+]+)/g)].map((m) => [+m[1], +m[2], +m[3]]); for (let i = 0; i + 2 < nums.length; i += 3) tris.push([...nums[i], ...nums[i + 1], ...nums[i + 2]]); }
     if (!tris.length) throw new Error("no triangles");
     let vol = 0; const mn = [Infinity, Infinity, Infinity], mx = [-Infinity, -Infinity, -Infinity];
-    for (const t of tris) {
-      const [ax, ay, az, bx, by, bz, cx, cy, cz] = t;
-      vol += (ax * (by * cz - bz * cy) - ay * (bx * cz - bz * cx) + az * (bx * cy - by * cx)) / 6;
-      for (let k = 0; k < 3; k++) for (let p = 0; p < 3; p++) { const v = t[p * 3 + k]; if (v < mn[k]) mn[k] = v; if (v > mx[k]) mx[k] = v; }
-    }
-    return { volume: Math.abs(vol) / 1000, L: Math.round(mx[0] - mn[0]), W: Math.round(mx[1] - mn[1]), H: Math.round(mx[2] - mn[2]), tris: tris.length };
+    for (const t of tris) { const [ax, ay, az, bx, by, bz, cx, cy, cz] = t; vol += (ax * (by * cz - bz * cy) - ay * (bx * cz - bz * cx) + az * (bx * cy - by * cx)) / 6;
+      for (let k = 0; k < 3; k++) for (let p = 0; p < 3; p++) { const v = t[p * 3 + k]; if (v < mn[k]) mn[k] = v; if (v > mx[k]) mx[k] = v; } }
+    return { volume: Math.abs(vol) / 1000, L: Math.round(mx[0] - mn[0]), W: Math.round(mx[1] - mn[1]), H: Math.round(mx[2] - mn[2]) };
   }
-  function takeFile(f) {
-    if (!f) return;
+  $("file").addEventListener("change", (ev) => {
+    const f = ev.target.files[0]; if (!f) return;
     const r = new FileReader();
-    r.onload = () => {
-      try {
-        const s = readSTL(r.result); stl = { name: f.name, ...s };
-        $("filetag").textContent = `${f.name} · ${s.L} × ${s.W} × ${s.H} mm · ${s.volume.toFixed(1)} cm³ solid`;
-        readMessage();
-      } catch (e) { stl = null; $("filetag").textContent = "Couldn't read that file. Try a .stl export."; }
-    };
+    r.onload = () => { try { pendingFile = { name: f.name, ...readSTL(r.result) }; $("pending").textContent = `Attached: ${f.name} (${pendingFile.L} × ${pendingFile.W} × ${pendingFile.H} mm). Add a message and send.`; }
+      catch (e) { pendingFile = null; $("pending").textContent = "Couldn't read that file. Try an .stl export."; } $("pending").hidden = false; ev.target.value = ""; };
     r.readAsArrayBuffer(f);
-  }
-  $("file").addEventListener("change", (e) => takeFile(e.target.files[0]));
-  const drop = $("drop");
-  ["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
-  ["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, () => drop.classList.remove("over")));
-  drop.addEventListener("drop", (e) => { e.preventDefault(); takeFile(e.dataTransfer.files[0]); });
-
-  // ---------- Wiring ----------
-  function loadSample(i) {
-    document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(+c.dataset.s === i)));
-    el.msg.value = SAMPLES[i]; stl = null; $("filetag").textContent = ""; $("file").value = "";
-    readMessage(); $("toast").textContent = "";
-  }
-  document.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => loadSample(+c.dataset.s)));
-  $("read").addEventListener("click", readMessage);
-  $("redo").addEventListener("click", compute);
-  $("lang").addEventListener("change", compute);
-  Object.values(el).forEach((n) => { if (n !== el.msg) n.addEventListener("input", compute); });
-  $("approve").addEventListener("click", () => {
-    const txt = $("reply").value;
-    const done = () => { $("toast").textContent = "Copied. Paste it into the chat to send."; };
-    try {
-      navigator.clipboard.writeText(txt).then(done, () => { $("reply").select(); $("toast").textContent = "Selected. Copy it and paste into the chat."; });
-    } catch (e) { $("reply").select(); $("toast").textContent = "Selected. Copy it and paste into the chat."; }
   });
 
-  loadSample(4);
+  // ---------- Wiring ----------
+  function drawRates() {
+    $("rates").innerHTML = Object.values(MATS).map((m) => `<div><span>${m.name} per kg</span><b>${rs(m.perKg)}</b></div>`).join("") +
+      RATE_LABELS.map(([k, label, pre, post]) => `<div><span>${label}</span><b>${pre === "Rs " ? rs(R[k]) : pre + R[k] + (post || "")}</b></div>`).join("");
+  }
+  function setChannel(c) {
+    channel = c; $("ch-ig").setAttribute("aria-pressed", String(c === "Instagram")); $("ch-wa").setAttribute("aria-pressed", String(c === "WhatsApp"));
+    $("chan-label").textContent = c === "Instagram" ? "Instagram message" : "WhatsApp";
+  }
+  $("ch-ig").addEventListener("click", () => setChannel("Instagram"));
+  $("ch-wa").addEventListener("click", () => setChannel("WhatsApp"));
+  $("cust-form").addEventListener("submit", (e) => { e.preventDefault(); const v = $("cust-in").value; $("cust-in").value = ""; customerSends(v); });
+  $("own-form").addEventListener("submit", (e) => { e.preventDefault(); const v = $("own-in").value; $("own-in").value = ""; ownerSays(v); });
+  [["cust-in", "cust-form"], ["own-in", "own-form"]].forEach(([i, f]) => $(i).addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $(f).requestSubmit(); } }));
+  function newCustomer(i) { customer = NAMES[i % NAMES.length]; $("cust").innerHTML = ""; sys("cust", "Today"); }
+  document.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => { newCustomer(+c.dataset.s); customerSends(SAMPLES[+c.dataset.s]); }));
+
+  drawRates();
+  sys("cust", "Today");
+  sys("own", "Today");
+  bubble("own", "in", "Hi! I'll send you every new enquiry here with a price and a ready reply. Tap Send and it goes out from your account.", "9:00 am");
+  // Open with one finished example so the page shows what it does
+  window.__demo = { customerSends, ownerSays, parse, price };
+  customerSends(SAMPLES[0]);
 })();
 </script>
 </body>
