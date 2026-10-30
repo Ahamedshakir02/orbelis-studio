@@ -22,10 +22,10 @@ export default defineConfig({
        * running the app. They share one small bundle.
        */
       input: {
-        main: resolve(__dirname, 'index.html'),
-        privacy: resolve(__dirname, 'privacy.html'),
-        terms: resolve(__dirname, 'terms.html'),
-        404: resolve(__dirname, '404.html'),
+        main: resolve(import.meta.dirname, 'index.html'),
+        privacy: resolve(import.meta.dirname, 'privacy.html'),
+        terms: resolve(import.meta.dirname, 'terms.html'),
+        404: resolve(import.meta.dirname, '404.html'),
       },
     },
   },
