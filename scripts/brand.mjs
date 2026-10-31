@@ -15,6 +15,7 @@
  *   logo-transparent-for-*.png      no background, for your own artwork.
  *   profile-dark.png, profile-light.png
  *   profile-instagram.png    1080px, a bigger mark for Instagram's small circle.
+ *   profile-linkedin-company.png  1200px square logo for the LinkedIn page.
  *                            square, 1024px, for a profile picture; platforms
  *                            crop to a circle, so the wordmark sits well inside.
  *   social-post-1080.png     square post (Instagram, LinkedIn, Facebook).
@@ -83,6 +84,9 @@ const files = [
   // Instagram shows the picture at about 110px in a circle: a bigger mark and
   // a little warmth from the brand glow keep it legible that small.
   { name: 'profile-instagram.png', w: 1080, h: 1080, bg: INK, body: `${glow(540, 540, 520)}${centre(wordmark(230, MIST))}` },
+  // LinkedIn company logo: a square, not a circle, shown small, so the
+  // wordmark fills about 80% of the width to stay sharp and readable.
+  { name: 'profile-linkedin-company.png', w: 1200, h: 1200, bg: INK, body: centre(wordmark(270, MIST)) },
 
   // ---- social
   {
