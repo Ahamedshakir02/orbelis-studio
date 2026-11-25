@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbelis upload relay</title>
+<style>body{font:14px/1.4 system-ui,sans-serif;background:#0b0c10;color:#e8e8ea;margin:16px}</style>
+</head>
+<body>
+<p id="s">Preparing files…</p>
+<script>
+// Hands scheduled post files (images, PDFs, videos) from this site to the
+// window that opened it, so the scheduler page can attach them.
+// Only files under /social-queue/ are sent, and only to the social sites below.
+(async () => {
+  const ALLOWED = ['https://www.linkedin.com', 'https://business.facebook.com', 'https://www.facebook.com', 'https://www.instagram.com'];
+  const s = document.getElementById('s');
+  const p = new URLSearchParams(location.search);
+  const to = p.get('to');
+  const srcs = (p.get('src') || '').split(',').map(x => x.trim()).filter(Boolean);
+  if (!window.opener || !ALLOWED.includes(to)) { s.textContent = 'Nothing to do.'; return; }
+  if (!srcs.length || srcs.some(x => !/^[a-z0-9][a-z0-9\/._-]*$/i.test(x) || x.includes('..'))) { s.textContent = 'Bad file list.'; return; }
+  try {
+    const files = [];
+    for (const src of srcs) {
+      const r = await fetch('/social-queue/' + src, { cache: 'no-store' });
+      if (!r.ok) throw new Error(src + ' ' + r.status);
+      const b = await r.blob();
+      files.push(new File([b], src.split('/').pop(), { type: b.type }));
+    }
+    window.opener.postMessage({ orbelisFiles: files }, to);
+    s.textContent = 'Sent ' + files.length + ' file(s).';
+    setTimeout(() => window.close(), 800);
+  } catch (e) {
+    window.opener.postMessage({ orbelisError: String(e.message || e) }, to);
+    s.textContent = 'Failed: ' + e.message;
+  }
+})();
+</script>
+</body>
+</html>
